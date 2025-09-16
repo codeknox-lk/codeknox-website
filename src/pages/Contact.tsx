@@ -161,42 +161,39 @@ const Contact: React.FC = () => {
 
     setIsSubmitting(true);
 
-    try {
-      // Use Resend API to send email
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+    // Create mailto link with form data
+    const subject = `New Contact Form Submission from ${formData.name} - ${formData.company}`;
+    const body = `
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Company: ${formData.company}
+Budget: ${formData.budget}
+Services: ${formData.services.join(', ')}
+Message: ${formData.message}
 
-      if (response.ok) {
-        // Show success message
-        setIsSubmitted(true);
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          company: "",
-          budget: "",
-          services: [],
-          message: "",
-          honeypot: "",
-          mathAnswer: "",
-        });
-      } else {
-        setErrors({ 
-          general: 'Failed to send message. Please try again or contact us directly.' 
-        });
-      }
-    } catch (error) {
-      setErrors({ 
-        general: 'Network error. Please try again or contact us directly.' 
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+Submitted on: ${new Date().toLocaleString()}
+    `;
+
+    const mailtoLink = `mailto:sales@codeknox.lk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
+    // Show success message
+    setIsSubmitted(true);
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      company: "",
+      budget: "",
+      services: [],
+      message: "",
+      honeypot: "",
+      mathAnswer: "",
+    });
+    setIsSubmitting(false);
   };
 
 
