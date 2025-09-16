@@ -563,6 +563,7 @@ const Projects: React.FC = () => {
                 </motion.button>
               </Link>
               
+              {/* Schedule a Call Button - Opens Email Client */}
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
