@@ -520,7 +520,7 @@ I'm Knox, your AI assistant, and I'm constantly learning! While I might not have
       {/* Chat Toggle Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 laptop:bottom-6 laptop:right-6 z-50 w-14 h-14 sm:w-16 sm:h-16 laptop:w-16 laptop:h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
@@ -557,7 +557,7 @@ I'm Knox, your AI assistant, and I'm constantly learning! While I might not have
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
             transition={{ duration: 0.3, type: "spring" }}
-            className="fixed bottom-20 sm:bottom-32 md:bottom-40 right-2 sm:right-4 md:right-6 z-50 w-[calc(100vw-1rem)] sm:w-80 md:w-96 max-h-[calc(100vh-8rem)] sm:max-h-[calc(100vh-10rem)] md:max-h-[calc(100vh-12rem)] bg-white rounded-xl sm:rounded-2xl shadow-2xl border border-gray-200 overflow-hidden flex flex-col h-[480px] sm:h-[500px] md:h-[520px]"
+            className="fixed bottom-20 sm:bottom-32 laptop:bottom-36 md:bottom-40 right-2 sm:right-4 laptop:right-4 md:right-6 z-50 w-[calc(100vw-1rem)] sm:w-80 laptop:w-88 md:w-96 max-h-[calc(100vh-8rem)] sm:max-h-[calc(100vh-10rem)] laptop:max-h-[calc(100vh-11rem)] md:max-h-[calc(100vh-12rem)] bg-white rounded-xl sm:rounded-2xl shadow-2xl border border-gray-200 overflow-hidden flex flex-col h-[480px] sm:h-[500px] laptop:h-[510px] md:h-[520px]"
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-blue-500 to-indigo-600 p-4 text-white">

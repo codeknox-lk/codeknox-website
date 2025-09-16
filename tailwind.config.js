@@ -7,6 +7,16 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      screens: {
+        'xs': '480px',
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+        'laptop': '1366px', // Custom breakpoint for 1366×768 laptops
+        'laptop-lg': '1440px', // For larger laptops
+      },
       colors: {
         primary: {
           50: '#f0f9ff',
@@ -79,6 +89,7 @@ export default {
         '18': '4.5rem',
         '88': '22rem',
         '128': '32rem',
+        '30': '7.5rem', // For laptop:py-30
       },
       borderRadius: {
         '4xl': '2rem',

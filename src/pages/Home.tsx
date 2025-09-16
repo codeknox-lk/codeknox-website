@@ -51,7 +51,7 @@ const Home: React.FC = () => {
 
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 relative overflow-hidden">
+      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 laptop:px-6 relative overflow-hidden">
         {/* Beautiful Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100"></div>
         
@@ -107,7 +107,7 @@ const Home: React.FC = () => {
           }}></div>
         </div>
 
-        <div className="max-w-7xl mx-auto flex justify-center relative z-10">
+        <div className="max-w-7xl laptop:max-w-6xl mx-auto flex justify-center relative z-10">
           {/* Centered Content - Big Bold Text with Typewriter */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -126,7 +126,7 @@ const Home: React.FC = () => {
               }}
             >
               <motion.h2 
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-montserrat font-black text-gray-900 leading-none"
+                className="text-4xl sm:text-5xl md:text-6xl laptop:text-7xl lg:text-8xl font-montserrat font-black text-gray-900 leading-none"
                 initial={{ filter: "blur(10px)" }}
                 animate={{ filter: "blur(0px)" }}
                 transition={{ 
