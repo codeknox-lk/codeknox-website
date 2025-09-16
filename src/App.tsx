@@ -6,6 +6,7 @@ import { ProjectProvider } from "./contexts/ProjectContext";
 import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
 import SplashScreen from "./components/SplashScreen";
+import MobileErrorBoundary from "./components/MobileErrorBoundary";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import Projects from "./pages/Projects";
@@ -39,36 +40,38 @@ function App() {
   }
 
   return (
-    <ThemeProvider>
-      <BlogProvider>
-        <ProjectProvider>
-            <Router>
-              <ScrollToTop />
-              <Layout>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/services" element={<Services />} />
-                  <Route path="/projects" element={<Projects />} />
-                  <Route path="/projects/:slug" element={<ProjectDetail />} />
-                  <Route path="/blog" element={<Blog />} />
-                  <Route path="/blog/:slug" element={<BlogDetail />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/privacy" element={<PrivacyPolicy />} />
-                  <Route path="/terms" element={<TermsOfService />} />
-                  <Route path="/cookies" element={<CookiePolicy />} />
-                  <Route path="/admin" element={<AdminLogin />} />
-                  <Route path="/admin/login" element={<AdminLogin />} />
-                  <Route path="/admin/dashboard" element={<AdminDashboard />} />
-                  <Route path="/admin/projects" element={<AdminProjectDashboard />} />
-                  <Route path="/admin/subscribers" element={<NewsletterSubscribers />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </Layout>
-            </Router>
-          </ProjectProvider>
-      </BlogProvider>
-    </ThemeProvider>
+    <MobileErrorBoundary>
+      <ThemeProvider>
+        <BlogProvider>
+          <ProjectProvider>
+              <Router>
+                <ScrollToTop />
+                <Layout>
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/services" element={<Services />} />
+                    <Route path="/projects" element={<Projects />} />
+                    <Route path="/projects/:slug" element={<ProjectDetail />} />
+                    <Route path="/blog" element={<Blog />} />
+                    <Route path="/blog/:slug" element={<BlogDetail />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/privacy" element={<PrivacyPolicy />} />
+                    <Route path="/terms" element={<TermsOfService />} />
+                    <Route path="/cookies" element={<CookiePolicy />} />
+                    <Route path="/admin" element={<AdminLogin />} />
+                    <Route path="/admin/login" element={<AdminLogin />} />
+                    <Route path="/admin/dashboard" element={<AdminDashboard />} />
+                    <Route path="/admin/projects" element={<AdminProjectDashboard />} />
+                    <Route path="/admin/subscribers" element={<NewsletterSubscribers />} />
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </Layout>
+              </Router>
+            </ProjectProvider>
+        </BlogProvider>
+      </ThemeProvider>
+    </MobileErrorBoundary>
   );
 }
 
