@@ -16,8 +16,8 @@ export const EMAILJS_CONFIG = {
     // Admin notification template for new subscriptions
     ADMIN_NOTIFICATION: "template_s4f06ng", // Your Admin template ID
     
-    // Contact form template (if you want to use it elsewhere)
-    CONTACT: "YOUR_CONTACT_TEMPLATE_ID"
+    // Contact form template - using admin template for now
+    CONTACT: "template_s4f06ng" // Using admin template for contact form
   }
 };
 

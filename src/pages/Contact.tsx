@@ -22,6 +22,8 @@ import {
   Shield,
 } from "lucide-react";
 import { companyInfo } from "../data/company";
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '../config/emailjs';
 
 interface FormData {
   name: string;
@@ -162,44 +164,42 @@ const Contact: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      // Try Vercel API route first
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const result = await response.json();
-
-      if (response.ok && result.success) {
-        // Success - show thank you message
-        setIsSubmitted(true);
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          company: "",
-          budget: "",
-          services: [],
-          message: "",
-          honeypot: "",
-          mathAnswer: "",
-        });
-        return;
-      } else {
-        // If API fails, try EmailJS as fallback
-        console.log('API failed, trying EmailJS fallback...');
-        await sendEmailWithEmailJS();
-        return;
-      }
-    } catch (error) {
-      console.log('API error, trying EmailJS fallback...', error);
-      // If API fails completely, try EmailJS as fallback
+      // Try EmailJS first (more reliable)
+      await sendEmailWithEmailJS();
+    } catch (emailJSError) {
+      console.log('EmailJS failed, trying API fallback...', emailJSError);
+      // If EmailJS fails, try API as fallback
       try {
-        await sendEmailWithEmailJS();
-      } catch (emailJSError) {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          // Success - show thank you message
+          setIsSubmitted(true);
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            company: "",
+            budget: "",
+            services: [],
+            message: "",
+            honeypot: "",
+            mathAnswer: "",
+          });
+        } else {
+          setErrors({ 
+            general: 'Unable to send message. Please try again or contact us directly at hello@codeknox.com' 
+          });
+        }
+      } catch (apiError) {
         setErrors({ 
           general: 'Unable to send message. Please try again or contact us directly at hello@codeknox.com' 
         });
@@ -210,35 +210,50 @@ const Contact: React.FC = () => {
   };
 
   const sendEmailWithEmailJS = async () => {
-    // EmailJS fallback implementation
-    const emailData = {
-      from_name: formData.name,
-      from_email: formData.email,
-      phone: formData.phone,
-      company: formData.company,
-      budget: formData.budget,
-      services: Array.isArray(formData.services) ? formData.services.join(', ') : formData.services,
-      message: formData.message,
-      to_name: 'CodeKnox Team',
-    };
+    try {
+      // Initialize EmailJS
+      emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
 
-    // For now, we'll simulate a successful email send
-    // In a real implementation, you would use EmailJS here
-    console.log('EmailJS fallback - would send:', emailData);
-    
-    // Simulate success
-    setIsSubmitted(true);
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      budget: "",
-      services: [],
-      message: "",
-      honeypot: "",
-      mathAnswer: "",
-    });
+      // Prepare email data for EmailJS
+      const emailData = {
+        to_email: "hello@codeknox.com", // Your email
+        to_name: "CodeKnox Team",
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        budget: formData.budget,
+        services: Array.isArray(formData.services) ? formData.services.join(', ') : formData.services,
+        message: formData.message,
+        reply_to: formData.email,
+      };
+
+      // Send email using EmailJS
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATES.CONTACT,
+        emailData
+      );
+
+      console.log('Email sent successfully via EmailJS');
+      
+      // Show success
+      setIsSubmitted(true);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        budget: "",
+        services: [],
+        message: "",
+        honeypot: "",
+        mathAnswer: "",
+      });
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      throw error; // Re-throw to be caught by the calling function
+    }
   };
 
 
