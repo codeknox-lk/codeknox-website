@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Template Variables</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+    <h1>Test Template Variables</h1>
+    <button onclick="testWithAllVars()">Test with All Variables</button>
+    <button onclick="testWithMinimalVars()">Test with Minimal Variables</button>
+    <div id="result"></div>
+
+    <script>
+        function testWithAllVars() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Testing with all variables...';
+            
+            emailjs.init('ENoM09n00QXGhJF1H');
+            
+            // Test with all possible variables
+            const emailData = {
+                to_email: "hellocodeknox@gmail.com",
+                to_name: "CodeKnox Team",
+                from_name: "Test User",
+                from_email: "test@example.com",
+                phone: "+94712345678",
+                company: "Test Company",
+                budget: "100,000 - 250,000 LKR",
+                services: "Website Design & Development",
+                message: "This is a test message with all variables.",
+                reply_to: "test@example.com",
+                name: "Test User",
+                email: "test@example.com"
+            };
+            
+            console.log('Testing with all variables:', emailData);
+            
+            emailjs.send('service_codeknox', 'template_s4f06ng', emailData)
+                .then(function(response) {
+                    resultDiv.innerHTML = '<p style="color: green;">✅ SUCCESS with all variables! Check email.</p>';
+                    console.log('Success:', response);
+                })
+                .catch(function(error) {
+                    resultDiv.innerHTML = '<p style="color: red;">❌ FAILED: ' + error.text + '</p>';
+                    console.error('Error:', error);
+                });
+        }
+        
+        function testWithMinimalVars() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Testing with minimal variables...';
+            
+            emailjs.init('ENoM09n00QXGhJF1H');
+            
+            // Test with minimal variables
+            const emailData = {
+                to_email: "hellocodeknox@gmail.com",
+                message: "Simple test message"
+            };
+            
+            console.log('Testing with minimal variables:', emailData);
+            
+            emailjs.send('service_codeknox', 'template_s4f06ng', emailData)
+                .then(function(response) {
+                    resultDiv.innerHTML = '<p style="color: green;">✅ SUCCESS with minimal variables! Check email.</p>';
+                    console.log('Success:', response);
+                })
+                .catch(function(error) {
+                    resultDiv.innerHTML = '<p style="color: red;">❌ FAILED: ' + error.text + '</p>';
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+</body>
+</html>

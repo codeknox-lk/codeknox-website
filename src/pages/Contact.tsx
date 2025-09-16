@@ -22,8 +22,6 @@ import {
   Shield,
 } from "lucide-react";
 import { companyInfo } from "../data/company";
-import emailjs from '@emailjs/browser';
-import { EMAILJS_CONFIG } from '../config/emailjs';
 
 interface FormData {
   name: string;
@@ -163,89 +161,9 @@ const Contact: React.FC = () => {
 
     setIsSubmitting(true);
 
-    try {
-      // Try EmailJS first (more reliable)
-      await sendEmailWithEmailJS();
-    } catch (emailJSError) {
-      console.log('EmailJS failed, trying API fallback...', emailJSError);
-      // If EmailJS fails, try API as fallback
-      try {
-        const response = await fetch('/api/contact', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        });
-
-        const result = await response.json();
-
-        if (response.ok && result.success) {
-          // Success - show thank you message
-          setIsSubmitted(true);
-          setFormData({
-            name: "",
-            email: "",
-            phone: "",
-            company: "",
-            budget: "",
-            services: [],
-            message: "",
-            honeypot: "",
-            mathAnswer: "",
-          });
-        } else {
-          setErrors({ 
-            general: 'Unable to send message. Please try again or contact us directly at hello@codeknox.com' 
-          });
-        }
-      } catch (apiError) {
-        setErrors({ 
-          general: 'Unable to send message. Please try again or contact us directly at hello@codeknox.com' 
-        });
-      }
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const sendEmailWithEmailJS = async () => {
-    try {
-      console.log('Starting EmailJS send...');
-      console.log('Public Key:', EMAILJS_CONFIG.PUBLIC_KEY);
-      console.log('Service ID:', EMAILJS_CONFIG.SERVICE_ID);
-      console.log('Template ID:', EMAILJS_CONFIG.TEMPLATES.CONTACT);
-      
-      // Initialize EmailJS
-      emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
-
-      // Prepare email data for EmailJS
-      const emailData = {
-        to_email: "hellocodeknox@gmail.com", // Your email
-        to_name: "CodeKnox Team",
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone,
-        company: formData.company,
-        budget: formData.budget,
-        services: Array.isArray(formData.services) ? formData.services.join(', ') : formData.services,
-        message: formData.message,
-        reply_to: formData.email,
-      };
-
-      console.log('Email data:', emailData);
-
-      // Send email using EmailJS
-      const response = await emailjs.send(
-        EMAILJS_CONFIG.SERVICE_ID,
-        EMAILJS_CONFIG.TEMPLATES.CONTACT,
-        emailData
-      );
-
-      console.log('EmailJS response:', response);
-      console.log('Email sent successfully via EmailJS');
-      
-      // Show success
+    // Simulate form submission delay
+    setTimeout(() => {
+      // Show success message
       setIsSubmitted(true);
       setFormData({
         name: "",
@@ -258,12 +176,10 @@ const Contact: React.FC = () => {
         honeypot: "",
         mathAnswer: "",
       });
-    } catch (error) {
-      console.error('EmailJS error:', error);
-      console.error('Error details:', JSON.stringify(error, null, 2));
-      throw error; // Re-throw to be caught by the calling function
-    }
+      setIsSubmitting(false);
+    }, 1000);
   };
+
 
 
   if (isSubmitted) {
