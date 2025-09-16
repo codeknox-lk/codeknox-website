@@ -216,7 +216,7 @@ const Contact: React.FC = () => {
 
       // Prepare email data for EmailJS
       const emailData = {
-        to_email: "hello@codeknox.com", // Your email
+        to_email: "sales@codeknox.lk", // Your email
         to_name: "CodeKnox Team",
         from_name: formData.name,
         from_email: formData.email,

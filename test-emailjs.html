@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EmailJS Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+    <h1>EmailJS Test</h1>
+    <button onclick="testEmailJS()">Test EmailJS</button>
+    <div id="result"></div>
+
+    <script>
+        function testEmailJS() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Testing...';
+            
+            // Initialize EmailJS with your public key
+            emailjs.init('ENoM09n00QXGhJF1H');
+            
+            // Test email data
+            const emailData = {
+                to_email: "sales@codeknox.lk",
+                to_name: "CodeKnox Team",
+                from_name: "Test User",
+                from_email: "test@example.com",
+                phone: "+94712345678",
+                company: "Test Company",
+                budget: "100,000 - 250,000 LKR",
+                services: "Website Design & Development",
+                message: "This is a test message from EmailJS test page.",
+                reply_to: "test@example.com"
+            };
+            
+            // Send email
+            emailjs.send('service_codeknox', 'template_s4f06ng', emailData)
+                .then(function(response) {
+                    resultDiv.innerHTML = '<p style="color: green;">✅ EmailJS Test SUCCESS! Status: ' + response.status + '</p>';
+                    console.log('EmailJS Success:', response);
+                })
+                .catch(function(error) {
+                    resultDiv.innerHTML = '<p style="color: red;">❌ EmailJS Test FAILED: ' + error.text + '</p>';
+                    console.error('EmailJS Error:', error);
+                });
+        }
+    </script>
+</body>
+</html>
