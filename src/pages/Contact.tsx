@@ -161,23 +161,42 @@ const Contact: React.FC = () => {
 
     setIsSubmitting(true);
 
-    // Simulate form submission delay
-    setTimeout(() => {
-      // Show success message
-      setIsSubmitted(true);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        budget: "",
-        services: [],
-        message: "",
-        honeypot: "",
-        mathAnswer: "",
+    try {
+      // Use Resend API to send email
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
+
+      if (response.ok) {
+        // Show success message
+        setIsSubmitted(true);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          budget: "",
+          services: [],
+          message: "",
+          honeypot: "",
+          mathAnswer: "",
+        });
+      } else {
+        setErrors({ 
+          general: 'Failed to send message. Please try again or contact us directly.' 
+        });
+      }
+    } catch (error) {
+      setErrors({ 
+        general: 'Network error. Please try again or contact us directly.' 
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
 
