@@ -563,24 +563,23 @@ const Projects: React.FC = () => {
                 </motion.button>
               </Link>
               
-              <Link to="/contact">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="group px-14 py-6 text-2xl font-bold rounded-full border-3 border-gray-300 text-gray-700 hover:border-green-400 hover:text-green-600 bg-transparent transition-all duration-500 hover:shadow-lg hover:shadow-green-400/25"
-                >
-                  <span className="flex items-center space-x-3">
-                    <span>Schedule a Call</span>
-                    <motion.div
-                      className="w-6 h-6 border-2 border-current rounded-full flex items-center justify-center"
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.6 }}
-                    >
-                      <span className="text-sm">→</span>
-                    </motion.div>
-                  </span>
-                </motion.button>
-              </Link>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => window.open('mailto:sales@codeknox.lk?subject=Schedule a Call - CODEKNOX&body=Hi! I would like to schedule a consultation call to discuss my project. Please let me know your available times.', '_blank')}
+                className="group px-14 py-6 text-2xl font-bold rounded-full border-3 border-gray-300 text-gray-700 hover:border-green-400 hover:text-green-600 bg-transparent transition-all duration-500 hover:shadow-lg hover:shadow-green-400/25"
+              >
+                <span className="flex items-center space-x-3">
+                  <span>Schedule a Call</span>
+                  <motion.div
+                    className="w-6 h-6 border-2 border-current rounded-full flex items-center justify-center"
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <span className="text-sm">→</span>
+                  </motion.div>
+                </span>
+              </motion.button>
             </motion.div>
           </motion.div>
         </div>
