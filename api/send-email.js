@@ -61,7 +61,7 @@ export default async function handler(req, res) {
 
     // Send email using Resend
     const { data, error } = await resend.emails.send({
-      from: 'CodeKnox Contact Form <noreply@codeknox.lk>',
+      from: 'CodeKnox Contact Form <onboarding@resend.dev>',
       to: ['hellocodeknox@gmail.com'],
       subject: `New Contact Form Submission from ${name} - ${company}`,
       html: `
