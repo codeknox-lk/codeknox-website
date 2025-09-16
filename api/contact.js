@@ -57,11 +57,20 @@ export default async function handler(req, res) {
       });
     }
 
+    // Check if email configuration is available
+    if (!process.env.EMAIL_HOST || !process.env.EMAIL_USER || !process.env.EMAIL_PASS || !process.env.EMAIL_TO) {
+      console.error('Email configuration missing');
+      return res.status(500).json({
+        success: false,
+        message: 'Email service not configured. Please contact us directly.'
+      });
+    }
+
     // Create email transporter
     const transporter = nodemailer.createTransporter({
       host: process.env.EMAIL_HOST,
       port: parseInt(process.env.EMAIL_PORT) || 587,
-      secure: false,
+      secure: process.env.EMAIL_PORT === '465',
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
@@ -70,6 +79,17 @@ export default async function handler(req, res) {
         rejectUnauthorized: false,
       },
     });
+
+    // Test the connection
+    try {
+      await transporter.verify();
+    } catch (verifyError) {
+      console.error('Email transporter verification failed:', verifyError);
+      return res.status(500).json({
+        success: false,
+        message: 'Email service unavailable. Please try again later or contact us directly.'
+      });
+    }
 
     // Create email content
     const emailContent = `
