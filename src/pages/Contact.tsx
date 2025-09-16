@@ -211,6 +211,11 @@ const Contact: React.FC = () => {
 
   const sendEmailWithEmailJS = async () => {
     try {
+      console.log('Starting EmailJS send...');
+      console.log('Public Key:', EMAILJS_CONFIG.PUBLIC_KEY);
+      console.log('Service ID:', EMAILJS_CONFIG.SERVICE_ID);
+      console.log('Template ID:', EMAILJS_CONFIG.TEMPLATES.CONTACT);
+      
       // Initialize EmailJS
       emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
 
@@ -228,13 +233,16 @@ const Contact: React.FC = () => {
         reply_to: formData.email,
       };
 
+      console.log('Email data:', emailData);
+
       // Send email using EmailJS
-      await emailjs.send(
+      const response = await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID,
         EMAILJS_CONFIG.TEMPLATES.CONTACT,
         emailData
       );
 
+      console.log('EmailJS response:', response);
       console.log('Email sent successfully via EmailJS');
       
       // Show success
@@ -252,6 +260,7 @@ const Contact: React.FC = () => {
       });
     } catch (error) {
       console.error('EmailJS error:', error);
+      console.error('Error details:', JSON.stringify(error, null, 2));
       throw error; // Re-throw to be caught by the calling function
     }
   };

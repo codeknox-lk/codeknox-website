@@ -14,6 +14,11 @@
             const resultDiv = document.getElementById('result');
             resultDiv.innerHTML = 'Testing...';
             
+            console.log('Starting EmailJS test...');
+            console.log('Public Key:', 'ENoM09n00QXGhJF1H');
+            console.log('Service ID:', 'service_codeknox');
+            console.log('Template ID:', 'template_s4f06ng');
+            
             // Initialize EmailJS with your public key
             emailjs.init('ENoM09n00QXGhJF1H');
             
@@ -31,6 +36,8 @@
                 reply_to: "test@example.com"
             };
             
+            console.log('Email data:', emailData);
+            
             // Send email
             emailjs.send('service_codeknox', 'template_s4f06ng', emailData)
                 .then(function(response) {
@@ -40,8 +47,14 @@
                 .catch(function(error) {
                     resultDiv.innerHTML = '<p style="color: red;">❌ EmailJS Test FAILED: ' + error.text + '</p>';
                     console.error('EmailJS Error:', error);
+                    console.error('Error details:', JSON.stringify(error, null, 2));
                 });
         }
+        
+        // Test on page load
+        window.onload = function() {
+            console.log('Page loaded, EmailJS available:', typeof emailjs !== 'undefined');
+        };
     </script>
 </body>
 </html>
