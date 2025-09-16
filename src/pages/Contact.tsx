@@ -162,17 +162,29 @@ const Contact: React.FC = () => {
     setIsSubmitting(true);
 
     // Create mailto link with form data
-    const subject = `New Contact Form Submission from ${formData.name} - ${formData.company}`;
+    const subject = `🚀 New Project Inquiry from ${formData.company} - ${formData.name}`;
     const body = `
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Company: ${formData.company}
-Budget: ${formData.budget}
-Services: ${formData.services.join(', ')}
-Message: ${formData.message}
+🌟 NEW CLIENT INQUIRY - CODEKNOX WEBSITE
+========================================
 
-Submitted on: ${new Date().toLocaleString()}
+👤 CLIENT INFORMATION:
+• Name: ${formData.name}
+• Company: ${formData.company}
+• Email: ${formData.email}
+• Phone: ${formData.phone}
+
+💰 PROJECT DETAILS:
+• Budget Range: ${formData.budget}
+• Services Needed: ${formData.services.join(', ')}
+
+📝 PROJECT DESCRIPTION:
+${formData.message}
+
+⏰ SUBMITTED: ${new Date().toLocaleString()}
+
+========================================
+Please respond within 24 hours as promised.
+Thank you! 🚀
     `;
 
     const mailtoLink = `mailto:sales@codeknox.lk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
