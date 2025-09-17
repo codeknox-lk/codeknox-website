@@ -1287,8 +1287,8 @@ const Home: React.FC = () => {
                     }}
                     className="relative flex items-center"
                   >
-                    {/* Timeline Dot - Perfectly Centered */}
-                    <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 sm:w-3 h-2 sm:h-3 bg-green-500 rounded-full z-10"></div>
+                    {/* Timeline Dot - Mobile Optimized */}
+                    <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full z-10 shadow-lg shadow-green-500/50 border-2 border-white/20"></div>
                     
                     {/* Content Card - Mobile First */}
                     <div className={`w-full sm:w-5/12 ${index % 2 === 0 ? 'sm:pr-6 md:pr-12 text-center sm:text-right' : 'sm:ml-auto sm:pl-6 md:pl-12 text-center sm:text-left'}`}>
@@ -1301,22 +1301,33 @@ const Home: React.FC = () => {
                             [index % 2 === 0 ? 50 : -50, 0]
                           )
                         }}
-                        className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4 sm:p-6 hover:bg-white/10 transition-all duration-300"
+                        className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4 sm:p-6 hover:bg-white/10 transition-all duration-300 relative overflow-hidden"
                       >
-                        {/* Step Number Badge */}
-                        <div className="inline-block px-2 sm:px-3 py-1 bg-green-500 text-white text-xs sm:text-sm font-bold rounded-full mb-2 sm:mb-3">
-                          {step.step}
+                        {/* Mobile: Step Number as Large Icon */}
+                        <div className="flex items-center justify-center sm:justify-start mb-3 sm:mb-4">
+                          <div className="relative">
+                            {/* Large Step Number Circle - Mobile */}
+                            <div className="w-12 h-12 sm:w-10 sm:h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center shadow-lg shadow-green-500/30 border-2 border-white/20">
+                              <span className="text-white font-bold text-lg sm:text-sm">{step.step}</span>
+                            </div>
+                            {/* Glow Effect */}
+                            <div className="absolute inset-0 w-12 h-12 sm:w-10 sm:h-10 bg-green-500/20 rounded-full blur-md animate-pulse"></div>
+                          </div>
+                          
+                          {/* Title - Next to Step Number on Mobile */}
+                          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white ml-3 sm:ml-0 sm:mt-0">
+                            {step.title}
+                          </h3>
                         </div>
                         
-                        {/* Title */}
-                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3">
-                          {step.title}
-                        </h3>
-                        
                         {/* Description */}
-                        <p className="text-gray-300 leading-relaxed text-xs sm:text-sm">
+                        <p className="text-gray-300 leading-relaxed text-sm sm:text-sm text-center sm:text-left">
                           {step.description}
                         </p>
+                        
+                        {/* Decorative Elements */}
+                        <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-500/5 to-transparent rounded-full blur-xl"></div>
+                        <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-emerald-500/5 to-transparent rounded-full blur-xl"></div>
                       </motion.div>
                     </div>
                   </motion.div>
