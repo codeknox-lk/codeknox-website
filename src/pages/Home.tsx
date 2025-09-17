@@ -172,7 +172,7 @@ const Home: React.FC = () => {
               }}
             >
               <motion.h2 
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-montserrat font-black leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-montserrat font-black text-gray-900 leading-tight"
                 initial={{ filter: "blur(10px)" }}
                 animate={{ filter: "blur(0px)" }}
                 transition={{ 
@@ -181,7 +181,7 @@ const Home: React.FC = () => {
                   ease: "easeOut"
                 }}
               >
-                <span className="text-gray-900">Build with </span>
+                Build with 
               </motion.h2>
             </motion.div>
 
