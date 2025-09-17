@@ -13,7 +13,7 @@ const BlogDetail: React.FC = () => {
   // Initialize like count and state from localStorage or default values
   const [likeCount, setLikeCount] = useState(() => {
     if (post) {
-      const savedCount = localStorage.getItem(`blog-like-count-${post.id}`);
+      const savedCount = localStorage.getItem(`blog-like-count-${post.slug}`);
       return savedCount ? parseInt(savedCount, 10) : 8;
     }
     return 8;
@@ -21,7 +21,7 @@ const BlogDetail: React.FC = () => {
   
   const [isLiked, setIsLiked] = useState(() => {
     if (post) {
-      const savedState = localStorage.getItem(`blog-liked-${post.id}`);
+      const savedState = localStorage.getItem(`blog-liked-${post.slug}`);
       return savedState === 'true';
     }
     return false;
@@ -244,8 +244,8 @@ const BlogDetail: React.FC = () => {
                     setIsLiked(false);
                     // Save to localStorage
                     if (post) {
-                      localStorage.setItem(`blog-like-count-${post.id}`, newCount.toString());
-                      localStorage.setItem(`blog-liked-${post.id}`, 'false');
+                      localStorage.setItem(`blog-like-count-${post.slug}`, newCount.toString());
+                      localStorage.setItem(`blog-liked-${post.slug}`, 'false');
                     }
                   } else {
                     const newCount = likeCount + 1;
@@ -253,8 +253,8 @@ const BlogDetail: React.FC = () => {
                     setIsLiked(true);
                     // Save to localStorage
                     if (post) {
-                      localStorage.setItem(`blog-like-count-${post.id}`, newCount.toString());
-                      localStorage.setItem(`blog-liked-${post.id}`, 'true');
+                      localStorage.setItem(`blog-like-count-${post.slug}`, newCount.toString());
+                      localStorage.setItem(`blog-liked-${post.slug}`, 'true');
                     }
                   }
                 }}
