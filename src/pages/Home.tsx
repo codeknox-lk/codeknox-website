@@ -1397,28 +1397,28 @@ const Home: React.FC = () => {
 
       {/* Brand New Testimonials Slider */}
       {/* Beautiful New Testimonials Section */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23e2e8f0%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40" />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-6">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-200/50 text-blue-700 rounded-full text-sm font-semibold mb-8 backdrop-blur-sm"
+              className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-200/50 text-blue-700 rounded-full text-xs sm:text-sm font-semibold mb-6 sm:mb-8 backdrop-blur-sm"
             >
-              <span className="mr-2">✨</span>
+              <span className="mr-1 sm:mr-2">✨</span>
               Client Success Stories
           </motion.div>
 
@@ -1427,7 +1427,7 @@ const Home: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               viewport={{ once: true }}
-              className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 bg-clip-text text-transparent mb-8"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 bg-clip-text text-transparent mb-4 sm:mb-6 md:mb-8"
             >
               What Our Clients Say
             </motion.h2>
@@ -1437,14 +1437,14 @@ const Home: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
               viewport={{ once: true }}
-              className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+              className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0"
             >
               Real feedback from businesses we've transformed with our innovative solutions
             </motion.p>
           </motion.div>
 
-          {/* Testimonials Grid - Exact from Project Pages */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {/* Testimonials Grid - Mobile Responsive */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {featuredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
@@ -1455,17 +1455,17 @@ const Home: React.FC = () => {
                 className="group"
               >
                 <Link to={`/projects/${project.id}`} className="block">
-                  <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/50 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-[1.02] relative overflow-hidden cursor-pointer">
+                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl border border-white/50 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-[1.02] relative overflow-hidden cursor-pointer">
                     {/* Gradient Border Effect */}
-                    <div className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
+                    <div className={`absolute inset-0 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
                       index === 0 ? 'bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20' :
                       index === 1 ? 'bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20' :
                       'bg-gradient-to-r from-emerald-500/20 via-green-500/20 to-teal-500/20'
                     }`} />
                     <div className="relative z-10">
                       {/* Header */}
-                      <div className="flex items-center mb-6">
-                        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-white text-2xl font-bold mr-4 shadow-lg ${
+                      <div className="flex items-center mb-4 sm:mb-6">
+                        <div className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center text-white text-lg sm:text-xl md:text-2xl font-bold mr-3 sm:mr-4 shadow-lg ${
                           index === 0 ? 'bg-gradient-to-br from-blue-500 to-cyan-500' :
                           index === 1 ? 'bg-gradient-to-br from-green-500 to-emerald-500' :
                           'bg-gradient-to-br from-emerald-500 to-green-500'
@@ -1473,21 +1473,21 @@ const Home: React.FC = () => {
                           {project.testimonial?.author?.charAt(0) || 'C'}
                         </div>
                         <div>
-                          <h4 className="text-xl font-bold text-gray-900">{project.testimonial?.author || 'Client'}</h4>
-                          <p className="text-gray-600 font-medium">{project.testimonial?.role || 'Client'}</p>
+                          <h4 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">{project.testimonial?.author || 'Client'}</h4>
+                          <p className="text-sm sm:text-base text-gray-600 font-medium">{project.testimonial?.role || 'Client'}</p>
                         </div>
                       </div>
                       
                       {/* Rating */}
-                      <div className="flex items-center mb-6">
+                      <div className="flex items-center mb-4 sm:mb-6">
                         {Array.from({ length: 5 }).map((_, i) => (
-                          <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                          <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-yellow-400 text-yellow-400" />
                         ))}
                       </div>
                       
                       {/* Quote */}
-                      <blockquote className="text-gray-700 text-lg leading-relaxed italic relative">
-                        <span className={`absolute -top-2 -left-2 text-4xl ${
+                      <blockquote className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed italic relative">
+                        <span className={`absolute -top-1 sm:-top-2 -left-1 sm:-left-2 text-2xl sm:text-3xl md:text-4xl ${
                           index === 0 ? 'text-blue-200' :
                           index === 1 ? 'text-green-200' :
                           'text-emerald-200'
@@ -1496,7 +1496,7 @@ const Home: React.FC = () => {
                       </blockquote>
                       
                       {/* Project Link Indicator */}
-                      <div className="mt-4 flex items-center text-sm text-gray-500 group-hover:text-gray-700 transition-colors">
+                      <div className="mt-3 sm:mt-4 flex items-center text-xs sm:text-sm text-gray-500 group-hover:text-gray-700 transition-colors">
                         <span>View Project →</span>
                       </div>
                     </div>
@@ -1512,12 +1512,12 @@ const Home: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.0 }}
             viewport={{ once: true }}
-            className="text-center mt-16"
+            className="text-center mt-12 sm:mt-16"
           >
             <Link to="/contact">
-              <div className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer">
+              <div className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer text-sm sm:text-base">
                 <span>Ready to join our success stories?</span>
-                <svg className="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 sm:ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l7 4m0 0l-4 4m4-4H3" />
                 </svg>
               </div>
@@ -1527,7 +1527,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Beautiful Start Your MVP Section */}
-      <section className="py-32 px-6 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 relative overflow-hidden">
+      <section className="py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 relative overflow-hidden">
         {/* Animated Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(120,119,198,0.15),transparent_50%)]"></div>
@@ -1535,18 +1535,18 @@ const Home: React.FC = () => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(236,72,153,0.08),transparent_50%)]"></div>
         </div>
         
-        {/* Floating Geometric Shapes */}
+        {/* Floating Geometric Shapes - Mobile Optimized */}
           <motion.div
           animate={{ 
             rotate: 360,
-            scale: [1, 1.1, 1]
+            scale: [1, 1.05, 1]
           }}
           transition={{ 
-            duration: 10,
+            duration: 15,
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute top-20 left-10 w-32 h-32"
+          className="absolute top-20 left-4 sm:left-10 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32"
           style={{
             background: 'linear-gradient(45deg, rgba(34, 211, 238, 0.1), rgba(34, 211, 238, 0.05))',
             clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)'
@@ -1555,14 +1555,14 @@ const Home: React.FC = () => {
         <motion.div
           animate={{ 
             rotate: -360,
-            scale: [1, 0.9, 1]
+            scale: [1, 0.95, 1]
           }}
           transition={{ 
-            duration: 12,
+            duration: 18,
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute bottom-20 right-10 w-24 h-24"
+          className="absolute bottom-20 right-4 sm:right-10 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"
           style={{
             background: 'linear-gradient(45deg, rgba(236, 72, 153, 0.1), rgba(236, 72, 153, 0.05))',
             clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)'
@@ -1570,15 +1570,15 @@ const Home: React.FC = () => {
         />
         <motion.div
           animate={{ 
-            y: [0, -20, 0],
+            y: [0, -15, 0],
             rotate: 180
           }}
           transition={{ 
-            duration: 8,
+            duration: 12,
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute top-1/2 left-1/4 w-16 h-16"
+          className="absolute top-1/2 left-1/4 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16"
           style={{
             background: 'linear-gradient(45deg, rgba(236, 72, 153, 0.1), rgba(236, 72, 153, 0.05))',
             clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)'
@@ -1589,18 +1589,18 @@ const Home: React.FC = () => {
                       <motion.div
               initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.15 }}
+              transition={{ duration: 0.8 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="space-y-12"
+              className="space-y-8 sm:space-y-10 md:space-y-12"
             >
             {/* Main Heading */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               <motion.h2 
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.15, delay: 0.03 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true, margin: "-100px" }}
-                className="text-6xl lg:text-7xl font-black text-white leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-tight"
               >
                 Ship Your{' '}
                 <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
@@ -1611,9 +1611,9 @@ const Home: React.FC = () => {
               <motion.p 
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.15, delay: 0.06 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
                 viewport={{ once: true, margin: "-100px" }}
-                className="text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+                className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0"
               >
                 Ready to turn your idea into reality? Let's build something amazing together and launch your product to the world.
               </motion.p>
@@ -1625,15 +1625,15 @@ const Home: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.15, delay: 0.1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center"
             >
               <Link to="/contact">
                 <motion.button
                   whileHover={{ scale: 1.05, y: -3 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group relative px-12 py-5 text-xl font-bold rounded-full overflow-hidden bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white shadow-2xl hover:shadow-cyan-500/25 transition-all duration-500"
+                  className="group relative px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 text-sm sm:text-base md:text-lg lg:text-xl font-bold rounded-full overflow-hidden bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white shadow-2xl hover:shadow-cyan-500/25 transition-all duration-500"
                 >
                   <span className="relative z-10">Start Your Project</span>
                   <motion.div
@@ -1648,12 +1648,12 @@ const Home: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => window.open('mailto:hello@codeknox.com?subject=Book a Call - CODEKNOX&body=Hi! I would like to schedule a consultation call to discuss my project. Please let me know your available times.', '_blank')}
-                className="group px-12 py-5 text-xl font-bold rounded-full border-2 border-gray-600 text-gray-300 hover:border-cyan-400 hover:text-cyan-400 bg-transparent transition-all duration-500 hover:shadow-lg hover:shadow-cyan-400/25 cursor-pointer"
+                className="group px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 text-sm sm:text-base md:text-lg lg:text-xl font-bold rounded-full border-2 border-gray-600 text-gray-300 hover:border-cyan-400 hover:text-cyan-400 bg-transparent transition-all duration-500 hover:shadow-lg hover:shadow-cyan-400/25 cursor-pointer"
               >
-                <span className="flex items-center space-x-2">
+                <span className="flex items-center space-x-1 sm:space-x-2">
                   <span>Schedule a Call</span>
                   <motion.div
-                    className="w-5 h-5 border border-current rounded-full flex items-center justify-center"
+                    className="w-4 h-4 sm:w-5 sm:h-5 border border-current rounded-full flex items-center justify-center"
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
