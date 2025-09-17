@@ -1664,9 +1664,9 @@ const Home: React.FC = () => {
               className="pt-6 sm:pt-8 border-t border-gray-700/50"
             >
               <p className="text-gray-400 text-xs sm:text-sm mb-4 sm:mb-6">Trusted by innovative companies</p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 justify-items-center items-center">
+              <div className="grid grid-cols-3 sm:grid-cols-3 gap-2 sm:gap-6 md:gap-8 justify-items-center items-center">
                 {/* Company Logos */}
-                <div className="w-24 h-12 sm:w-28 sm:h-14 md:w-32 md:h-16 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center p-1 border border-white/20 hover:border-white/30 hover:bg-white/15 transition-all duration-300 shadow-lg overflow-hidden">
+                <div className="w-20 h-10 sm:w-28 sm:h-14 md:w-32 md:h-16 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center p-1 border border-white/20 hover:border-white/30 hover:bg-white/15 transition-all duration-300 shadow-lg overflow-hidden">
                   <img 
                     src="/logos/company1-logo.png" 
                     alt="Company 1" 
@@ -1675,7 +1675,7 @@ const Home: React.FC = () => {
                     decoding="async"
                   />
                 </div>
-                <div className="w-24 h-12 sm:w-28 sm:h-14 md:w-32 md:h-16 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center p-1 border border-white/20 hover:border-white/30 hover:bg-white/15 transition-all duration-300 shadow-lg overflow-hidden">
+                <div className="w-20 h-10 sm:w-28 sm:h-14 md:w-32 md:h-16 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center p-1 border border-white/20 hover:border-white/30 hover:bg-white/15 transition-all duration-300 shadow-lg overflow-hidden">
                   <img 
                     src="/logos/company2-logo.png" 
                     alt="Company 2" 
@@ -1684,7 +1684,7 @@ const Home: React.FC = () => {
                     decoding="async"
                   />
                 </div>
-                <div className="w-24 h-12 sm:w-28 sm:h-14 md:w-32 md:h-16 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center p-1 border border-white/20 hover:border-white/30 hover:bg-white/15 transition-all duration-300 shadow-lg overflow-hidden">
+                <div className="w-20 h-10 sm:w-28 sm:h-14 md:w-32 md:h-16 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center p-1 border border-white/20 hover:border-white/30 hover:bg-white/15 transition-all duration-300 shadow-lg overflow-hidden">
                   <img 
                     src="/logos/company3-logo.png" 
                     alt="Company 3" 
