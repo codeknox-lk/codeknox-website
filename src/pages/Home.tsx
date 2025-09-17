@@ -1240,7 +1240,7 @@ const Home: React.FC = () => {
               viewport={{ once: true }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 leading-tight text-white"
             >
-              OUR <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">PROCESS</span>
+              OUR <span className="bg-gradient-to-r from-emerald-500 to-teal-600 bg-clip-text text-transparent">PROCESS</span> ✨
             </motion.h2>
             
             <motion.p
