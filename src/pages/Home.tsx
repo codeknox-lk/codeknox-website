@@ -196,7 +196,8 @@ const Home: React.FC = () => {
               }}
             >
               <motion.h2 
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-montserrat font-black text-blue-500 leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-montserrat font-black leading-tight"
+                style={{ color: '#07697f' }}
                 initial={{ filter: "blur(20px)", opacity: 0 }}
                 animate={{ filter: "blur(0px)", opacity: 1 }}
                 transition={{ 
