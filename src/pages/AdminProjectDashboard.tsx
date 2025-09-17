@@ -229,25 +229,25 @@ const AdminProjectDashboard: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20 sm:pt-32 md:pt-40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 pt-16 sm:pt-20 md:pt-24 lg:pt-32">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
             <div>
-              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Project Management</h1>
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">Project Management</h1>
               <p className="text-gray-600 mt-2 text-sm sm:text-base">Manage your portfolio projects</p>
             </div>
-            <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+            <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 md:space-x-4">
               <Link
                 to="/admin/dashboard"
-                className="flex items-center space-x-2 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                className="flex items-center justify-center space-x-2 px-3 sm:px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm sm:text-base"
               >
                 <span>← Back to Dashboard</span>
               </Link>
               <button
                 onClick={() => setIsAdding(true)}
-                className="flex items-center space-x-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="flex items-center justify-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm sm:text-base"
               >
                 <Plus className="w-5 h-5" />
                 <span>Add Project</span>
@@ -257,9 +257,9 @@ const AdminProjectDashboard: React.FC = () => {
         </div>
 
         {/* Projects List */}
-        <div className="bg-white rounded-lg shadow">
-          <div className="px-6 py-4 border-b border-gray-200">
-            <h2 className="text-lg font-semibold text-gray-900">Projects ({projects.length})</h2>
+        <div className="bg-white rounded-xl sm:rounded-lg shadow">
+          <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-200">
+            <h2 className="text-base sm:text-lg font-semibold text-gray-900">Projects ({projects.length})</h2>
           </div>
           <div className="divide-y divide-gray-200">
             {projects.map((project) => (
@@ -267,11 +267,11 @@ const AdminProjectDashboard: React.FC = () => {
                 key={project.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="p-6 hover:bg-gray-50 transition-colors"
+                className="p-4 sm:p-6 hover:bg-gray-50 transition-colors"
               >
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-16 h-16 bg-gray-200 rounded-lg overflow-hidden">
+                  <div className="flex items-center space-x-3 sm:space-x-4">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-200 rounded-lg overflow-hidden">
                       <img
                         src={project.image}
                         alt={project.title}
@@ -283,7 +283,7 @@ const AdminProjectDashboard: React.FC = () => {
                     </div>
                     <div>
                       <div className="flex items-center space-x-2">
-                        <h3 className="text-lg font-semibold text-gray-900">{project.title}</h3>
+                        <h3 className="text-base sm:text-lg font-semibold text-gray-900">{project.title}</h3>
                         {project.featured && (
                           <Star className="w-4 h-4 text-yellow-500 fill-current" />
                         )}
@@ -301,10 +301,10 @@ const AdminProjectDashboard: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-1 sm:space-x-2">
                     <Link
                       to={`/projects/${project.id}`}
-                      className="p-2 text-gray-400 hover:text-blue-600 transition-colors"
+                      className="p-1.5 sm:p-2 text-gray-400 hover:text-blue-600 transition-colors"
                       title="View Project"
                     >
                       <Eye className="w-5 h-5" />
@@ -337,17 +337,17 @@ const AdminProjectDashboard: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+              className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-2 sm:p-4 z-50"
             >
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
-                className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto"
               >
-                <div className="p-6 border-b border-gray-200">
+                <div className="p-4 sm:p-6 border-b border-gray-200">
                   <div className="flex items-center justify-between">
-                    <h2 className="text-xl font-semibold text-gray-900">
+                    <h2 className="text-lg sm:text-xl font-semibold text-gray-900">
                       {editingId ? 'Edit Project' : 'Add New Project'}
                     </h2>
                     <button
@@ -382,9 +382,9 @@ const AdminProjectDashboard: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="p-6 space-y-6">
+                <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
                   {/* Basic Information */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Project Slug *
@@ -393,7 +393,7 @@ const AdminProjectDashboard: React.FC = () => {
                         type="text"
                         value={newProject.slug}
                         onChange={(e) => setNewProject({ ...newProject, slug: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                         placeholder="project-slug"
                       />
                     </div>
@@ -405,7 +405,7 @@ const AdminProjectDashboard: React.FC = () => {
                         type="text"
                         value={newProject.title}
                         onChange={(e) => setNewProject({ ...newProject, title: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                         placeholder="Enter project title"
                       />
                     </div>
@@ -417,7 +417,7 @@ const AdminProjectDashboard: React.FC = () => {
                         type="text"
                         value={newProject.category}
                         onChange={(e) => setNewProject({ ...newProject, category: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                         placeholder="e.g., Web Development, Mobile App"
                       />
                     </div>
@@ -458,7 +458,7 @@ const AdminProjectDashboard: React.FC = () => {
                         type="url"
                         value={newProject.image}
                         onChange={(e) => setNewProject({ ...newProject, image: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                         placeholder="https://example.com/image.jpg"
                       />
                     </div>
@@ -470,7 +470,7 @@ const AdminProjectDashboard: React.FC = () => {
                         type="url"
                         value={newProject.websiteUrl}
                         onChange={(e) => setNewProject({ ...newProject, websiteUrl: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                         placeholder="https://example.com"
                       />
                     </div>
@@ -485,7 +485,7 @@ const AdminProjectDashboard: React.FC = () => {
                         type="date"
                         value={newProject.completedAt}
                         onChange={(e) => setNewProject({ ...newProject, completedAt: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                       />
                     </div>
                     <div className="flex items-center space-x-4">
@@ -623,7 +623,7 @@ const AdminProjectDashboard: React.FC = () => {
                             ...newProject,
                             testimonial: { ...newProject.testimonial!, text: e.target.value }
                           })}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                           rows={3}
                           placeholder="What the client said about the project"
                         />
@@ -639,7 +639,7 @@ const AdminProjectDashboard: React.FC = () => {
                             ...newProject,
                             testimonial: { ...newProject.testimonial!, author: e.target.value }
                           })}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                           placeholder="Client name"
                         />
                       </div>
@@ -654,7 +654,7 @@ const AdminProjectDashboard: React.FC = () => {
                             ...newProject,
                             testimonial: { ...newProject.testimonial!, role: e.target.value }
                           })}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                           placeholder="e.g., CEO, Marketing Director"
                         />
                       </div>
@@ -669,7 +669,7 @@ const AdminProjectDashboard: React.FC = () => {
                             ...newProject,
                             testimonial: { ...newProject.testimonial!, company: e.target.value }
                           })}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                           placeholder="Company name"
                         />
                       </div>
@@ -677,7 +677,7 @@ const AdminProjectDashboard: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="p-6 border-t border-gray-200 flex justify-end space-x-4">
+                <div className="p-4 sm:p-6 border-t border-gray-200 flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-4">
                   <button
                     onClick={() => {
                       setIsAdding(false);
@@ -703,13 +703,13 @@ const AdminProjectDashboard: React.FC = () => {
                         featured: false
                       });
                     }}
-                    className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                    className="px-4 sm:px-6 py-2.5 sm:py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors text-sm sm:text-base"
                   >
                     Cancel
                   </button>
                   <button
                     onClick={editingId ? handleUpdateProject : handleAddProject}
-                    className="flex items-center space-x-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    className="flex items-center justify-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm sm:text-base"
                   >
                     <Save className="w-5 h-5" />
                     <span>{editingId ? 'Update Project' : 'Add Project'}</span>

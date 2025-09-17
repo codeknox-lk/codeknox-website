@@ -147,39 +147,39 @@ const AdminDashboard: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20 sm:pt-32 md:pt-40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 pt-16 sm:pt-20 md:pt-24 lg:pt-32">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-8 space-y-4 sm:space-y-0">
           <div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">Blog Management</h1>
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">Blog Management</h1>
             <p className="text-gray-600 mt-2 text-sm sm:text-base">Manage your blog articles</p>
           </div>
-          <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+          <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 md:space-x-4">
             <button
               onClick={() => navigate('/admin/projects')}
-              className="flex items-center space-x-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+              className="flex items-center justify-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm sm:text-base"
             >
               <Plus className="w-5 h-5" />
               <span>Projects</span>
             </button>
             <button
               onClick={() => navigate('/admin/subscribers')}
-              className="flex items-center space-x-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+              className="flex items-center justify-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm sm:text-base"
             >
               <Users className="w-5 h-5" />
               <span>Subscribers</span>
             </button>
             <button
               onClick={() => setShowAddForm(true)}
-              className="flex items-center space-x-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="flex items-center justify-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm sm:text-base"
             >
               <Plus className="w-5 h-5" />
               <span>Add Article</span>
             </button>
             <button
               onClick={handleLogout}
-              className="flex items-center space-x-2 px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+              className="flex items-center justify-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm sm:text-base"
             >
               <LogOut className="w-5 h-5" />
               <span>Logout</span>
@@ -192,10 +192,10 @@ const AdminDashboard: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-2xl shadow-lg p-8 mb-8"
+            className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-6 sm:mb-8"
           >
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-gray-900">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
                 {editingPost ? 'Edit Article' : 'Add New Article'}
               </h2>
               <button
@@ -219,7 +219,7 @@ const AdminDashboard: React.FC = () => {
               </button>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -229,7 +229,7 @@ const AdminDashboard: React.FC = () => {
                     type="text"
                     value={newPost.title}
                     onChange={(e) => setNewPost({ ...newPost, title: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                     placeholder="Article title"
                   />
                 </div>
@@ -242,7 +242,7 @@ const AdminDashboard: React.FC = () => {
                     value={newPost.excerpt}
                     onChange={(e) => setNewPost({ ...newPost, excerpt: e.target.value })}
                     rows={3}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                     placeholder="Article excerpt"
                   />
                 </div>
@@ -255,7 +255,7 @@ const AdminDashboard: React.FC = () => {
                     type="url"
                     value={newPost.coverImage}
                     onChange={(e) => setNewPost({ ...newPost, coverImage: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                     placeholder="https://example.com/image.jpg"
                   />
                 </div>
@@ -268,7 +268,7 @@ const AdminDashboard: React.FC = () => {
                     type="text"
                     value={newPost.tags.join(', ')}
                     onChange={(e) => handleTagChange(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                     placeholder="Web Development, React, Tutorial"
                   />
                 </div>
@@ -281,7 +281,7 @@ const AdminDashboard: React.FC = () => {
                     type="text"
                     value={newPost.authorName}
                     onChange={(e) => setNewPost({ ...newPost, authorName: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                     placeholder="Enter author name"
                   />
                 </div>
@@ -295,7 +295,7 @@ const AdminDashboard: React.FC = () => {
                       type="text"
                       value={newPost.readingTime}
                       onChange={(e) => setNewPost({ ...newPost, readingTime: e.target.value })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                       placeholder="5 min read"
                     />
                   </div>
@@ -321,14 +321,14 @@ const AdminDashboard: React.FC = () => {
                 <textarea
                   value={newPost.content}
                   onChange={(e) => setNewPost({ ...newPost, content: e.target.value })}
-                  rows={20}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm"
+                  rows={15}
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-xs sm:text-sm"
                   placeholder="Write your article content here..."
                 />
               </div>
             </div>
 
-            <div className="flex justify-end space-x-4 mt-6">
+            <div className="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-4 mt-4 sm:mt-6">
               <button
                 onClick={() => {
                   setShowAddForm(false);
@@ -344,13 +344,13 @@ const AdminDashboard: React.FC = () => {
                     authorName: ''
                   });
                 }}
-                className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                className="px-4 sm:px-6 py-2.5 sm:py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors text-sm sm:text-base"
               >
                 Cancel
               </button>
               <button
                 onClick={editingPost ? handleUpdatePost : handleAddPost}
-                className="flex items-center space-x-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="flex items-center justify-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm sm:text-base"
               >
                 <Save className="w-5 h-5" />
                 <span>{editingPost ? 'Update Article' : 'Add Article'}</span>
@@ -360,9 +360,9 @@ const AdminDashboard: React.FC = () => {
         )}
 
         {/* Articles List */}
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-          <div className="px-6 py-4 border-b border-gray-200">
-            <h2 className="text-xl font-semibold text-gray-900">
+        <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden">
+          <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-200">
+            <h2 className="text-lg sm:text-xl font-semibold text-gray-900">
               Articles ({posts.length})
             </h2>
           </div>
@@ -388,12 +388,12 @@ const AdminDashboard: React.FC = () => {
                   key={post.slug}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="p-6 hover:bg-gray-50 transition-colors"
+                  className="p-4 sm:p-6 hover:bg-gray-50 transition-colors"
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <div className="flex items-center space-x-3 mb-2">
-                        <h3 className="text-lg font-semibold text-gray-900">
+                        <h3 className="text-base sm:text-lg font-semibold text-gray-900">
                           {post.title}
                         </h3>
                         {post.featured && (
@@ -413,10 +413,10 @@ const AdminDashboard: React.FC = () => {
                         <span>{post.tags.length} tags</span>
                       </div>
                     </div>
-                    <div className="flex items-center space-x-2 ml-4">
+                    <div className="flex items-center space-x-1 sm:space-x-2 ml-2 sm:ml-4">
                       <button
                         onClick={() => window.open(`/blog/${post.slug}`, '_blank')}
-                        className="p-2 text-gray-400 hover:text-blue-600 transition-colors"
+                        className="p-1.5 sm:p-2 text-gray-400 hover:text-blue-600 transition-colors"
                         title="Preview"
                       >
                         <Eye className="w-5 h-5" />
