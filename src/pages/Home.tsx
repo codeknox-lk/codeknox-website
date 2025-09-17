@@ -1287,8 +1287,8 @@ const Home: React.FC = () => {
                     }}
                     className="relative flex items-center"
                   >
-                    {/* Timeline Dot - Mobile Optimized - NEW DESIGN */}
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 sm:w-5 sm:h-5 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full z-10 shadow-xl shadow-blue-500/70 border-4 border-white/40 animate-pulse"></div>
+                    {/* Timeline Dot - Beautiful Design */}
+                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 sm:w-3 sm:h-3 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full z-10 shadow-lg shadow-emerald-500/60 border-2 border-white/30"></div>
                     
                     {/* Content Card - Mobile First */}
                     <div className={`w-full sm:w-5/12 ${index % 2 === 0 ? 'sm:pr-6 md:pr-12 text-center sm:text-right' : 'sm:ml-auto sm:pl-6 md:pl-12 text-center sm:text-left'}`}>
@@ -1301,22 +1301,24 @@ const Home: React.FC = () => {
                             [index % 2 === 0 ? 50 : -50, 0]
                           )
                         }}
-                        className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4 sm:p-6 hover:bg-white/10 transition-all duration-300 relative overflow-hidden"
+                        className="bg-gradient-to-br from-white/8 via-white/5 to-white/3 backdrop-blur-xl border border-white/20 rounded-2xl p-5 sm:p-6 hover:bg-white/10 hover:border-white/30 transition-all duration-500 relative overflow-hidden shadow-xl shadow-black/20"
                       >
-                        {/* Mobile: Step Number as Large Icon - NEW DESIGN */}
-                        <div className="flex items-center justify-center sm:justify-start mb-3 sm:mb-4">
+                        {/* Mobile: Step Number as Large Icon - Beautiful Design */}
+                        <div className="flex items-center justify-center sm:justify-start mb-4 sm:mb-5">
                           <div className="relative">
-                            {/* Large Step Number Circle - Mobile - UPDATED */}
-                            <div className="w-16 h-16 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-xl shadow-blue-500/50 border-4 border-white/30">
-                              <span className="text-white font-black text-xl sm:text-lg">{step.step}</span>
+                            {/* Beautiful Step Number Circle */}
+                            <div className="w-14 h-14 sm:w-12 sm:h-12 bg-gradient-to-br from-emerald-500 via-green-500 to-teal-600 rounded-full flex items-center justify-center shadow-2xl shadow-emerald-500/40 border-2 border-white/20 relative overflow-hidden">
+                              <span className="text-white font-bold text-lg sm:text-sm z-10">{step.step}</span>
+                              {/* Inner glow */}
+                              <div className="absolute inset-1 bg-gradient-to-br from-white/20 to-transparent rounded-full"></div>
                             </div>
-                            {/* Enhanced Glow Effect */}
-                            <div className="absolute inset-0 w-16 h-16 sm:w-12 sm:h-12 bg-blue-500/30 rounded-full blur-lg animate-pulse"></div>
-                            <div className="absolute inset-0 w-16 h-16 sm:w-12 sm:h-12 bg-purple-500/20 rounded-full blur-xl animate-pulse delay-500"></div>
+                            {/* Outer glow effect */}
+                            <div className="absolute inset-0 w-14 h-14 sm:w-12 sm:h-12 bg-emerald-500/25 rounded-full blur-md animate-pulse"></div>
+                            <div className="absolute inset-0 w-14 h-14 sm:w-12 sm:h-12 bg-green-500/15 rounded-full blur-lg animate-pulse delay-300"></div>
                           </div>
                           
-                          {/* Title - Next to Step Number on Mobile */}
-                          <h3 className="text-xl sm:text-xl md:text-2xl font-black text-white ml-4 sm:ml-0 sm:mt-0 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                          {/* Title - Beautiful styling */}
+                          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white ml-4 sm:ml-0 sm:mt-0">
                             {step.title}
                           </h3>
                         </div>
