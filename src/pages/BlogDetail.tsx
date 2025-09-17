@@ -34,7 +34,7 @@ const BlogDetail: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pb-20 sm:pb-0">
       {/* Hero Section - Dark */}
       <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 overflow-hidden">
         {/* Animated Background Elements */}
@@ -69,18 +69,18 @@ const BlogDetail: React.FC = () => {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 flex items-center justify-center min-h-screen px-4 sm:px-6">
+        <div className="relative z-10 flex items-center justify-center min-h-screen px-3 sm:px-6">
           <div className="text-center max-w-6xl mx-auto">
             {/* Back Button */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="mb-8"
+              className="mb-6 sm:mb-8"
             >
               <Link
                 to="/blog"
-                className="inline-flex items-center space-x-2 px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl text-white hover:bg-white/20 transition-all duration-300"
+                className="inline-flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl sm:rounded-2xl text-white hover:bg-white/20 transition-all duration-300"
               >
                 <ArrowLeft className="w-5 h-5" />
                 <span>Back to Blog</span>
@@ -92,7 +92,7 @@ const BlogDetail: React.FC = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 sm:mb-8 leading-tight"
             >
               {post.title}
             </motion.h1>
@@ -102,7 +102,7 @@ const BlogDetail: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-wrap items-center justify-center gap-6 text-gray-300 mb-8"
+              className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-gray-300 mb-6 sm:mb-8"
             >
               <div className="flex items-center space-x-2">
                 <User className="w-5 h-5" />
@@ -123,7 +123,7 @@ const BlogDetail: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-xl sm:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
+              className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
             >
               {post.excerpt}
             </motion.p>
@@ -132,7 +132,7 @@ const BlogDetail: React.FC = () => {
       </section>
 
       {/* Article Content Section - Light */}
-      <section className="relative py-20 sm:py-24 md:py-28 lg:py-32 px-4 sm:px-6 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+      <section className="relative py-12 sm:py-24 md:py-28 lg:py-32 px-3 sm:px-6 bg-gradient-to-br from-gray-50 via-white to-gray-50">
         {/* Background Pattern */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(59,130,246,0.05),transparent_50%)]"></div>
@@ -140,20 +140,20 @@ const BlogDetail: React.FC = () => {
           <div className="absolute bottom-20 left-20 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl"></div>
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto">
+        <div className="relative z-10 max-w-4xl mx-auto w-full">
           {/* Cover Image */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-12"
+            className="mb-8 sm:mb-12"
           >
-            <div className="relative bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
               <img
                 src={post.coverImage}
                 alt={post.title}
-                className="w-full h-64 sm:h-80 md:h-96 object-cover"
+                className="w-full h-48 sm:h-80 md:h-96 object-cover"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
@@ -176,22 +176,22 @@ const BlogDetail: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-3xl p-8 sm:p-12 shadow-2xl"
+            className="bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-12 shadow-2xl"
           >
             <div
-              className="text-gray-800 leading-relaxed text-lg prose prose-lg max-w-none"
+              className="text-gray-800 leading-relaxed text-base sm:text-lg prose prose-lg max-w-none"
               dangerouslySetInnerHTML={{
                 __html: post.content
                   // First, handle headers (must be done before paragraphs)
-                  .replace(/^### (.*$)/gm, '<h3 class="text-2xl font-bold text-gray-900 mb-4 mt-10">$1</h3>')
-                  .replace(/^## (.*$)/gm, '<h2 class="text-3xl font-bold text-gray-900 mb-6 mt-12">$1</h2>')
-                  .replace(/^# (.*$)/gm, '<h1 class="text-4xl font-black text-gray-900 mb-8 mt-16 first:mt-0">$1</h1>')
+                  .replace(/^### (.*$)/gm, '<h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 mt-6 sm:mt-10">$1</h3>')
+                  .replace(/^## (.*$)/gm, '<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 mt-8 sm:mt-12">$1</h2>')
+                  .replace(/^# (.*$)/gm, '<h1 class="text-3xl sm:text-4xl font-black text-gray-900 mb-6 sm:mb-8 mt-12 sm:mt-16 first:mt-0">$1</h1>')
                   // Handle bold text
                   .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-gray-900">$1</strong>')
                   // Handle bullet points
-                  .replace(/^- (.*$)/gm, '<li class="mb-3">$1</li>')
+                  .replace(/^- (.*$)/gm, '<li class="mb-2 sm:mb-3">$1</li>')
                   // Wrap consecutive list items in ul tags
-                  .replace(/(<li class="mb-3">.*<\/li>)/gs, '<ul class="list-disc list-inside mb-8 space-y-3 pl-6">$1</ul>')
+                  .replace(/(<li class="mb-2 sm:mb-3">.*<\/li>)/gs, '<ul class="list-disc list-inside mb-6 sm:mb-8 space-y-2 sm:space-y-3 pl-4 sm:pl-6">$1</ul>')
                   // Handle paragraphs (split by double newlines)
                   .split('\n\n')
                   .map(paragraph => {
@@ -200,13 +200,13 @@ const BlogDetail: React.FC = () => {
                       return paragraph;
                     }
                     // Clean up and wrap in paragraph tags
-                    return `<p class="mb-8 leading-loose">${paragraph.trim()}</p>`;
+                    return `<p class="mb-6 sm:mb-8 leading-relaxed sm:leading-loose">${paragraph.trim()}</p>`;
                   })
                   .join('') +
                   // Add author info at the bottom
-                  `<div class="flex justify-between items-center mt-12 pt-8 border-t border-gray-200">
-                    <span class="text-gray-600 text-lg">${new Date(post.publishedAt).toLocaleDateString()}</span>
-                    <span class="text-gray-900 font-semibold text-lg">- ${post.author.name}</span>
+                  `<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-200 space-y-2 sm:space-y-0">
+                    <span class="text-gray-600 text-sm sm:text-lg">${new Date(post.publishedAt).toLocaleDateString()}</span>
+                    <span class="text-gray-900 font-semibold text-sm sm:text-lg">- ${post.author.name}</span>
                   </div>`
               }}
             />
@@ -218,9 +218,9 @@ const BlogDetail: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="mt-12 flex justify-center"
+            className="mt-8 sm:mt-12 flex justify-center"
           >
-            <div className="flex items-center space-x-4">
+            <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-4">
               <button
                 onClick={() => {
                   if (isLiked) {
@@ -231,7 +231,7 @@ const BlogDetail: React.FC = () => {
                     setIsLiked(true);
                   }
                 }}
-                className={`flex items-center space-x-2 px-6 py-3 backdrop-blur-xl border rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl ${
+                className={`flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 backdrop-blur-xl border rounded-xl sm:rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl ${
                   isLiked
                     ? 'bg-red-50 border-red-200 text-red-600'
                     : 'bg-white/80 border-gray-200/50 text-gray-700 hover:bg-white/90'
@@ -253,7 +253,7 @@ const BlogDetail: React.FC = () => {
                     alert('Article link copied to clipboard!');
                   }
                 }}
-                className="flex items-center space-x-2 px-6 py-3 bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-2xl hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-xl sm:rounded-2xl hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 <Share2 className="w-5 h-5 text-green-500" />
                 <span className="text-gray-700 font-medium">Share</span>
