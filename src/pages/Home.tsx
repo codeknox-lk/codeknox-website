@@ -1240,7 +1240,7 @@ const Home: React.FC = () => {
               viewport={{ once: true }}
               className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-3 sm:mb-6 leading-tight text-white"
             >
-              OUR <span className="bg-gradient-to-r from-emerald-500 to-teal-600 bg-clip-text text-transparent">PROCESS</span> ✨
+              OUR <span className="bg-gradient-to-r from-emerald-500 to-teal-600 bg-clip-text text-transparent">PROCESS</span>
             </motion.h2>
             
             <motion.p
@@ -1287,13 +1287,6 @@ const Home: React.FC = () => {
                     }}
                     className="relative flex items-center"
                   >
-                    {/* Timeline Dot - Beautiful Design */}
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-5 h-5 sm:w-4 sm:h-4 bg-gradient-to-br from-emerald-400 via-green-500 to-teal-600 rounded-full z-10 shadow-xl shadow-emerald-500/70 border-2 border-white/40 relative overflow-hidden">
-                      {/* Inner glow */}
-                      <div className="absolute inset-1 bg-gradient-to-br from-white/30 to-transparent rounded-full"></div>
-                      {/* Outer glow */}
-                      <div className="absolute inset-0 bg-emerald-500/20 rounded-full blur-sm animate-pulse"></div>
-                    </div>
                     
                     {/* Content Card - Perfect Mobile */}
                     <div className={`w-full sm:w-5/12 ${index % 2 === 0 ? 'sm:pr-6 md:pr-12 text-center sm:text-right' : 'sm:ml-auto sm:pl-6 md:pl-12 text-center sm:text-left'}`}>
