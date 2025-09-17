@@ -206,7 +206,7 @@ const Home: React.FC = () => {
                 }}
               >
                 <motion.span 
-                  className="text-blue-500 sm:bg-gradient-to-r sm:from-blue-500 sm:to-teal-600 sm:bg-clip-text sm:text-transparent"
+                  className="text-blue-500 sm:bg-gradient-to-r sm:from-blue-500 sm:to-teal-600 sm:bg-clip-text sm:text-transparent hero-codeknox-text"
                   initial={{ backgroundPosition: "0% 50%" }}
                   animate={{ backgroundPosition: "100% 50%" }}
                   transition={{ 
@@ -220,8 +220,7 @@ const Home: React.FC = () => {
                     backgroundSize: "200% 200%",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                    color: "rgb(59, 130, 246)"
+                    backgroundClip: "text"
                   }}
                 >
                   CODEKNOX.

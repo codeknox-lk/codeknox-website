@@ -346,6 +346,12 @@ body {
     .mobile-text {
       @apply text-sm leading-relaxed;
     }
+    
+    /* Force CODEKNOX text to be visible on mobile */
+    .hero-codeknox-text {
+      color: rgb(59, 130, 246) !important;
+      -webkit-text-fill-color: rgb(59, 130, 246) !important;
+    }
   }
 
   /* Tablet optimizations */
