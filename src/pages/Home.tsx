@@ -51,7 +51,7 @@ const Home: React.FC = () => {
 
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 relative overflow-hidden">
+      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 relative overflow-hidden pt-16 sm:pt-20 laptop:pt-16 md:pt-20">
         {/* Beautiful Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100"></div>
         
@@ -111,7 +111,7 @@ const Home: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col justify-center items-center space-y-4 sm:space-y-6 md:space-y-8 text-center px-4 sm:px-6 md:px-8 hero-section"
+            className="flex flex-col justify-center items-center space-y-2 sm:space-y-4 laptop:space-y-3 md:space-y-6 text-center px-4 sm:px-6 md:px-8 hero-section"
           >
             {/* Build Smart - Consistent sizing */}
             <motion.div
@@ -124,7 +124,7 @@ const Home: React.FC = () => {
               }}
             >
               <motion.h2 
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-black text-gray-900 leading-tight"
+                className="text-2xl sm:text-3xl md:text-4xl laptop:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-black text-gray-900 leading-tight"
                 initial={{ filter: "blur(10px)" }}
                 animate={{ filter: "blur(0px)" }}
                 transition={{ 
@@ -148,7 +148,7 @@ const Home: React.FC = () => {
               }}
             >
               <motion.h2 
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-black text-gray-900 leading-tight"
+                className="text-2xl sm:text-3xl md:text-4xl laptop:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-black text-gray-900 leading-tight"
                 initial={{ filter: "blur(10px)" }}
                 animate={{ filter: "blur(0px)" }}
                 transition={{ 
@@ -172,7 +172,7 @@ const Home: React.FC = () => {
               }}
             >
               <motion.h2 
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-black text-gray-900 leading-tight"
+                className="text-2xl sm:text-3xl md:text-4xl laptop:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-black text-gray-900 leading-tight"
                 initial={{ filter: "blur(10px)" }}
                 animate={{ filter: "blur(0px)" }}
                 transition={{ 
@@ -196,7 +196,7 @@ const Home: React.FC = () => {
               }}
             >
               <motion.h2 
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-black leading-tight"
+                className="text-2xl sm:text-3xl md:text-4xl laptop:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-black leading-tight"
                 style={{ color: '#07697f' }}
                 initial={{ filter: "blur(20px)", opacity: 0 }}
                 animate={{ filter: "blur(0px)", opacity: 1 }}
