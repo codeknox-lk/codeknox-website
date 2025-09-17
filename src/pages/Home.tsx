@@ -1256,8 +1256,8 @@ const Home: React.FC = () => {
 
           {/* Timeline - Perfect Like Ceylon Nature Link */}
           <div ref={timelineRef} className="relative max-w-5xl mx-auto">
-            {/* Timeline Line Container */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full">
+            {/* Timeline Line Container - Background */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full -z-10">
               {/* Background Line */}
               <div className="w-full h-full bg-gray-600/30"></div>
               {/* Animated Progress Line */}
