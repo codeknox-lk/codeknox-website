@@ -51,34 +51,32 @@ const Home: React.FC = () => {
 
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 laptop:px-6 relative overflow-hidden">
+      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 relative overflow-hidden">
         {/* Beautiful Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100"></div>
         
-        {/* Floating Geometric Shapes */}
+        {/* Floating Geometric Shapes - Optimized for mobile */}
         <motion.div
-          className="absolute top-16 sm:top-20 left-8 sm:left-20 w-20 h-20 sm:w-32 sm:h-32 bg-gradient-to-br from-blue-400/20 to-teal-500/20 rounded-full blur-lg sm:blur-xl"
+          className="absolute top-16 sm:top-20 left-8 sm:left-20 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 bg-gradient-to-br from-blue-400/20 to-teal-500/20 rounded-full blur-lg sm:blur-xl"
           animate={{
-            y: [0, -30, 0],
-            x: [0, 20, 0],
-            scale: [1, 1.1, 1]
+            y: [0, -20, 0],
+            scale: [1, 1.05, 1]
           }}
           transition={{
-            duration: 4,
+            duration: 6,
             repeat: Infinity,
             ease: "easeInOut"
           }}
         />
         
         <motion.div
-          className="absolute top-32 sm:top-40 right-16 sm:right-32 w-16 h-16 sm:w-24 sm:h-24 bg-gradient-to-br from-teal-400/20 to-blue-500/20 rounded-full blur-lg sm:blur-xl"
+          className="absolute top-32 sm:top-40 right-12 sm:right-24 md:right-32 w-12 h-12 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-gradient-to-br from-teal-400/20 to-blue-500/20 rounded-full blur-lg sm:blur-xl"
           animate={{
-            y: [0, 40, 0],
-            x: [0, -30, 0],
-            scale: [1, 0.8, 1]
+            y: [0, 30, 0],
+            scale: [1, 0.9, 1]
           }}
           transition={{
-            duration: 5,
+            duration: 8,
             repeat: Infinity,
             ease: "easeInOut",
             delay: 1
@@ -86,13 +84,13 @@ const Home: React.FC = () => {
         />
         
         <motion.div
-          className="absolute bottom-24 sm:bottom-32 left-1/4 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-500/15 to-teal-600/15 rounded-full blur-md sm:blur-lg"
+          className="absolute bottom-24 sm:bottom-32 left-1/4 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-500/15 to-teal-600/15 rounded-full blur-md sm:blur-lg"
           animate={{
-            y: [0, -20, 0],
-            scale: [1, 1.2, 1]
+            y: [0, -15, 0],
+            scale: [1, 1.1, 1]
           }}
           transition={{
-            duration: 6,
+            duration: 10,
             repeat: Infinity,
             ease: "easeInOut",
             delay: 1
@@ -107,31 +105,31 @@ const Home: React.FC = () => {
           }}></div>
         </div>
 
-        <div className="max-w-7xl laptop:max-w-6xl mx-auto flex justify-center relative z-10">
-          {/* Centered Content - Big Bold Text with Typewriter */}
+        <div className="max-w-7xl mx-auto flex justify-center relative z-10 w-full">
+          {/* Centered Content - Responsive Text */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col justify-center items-center space-y-8 text-center"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-col justify-center items-center space-y-4 sm:space-y-6 md:space-y-8 text-center px-4 sm:px-6 md:px-8"
           >
-            {/* Build Smart - Liquid Animation */}
+            {/* Build Smart - Consistent sizing */}
             <motion.div
               initial={{ opacity: 0, y: 100, scale: 0.3, rotateX: 90 }}
               animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
               transition={{ 
-            duration: 1.2,
-                delay: 0.3,
+                duration: 0.8,
+                delay: 0.1,
                 ease: [0.34, 1.56, 0.64, 1]
               }}
             >
               <motion.h2 
-                className="text-4xl sm:text-5xl md:text-6xl laptop:text-7xl lg:text-8xl font-montserrat font-black text-gray-900 leading-none"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-montserrat font-black text-gray-900 leading-tight"
                 initial={{ filter: "blur(10px)" }}
                 animate={{ filter: "blur(0px)" }}
                 transition={{ 
-                  duration: 1.0, 
-                  delay: 0.5,
+                  duration: 0.6, 
+                  delay: 0.2,
                   ease: "easeOut"
                 }}
               >
@@ -139,23 +137,23 @@ const Home: React.FC = () => {
               </motion.h2>
             </motion.div>
 
-            {/* Build Bold - Liquid Animation */}
+            {/* Build Bold - Consistent sizing */}
             <motion.div
               initial={{ opacity: 0, y: 100, scale: 0.3, rotateX: 90 }}
               animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
               transition={{ 
-            duration: 1.2,
-                delay: 1.0,
+                duration: 0.8,
+                delay: 0.3,
                 ease: [0.34, 1.56, 0.64, 1]
               }}
             >
               <motion.h2 
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-montserrat font-black text-gray-900 leading-none"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-montserrat font-black text-gray-900 leading-tight"
                 initial={{ filter: "blur(10px)" }}
                 animate={{ filter: "blur(0px)" }}
                 transition={{ 
-                  duration: 1.0, 
-                  delay: 1.2,
+                  duration: 0.6, 
+                  delay: 0.4,
                   ease: "easeOut"
                 }}
               >
@@ -163,23 +161,23 @@ const Home: React.FC = () => {
               </motion.h2>
             </motion.div>
 
-            {/* Build with - Liquid Animation */}
+            {/* Build with - Consistent sizing */}
             <motion.div
               initial={{ opacity: 0, y: 100, scale: 0.3, rotateX: 90 }}
               animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
               transition={{ 
-            duration: 1.2,
-                delay: 1.7,
+                duration: 0.8,
+                delay: 0.5,
                 ease: [0.34, 1.56, 0.64, 1]
               }}
             >
               <motion.h2 
-                className="text-6xl lg:text-8xl font-montserrat font-black leading-none"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-black leading-tight"
                 initial={{ filter: "blur(10px)" }}
                 animate={{ filter: "blur(0px)" }}
                 transition={{ 
-                  duration: 1.0, 
-                  delay: 1.9,
+                  duration: 0.6, 
+                  delay: 0.6,
                   ease: "easeOut"
                 }}
               >
@@ -187,39 +185,43 @@ const Home: React.FC = () => {
               </motion.h2>
             </motion.div>
 
-            {/* CODEKNOX - Beautiful Zoom In Animation */}
+            {/* CODEKNOX - Consistent sizing with mobile fallback */}
             <motion.div
               initial={{ opacity: 0, scale: 0.1, y: 50 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ 
-                duration: 1.5, 
-                delay: 2.4,
+                duration: 1.0, 
+                delay: 0.7,
                 ease: [0.25, 0.46, 0.45, 0.94]
               }}
             >
               <motion.h2 
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-montserrat font-black leading-none"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-montserrat font-black leading-tight"
                 initial={{ filter: "blur(20px)", opacity: 0 }}
                 animate={{ filter: "blur(0px)", opacity: 1 }}
                 transition={{ 
-                  duration: 1.2, 
-                  delay: 2.6,
+                  duration: 0.8, 
+                  delay: 0.8,
                   ease: "easeOut"
                 }}
               >
                 <motion.span 
-                  className="bg-gradient-to-r from-blue-500 to-teal-600 bg-clip-text text-transparent"
+                  className="text-blue-500 sm:bg-gradient-to-r sm:from-blue-500 sm:to-teal-600 sm:bg-clip-text sm:text-transparent"
                   initial={{ backgroundPosition: "0% 50%" }}
                   animate={{ backgroundPosition: "100% 50%" }}
                   transition={{ 
                     duration: 3.0, 
-                    delay: 2.8,
+                    delay: 1.0,
                     ease: "easeInOut",
                     repeat: Infinity,
                     repeatType: "reverse"
                   }}
                   style={{
-                    backgroundSize: "200% 200%"
+                    backgroundSize: "200% 200%",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                    color: "rgb(59, 130, 246)"
                   }}
                 >
                   CODEKNOX.
@@ -231,7 +233,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Capabilities Marquee */}
-      <section className="py-12 sm:py-16 md:py-20 border-y border-gray-200 relative overflow-hidden">
+      <section className="py-8 sm:py-12 md:py-16 border-y border-gray-200 relative overflow-hidden">
         {/* Background Gradient */}
         <div className="absolute inset-0 bg-gradient-to-r from-blue-50/30 via-transparent to-teal-50/30"></div>
         
@@ -241,37 +243,37 @@ const Home: React.FC = () => {
           <motion.div
               animate={{ x: [0, -1250] }}
               transition={{ 
-                duration: 12, 
+                duration: 20, 
                 repeat: Infinity, 
                 ease: "linear",
                 repeatType: "reverse"
               }}
-              className="flex space-x-8 sm:space-x-12 md:space-x-16 whitespace-nowrap"
+              className="flex space-x-6 sm:space-x-8 md:space-x-12 whitespace-nowrap"
             >
               {/* First set of capabilities */}
               {capabilities.map((capability, index) => (
-                <div key={`first-${index}`} className="flex items-center space-x-2 sm:space-x-4 text-base sm:text-lg md:text-xl font-medium text-gray-600 flex-shrink-0">
+                <div key={`first-${index}`} className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 text-sm sm:text-base md:text-lg font-medium text-gray-600 flex-shrink-0">
                   <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full"></div>
                   <span>{capability}</span>
-                  <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
+                  <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-blue-500" />
                 </div>
               ))}
               
               {/* Duplicate set for seamless loop */}
               {capabilities.map((capability, index) => (
-                <div key={`second-${index}`} className="flex items-center space-x-4 text-xl font-medium text-gray-600 flex-shrink-0">
-                  <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full"></div>
+                <div key={`second-${index}`} className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 text-sm sm:text-base md:text-lg font-medium text-gray-600 flex-shrink-0">
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full"></div>
                   <span>{capability}</span>
-                  <ChevronRight className="w-5 h-5 text-blue-500" />
+                  <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-blue-500" />
                 </div>
               ))}
               
               {/* Third set to ensure smooth transition */}
               {capabilities.map((capability, index) => (
-                <div key={`third-${index}`} className="flex items-center space-x-4 text-xl font-medium text-gray-600 flex-shrink-0">
-                  <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full"></div>
+                <div key={`third-${index}`} className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 text-sm sm:text-base md:text-lg font-medium text-gray-600 flex-shrink-0">
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full"></div>
                   <span>{capability}</span>
-                  <ChevronRight className="w-5 h-5 text-blue-500" />
+                  <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-blue-500" />
             </div>
               ))}
           </motion.div>
@@ -285,22 +287,22 @@ const Home: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black"></div>
         
         {/* Story Header */}
-        <div className="relative z-10 pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-12 sm:pb-16 md:pb-20 text-center">
+        <div className="relative z-10 pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-8 sm:pb-12 md:pb-16 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className="max-w-6xl mx-auto px-4 sm:px-6"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.3 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="mb-16"
+              className="mb-8 sm:mb-12"
             >
-              <span className="text-lg sm:text-xl md:text-2xl text-gray-400 font-light tracking-widest">
+              <span className="text-sm sm:text-base md:text-lg text-gray-400 font-light tracking-widest">
                 YOUR SUCCESS STORY
               </span>
             </motion.div>
@@ -308,9 +310,9 @@ const Home: React.FC = () => {
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-6 sm:mb-8 leading-none tracking-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight tracking-tight"
             >
               WE TRANSFORM
             </motion.h1>
@@ -318,9 +320,9 @@ const Home: React.FC = () => {
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-300 font-light max-w-4xl mx-auto leading-relaxed px-4 sm:px-0"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 font-light max-w-4xl mx-auto leading-relaxed px-4 sm:px-0"
             >
               Your vision into powerful digital solutions that drive real business growth
             </motion.p>
@@ -344,9 +346,9 @@ const Home: React.FC = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: 0.2 }}
                   viewport={{ once: true }}
-                  className="mb-8"
+                  className="mb-4 sm:mb-6"
                 >
-                  <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-blue-400 leading-none">
+                  <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-blue-400 leading-none">
                     01
                   </span>
                 </motion.div>
@@ -356,7 +358,7 @@ const Home: React.FC = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: 0.3 }}
                   viewport={{ once: true }}
-                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 sm:mb-8 leading-none"
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 sm:mb-6 leading-tight"
                 >
                   WEBSITES
                 </motion.h2>
@@ -366,25 +368,25 @@ const Home: React.FC = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: 0.4 }}
                   viewport={{ once: true }}
-                  className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-400 font-light leading-relaxed mb-8 sm:mb-12"
+                  className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 font-light leading-relaxed mb-6 sm:mb-8"
                 >
                   We don't just build websites. We create digital experiences that connect, engage, and convert.
                 </motion.p>
                 
-                                 <motion.div
-                   initial={{ opacity: 0, x: -50 }}
-                   whileInView={{ opacity: 1, x: 0 }}
-                   transition={{ duration: 0.4, delay: 0.5 }}
-                   viewport={{ once: true }}
-                   className="flex items-center space-x-3 sm:space-x-4 md:space-x-6"
-                 >
-                   <Link to="/services" className="flex items-center space-x-3 sm:space-x-4 md:space-x-6 group cursor-pointer">
-                     <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                       <span className="text-lg sm:text-xl md:text-2xl font-bold">→</span>
-                     </div>
-                     <span className="text-base sm:text-lg md:text-xl text-gray-300 group-hover:text-blue-400 transition-colors duration-300">Discover More</span>
-                   </Link>
-                 </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.5 }}
+                  viewport={{ once: true }}
+                  className="flex items-center space-x-2 sm:space-x-3 md:space-x-4"
+                >
+                  <Link to="/services" className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 group cursor-pointer">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-blue-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-sm sm:text-base md:text-lg font-bold">→</span>
+                    </div>
+                    <span className="text-sm sm:text-base md:text-lg text-gray-300 group-hover:text-blue-400 transition-colors duration-300">Discover More</span>
+                  </Link>
+                </motion.div>
               </div>
 
               <motion.div
@@ -436,11 +438,11 @@ const Home: React.FC = () => {
                 <motion.div
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 1, delay: 0.5 }}
+                  transition={{ duration: 0.4, delay: 0.2 }}
                   viewport={{ once: true }}
-                  className="mb-8"
+                  className="mb-4 sm:mb-6"
                 >
-                  <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-green-400 leading-none">
+                  <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-green-400 leading-none">
                     02
                   </span>
                 </motion.div>
@@ -448,9 +450,9 @@ const Home: React.FC = () => {
                 <motion.h2
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 1, delay: 0.7 }}
+                  transition={{ duration: 0.4, delay: 0.3 }}
                   viewport={{ once: true }}
-                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 sm:mb-8 leading-none"
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 sm:mb-6 leading-tight"
                 >
                   MOBILE APPS
                 </motion.h2>
@@ -458,27 +460,27 @@ const Home: React.FC = () => {
                 <motion.p
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 1, delay: 0.9 }}
+                  transition={{ duration: 0.4, delay: 0.4 }}
                   viewport={{ once: true }}
-                  className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-400 font-light leading-relaxed mb-8 sm:mb-12"
+                  className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 font-light leading-relaxed mb-6 sm:mb-8"
                 >
                   Apps that don't just work. They feel like magic in your pocket.
                 </motion.p>
                 
-                                 <motion.div
-                   initial={{ opacity: 0, x: 50 }}
-                   whileInView={{ opacity: 1, x: 0 }}
-                   transition={{ duration: 1, delay: 1.1 }}
-                   viewport={{ once: true }}
-                   className="flex items-center space-x-6"
-                 >
-                   <Link to="/services" className="flex items-center space-x-3 sm:space-x-4 md:space-x-6 group cursor-pointer">
-                     <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                       <span className="text-lg sm:text-xl md:text-2xl font-bold">→</span>
-              </div>
-                     <span className="text-base sm:text-lg md:text-xl text-gray-300 group-hover:text-blue-400 transition-colors duration-300">Learn More</span>
-                   </Link>
-                 </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.5 }}
+                  viewport={{ once: true }}
+                  className="flex items-center space-x-2 sm:space-x-3 md:space-x-4"
+                >
+                  <Link to="/services" className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 group cursor-pointer">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-green-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-sm sm:text-base md:text-lg font-bold">→</span>
+                    </div>
+                    <span className="text-sm sm:text-base md:text-lg text-gray-300 group-hover:text-green-400 transition-colors duration-300">Learn More</span>
+                  </Link>
+                </motion.div>
             </div>
           </div>
           </motion.div>
@@ -496,11 +498,11 @@ const Home: React.FC = () => {
                  <motion.div
                    initial={{ opacity: 0, x: -50 }}
                    whileInView={{ opacity: 1, x: 0 }}
-                   transition={{ duration: 1, delay: 0.5 }}
-            viewport={{ once: true }}
-                   className="mb-8"
+                   transition={{ duration: 0.4, delay: 0.2 }}
+                   viewport={{ once: true }}
+                   className="mb-4 sm:mb-6"
                  >
-                   <span className="text-6xl lg:text-7xl font-black text-purple-400 leading-none">
+                   <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-purple-400 leading-none">
                      03
                   </span>
                  </motion.div>
@@ -508,9 +510,9 @@ const Home: React.FC = () => {
                  <motion.h2
                    initial={{ opacity: 0, x: -50 }}
                    whileInView={{ opacity: 1, x: 0 }}
-                   transition={{ duration: 1, delay: 0.7 }}
+                   transition={{ duration: 0.4, delay: 0.3 }}
                    viewport={{ once: true }}
-                   className="text-6xl lg:text-7xl font-black mb-8 leading-none"
+                   className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 sm:mb-6 leading-tight"
                  >
                    CUSTOM SOFTWARE
                  </motion.h2>
@@ -518,9 +520,9 @@ const Home: React.FC = () => {
                  <motion.p
                    initial={{ opacity: 0, x: -50 }}
                    whileInView={{ opacity: 1, x: 0 }}
-                   transition={{ duration: 1, delay: 0.9 }}
+                   transition={{ duration: 0.4, delay: 0.4 }}
                    viewport={{ once: true }}
-                   className="text-2xl lg:text-3xl text-gray-400 font-light leading-relaxed mb-12"
+                   className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 font-light leading-relaxed mb-6 sm:mb-8"
                  >
                    When off-the-shelf doesn't cut it. We build exactly what you need.
                  </motion.p>
@@ -528,15 +530,15 @@ const Home: React.FC = () => {
                  <motion.div
                    initial={{ opacity: 0, x: -50 }}
                    whileInView={{ opacity: 1, x: 0 }}
-                   transition={{ duration: 1, delay: 1.1 }}
+                   transition={{ duration: 0.4, delay: 0.5 }}
                    viewport={{ once: true }}
-                   className="flex items-center space-x-6"
+                   className="flex items-center space-x-2 sm:space-x-3 md:space-x-4"
                  >
-                   <Link to="/services" className="flex items-center space-x-6 group cursor-pointer">
-                     <div className="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                       <span className="text-2xl font-bold">→</span>
-                </div>
-                     <span className="text-xl text-gray-300 group-hover:text-blue-400 transition-colors duration-300">Explore</span>
+                   <Link to="/services" className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 group cursor-pointer">
+                     <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-purple-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                       <span className="text-sm sm:text-base md:text-lg font-bold">→</span>
+                    </div>
+                     <span className="text-sm sm:text-base md:text-lg text-gray-300 group-hover:text-purple-400 transition-colors duration-300">Explore</span>
                    </Link>
                  </motion.div>
                </div>
@@ -590,11 +592,11 @@ const Home: React.FC = () => {
               <motion.div
                    initial={{ opacity: 0, x: 50 }}
                    whileInView={{ opacity: 1, x: 0 }}
-                   transition={{ duration: 1, delay: 0.5 }}
-                viewport={{ once: true }}
-                   className="mb-8"
+                   transition={{ duration: 0.4, delay: 0.2 }}
+                   viewport={{ once: true }}
+                   className="mb-4 sm:mb-6"
                  >
-                   <span className="text-6xl lg:text-7xl font-black text-orange-400 leading-none">
+                   <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-orange-400 leading-none">
                      04
                   </span>
                  </motion.div>
@@ -602,9 +604,9 @@ const Home: React.FC = () => {
                  <motion.h2
                    initial={{ opacity: 0, x: 50 }}
                    whileInView={{ opacity: 1, x: 0 }}
-                   transition={{ duration: 1, delay: 0.7 }}
+                   transition={{ duration: 0.4, delay: 0.3 }}
                    viewport={{ once: true }}
-                   className="text-6xl lg:text-7xl font-black mb-8 leading-none"
+                   className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 sm:mb-6 leading-tight"
                  >
                    E-COMMERCE
                  </motion.h2>
@@ -612,9 +614,9 @@ const Home: React.FC = () => {
                  <motion.p
                    initial={{ opacity: 0, x: 50 }}
                    whileInView={{ opacity: 1, x: 0 }}
-                   transition={{ duration: 1, delay: 0.9 }}
+                   transition={{ duration: 0.4, delay: 0.4 }}
                    viewport={{ once: true }}
-                   className="text-2xl lg:text-3xl text-gray-400 font-light leading-relaxed mb-12"
+                   className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 font-light leading-relaxed mb-6 sm:mb-8"
                  >
                    Turn browsers into buyers with powerful online stores that sell 24/7.
                  </motion.p>
@@ -622,15 +624,15 @@ const Home: React.FC = () => {
                  <motion.div
                    initial={{ opacity: 0, x: 50 }}
                    whileInView={{ opacity: 1, x: 0 }}
-                   transition={{ duration: 1, delay: 1.1 }}
+                   transition={{ duration: 0.4, delay: 0.5 }}
                    viewport={{ once: true }}
-                   className="flex items-center space-x-6"
+                   className="flex items-center space-x-2 sm:space-x-3 md:space-x-4"
                  >
-                   <Link to="/services" className="flex items-center space-x-6 group cursor-pointer">
-                     <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                       <span className="text-2xl font-bold">→</span>
+                   <Link to="/services" className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 group cursor-pointer">
+                     <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-orange-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                       <span className="text-sm sm:text-base md:text-lg font-bold">→</span>
                     </div>
-                     <span className="text-xl text-gray-300 group-hover:text-blue-400 transition-colors duration-300">Shop Now</span>
+                     <span className="text-sm sm:text-base md:text-lg text-gray-300 group-hover:text-orange-400 transition-colors duration-300">Shop Now</span>
                    </Link>
                  </motion.div>
                     </div>
@@ -650,11 +652,11 @@ const Home: React.FC = () => {
                  <motion.div
                    initial={{ opacity: 0, x: -50 }}
                    whileInView={{ opacity: 1, x: 0 }}
-                   transition={{ duration: 1, delay: 0.5 }}
-            viewport={{ once: true }}
-                   className="mb-8"
+                   transition={{ duration: 0.4, delay: 0.2 }}
+                   viewport={{ once: true }}
+                   className="mb-4 sm:mb-6"
                  >
-                   <span className="text-6xl lg:text-7xl font-black text-pink-400 leading-none">
+                   <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-pink-400 leading-none">
                      05
                       </span>
           </motion.div>
@@ -662,9 +664,9 @@ const Home: React.FC = () => {
                  <motion.h2
                    initial={{ opacity: 0, x: -50 }}
                    whileInView={{ opacity: 1, x: 0 }}
-                   transition={{ duration: 1, delay: 0.7 }}
+                   transition={{ duration: 0.4, delay: 0.3 }}
                    viewport={{ once: true }}
-                   className="text-6xl lg:text-7xl font-black mb-8 leading-none"
+                   className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 sm:mb-6 leading-tight"
                  >
                    UX/UI DESIGN
                  </motion.h2>
@@ -672,9 +674,9 @@ const Home: React.FC = () => {
                  <motion.p
                    initial={{ opacity: 0, x: -50 }}
                    whileInView={{ opacity: 1, x: 0 }}
-                   transition={{ duration: 1, delay: 0.9 }}
+                   transition={{ duration: 0.4, delay: 0.4 }}
                    viewport={{ once: true }}
-                   className="text-2xl lg:text-3xl text-gray-400 font-light leading-relaxed mb-12"
+                   className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 font-light leading-relaxed mb-6 sm:mb-8"
                  >
                    Beautiful interfaces that users fall in love with at first sight.
                  </motion.p>
@@ -682,15 +684,15 @@ const Home: React.FC = () => {
                  <motion.div
                    initial={{ opacity: 0, x: -50 }}
                    whileInView={{ opacity: 1, x: 0 }}
-                   transition={{ duration: 1, delay: 1.1 }}
+                   transition={{ duration: 0.4, delay: 0.5 }}
                    viewport={{ once: true }}
-                   className="flex items-center space-x-6"
+                   className="flex items-center space-x-2 sm:space-x-3 md:space-x-4"
                  >
-                   <Link to="/services" className="flex items-center space-x-6 group cursor-pointer">
-                     <div className="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                       <span className="text-2xl font-bold">→</span>
+                   <Link to="/services" className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 group cursor-pointer">
+                     <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-pink-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                       <span className="text-sm sm:text-base md:text-lg font-bold">→</span>
                     </div>
-                     <span className="text-xl text-gray-300 group-hover:text-blue-400 transition-colors duration-300">Design More</span>
+                     <span className="text-sm sm:text-base md:text-lg text-gray-300 group-hover:text-pink-400 transition-colors duration-300">Design More</span>
                    </Link>
                  </motion.div>
                   </div>
@@ -743,11 +745,11 @@ const Home: React.FC = () => {
               <motion.div
                    initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                   transition={{ duration: 1, delay: 0.5 }}
+                   transition={{ duration: 0.4, delay: 0.2 }}
                 viewport={{ once: true }}
-                   className="mb-8"
+                   className="mb-4 sm:mb-6"
                  >
-                   <span className="text-6xl lg:text-7xl font-black text-cyan-400 leading-none">
+                   <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-cyan-400 leading-none">
                      06
                    </span>
                  </motion.div>
@@ -755,9 +757,9 @@ const Home: React.FC = () => {
                  <motion.h2
                    initial={{ opacity: 0, x: 50 }}
                    whileInView={{ opacity: 1, x: 0 }}
-                   transition={{ duration: 1, delay: 0.7 }}
+                   transition={{ duration: 0.4, delay: 0.3 }}
                    viewport={{ once: true }}
-                   className="text-6xl lg:text-7xl font-black mb-8 leading-none"
+                   className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 sm:mb-6 leading-tight"
                  >
                    SYSTEM MANAGEMENT
                  </motion.h2>
@@ -765,9 +767,9 @@ const Home: React.FC = () => {
                  <motion.p
                    initial={{ opacity: 0, x: 50 }}
                    whileInView={{ opacity: 1, x: 0 }}
-                   transition={{ duration: 1, delay: 0.9 }}
+                   transition={{ duration: 0.4, delay: 0.4 }}
                    viewport={{ once: true }}
-                   className="text-2xl lg:text-3xl text-gray-400 font-light leading-relaxed mb-12"
+                   className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 font-light leading-relaxed mb-6 sm:mb-8"
                  >
                    Keep your digital infrastructure running smoothly, securely, and efficiently.
                  </motion.p>
@@ -775,15 +777,15 @@ const Home: React.FC = () => {
                  <motion.div
                    initial={{ opacity: 0, x: 50 }}
                    whileInView={{ opacity: 1, x: 0 }}
-                   transition={{ duration: 1, delay: 1.1 }}
+                   transition={{ duration: 0.4, delay: 0.5 }}
                    viewport={{ once: true }}
-                   className="flex items-center space-x-6"
+                   className="flex items-center space-x-2 sm:space-x-3 md:space-x-4"
                  >
-                   <Link to="/services" className="flex items-center space-x-6 group cursor-pointer">
-                     <div className="w-16 h-16 bg-cyan-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                       <span className="text-2xl font-bold">→</span>
+                   <Link to="/services" className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 group cursor-pointer">
+                     <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-cyan-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                       <span className="text-sm sm:text-base md:text-lg font-bold">→</span>
                     </div>
-                     <span className="text-xl text-gray-300 group-hover:text-blue-400 transition-colors duration-300">Manage</span>
+                     <span className="text-sm sm:text-base md:text-lg text-gray-300 group-hover:text-cyan-400 transition-colors duration-300">Manage</span>
                    </Link>
                  </motion.div>
                     </div>
