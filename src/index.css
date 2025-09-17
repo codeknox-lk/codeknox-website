@@ -352,6 +352,12 @@ body {
       color: rgb(59, 130, 246) !important;
       -webkit-text-fill-color: rgb(59, 130, 246) !important;
     }
+    
+    /* Force all hero text to be visible on mobile */
+    .hero-section span {
+      color: rgb(59, 130, 246) !important;
+      -webkit-text-fill-color: rgb(59, 130, 246) !important;
+    }
   }
 
   /* Tablet optimizations */

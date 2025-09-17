@@ -111,7 +111,7 @@ const Home: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col justify-center items-center space-y-4 sm:space-y-6 md:space-y-8 text-center px-4 sm:px-6 md:px-8"
+            className="flex flex-col justify-center items-center space-y-4 sm:space-y-6 md:space-y-8 text-center px-4 sm:px-6 md:px-8 hero-section"
           >
             {/* Build Smart - Consistent sizing */}
             <motion.div
@@ -196,7 +196,7 @@ const Home: React.FC = () => {
               }}
             >
               <motion.h2 
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-montserrat font-black leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-montserrat font-black text-blue-500 leading-tight"
                 initial={{ filter: "blur(20px)", opacity: 0 }}
                 animate={{ filter: "blur(0px)", opacity: 1 }}
                 transition={{ 
@@ -205,26 +205,7 @@ const Home: React.FC = () => {
                   ease: "easeOut"
                 }}
               >
-                <motion.span 
-                  className="text-blue-500 sm:bg-gradient-to-r sm:from-blue-500 sm:to-teal-600 sm:bg-clip-text sm:text-transparent hero-codeknox-text"
-                  initial={{ backgroundPosition: "0% 50%" }}
-                  animate={{ backgroundPosition: "100% 50%" }}
-                  transition={{ 
-                    duration: 3.0, 
-                    delay: 1.0,
-                    ease: "easeInOut",
-                    repeat: Infinity,
-                    repeatType: "reverse"
-                  }}
-                  style={{
-                    backgroundSize: "200% 200%",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text"
-                  }}
-                >
-                  CODEKNOX.
-                </motion.span>
+                CODEKNOX.
               </motion.h2>
             </motion.div>
           </motion.div>
