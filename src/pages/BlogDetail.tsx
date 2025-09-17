@@ -9,8 +9,23 @@ const BlogDetail: React.FC = () => {
   const { getPostBySlug } = useBlog();
   
   const post = getPostBySlug(slug!);
-  const [likeCount, setLikeCount] = useState(8);
-  const [isLiked, setIsLiked] = useState(false);
+  
+  // Initialize like count and state from localStorage or default values
+  const [likeCount, setLikeCount] = useState(() => {
+    if (post) {
+      const savedCount = localStorage.getItem(`blog-like-count-${post.id}`);
+      return savedCount ? parseInt(savedCount, 10) : 8;
+    }
+    return 8;
+  });
+  
+  const [isLiked, setIsLiked] = useState(() => {
+    if (post) {
+      const savedState = localStorage.getItem(`blog-liked-${post.id}`);
+      return savedState === 'true';
+    }
+    return false;
+  });
 
   if (!post) {
     return (
@@ -224,11 +239,23 @@ const BlogDetail: React.FC = () => {
               <button
                 onClick={() => {
                   if (isLiked) {
-                    setLikeCount(prev => prev - 1);
+                    const newCount = likeCount - 1;
+                    setLikeCount(newCount);
                     setIsLiked(false);
+                    // Save to localStorage
+                    if (post) {
+                      localStorage.setItem(`blog-like-count-${post.id}`, newCount.toString());
+                      localStorage.setItem(`blog-liked-${post.id}`, 'false');
+                    }
                   } else {
-                    setLikeCount(prev => prev + 1);
+                    const newCount = likeCount + 1;
+                    setLikeCount(newCount);
                     setIsLiked(true);
+                    // Save to localStorage
+                    if (post) {
+                      localStorage.setItem(`blog-like-count-${post.id}`, newCount.toString());
+                      localStorage.setItem(`blog-liked-${post.id}`, 'true');
+                    }
                   }
                 }}
                 className={`flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 backdrop-blur-xl border rounded-xl sm:rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl ${
