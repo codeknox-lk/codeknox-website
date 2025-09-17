@@ -796,23 +796,23 @@ const Home: React.FC = () => {
            <motion.div
              initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-             transition={{ duration: 1, delay: 0.2 }}
+             transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
-             className="text-center mb-20"
+             className="text-center mb-12 sm:mb-16 md:mb-20"
            >
              <Link to="/services">
                <motion.button
                  whileHover={{ scale: 1.05, y: -5 }}
                  whileTap={{ scale: 0.95 }}
-                 className="group bg-transparent border-2 border-blue-500 text-blue-400 px-12 py-4 text-xl font-semibold rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/25"
+                 className="group bg-transparent border-2 border-blue-500 text-blue-400 px-6 sm:px-8 md:px-12 py-3 sm:py-4 text-sm sm:text-base md:text-lg lg:text-xl font-semibold rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/25"
                >
-                 <span className="flex items-center space-x-3">
+                 <span className="flex items-center space-x-2 sm:space-x-3">
                    <span>Explore All Services</span>
                    <motion.span
                      initial={{ x: 0 }}
                      whileHover={{ x: 5 }}
                      transition={{ duration: 0.3 }}
-                     className="text-2xl"
+                     className="text-lg sm:text-xl md:text-2xl"
                    >
                      →
                    </motion.span>
@@ -825,16 +825,16 @@ const Home: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
-            className="text-center py-20"
+            className="text-center py-12 sm:py-16 md:py-20"
           >
             <motion.h2
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, delay: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="text-7xl lg:text-8xl font-black mb-8 leading-none"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 md:mb-8 leading-tight"
             >
               READY TO START?
             </motion.h2>
@@ -842,24 +842,24 @@ const Home: React.FC = () => {
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
               viewport={{ once: true }}
-              className="text-2xl text-gray-400 font-light mb-12"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 font-light mb-8 sm:mb-10 md:mb-12"
             >
               Your story begins here
             </motion.p>
             
-                         <motion.div
+            <motion.div
                initial={{ opacity: 0, y: 30 }}
                whileInView={{ opacity: 1, y: 0 }}
-               transition={{ duration: 1, delay: 1.2 }}
+               transition={{ duration: 0.8, delay: 0.6 }}
                viewport={{ once: true }}
              >
                <Link to="/contact">
                  <motion.button
                    whileHover={{ scale: 1.05 }}
                    whileTap={{ scale: 0.95 }}
-                   className="bg-white text-black px-12 py-6 text-2xl font-bold rounded-full hover:bg-gray-100 transition-all duration-300"
+                   className="bg-white text-black px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-6 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold rounded-full hover:bg-gray-100 transition-all duration-300"
                  >
                    LET'S BUILD
                  </motion.button>
@@ -881,22 +881,22 @@ const Home: React.FC = () => {
         </div>
         
         {/* Projects Header */}
-        <div className="relative z-10 pt-32 pb-20 text-center">
+        <div className="relative z-10 pt-16 sm:pt-20 md:pt-24 lg:pt-32 pb-12 sm:pb-16 md:pb-20 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="max-w-6xl mx-auto px-6"
+            className="max-w-6xl mx-auto px-4 sm:px-6"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.3 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="mb-16"
+              className="mb-8 sm:mb-12 md:mb-16"
             >
-              <span className="inline-block px-8 py-3 bg-gradient-to-r from-blue-500/10 to-teal-500/10 text-blue-600 font-semibold rounded-full border border-blue-200/50 backdrop-blur-sm">
+              <span className="inline-block px-4 sm:px-6 md:px-8 py-2 sm:py-3 bg-gradient-to-r from-blue-500/10 to-teal-500/10 text-blue-600 font-semibold rounded-full border border-blue-200/50 backdrop-blur-sm text-sm sm:text-base">
                 Our Portfolio
                       </span>
           </motion.div>
@@ -904,9 +904,9 @@ const Home: React.FC = () => {
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
-              className="text-6xl lg:text-7xl font-black mb-8 leading-none text-gray-900"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 md:mb-8 leading-tight text-gray-900"
             >
               Featured <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">Projects</span>
             </motion.h1>
@@ -914,9 +914,9 @@ const Home: React.FC = () => {
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="text-2xl lg:text-3xl text-gray-600 font-light max-w-4xl mx-auto leading-relaxed"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-gray-600 font-light max-w-4xl mx-auto leading-relaxed px-4 sm:px-0"
             >
               Digital masterpieces that showcase innovation and drive measurable success
             </motion.p>
@@ -924,26 +924,26 @@ const Home: React.FC = () => {
                     </div>
 
                 {/* Beautiful Project Cards */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           {/* Project 1: E-Commerce Platform */}
               <motion.div
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="mb-20"
+            className="mb-12 sm:mb-16 md:mb-20"
           >
-            <div className="bg-white/80 backdrop-blur-xl rounded-3xl border border-white/50 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden group">
+            <div className="bg-white/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-white/50 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden group">
               <div className="grid lg:grid-cols-2 gap-0">
-                <div className="p-12 lg:p-16">
+                <div className="p-6 sm:p-8 md:p-12 lg:p-16">
                   <motion.div
                     initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, delay: 0.5 }}
+                    transition={{ duration: 0.4, delay: 0.2 }}
                 viewport={{ once: true }}
-                    className="mb-6"
+                    className="mb-4 sm:mb-6"
                   >
-                    <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-500/10 to-blue-600/10 text-blue-600 font-semibold rounded-full border border-blue-200/50 text-sm">
+                    <span className="inline-block px-3 sm:px-4 py-1 sm:py-2 bg-gradient-to-r from-blue-500/10 to-blue-600/10 text-blue-600 font-semibold rounded-full border border-blue-200/50 text-xs sm:text-sm">
                       HEALTHCARE
                     </span>
                   </motion.div>
@@ -951,9 +951,9 @@ const Home: React.FC = () => {
                   <motion.h2
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, delay: 0.7 }}
+                    transition={{ duration: 0.4, delay: 0.3 }}
                     viewport={{ once: true }}
-                    className="text-4xl lg:text-5xl font-black mb-6 leading-none text-gray-900"
+                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 sm:mb-6 leading-tight text-gray-900"
                   >
                     SmileHub Dental Care
                   </motion.h2>
@@ -961,9 +961,9 @@ const Home: React.FC = () => {
                   <motion.p
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, delay: 0.9 }}
+                    transition={{ duration: 0.4, delay: 0.4 }}
                     viewport={{ once: true }}
-                    className="text-lg lg:text-xl text-gray-600 leading-relaxed mb-6"
+                    className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed mb-4 sm:mb-6"
                   >
                     A professional dental clinic website showcasing premium dental services and modern patient care in Kandy, Sri Lanka.
                   </motion.p>
@@ -971,28 +971,28 @@ const Home: React.FC = () => {
                   <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, delay: 1.1 }}
+                    transition={{ duration: 0.4, delay: 0.5 }}
                     viewport={{ once: true }}
-                    className="mb-8"
+                    className="mb-6 sm:mb-8"
                   >
-                    <div className="flex flex-wrap gap-3">
-                      <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm font-medium rounded-full">🚀 300% Revenue</span>
-                      <span className="px-3 py-1 bg-green-100 text-green-700 text-sm font-medium rounded-full">📱 Mobile-First</span>
-                      <span className="px-3 py-1 bg-purple-100 text-purple-700 text-sm font-medium rounded-full">💳 Secure</span>
+                    <div className="flex flex-wrap gap-2 sm:gap-3">
+                      <span className="px-2 sm:px-3 py-1 bg-blue-100 text-blue-700 text-xs sm:text-sm font-medium rounded-full">🚀 300% Revenue</span>
+                      <span className="px-2 sm:px-3 py-1 bg-green-100 text-green-700 text-xs sm:text-sm font-medium rounded-full">📱 Mobile-First</span>
+                      <span className="px-2 sm:px-3 py-1 bg-purple-100 text-purple-700 text-xs sm:text-sm font-medium rounded-full">💳 Secure</span>
                     </div>
               </motion.div>
                   
                   <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, delay: 1.3 }}
+                    transition={{ duration: 0.4, delay: 0.6 }}
                     viewport={{ once: true }}
                   >
-                    <Link to="/projects/smilehub-dental" className="inline-flex items-center space-x-3 group cursor-pointer">
-                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                        <span className="text-white text-lg font-bold">→</span>
+                    <Link to="/projects/smilehub-dental" className="inline-flex items-center space-x-2 sm:space-x-3 group cursor-pointer">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <span className="text-white text-sm sm:text-base md:text-lg font-bold">→</span>
                     </div>
-                      <span className="text-lg text-blue-600 font-semibold group-hover:text-blue-700 transition-colors duration-300">View Case Study</span>
+                      <span className="text-sm sm:text-base md:text-lg text-blue-600 font-semibold group-hover:text-blue-700 transition-colors duration-300">View Case Study</span>
                     </Link>
                   </motion.div>
                   </div>
@@ -1000,15 +1000,17 @@ const Home: React.FC = () => {
           <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1.5, delay: 1 }}
+                  transition={{ duration: 0.8, delay: 0.7 }}
                   viewport={{ once: true }}
-                  className="relative bg-gradient-to-br from-blue-500/10 to-purple-500/10 flex items-center justify-center p-12"
+                  className="relative bg-gradient-to-br from-blue-500/10 to-purple-500/10 flex items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12"
                 >
-                  <div className="w-full h-80 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl border border-blue-200/30 backdrop-blur-sm flex items-center justify-center group-hover:scale-105 transition-transform duration-500 overflow-hidden">
+                  <div className="w-full h-48 sm:h-64 md:h-72 lg:h-80 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl sm:rounded-2xl border border-blue-200/30 backdrop-blur-sm flex items-center justify-center group-hover:scale-105 transition-transform duration-500 overflow-hidden">
                     <img 
                       src="/projects/smile-hub hero.jpg"
                       alt="SmileHub Dental Care - Professional Dental Services"
-                      className="w-full h-full object-cover rounded-2xl opacity-90 hover:opacity-100 transition-opacity duration-500"
+                      className="w-full h-full object-cover rounded-xl sm:rounded-2xl opacity-90 hover:opacity-100 transition-opacity duration-500"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
               </motion.div>
@@ -1020,37 +1022,39 @@ const Home: React.FC = () => {
               <motion.div
             initial={{ opacity: 0, y: 100 }}
                 whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="mb-20"
+            className="mb-12 sm:mb-16 md:mb-20"
           >
-            <div className="bg-white/80 backdrop-blur-xl rounded-3xl border border-white/50 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden group">
+            <div className="bg-white/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-white/50 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden group">
               <div className="grid lg:grid-cols-2 gap-0">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1.5, delay: 0.5 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
-                  className="relative bg-gradient-to-br from-green-500/10 to-teal-500/10 flex items-center justify-center p-12 order-2 lg:order-1"
+                  className="relative bg-gradient-to-br from-green-500/10 to-teal-500/10 flex items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 order-2 lg:order-1"
               >
-                  <div className="w-full h-80 bg-gradient-to-br from-green-500/20 to-teal-500/20 rounded-2xl border border-green-200/30 backdrop-blur-sm flex items-center justify-center group-hover:scale-105 transition-transform duration-500 overflow-hidden">
+                  <div className="w-full h-48 sm:h-64 md:h-72 lg:h-80 bg-gradient-to-br from-green-500/20 to-teal-500/20 rounded-xl sm:rounded-2xl border border-green-200/30 backdrop-blur-sm flex items-center justify-center group-hover:scale-105 transition-transform duration-500 overflow-hidden">
                     <img 
                       src="/projects/fort-knox hero.jpg"
                       alt="Fort Knox Quantity Surveying - Professional Construction Services"
-                      className="w-full h-full object-cover rounded-2xl opacity-90 hover:opacity-100 transition-opacity duration-500"
+                      className="w-full h-full object-cover rounded-xl sm:rounded-2xl opacity-90 hover:opacity-100 transition-opacity duration-500"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
           </motion.div>
                 
-                <div className="p-12 lg:p-16 order-1 lg:order-2">
+                <div className="p-6 sm:p-8 md:p-12 lg:p-16 order-1 lg:order-2">
                   <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, delay: 0.5 }}
+                    transition={{ duration: 0.4, delay: 0.3 }}
                     viewport={{ once: true }}
-                    className="mb-6"
+                    className="mb-4 sm:mb-6"
                   >
-                    <span className="inline-block px-4 py-2 bg-gradient-to-r from-green-500/10 to-green-600/10 text-green-600 font-semibold rounded-full border border-green-200/50 text-sm">
+                    <span className="inline-block px-3 sm:px-4 py-1 sm:py-2 bg-gradient-to-r from-green-500/10 to-green-600/10 text-green-600 font-semibold rounded-full border border-green-200/50 text-xs sm:text-sm">
                       CONSTRUCTION
                     </span>
                   </motion.div>
@@ -1058,9 +1062,9 @@ const Home: React.FC = () => {
                   <motion.h2
                     initial={{ opacity: 0, x: 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, delay: 0.7 }}
+                    transition={{ duration: 0.4, delay: 0.4 }}
                     viewport={{ once: true }}
-                    className="text-4xl lg:text-5xl font-black mb-6 leading-none text-gray-900"
+                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 sm:mb-6 leading-tight text-gray-900"
                   >
                     Fort Knox Quantity Surveying
                   </motion.h2>
@@ -1068,9 +1072,9 @@ const Home: React.FC = () => {
                   <motion.p
                     initial={{ opacity: 0, x: 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, delay: 0.9 }}
+                    transition={{ duration: 0.4, delay: 0.5 }}
                     viewport={{ once: true }}
-                    className="text-lg lg:text-xl text-gray-600 leading-relaxed mb-6"
+                    className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed mb-4 sm:mb-6"
                   >
                     A professional quantity surveying service provider website showcasing expertise in cost planning, BoQ preparation, and construction consulting.
                   </motion.p>
@@ -1078,28 +1082,28 @@ const Home: React.FC = () => {
                   <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, delay: 1.1 }}
+                    transition={{ duration: 0.4, delay: 0.6 }}
                     viewport={{ once: true }}
-                    className="mb-8"
+                    className="mb-6 sm:mb-8"
                   >
-                    <div className="flex flex-wrap gap-3">
-                      <span className="px-3 py-1 bg-green-100 text-green-700 text-sm font-medium rounded-full">🔒 Bank-Level Security</span>
-                      <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm font-medium rounded-full">👥 100K+ Users</span>
-                      <span className="px-3 py-1 bg-purple-100 text-purple-700 text-sm font-medium rounded-full">📊 Real-Time</span>
+                    <div className="flex flex-wrap gap-2 sm:gap-3">
+                      <span className="px-2 sm:px-3 py-1 bg-green-100 text-green-700 text-xs sm:text-sm font-medium rounded-full">🔒 Bank-Level Security</span>
+                      <span className="px-2 sm:px-3 py-1 bg-blue-100 text-blue-700 text-xs sm:text-sm font-medium rounded-full">👥 100K+ Users</span>
+                      <span className="px-2 sm:px-3 py-1 bg-purple-100 text-purple-700 text-xs sm:text-sm font-medium rounded-full">📊 Real-Time</span>
                 </div>
               </motion.div>
 
           <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, delay: 1.3 }}
+                    transition={{ duration: 0.4, delay: 0.7 }}
                     viewport={{ once: true }}
                   >
-                    <Link to="/projects/fort-knox-quantity-surveying" className="inline-flex items-center space-x-3 group cursor-pointer">
-                      <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                        <span className="text-white text-lg font-bold">→</span>
+                    <Link to="/projects/fort-knox-quantity-surveying" className="inline-flex items-center space-x-2 sm:space-x-3 group cursor-pointer">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <span className="text-white text-sm sm:text-base md:text-lg font-bold">→</span>
           </div>
-                      <span className="text-lg text-green-600 font-semibold group-hover:text-green-700 transition-colors duration-300">Explore Project</span>
+                      <span className="text-sm sm:text-base md:text-lg text-green-600 font-semibold group-hover:text-green-700 transition-colors duration-300">Explore Project</span>
                     </Link>
                   </motion.div>
         </div>
@@ -1111,37 +1115,39 @@ const Home: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="mb-32"
+            className="mb-12 sm:mb-16 md:mb-20 lg:mb-32"
           >
-            <div className="bg-white/80 backdrop-blur-xl rounded-3xl border border-white/50 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden group">
+            <div className="bg-white/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-white/50 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden group">
               <div className="grid lg:grid-cols-2 gap-0">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1, delay: 0.5 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="relative bg-gradient-to-br from-emerald-500/10 to-green-500/10 flex items-center justify-center p-12 order-2 lg:order-1"
+                className="relative bg-gradient-to-br from-emerald-500/10 to-green-500/10 flex items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 order-2 lg:order-1"
               >
-                <div className="w-full h-80 bg-black rounded-2xl border border-gray-200/30 backdrop-blur-sm flex items-center justify-center group-hover:scale-105 transition-transform duration-500 overflow-hidden">
+                <div className="w-full h-48 sm:h-64 md:h-72 lg:h-80 bg-black rounded-xl sm:rounded-2xl border border-gray-200/30 backdrop-blur-sm flex items-center justify-center group-hover:scale-105 transition-transform duration-500 overflow-hidden">
                   <img 
                     src="/projects/wildscapia logo.jpg"
                     alt="Wildscapia - Environmental Science & Conservation News"
-                    className="w-full h-full object-contain rounded-2xl opacity-90 hover:opacity-100 transition-opacity duration-500"
+                    className="w-full h-full object-contain rounded-xl sm:rounded-2xl opacity-90 hover:opacity-100 transition-opacity duration-500"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </motion.div>
               
-                <div className="p-12 lg:p-16 order-1 lg:order-2">
+                <div className="p-6 sm:p-8 md:p-12 lg:p-16 order-1 lg:order-2">
                   <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, delay: 0.5 }}
+                    transition={{ duration: 0.4, delay: 0.3 }}
                     viewport={{ once: true }}
-                    className="mb-6"
+                    className="mb-4 sm:mb-6"
                   >
-                    <span className="inline-block px-4 py-2 bg-gradient-to-r from-emerald-500/10 to-emerald-600/10 text-emerald-600 font-semibold rounded-full border border-emerald-200/50 text-sm">
+                    <span className="inline-block px-3 sm:px-4 py-1 sm:py-2 bg-gradient-to-r from-emerald-500/10 to-emerald-600/10 text-emerald-600 font-semibold rounded-full border border-emerald-200/50 text-xs sm:text-sm">
                       ENVIRONMENTAL
                     </span>
                   </motion.div>
@@ -1149,9 +1155,9 @@ const Home: React.FC = () => {
                 <motion.h2
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 1, delay: 0.7 }}
+                  transition={{ duration: 0.4, delay: 0.4 }}
                   viewport={{ once: true }}
-                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 sm:mb-8 leading-none"
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-4 sm:mb-6 md:mb-8 leading-tight"
                 >
                   WILDSCAPIA
                 </motion.h2>
@@ -1159,9 +1165,9 @@ const Home: React.FC = () => {
                 <motion.p
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 1, delay: 0.9 }}
+                  transition={{ duration: 0.4, delay: 0.5 }}
                   viewport={{ once: true }}
-                  className="text-lg lg:text-xl text-gray-600 leading-relaxed mb-6"
+                  className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed mb-4 sm:mb-6"
                 >
                   A comprehensive environmental science and conservation news platform featuring wildlife articles and environmental impact stories from around the world.
                 </motion.p>
@@ -1169,28 +1175,28 @@ const Home: React.FC = () => {
                 <motion.div
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 1, delay: 1.1 }}
+                  transition={{ duration: 0.4, delay: 0.6 }}
                   viewport={{ once: true }}
-                  className="mb-8"
+                  className="mb-6 sm:mb-8"
                 >
-                  <div className="flex flex-wrap gap-3">
-                    <span className="px-3 py-1 bg-emerald-100 text-emerald-700 text-sm font-medium rounded-full">🌍 Global Reach</span>
-                    <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm font-medium rounded-full">📰 News Platform</span>
-                    <span className="px-3 py-1 bg-purple-100 text-purple-700 text-sm font-medium rounded-full">🦋 Wildlife Focus</span>
+                  <div className="flex flex-wrap gap-2 sm:gap-3">
+                    <span className="px-2 sm:px-3 py-1 bg-emerald-100 text-emerald-700 text-xs sm:text-sm font-medium rounded-full">🌍 Global Reach</span>
+                    <span className="px-2 sm:px-3 py-1 bg-blue-100 text-blue-700 text-xs sm:text-sm font-medium rounded-full">📰 News Platform</span>
+                    <span className="px-2 sm:px-3 py-1 bg-purple-100 text-purple-700 text-xs sm:text-sm font-medium rounded-full">🦋 Wildlife Focus</span>
                   </div>
                 </motion.div>
                 
                 <motion.div
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 1, delay: 1.3 }}
+                  transition={{ duration: 0.4, delay: 0.7 }}
                   viewport={{ once: true }}
                 >
-                  <Link to="/projects/wildscapia-environmental-news" className="inline-flex items-center space-x-3 group cursor-pointer">
-                    <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                      <span className="text-white text-lg font-bold">→</span>
+                  <Link to="/projects/wildscapia-environmental-news" className="inline-flex items-center space-x-2 sm:space-x-3 group cursor-pointer">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                      <span className="text-white text-sm sm:text-base md:text-lg font-bold">→</span>
                     </div>
-                    <span className="text-lg text-emerald-600 font-semibold group-hover:text-emerald-700 transition-colors duration-300">Discover Project</span>
+                    <span className="text-sm sm:text-base md:text-lg text-emerald-600 font-semibold group-hover:text-emerald-700 transition-colors duration-300">Discover Project</span>
                   </Link>
                 </motion.div>
                 </div>
@@ -1202,23 +1208,23 @@ const Home: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-center mb-20"
+            className="text-center mb-12 sm:mb-16 md:mb-20"
           >
             <Link to="/projects">
               <motion.button
                 whileHover={{ scale: 1.05, y: -5 }}
                 whileTap={{ scale: 0.95 }}
-                className="group bg-gradient-to-r from-blue-500 to-teal-600 text-white px-12 py-4 text-xl font-semibold rounded-full hover:from-blue-600 hover:to-teal-700 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/25 border-0"
+                className="group bg-gradient-to-r from-blue-500 to-teal-600 text-white px-6 sm:px-8 md:px-12 py-3 sm:py-4 text-sm sm:text-base md:text-lg lg:text-xl font-semibold rounded-full hover:from-blue-600 hover:to-teal-700 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/25 border-0"
               >
-                <span className="flex items-center space-x-3">
+                <span className="flex items-center space-x-2 sm:space-x-3">
                   <span>View All Projects</span>
                   <motion.span
                     initial={{ x: 0 }}
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.3 }}
-                    className="text-2xl"
+                    className="text-lg sm:text-xl md:text-2xl"
                   >
                     →
                   </motion.span>
@@ -1230,12 +1236,12 @@ const Home: React.FC = () => {
       </section>
 
       {/* Our Process - Timeline Design */}
-      <section className="py-24 px-6 bg-black relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 bg-black relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,197,94,0.1),transparent_50%)]"></div>
-          <div className="absolute top-20 left-20 w-72 h-72 bg-green-500/5 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-20 left-10 sm:left-20 w-48 sm:w-72 h-48 sm:h-72 bg-green-500/5 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 sm:right-20 w-64 sm:w-96 h-64 sm:h-96 bg-emerald-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
 
         <div className="max-w-6xl mx-auto relative z-10">
@@ -1245,14 +1251,14 @@ const Home: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-20"
+            className="text-center mb-12 sm:mb-16 md:mb-20"
           >
             <motion.h2
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-5xl lg:text-6xl font-black mb-6 leading-none text-white"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 leading-tight text-white"
             >
               OUR <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">PROCESS</span>
             </motion.h2>
@@ -1262,7 +1268,7 @@ const Home: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed"
+              className="text-base sm:text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0"
             >
               From concept to deployment, we follow a proven process that delivers exceptional results
             </motion.p>
@@ -1284,7 +1290,7 @@ const Home: React.FC = () => {
             </div>
             
             {/* Process Steps */}
-            <div className="space-y-20">
+            <div className="space-y-12 sm:space-y-16 md:space-y-20">
               {processSteps.map((step, index) => {
                 const stepProgress = useTransform(
                   scrollYProgress,
@@ -1302,10 +1308,10 @@ const Home: React.FC = () => {
                     className="relative flex items-center"
                   >
                     {/* Timeline Dot - Perfectly Centered */}
-                    <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-green-500 rounded-full z-10"></div>
+                    <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 sm:w-3 h-2 sm:h-3 bg-green-500 rounded-full z-10"></div>
                     
-                    {/* Content Card */}
-                    <div className={`w-5/12 ${index % 2 === 0 ? 'pr-12 text-right' : 'ml-auto pl-12 text-left'}`}>
+                    {/* Content Card - Mobile First */}
+                    <div className={`w-full sm:w-5/12 ${index % 2 === 0 ? 'sm:pr-6 md:pr-12 text-center sm:text-right' : 'sm:ml-auto sm:pl-6 md:pl-12 text-center sm:text-left'}`}>
                       <motion.div
                         style={{
                           opacity: stepProgress,
@@ -1315,20 +1321,20 @@ const Home: React.FC = () => {
                             [index % 2 === 0 ? 50 : -50, 0]
                           )
                         }}
-                        className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300"
+                        className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4 sm:p-6 hover:bg-white/10 transition-all duration-300"
                       >
                         {/* Step Number Badge */}
-                        <div className="inline-block px-3 py-1 bg-green-500 text-white text-sm font-bold rounded-full mb-3">
+                        <div className="inline-block px-2 sm:px-3 py-1 bg-green-500 text-white text-xs sm:text-sm font-bold rounded-full mb-2 sm:mb-3">
                           {step.step}
                         </div>
                         
                         {/* Title */}
-                        <h3 className="text-xl lg:text-2xl font-bold text-white mb-3">
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3">
                           {step.title}
                         </h3>
                         
                         {/* Description */}
-                        <p className="text-gray-300 leading-relaxed text-sm">
+                        <p className="text-gray-300 leading-relaxed text-xs sm:text-sm">
                           {step.description}
                         </p>
                       </motion.div>
@@ -1343,17 +1349,17 @@ const Home: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
-            className="text-center mt-20"
+            className="text-center mt-12 sm:mt-16 md:mt-20"
           >
-            <div className="bg-gradient-to-r from-green-600/10 via-emerald-600/10 to-teal-600/10 rounded-3xl border border-green-500/20 p-12 backdrop-blur-sm">
+            <div className="bg-gradient-to-r from-green-600/10 via-emerald-600/10 to-teal-600/10 rounded-2xl sm:rounded-3xl border border-green-500/20 p-6 sm:p-8 md:p-12 backdrop-blur-sm">
               <motion.h3
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="text-3xl font-black text-white mb-6"
+                className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-4 sm:mb-6"
               >
                 READY TO START YOUR PROJECT?
               </motion.h3>
@@ -1361,9 +1367,9 @@ const Home: React.FC = () => {
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.9 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
                 viewport={{ once: true }}
-                className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto"
+                className="text-sm sm:text-base md:text-lg text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto px-4 sm:px-0"
               >
                 Let's follow our proven process to bring your vision to life
               </motion.p>
@@ -1371,14 +1377,14 @@ const Home: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.1 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
                 viewport={{ once: true }}
               >
                 <Link to="/contact">
                   <motion.button
                     whileHover={{ scale: 1.05, y: -3 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-12 py-4 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold rounded-full transition-all duration-300 hover:shadow-2xl hover:shadow-green-500/25"
+                    className="px-6 sm:px-8 md:px-12 py-3 sm:py-4 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold rounded-full transition-all duration-300 hover:shadow-2xl hover:shadow-green-500/25 text-sm sm:text-base"
                   >
                     START YOUR JOURNEY
                   </motion.button>
