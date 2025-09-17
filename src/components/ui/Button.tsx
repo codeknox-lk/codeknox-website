@@ -35,10 +35,10 @@ const Button: React.FC<ButtonProps> = ({
   const baseClasses = 'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none focus-visible:ring-2 focus-visible:ring-offset-2 focus:ring-offset-gray-950';
   
   const variantClasses = {
-    primary: 'bg-gradient-to-r from-blue-500 to-teal-600 hover:from-blue-600 hover:to-teal-700 text-white focus:ring-blue-500 focus-visible:ring-blue-500',
-    secondary: 'bg-gray-800 hover:bg-gray-700 text-white focus:ring-gray-500 focus-visible:ring-gray-500',
-    accent: 'bg-gradient-to-r from-blue-500 to-teal-600 hover:from-blue-600 hover:to-teal-700 text-white focus:ring-blue-500 focus-visible:ring-blue-500',
-    outline: 'bg-transparent border-2 border-gray-600 text-gray-300 hover:border-blue-400 hover:text-blue-400 focus:ring-blue-500 focus-visible:ring-blue-500',
+    primary: 'bg-gradient-to-r from-blue-500 to-teal-600 hover:from-blue-600 hover:to-teal-700 text-white focus:ring-blue-500 focus-visible:ring-blue-500 shadow-lg hover:shadow-xl hover:shadow-blue-500/25',
+    secondary: 'bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 text-white focus:ring-gray-500 focus-visible:ring-gray-500 shadow-lg hover:shadow-xl',
+    accent: 'bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white focus:ring-emerald-500 focus-visible:ring-emerald-500 shadow-lg hover:shadow-xl hover:shadow-emerald-500/25',
+    outline: 'bg-transparent border-2 border-gray-600 text-gray-300 hover:border-blue-400 hover:text-blue-400 focus:ring-blue-500 focus-visible:ring-blue-500 hover:bg-blue-500/10',
     ghost: 'bg-transparent hover:bg-gray-800 text-gray-300 hover:text-white focus:ring-gray-500 focus-visible:ring-gray-500'
   };
   

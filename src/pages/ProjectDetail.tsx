@@ -299,13 +299,14 @@ const ProjectDetail: React.FC = () => {
                           variant="accent" 
                           fullWidth
                           onClick={() => window.open(project.websiteUrl, '_blank')}
+                          className="font-semibold"
                         >
                           Visit Website
                           <ExternalLink size={20} />
                         </Button>
                       )}
                       <Link to="/contact" className="block">
-                        <Button variant="primary" fullWidth>
+                        <Button variant="primary" fullWidth className="font-semibold">
                           Start Similar Project
                           <ExternalLink size={20} />
                         </Button>
@@ -399,6 +400,13 @@ const ProjectDetail: React.FC = () => {
                     src={image}
                     alt={`${project.title} - Image ${index + 1}`}
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                    loading="lazy"
+                    decoding="async"
+                    onLoad={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.opacity = '1';
+                    }}
+                    style={{ opacity: 0, transition: 'opacity 0.3s ease-in-out' }}
                   />
                 </div>
               ))}
@@ -491,14 +499,14 @@ const ProjectDetail: React.FC = () => {
               to life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg" className="text-lg">
+              <Button variant="secondary" size="lg" className="text-lg font-semibold">
                 Start Your Project
                 <ArrowRight size={20} />
               </Button>
               <Button
                 variant="outline"
                 size="lg"
-                className="text-lg border-white text-white hover:bg-white hover:text-black"
+                className="text-lg font-semibold border-white text-white hover:bg-white hover:text-black"
               >
                 Schedule a Call
               </Button>
@@ -535,6 +543,13 @@ const ProjectDetail: React.FC = () => {
                 src={project.gallery[currentImageIndex]}
                 alt={`${project.title} - Image ${currentImageIndex + 1}`}
                 className="w-full h-full object-contain rounded-xl max-h-[80vh]"
+                loading="eager"
+                decoding="async"
+                onLoad={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.opacity = '1';
+                }}
+                style={{ opacity: 0, transition: 'opacity 0.3s ease-in-out' }}
               />
               {/* Navigation arrows */}
               {project.gallery.length > 1 && (
