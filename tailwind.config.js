@@ -11,11 +11,15 @@ export default {
         'xs': '480px',
         'sm': '640px',
         'md': '768px',
+        'md-lg': '896px', // Between md and lg
         'lg': '1024px',
+        'lg-xl': '1152px', // Between lg and xl
         'xl': '1280px',
         '2xl': '1536px',
         'laptop': '1366px', // Custom breakpoint for 1366×768 laptops
         'laptop-lg': '1440px', // For larger laptops
+        'tablet': '820px', // For tablet landscape
+        'desktop-sm': '1200px', // Small desktop
       },
       colors: {
         primary: {

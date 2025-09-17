@@ -135,7 +135,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             className="fixed top-0 left-0 right-0 z-50 flex justify-center"
           >
             {/* Main Navigation Container */}
-            <div className="relative w-full max-w-7xl mx-3 sm:mx-4 laptop:mx-4 md:mx-6 mt-2 sm:mt-3 laptop:mt-2 md:mt-4">
+            <div className="relative w-full max-w-7xl mx-3 sm:mx-4 md:mx-4 md-lg:mx-5 lg:mx-6 mt-2 sm:mt-3 md:mt-2 md-lg:mt-3 lg:mt-4">
               {/* Liquid Glass Background */}
               <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl">
                 {/* Backdrop Blur Layer */}
@@ -151,19 +151,19 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-blue-500/5 via-transparent to-teal-500/5" />
                 
                 {/* Content Container */}
-                <div className="relative flex items-center justify-between px-3 sm:px-4 laptop:px-4 md:px-6 py-2 sm:py-3 laptop:py-2 md:py-3">
+                <div className="relative flex items-center justify-between px-3 sm:px-4 md:px-4 md-lg:px-5 lg:px-6 py-2 sm:py-3 md:py-2 md-lg:py-2.5 lg:py-3">
                   
 
                   
                   {/* Logo Section */}
                   <div className="flex items-center justify-center">
-                    <div className="w-28 h-16 sm:w-36 sm:h-20 laptop:w-36 laptop:h-20 md:w-40 md:h-24 flex items-center justify-center">
+                    <div className="w-28 h-16 sm:w-32 sm:h-18 md:w-36 md:h-20 md-lg:w-38 md-lg:h-22 lg:w-40 lg:h-24 flex items-center justify-center">
                       <Logo showText={false} />
                     </div>
                   </div>
 
                   {/* Desktop Navigation Links */}
-                  <div className="hidden md:flex items-center space-x-1 laptop:space-x-1.5 lg:space-x-2">
+                  <div className="hidden md:flex items-center space-x-1 md-lg:space-x-1.5 lg:space-x-2">
                     {navigationItems.map((item, index) => (
                       <motion.div
                         key={item.name}
@@ -174,7 +174,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                       >
                 <Link
                   to={item.path}
-                          className={`relative flex items-center px-1.5 sm:px-2 laptop:px-2 md:px-3 py-1 sm:py-1.5 laptop:py-1 md:py-1.5 transition-all duration-300 font-medium text-xs sm:text-sm laptop:text-sm tracking-wide whitespace-nowrap rounded-xl sm:rounded-2xl group ${
+                          className={`relative flex items-center px-1.5 sm:px-2 md:px-2 md-lg:px-2.5 lg:px-3 py-1 sm:py-1.5 md:py-1 md-lg:py-1.5 lg:py-1.5 transition-all duration-300 font-medium text-xs sm:text-sm md:text-sm md-lg:text-sm lg:text-sm tracking-wide whitespace-nowrap rounded-xl sm:rounded-2xl group ${
                             isOverDarkSection 
                               ? 'text-white hover:text-gray-200' 
                               : 'text-gray-700 hover:text-gray-900'

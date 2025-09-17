@@ -51,13 +51,13 @@ const Home: React.FC = () => {
 
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 relative overflow-hidden pt-16 sm:pt-20 laptop:pt-16 md:pt-20">
+      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-6 md-lg:px-7 lg:px-8 relative overflow-hidden pt-16 sm:pt-18 md:pt-16 md-lg:pt-18 lg:pt-20">
         {/* Beautiful Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100"></div>
         
         {/* Floating Geometric Shapes - Optimized for mobile */}
         <motion.div
-          className="absolute top-16 sm:top-20 left-8 sm:left-20 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 bg-gradient-to-br from-blue-400/20 to-teal-500/20 rounded-full blur-lg sm:blur-xl"
+          className="absolute top-16 sm:top-18 md:top-20 md-lg:top-20 left-8 sm:left-16 md:left-18 md-lg:left-20 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 md-lg:w-28 md-lg:h-28 lg:w-32 lg:h-32 bg-gradient-to-br from-blue-400/20 to-teal-500/20 rounded-full blur-lg sm:blur-xl"
           animate={{
             y: [0, -20, 0],
             scale: [1, 1.05, 1]
@@ -70,7 +70,7 @@ const Home: React.FC = () => {
         />
         
         <motion.div
-          className="absolute top-32 sm:top-40 right-12 sm:right-24 md:right-32 w-12 h-12 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-gradient-to-br from-teal-400/20 to-blue-500/20 rounded-full blur-lg sm:blur-xl"
+          className="absolute top-32 sm:top-36 md:top-38 md-lg:top-40 right-12 sm:right-20 md:right-24 md-lg:right-28 lg:right-32 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 md-lg:w-22 md-lg:h-22 lg:w-24 lg:h-24 bg-gradient-to-br from-teal-400/20 to-blue-500/20 rounded-full blur-lg sm:blur-xl"
           animate={{
             y: [0, 30, 0],
             scale: [1, 0.9, 1]
@@ -84,7 +84,7 @@ const Home: React.FC = () => {
         />
         
         <motion.div
-          className="absolute bottom-24 sm:bottom-32 left-1/4 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-500/15 to-teal-600/15 rounded-full blur-md sm:blur-lg"
+          className="absolute bottom-24 sm:bottom-28 md:bottom-30 md-lg:bottom-32 left-1/4 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 md-lg:w-18 md-lg:h-18 lg:w-20 lg:h-20 bg-gradient-to-br from-blue-500/15 to-teal-600/15 rounded-full blur-md sm:blur-lg"
           animate={{
             y: [0, -15, 0],
             scale: [1, 1.1, 1]
@@ -111,7 +111,7 @@ const Home: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col justify-center items-center space-y-2 sm:space-y-4 laptop:space-y-3 md:space-y-6 text-center px-4 sm:px-6 md:px-8 hero-section"
+            className="flex flex-col justify-center items-center space-y-2 sm:space-y-3 md:space-y-3 md-lg:space-y-4 lg:space-y-6 text-center px-4 sm:px-6 md:px-6 md-lg:px-7 lg:px-8 hero-section"
           >
             {/* Build Smart - Consistent sizing */}
             <motion.div
@@ -124,7 +124,7 @@ const Home: React.FC = () => {
               }}
             >
               <motion.h2 
-                className="text-2xl sm:text-3xl md:text-4xl laptop:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-black text-gray-900 leading-tight"
+                className="text-2xl sm:text-3xl md:text-3xl md-lg:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-black text-gray-900 leading-tight"
                 initial={{ filter: "blur(10px)" }}
                 animate={{ filter: "blur(0px)" }}
                 transition={{ 
@@ -148,7 +148,7 @@ const Home: React.FC = () => {
               }}
             >
               <motion.h2 
-                className="text-2xl sm:text-3xl md:text-4xl laptop:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-black text-gray-900 leading-tight"
+                className="text-2xl sm:text-3xl md:text-3xl md-lg:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-black text-gray-900 leading-tight"
                 initial={{ filter: "blur(10px)" }}
                 animate={{ filter: "blur(0px)" }}
                 transition={{ 
@@ -172,7 +172,7 @@ const Home: React.FC = () => {
               }}
             >
               <motion.h2 
-                className="text-2xl sm:text-3xl md:text-4xl laptop:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-black text-gray-900 leading-tight"
+                className="text-2xl sm:text-3xl md:text-3xl md-lg:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-black text-gray-900 leading-tight"
                 initial={{ filter: "blur(10px)" }}
                 animate={{ filter: "blur(0px)" }}
                 transition={{ 
@@ -196,7 +196,7 @@ const Home: React.FC = () => {
               }}
             >
               <motion.h2 
-                className="text-2xl sm:text-3xl md:text-4xl laptop:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-black leading-tight"
+                className="text-2xl sm:text-3xl md:text-3xl md-lg:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-black leading-tight"
                 style={{ color: '#07697f' }}
                 initial={{ filter: "blur(20px)", opacity: 0 }}
                 animate={{ filter: "blur(0px)", opacity: 1 }}
