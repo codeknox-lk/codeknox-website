@@ -300,15 +300,21 @@ const ProjectDetail: React.FC = () => {
                           fullWidth
                           onClick={() => window.open(project.websiteUrl, '_blank')}
                           className="font-semibold"
+                          icon={<ExternalLink size={20} />}
+                          iconPosition="right"
                         >
                           Visit Website
-                          <ExternalLink size={20} />
                         </Button>
                       )}
                       <Link to="/contact" className="block">
-                        <Button variant="primary" fullWidth className="font-semibold">
+                        <Button 
+                          variant="primary" 
+                          fullWidth 
+                          className="font-semibold"
+                          icon={<ExternalLink size={20} />}
+                          iconPosition="right"
+                        >
                           Start Similar Project
-                          <ExternalLink size={20} />
                         </Button>
                       </Link>
                     </div>
@@ -499,9 +505,14 @@ const ProjectDetail: React.FC = () => {
               to life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg" className="text-lg font-semibold">
+              <Button 
+                variant="secondary" 
+                size="lg" 
+                className="text-lg font-semibold"
+                icon={<ArrowRight size={20} />}
+                iconPosition="right"
+              >
                 Start Your Project
-                <ArrowRight size={20} />
               </Button>
               <Button
                 variant="outline"

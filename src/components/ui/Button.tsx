@@ -84,7 +84,7 @@ const Button: React.FC<ButtonProps> = ({
       )}
       
       {!loading && icon && iconPosition === 'left' && (
-        <span className="mr-2" aria-hidden="true">{icon}</span>
+        <span className="mr-2 flex items-center" aria-hidden="true">{icon}</span>
       )}
       
       <span className={loading ? 'sr-only' : ''}>
@@ -92,7 +92,7 @@ const Button: React.FC<ButtonProps> = ({
       </span>
       
       {!loading && icon && iconPosition === 'right' && (
-        <span className="ml-2" aria-hidden="true">{icon}</span>
+        <span className="ml-2 flex items-center" aria-hidden="true">{icon}</span>
       )}
     </motion.button>
   );
