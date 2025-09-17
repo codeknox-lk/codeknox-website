@@ -1215,8 +1215,8 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Our Process - Timeline Design - Mobile Optimized v2 */}
-      <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 bg-black relative overflow-hidden">
+      {/* Our Process - Timeline Design - Perfect Mobile */}
+      <section className="py-8 sm:py-16 md:py-20 lg:py-24 px-3 sm:px-6 bg-black relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,197,94,0.1),transparent_50%)]"></div>
@@ -1225,20 +1225,20 @@ const Home: React.FC = () => {
         </div>
 
         <div className="max-w-6xl mx-auto relative z-10">
-          {/* Section Header */}
+          {/* Section Header - Mobile Optimized */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-12 sm:mb-16 md:mb-20"
+            className="text-center mb-8 sm:mb-16 md:mb-20 px-2 sm:px-0"
           >
             <motion.h2
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 leading-tight text-white"
+              className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-3 sm:mb-6 leading-tight text-white"
             >
               OUR <span className="bg-gradient-to-r from-emerald-500 to-teal-600 bg-clip-text text-transparent">PROCESS</span> ✨
             </motion.h2>
@@ -1248,7 +1248,7 @@ const Home: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="text-base sm:text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0"
+              className="text-sm sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-2 sm:px-0"
             >
               From concept to deployment, we follow a proven process that delivers exceptional results
             </motion.p>
@@ -1269,8 +1269,8 @@ const Home: React.FC = () => {
               />
             </div>
             
-            {/* Process Steps */}
-            <div className="space-y-12 sm:space-y-16 md:space-y-20">
+            {/* Process Steps - Mobile Optimized */}
+            <div className="space-y-8 sm:space-y-16 md:space-y-20">
               {processSteps.map((step, index) => {
                 const stepProgress = useTransform(
                   scrollYProgress,
@@ -1295,7 +1295,7 @@ const Home: React.FC = () => {
                       <div className="absolute inset-0 bg-emerald-500/20 rounded-full blur-sm animate-pulse"></div>
                     </div>
                     
-                    {/* Content Card - Mobile First */}
+                    {/* Content Card - Perfect Mobile */}
                     <div className={`w-full sm:w-5/12 ${index % 2 === 0 ? 'sm:pr-6 md:pr-12 text-center sm:text-right' : 'sm:ml-auto sm:pl-6 md:pl-12 text-center sm:text-left'}`}>
                       <motion.div
                         style={{
@@ -1306,30 +1306,30 @@ const Home: React.FC = () => {
                             [index % 2 === 0 ? 50 : -50, 0]
                           )
                         }}
-                        className="bg-gradient-to-br from-white/8 via-white/5 to-white/3 backdrop-blur-xl border border-white/20 rounded-2xl p-5 sm:p-6 hover:bg-white/10 hover:border-white/30 transition-all duration-500 relative overflow-hidden shadow-xl shadow-black/20"
+                        className="bg-gradient-to-br from-white/8 via-white/5 to-white/3 backdrop-blur-xl border border-white/20 rounded-2xl p-4 sm:p-6 hover:bg-white/10 hover:border-white/30 transition-all duration-500 relative overflow-hidden shadow-xl shadow-black/20"
                       >
-                        {/* Mobile: Step Number as Large Icon - Beautiful Design */}
-                        <div className="flex items-center justify-center sm:justify-start mb-4 sm:mb-5">
+                        {/* Mobile: Step Number as Large Icon - Perfect Mobile */}
+                        <div className="flex items-center justify-center sm:justify-start mb-3 sm:mb-5">
                           <div className="relative">
-                            {/* Beautiful Step Number Circle */}
-                            <div className="w-14 h-14 sm:w-12 sm:h-12 bg-gradient-to-br from-emerald-500 via-green-500 to-teal-600 rounded-full flex items-center justify-center shadow-2xl shadow-emerald-500/40 border-2 border-white/20 relative overflow-hidden">
-                              <span className="text-white font-bold text-lg sm:text-sm z-10">{step.step}</span>
+                            {/* Beautiful Step Number Circle - Mobile Optimized */}
+                            <div className="w-12 h-12 sm:w-12 sm:h-12 bg-gradient-to-br from-emerald-500 via-green-500 to-teal-600 rounded-full flex items-center justify-center shadow-2xl shadow-emerald-500/40 border-2 border-white/20 relative overflow-hidden">
+                              <span className="text-white font-bold text-base sm:text-sm z-10">{step.step}</span>
                               {/* Inner glow */}
                               <div className="absolute inset-1 bg-gradient-to-br from-white/20 to-transparent rounded-full"></div>
                             </div>
                             {/* Outer glow effect */}
-                            <div className="absolute inset-0 w-14 h-14 sm:w-12 sm:h-12 bg-emerald-500/25 rounded-full blur-md animate-pulse"></div>
-                            <div className="absolute inset-0 w-14 h-14 sm:w-12 sm:h-12 bg-green-500/15 rounded-full blur-lg animate-pulse delay-300"></div>
+                            <div className="absolute inset-0 w-12 h-12 sm:w-12 sm:h-12 bg-emerald-500/25 rounded-full blur-md animate-pulse"></div>
+                            <div className="absolute inset-0 w-12 h-12 sm:w-12 sm:h-12 bg-green-500/15 rounded-full blur-lg animate-pulse delay-300"></div>
                           </div>
                           
-                          {/* Title - Beautiful styling */}
-                          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white ml-4 sm:ml-0 sm:mt-0">
+                          {/* Title - Mobile Optimized */}
+                          <h3 className="text-base sm:text-xl md:text-2xl font-bold text-white ml-3 sm:ml-0 sm:mt-0">
                             {step.title}
                           </h3>
                         </div>
                         
-                        {/* Description */}
-                        <p className="text-gray-300 leading-relaxed text-sm sm:text-sm text-center sm:text-left">
+                        {/* Description - Mobile Optimized */}
+                        <p className="text-gray-300 leading-relaxed text-xs sm:text-sm text-center sm:text-left">
                           {step.description}
                         </p>
                         
@@ -1344,21 +1344,21 @@ const Home: React.FC = () => {
             </div>
           </div>
 
-          {/* CTA Section */}
+          {/* CTA Section - Mobile Optimized */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
-            className="text-center mt-12 sm:mt-16 md:mt-20"
+            className="text-center mt-8 sm:mt-16 md:mt-20 px-2 sm:px-0"
           >
-            <div className="bg-gradient-to-r from-green-600/10 via-emerald-600/10 to-teal-600/10 rounded-2xl sm:rounded-3xl border border-green-500/20 p-6 sm:p-8 md:p-12 backdrop-blur-sm">
+            <div className="bg-gradient-to-r from-green-600/10 via-emerald-600/10 to-teal-600/10 rounded-2xl sm:rounded-3xl border border-green-500/20 p-4 sm:p-8 md:p-12 backdrop-blur-sm">
               <motion.h3
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-4 sm:mb-6"
+                className="text-lg sm:text-2xl md:text-3xl font-black text-white mb-3 sm:mb-6"
               >
                 READY TO START YOUR PROJECT?
               </motion.h3>
