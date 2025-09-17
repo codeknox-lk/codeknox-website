@@ -1215,7 +1215,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Our Process - Timeline Design */}
+      {/* Our Process - Timeline Design - Mobile Optimized v2 */}
       <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 bg-black relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0">
