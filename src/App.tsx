@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { BlogProvider } from "./contexts/BlogContext";
 import { ProjectProvider } from "./contexts/ProjectContext";
@@ -68,6 +69,7 @@ function App() {
                   </Routes>
                 </Layout>
               </Router>
+              <Analytics />
             </ProjectProvider>
         </BlogProvider>
       </ThemeProvider>
