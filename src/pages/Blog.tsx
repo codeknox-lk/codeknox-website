@@ -3,8 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Search, Calendar, Clock, User, ChevronDown, X, BookOpen, Sparkles, ArrowRight, Mail, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useBlog } from "../contexts/BlogContext";
-import emailjs from '@emailjs/browser';
-import { EMAILJS_CONFIG } from '../config/emailjs';
 
 const Blog: React.FC = () => {
   const { posts, isLoading, refreshPosts } = useBlog();
@@ -40,32 +38,13 @@ const Blog: React.FC = () => {
         return;
       }
 
-      // Initialize EmailJS
-      emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+      // Simple email notification (using mailto)
+      const subject = encodeURIComponent("New Newsletter Subscription");
+      const body = encodeURIComponent(`New newsletter subscription:\n\nEmail: ${email}\nDate: ${new Date().toLocaleDateString()}\n\nPlease add this email to your newsletter list.`);
+      const mailtoLink = `mailto:sales@codeknox.lk?subject=${subject}&body=${body}`;
       
-      // Send welcome email to subscriber
-      const welcomeEmailParams = {
-        to_email: email,
-        to_name: email.split('@')[0], // Use email prefix as name
-        from_name: "CodeKnox Team",
-        message: `Welcome to our newsletter! You'll receive the latest insights, tutorials, and industry trends delivered weekly.`,
-        reply_to: "sales@codeknox.lk"
-      };
-
-      // Send notification email to you (admin) - using correct variable names
-      const adminEmailParams = {
-        to_email: "sales@codeknox.lk",
-        to_name: "CodeKnox Team",
-        from_name: "Newsletter Subscription",
-        reply_to: email,
-        current_date: new Date().toLocaleDateString()
-      };
-
-      // Send welcome email to subscriber
-      await emailjs.send(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.TEMPLATES.WELCOME, welcomeEmailParams);
-      
-      // Send admin notification
-      await emailjs.send(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.TEMPLATES.ADMIN_NOTIFICATION, adminEmailParams);
+      // Open email client
+      window.open(mailtoLink, '_blank');
 
       // Add new subscriber to localStorage
       subscribers.push({

@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Logo from './Logo';
 import ChatBot from './ChatBot';
-import CookieBanner from './CookieBanner';
 
 // Company information
 const companyInfo = {
@@ -553,7 +552,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <ChatBot />
       
       {/* Cookie Banner */}
-      <CookieBanner />
     </div>
   );
 };

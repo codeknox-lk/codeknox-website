@@ -68,3 +68,24 @@ jspm_packages/
 # Temporary folders
 tmp/
 temp/
+
+# Debug and test files
+debug-*.html
+test-*.html
+simple-*.html
+
+# API files (if not needed)
+api/
+
+# Unused config files
+src/config/
+
+# Build artifacts
+*.map
+*.min.js
+*.min.css
+
+# IDE specific files
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json

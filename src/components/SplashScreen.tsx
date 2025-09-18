@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import "./SplashScreen.css";
 
 interface SplashScreenProps {
   onComplete?: () => void;
