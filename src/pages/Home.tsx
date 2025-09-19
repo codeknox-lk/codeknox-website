@@ -51,7 +51,7 @@ const Home: React.FC = () => {
 
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-6 md-lg:px-7 lg:px-8 relative overflow-hidden pt-16 sm:pt-18 md:pt-16 md-lg:pt-18 lg:pt-20">
+      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-6 md-lg:px-7 lg:px-8 relative overflow-hidden pt-12 sm:pt-16 md:pt-16 md-lg:pt-18 lg:pt-20">
         {/* Beautiful Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100"></div>
         
