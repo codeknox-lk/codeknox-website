@@ -67,15 +67,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     
-    <!-- Structured Data for SEO -->
+    <!-- Enhanced Structured Data for Rich Snippets -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": ["LocalBusiness", "Organization", "WebSite"],
       "name": "CodeKnox",
       "alternateName": ["Code Knox", "Code Knox (Pvt) Ltd", "The Stronghold Of Smart Solutions"],
       "url": "https://codeknox.lk",
       "logo": "https://codeknox.lk/logo.png",
+      "image": "https://codeknox.lk/logo.png",
       "description": "CodeKnox - The Stronghold Of Smart Solutions. Sri Lanka's premier web development company specializing in professional websites, mobile apps, e-commerce, and digital transformation. Expert developers in Colombo.",
       "slogan": "The Stronghold Of Smart Solutions",
       "address": {
@@ -143,7 +144,52 @@
             }
           }
         ]
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://codeknox.lk/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "mainEntity": {
+        "@type": "WebSite",
+        "name": "CodeKnox",
+        "url": "https://codeknox.lk",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://codeknox.lk/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
       }
+    }
+    </script>
+    
+    <!-- Additional Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "CodeKnox",
+      "url": "https://codeknox.lk",
+      "logo": "https://codeknox.lk/logo.png",
+      "description": "Sri Lanka's premier web development company specializing in professional websites, mobile apps, e-commerce, and digital transformation.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Colombo",
+        "addressRegion": "Western Province",
+        "addressCountry": "Sri Lanka"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+94706633321",
+        "contactType": "customer service",
+        "email": "sales@codeknox.lk"
+      },
+      "sameAs": [
+        "https://web.facebook.com/profile.php?id=61577218966588",
+        "https://www.instagram.com/codeknox_lk/",
+        "https://linkedin.com/company/codeknox",
+        "https://github.com/codeknox-lk"
+      ]
     }
     </script>
     
