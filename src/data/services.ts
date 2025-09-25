@@ -38,8 +38,8 @@ export const services: Service[] = [
       'User Testing & Iteration'
     ],
     timeline: '2-6 weeks',
-    startingPrice: '40,000 LKR',
-    priceRange: '40,000–150,000 LKR',
+    startingPrice: 'From 10,000 LKR',
+    priceRange: 'Bronze: 10,000–20,000 LKR | Silver: 25,000–60,000 LKR | Gold: Above 80,000 LKR',
     features: ['Figma', 'Illustrator', 'Photoshop', 'AI Ideation'],
     color: 'from-purple-500 to-pink-500'
   },
@@ -57,8 +57,8 @@ export const services: Service[] = [
       'Progressive Web Apps'
     ],
     timeline: '3-8 weeks',
-    startingPrice: '80,000 LKR',
-    priceRange: '80,000–450,000 LKR',
+    startingPrice: 'From 50,000 LKR',
+    priceRange: 'Bronze: 50,000–100,000 LKR | Silver: 80,000–250,000 LKR | Gold: Above 100,000 LKR',
     features: ['React', 'Tailwind CSS', 'HTML/CSS', 'TypeScript'],
     color: 'from-blue-500 to-cyan-500'
   },
@@ -76,8 +76,8 @@ export const services: Service[] = [
       'Performance Monitoring'
     ],
     timeline: '4-10 weeks',
-    startingPrice: '80,000 LKR',
-    priceRange: '80,000–450,000 LKR',
+    startingPrice: 'From 50,000 LKR',
+    priceRange: 'Bronze: 50,000–100,000 LKR | Silver: 80,000–250,000 LKR | Gold: Above 100,000 LKR',
     features: ['Node.js', 'Firebase', 'Real-time DB', 'API Integration'],
     color: 'from-green-500 to-emerald-500'
   },
@@ -95,8 +95,8 @@ export const services: Service[] = [
       'Ongoing Maintenance'
     ],
     timeline: '1-3 weeks',
-    startingPrice: '25,000 LKR',
-    priceRange: '25,000–100,000 LKR',
+    startingPrice: 'From 20,000 LKR',
+    priceRange: 'Bronze: 20,000–40,000 LKR | Silver: 40,000–70,000 LKR | Gold: Above 80,000 LKR',
     features: ['Wix', 'Webflow', 'WordPress', 'Custom Plugins'],
     color: 'from-orange-500 to-red-500'
   },
@@ -114,14 +114,14 @@ export const services: Service[] = [
       'Website Maintenance'
     ],
     timeline: 'Ongoing',
-    startingPrice: '8,000 LKR/month',
-    priceRange: '8,000–30,000 LKR/month',
+    startingPrice: 'From 40,000 LKR',
+    priceRange: 'Bronze: 40,000–90,000 LKR | Silver: 100,000–160,000 LKR | Gold: Above 150,000 LKR',
     features: ['Monitoring', 'DB Management', 'Security', 'Maintenance'],
     color: 'from-gray-500 to-slate-500'
   },
   {
     id: 'mobile-app-design',
-    title: 'Mobile App Interface Design',
+    title: 'Mobile App Development',
     description: 'Native and cross-platform mobile app interfaces with Flutter and native Java.',
     icon: Smartphone,
     deliverables: [
@@ -133,8 +133,8 @@ export const services: Service[] = [
       'Design Handoff'
     ],
     timeline: '2-4 weeks',
-    startingPrice: '50,000 LKR',
-    priceRange: '50,000–300,000 LKR',
+    startingPrice: 'From 50,000 LKR',
+    priceRange: 'Bronze: 50,000–100,000 LKR | Silver: 120,000–200,000 LKR | Gold: Above 120,000 LKR',
     features: ['Flutter', 'Native Java', 'iOS Guidelines', 'Material Design'],
     color: 'from-indigo-500 to-purple-500'
   },
@@ -152,8 +152,8 @@ export const services: Service[] = [
       'Community Management'
     ],
     timeline: 'Ongoing',
-    startingPrice: '3,500 LKR/month',
-    priceRange: '3,500–10,000 LKR/month',
+    startingPrice: 'Setup 10,000 + 3,500/mo',
+    priceRange: 'Bronze: Setup 10,000 + 3,500/mo | Silver: Setup 10,000 + 6,000/mo | Gold: Setup 10,000 + 10,000/mo',
     features: ['TikTok', 'Facebook', 'Instagram', 'LinkedIn', 'X'],
     color: 'from-pink-500 to-rose-500'
   },
@@ -171,8 +171,8 @@ export const services: Service[] = [
       'Launch Support'
     ],
     timeline: '4-12 weeks',
-    startingPrice: '4,000 LKR/month',
-    priceRange: '4,000–15,000 LKR/month',
+    startingPrice: 'From 4,000 LKR/month',
+    priceRange: 'Bronze: 4,000–6,000 LKR/month | Silver: 7,000–10,000 LKR/month | Gold: Above 15,000 LKR/month',
     features: ['React', 'Node.js', 'Firebase', 'Stripe'],
     color: 'from-teal-500 to-cyan-500'
   },
@@ -190,8 +190,8 @@ export const services: Service[] = [
       'Creative Consulting'
     ],
     timeline: 'Per hour',
-    startingPrice: '4,000 LKR/hour',
-    priceRange: '4,000–9,000 LKR/hour',
+    startingPrice: 'From 2,000 LKR/hour',
+    priceRange: 'Bronze: 2,000–3,000 LKR/hour | Silver: 4,000–5,000 LKR/hour | Gold: Above 5,000 LKR/hour',
     features: ['ChatGPT', 'Midjourney', 'Veo3', 'Claude'],
     color: 'from-yellow-500 to-orange-500'
   },
@@ -209,8 +209,8 @@ export const services: Service[] = [
       'Backup Management'
     ],
     timeline: 'Ongoing',
-    startingPrice: '8,000 LKR/month',
-    priceRange: '8,000–30,000 LKR/month',
+    startingPrice: 'From 8,000 LKR/month',
+    priceRange: 'Bronze: 8,000–12,000 LKR/month | Silver: 15,000–20,000 LKR/month | Gold: Above 20,000 LKR/month',
     features: ['24/7 Monitoring', 'Security', 'Updates', 'Support'],
     color: 'from-emerald-500 to-green-500'
   }
@@ -220,49 +220,49 @@ export const pricingTable = [
   {
     service: 'UI/UX Design',
     strategy: 'Per project',
-    priceRange: '40,000–150,000 LKR',
+    priceRange: 'Bronze: 10,000–20,000 LKR | Silver: 25,000–60,000 LKR | Gold: Above 80,000 LKR',
     notes: 'Includes research, design, and iterations'
   },
   {
     service: 'Frontend & Backend',
     strategy: 'Per project',
-    priceRange: '80,000–450,000 LKR',
+    priceRange: 'Bronze: 50,000–100,000 LKR | Silver: 80,000–250,000 LKR | Gold: Above 100,000 LKR',
     notes: 'Full-stack development with deployment'
   },
   {
     service: 'No-Code Sites',
     strategy: 'Setup + Monthly',
-    priceRange: '25,000–100,000 LKR + 1,500–4,000 LKR/month',
+    priceRange: 'Bronze: 20,000–40,000 LKR | Silver: 40,000–70,000 LKR | Gold: Above 80,000 LKR',
     notes: 'Includes hosting and maintenance'
   },
   {
     service: 'Mobile Apps',
     strategy: 'Per app',
-    priceRange: '50,000–300,000 LKR',
+    priceRange: 'Bronze: 50,000–100,000 LKR | Silver: 120,000–200,000 LKR | Gold: Above 120,000 LKR',
     notes: 'Cross-platform or native development'
   },
   {
     service: 'Social Media Marketing',
     strategy: 'Setup + Monthly',
-    priceRange: '20,000–50,000 LKR + 3,500–10,000 LKR/month',
+    priceRange: 'Bronze: Setup 10,000 + 3,500/mo | Silver: Setup 10,000 + 6,000/mo | Gold: Setup 10,000 + 10,000/mo',
     notes: 'Content creation and management'
   },
   {
     service: 'SaaS & MVP',
     strategy: 'Monthly subscription',
-    priceRange: '4,000–15,000 LKR/month',
+    priceRange: 'Bronze: 4,000–6,000 LKR/month | Silver: 7,000–10,000 LKR/month | Gold: Above 15,000 LKR/month',
     notes: 'Includes hosting and updates'
   },
   {
     service: 'AI Design Support',
     strategy: 'Per hour',
-    priceRange: '4,000–9,000 LKR/hour',
+    priceRange: 'Bronze: 2,000–3,000 LKR/hour | Silver: 4,000–5,000 LKR/hour | Gold: Above 5,000 LKR/hour',
     notes: 'Creative and technical assistance'
   },
   {
     service: 'Maintenance',
     strategy: 'Monthly',
-    priceRange: '8,000–30,000 LKR/month',
+    priceRange: 'Bronze: 8,000–12,000 LKR/month | Silver: 15,000–20,000 LKR/month | Gold: Above 20,000 LKR/month',
     notes: 'Ongoing support and updates'
   }
 ];
