@@ -21,6 +21,11 @@ export interface Service {
   priceRange: string;
   features: string[];
   color: string;
+  tierDeliverables?: {
+    bronze: string[];
+    silver: string[];
+    gold: string[];
+  };
 }
 
 export const services: Service[] = [
@@ -41,7 +46,12 @@ export const services: Service[] = [
     startingPrice: 'From 10,000 LKR',
     priceRange: 'Bronze: 10,000–20,000 LKR | Silver: 25,000–60,000 LKR | Gold: Above 80,000 LKR',
     features: ['Figma', 'Illustrator', 'Photoshop', 'AI Ideation'],
-    color: 'from-purple-500 to-pink-500'
+    color: 'from-purple-500 to-pink-500',
+    tierDeliverables: {
+      bronze: ['Basic layout design', '1-3 screens/pages', 'Responsive design'],
+      silver: ['4-7 pages/screens', 'Branding integration', 'Interactive mockups'],
+      gold: ['10+ pages', 'Animations', 'Full design system & style guide']
+    }
   },
   {
     id: 'website-development',
@@ -60,7 +70,12 @@ export const services: Service[] = [
     startingPrice: 'From 50,000 LKR',
     priceRange: 'Bronze: 50,000–100,000 LKR | Silver: 80,000–250,000 LKR | Gold: Above 100,000 LKR',
     features: ['React', 'Node.js', 'TypeScript', 'Tailwind CSS'],
-    color: 'from-blue-500 to-cyan-500'
+    color: 'from-blue-500 to-cyan-500',
+    tierDeliverables: {
+      bronze: ['Basic business site', 'Static pages', 'Contact form'],
+      silver: ['Dynamic website', 'Blog/product catalog', 'Simple booking'],
+      gold: ['Advanced custom site', 'Multi-language', 'E-commerce & integrations']
+    }
   },
   {
     id: 'no-code-websites',
@@ -79,7 +94,12 @@ export const services: Service[] = [
     startingPrice: 'From 20,000 LKR',
     priceRange: 'Bronze: 20,000–40,000 LKR | Silver: 40,000–70,000 LKR | Gold: Above 80,000 LKR',
     features: ['Wix', 'Webflow', 'WordPress', 'Custom Plugins'],
-    color: 'from-orange-500 to-red-500'
+    color: 'from-orange-500 to-red-500',
+    tierDeliverables: {
+      bronze: ['1-3 page starter website', 'Template customization'],
+      silver: ['4-7 pages', 'SEO plugins', 'Mobile optimized'],
+      gold: ['10+ pages', 'E-commerce/shop setup', 'Maintenance']
+    }
   },
   {
     id: 'system-management',
@@ -98,7 +118,12 @@ export const services: Service[] = [
     startingPrice: 'From 40,000 LKR',
     priceRange: 'Bronze: 40,000–90,000 LKR | Silver: 100,000–160,000 LKR | Gold: Above 150,000 LKR',
     features: ['Monitoring', 'DB Management', 'Security', 'Maintenance'],
-    color: 'from-gray-500 to-slate-500'
+    color: 'from-gray-500 to-slate-500',
+    tierDeliverables: {
+      bronze: ['Basic POS', 'Billing + stock'],
+      silver: ['POS + multi-branch reporting'],
+      gold: ['POS + full ERP', 'Inventory, finance, analytics']
+    }
   },
   {
     id: 'mobile-app-design',
@@ -117,7 +142,12 @@ export const services: Service[] = [
     startingPrice: 'From 50,000 LKR',
     priceRange: 'Bronze: 50,000–100,000 LKR | Silver: 120,000–200,000 LKR | Gold: Above 120,000 LKR',
     features: ['Flutter', 'Native Java', 'iOS Guidelines', 'Material Design'],
-    color: 'from-indigo-500 to-purple-500'
+    color: 'from-indigo-500 to-purple-500',
+    tierDeliverables: {
+      bronze: ['Basic app', 'Informational', 'Simple UI'],
+      silver: ['Mid-level app', 'Accounts, forms', 'Basic APIs'],
+      gold: ['Advanced app', 'Payments, booking', 'Push notifications, admin panel']
+    }
   },
   {
     id: 'social-media-marketing',
@@ -136,7 +166,12 @@ export const services: Service[] = [
     startingPrice: 'Setup 10,000 + 3,500/mo',
     priceRange: 'Bronze: Setup 10,000 + 3,500/mo | Silver: Setup 10,000 + 6,000/mo | Gold: Setup 10,000 + 10,000/mo',
     features: ['TikTok', 'Facebook', 'Instagram', 'LinkedIn', 'X'],
-    color: 'from-pink-500 to-rose-500'
+    color: 'from-pink-500 to-rose-500',
+    tierDeliverables: {
+      bronze: ['Page setup', '5 posts/month'],
+      silver: ['15 posts/month', 'Ad boosting'],
+      gold: ['20 posts/month', 'Ad boosting', 'Ad management + strategy']
+    }
   },
   {
     id: 'saas-mvp',
@@ -155,7 +190,12 @@ export const services: Service[] = [
     startingPrice: 'From 4,000 LKR/month',
     priceRange: 'Bronze: 4,000–6,000 LKR/month | Silver: 7,000–10,000 LKR/month | Gold: Above 15,000 LKR/month',
     features: ['React', 'Node.js', 'Firebase', 'Stripe'],
-    color: 'from-teal-500 to-cyan-500'
+    color: 'from-teal-500 to-cyan-500',
+    tierDeliverables: {
+      bronze: ['Single-feature MVP prototype'],
+      silver: ['MVP with 2-3 modules/features'],
+      gold: ['Full SaaS', 'Dashboards & multiple modules']
+    }
   },
   {
     id: 'ai-design-support',
@@ -174,7 +214,12 @@ export const services: Service[] = [
     startingPrice: 'From 2,000 LKR/hour',
     priceRange: 'Bronze: 2,000–3,000 LKR/hour | Silver: 4,000–5,000 LKR/hour | Gold: Above 5,000 LKR/hour',
     features: ['ChatGPT', 'Midjourney', 'Veo3', 'Claude'],
-    color: 'from-yellow-500 to-orange-500'
+    color: 'from-yellow-500 to-orange-500',
+    tierDeliverables: {
+      bronze: ['Logo / poster design support'],
+      silver: ['Social media creatives', 'Brand visuals'],
+      gold: ['Full AI-powered branding kit']
+    }
   },
   {
     id: 'maintenance',
@@ -193,7 +238,12 @@ export const services: Service[] = [
     startingPrice: 'From 8,000 LKR/month',
     priceRange: 'Bronze: 8,000–12,000 LKR/month | Silver: 15,000–20,000 LKR/month | Gold: Above 20,000 LKR/month',
     features: ['24/7 Monitoring', 'Security', 'Updates', 'Support'],
-    color: 'from-emerald-500 to-green-500'
+    color: 'from-emerald-500 to-green-500',
+    tierDeliverables: {
+      bronze: ['Bug fixes', 'Monthly updates'],
+      silver: ['Security checks', 'Backups', '24/7 support'],
+      gold: ['Priority support', 'Proactive monitoring']
+    }
   }
 ];
 

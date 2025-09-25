@@ -6,6 +6,7 @@ import { services } from '../data/services';
 
 const Services: React.FC = () => {
   const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
+  const [selectedTier, setSelectedTier] = useState<'bronze' | 'silver' | 'gold'>('bronze');
 
   const faqs = [
     {
@@ -126,6 +127,30 @@ const Services: React.FC = () => {
             viewport={{ once: true }}
             className="text-center mb-12 sm:mb-16"
           >
+            {/* Tier Selector */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="mb-8"
+            >
+              <div className="inline-flex bg-gray-100 rounded-2xl p-2">
+                {(['bronze', 'silver', 'gold'] as const).map((tier) => (
+                  <button
+                    key={tier}
+                    onClick={() => setSelectedTier(tier)}
+                    className={`px-6 py-3 rounded-xl font-bold text-sm transition-all duration-300 ${
+                      selectedTier === tier
+                        ? 'bg-white text-gray-900 shadow-lg'
+                        : 'text-gray-600 hover:text-gray-900'
+                    }`}
+                  >
+                    {tier.charAt(0).toUpperCase() + tier.slice(1)}
+                  </button>
+                ))}
+              </div>
+            </motion.div>
             <motion.h2
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -188,11 +213,22 @@ const Services: React.FC = () => {
 
                     {/* Tier Pills (parsed from priceRange) */}
                     <div className="mt-3 flex flex-wrap gap-2">
-                      {service.priceRange.split('|').map((chunk, i) => (
-                        <span key={i} className="px-2 py-1 bg-emerald-50 text-emerald-700 text-[11px] rounded-full border border-emerald-200">
-                          {chunk.trim()}
-                        </span>
-                      ))}
+                      {service.priceRange.split('|').map((chunk, i) => {
+                        const tierName = chunk.split(':')[0].trim().toLowerCase();
+                        const isActive = tierName === selectedTier;
+                        return (
+                          <span 
+                            key={i} 
+                            className={`px-2 py-1 text-[11px] rounded-full border transition-all duration-300 ${
+                              isActive 
+                                ? 'bg-emerald-500 text-white border-emerald-500 shadow-lg' 
+                                : 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                            }`}
+                          >
+                            {chunk.trim()}
+                          </span>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
@@ -278,10 +314,10 @@ const Services: React.FC = () => {
                     <div className="mb-8">
                       <h4 className="text-xl font-bold text-white mb-6 flex items-center space-x-3">
                         <Check className="w-6 h-6 text-green-400" />
-                        <span>What you'll get:</span>
+                        <span>What you'll get ({selectedTier.charAt(0).toUpperCase() + selectedTier.slice(1)}):</span>
                       </h4>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {service.deliverables.map((deliverable, i) => (
+                        {(service.tierDeliverables?.[selectedTier] || service.deliverables).map((deliverable, i) => (
                           <div key={i} className="flex items-start space-x-3 bg-white/5 rounded-2xl p-4 border border-white/10">
                             <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                             <span className="text-gray-300 text-sm">{deliverable}</span>
@@ -302,9 +338,20 @@ const Services: React.FC = () => {
                         <div>
                           <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Packages</p>
                           <div className="flex flex-col gap-1">
-                            {service.priceRange.split('|').map((tier, idx) => (
-                              <span key={idx} className="text-gray-300 text-xs">{tier.trim()}</span>
-                            ))}
+                            {service.priceRange.split('|').map((tier, idx) => {
+                              const tierName = tier.split(':')[0].trim().toLowerCase();
+                              const isActive = tierName === selectedTier;
+                              return (
+                                <span 
+                                  key={idx} 
+                                  className={`text-xs transition-all duration-300 ${
+                                    isActive ? 'text-emerald-400 font-bold' : 'text-gray-300'
+                                  }`}
+                                >
+                                  {tier.trim()}
+                                </span>
+                              );
+                            })}
                           </div>
                         </div>
                       </div>
