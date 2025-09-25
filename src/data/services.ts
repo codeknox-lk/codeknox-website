@@ -44,46 +44,27 @@ export const services: Service[] = [
     color: 'from-purple-500 to-pink-500'
   },
   {
-    id: 'frontend-development',
-    title: 'Frontend Development',
-    description: 'Build responsive, performant web applications with modern React and Tailwind CSS.',
+    id: 'website-development',
+    title: 'Website Development (Frontend + Backend)',
+    description: 'Full-stack website development including modern responsive frontend, secure backend APIs, SEO and deployment.',
     icon: Code,
     deliverables: [
-      'Responsive Web Applications',
-      'Component Libraries',
-      'Performance Optimization',
-      'Cross-browser Compatibility',
+      'Responsive Frontend',
+      'Secure Backend APIs',
+      'Authentication & CMS',
       'SEO Optimization',
-      'Progressive Web Apps'
+      'Performance Optimization',
+      'Deployment & Monitoring'
     ],
     timeline: '3-8 weeks',
     startingPrice: 'From 50,000 LKR',
     priceRange: 'Bronze: 50,000–100,000 LKR | Silver: 80,000–250,000 LKR | Gold: Above 100,000 LKR',
-    features: ['React', 'Tailwind CSS', 'HTML/CSS', 'TypeScript'],
+    features: ['React', 'Node.js', 'TypeScript', 'Tailwind CSS'],
     color: 'from-blue-500 to-cyan-500'
   },
   {
-    id: 'backend-development',
-    title: 'Backend Development',
-    description: 'Scalable server-side solutions with Node.js and Firebase for real-time applications.',
-    icon: Database,
-    deliverables: [
-      'API Development',
-      'Database Design',
-      'Authentication & Security',
-      'Real-time Features',
-      'Website Deployment',
-      'Performance Monitoring'
-    ],
-    timeline: '4-10 weeks',
-    startingPrice: 'From 50,000 LKR',
-    priceRange: 'Bronze: 50,000–100,000 LKR | Silver: 80,000–250,000 LKR | Gold: Above 100,000 LKR',
-    features: ['Node.js', 'Firebase', 'Real-time DB', 'API Integration'],
-    color: 'from-green-500 to-emerald-500'
-  },
-  {
     id: 'no-code-websites',
-    title: 'No-Code Websites',
+    title: 'No-Code Website Development',
     description: 'Fast, professional websites using Wix, Webflow, and WordPress with custom functionality.',
     icon: Globe,
     deliverables: [
@@ -102,8 +83,8 @@ export const services: Service[] = [
   },
   {
     id: 'system-management',
-    title: 'System Management',
-    description: 'Comprehensive system administration and maintenance for reliable, secure applications.',
+    title: 'System Management & POS',
+    description: 'System administration plus POS solutions including billing, stock and reporting.',
     icon: Settings,
     deliverables: [
       'Server Monitoring',
@@ -111,7 +92,7 @@ export const services: Service[] = [
       'Security Audits',
       'Backup & Recovery',
       'Performance Optimization',
-      'Website Maintenance'
+      'POS Reporting'
     ],
     timeline: 'Ongoing',
     startingPrice: 'From 40,000 LKR',
@@ -121,7 +102,7 @@ export const services: Service[] = [
   },
   {
     id: 'mobile-app-design',
-    title: 'Mobile App Development',
+    title: 'Mobile App Design & Development',
     description: 'Native and cross-platform mobile app interfaces with Flutter and native Java.',
     icon: Smartphone,
     deliverables: [
@@ -178,7 +159,7 @@ export const services: Service[] = [
   },
   {
     id: 'ai-design-support',
-    title: 'AI Design Support',
+    title: 'AI-Powered Design Support',
     description: 'AI-powered design assistance and creative solutions for modern applications.',
     icon: Zap,
     deliverables: [
@@ -224,19 +205,19 @@ export const pricingTable = [
     notes: 'Includes research, design, and iterations'
   },
   {
-    service: 'Frontend & Backend',
+    service: 'Website Development (Frontend + Backend)',
     strategy: 'Per project',
     priceRange: 'Bronze: 50,000–100,000 LKR | Silver: 80,000–250,000 LKR | Gold: Above 100,000 LKR',
     notes: 'Full-stack development with deployment'
   },
   {
-    service: 'No-Code Sites',
+    service: 'No-Code Website Development',
     strategy: 'Setup + Monthly',
     priceRange: 'Bronze: 20,000–40,000 LKR | Silver: 40,000–70,000 LKR | Gold: Above 80,000 LKR',
     notes: 'Includes hosting and maintenance'
   },
   {
-    service: 'Mobile Apps',
+    service: 'Mobile App Design & Development',
     strategy: 'Per app',
     priceRange: 'Bronze: 50,000–100,000 LKR | Silver: 120,000–200,000 LKR | Gold: Above 120,000 LKR',
     notes: 'Cross-platform or native development'
@@ -254,15 +235,21 @@ export const pricingTable = [
     notes: 'Includes hosting and updates'
   },
   {
-    service: 'AI Design Support',
+    service: 'AI-Powered Design Support',
     strategy: 'Per hour',
     priceRange: 'Bronze: 2,000–3,000 LKR/hour | Silver: 4,000–5,000 LKR/hour | Gold: Above 5,000 LKR/hour',
     notes: 'Creative and technical assistance'
   },
   {
-    service: 'Maintenance',
+    service: 'Maintenance & Support',
     strategy: 'Monthly',
     priceRange: 'Bronze: 8,000–12,000 LKR/month | Silver: 15,000–20,000 LKR/month | Gold: Above 20,000 LKR/month',
     notes: 'Ongoing support and updates'
+  },
+  {
+    service: 'System Management & POS',
+    strategy: 'Per project',
+    priceRange: 'Bronze: 40,000–90,000 LKR | Silver: 100,000–160,000 LKR | Gold: Above 150,000 LKR',
+    notes: 'POS setup, inventory, reporting'
   }
 ];

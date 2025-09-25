@@ -185,6 +185,15 @@ const Services: React.FC = () => {
                         </span>
                       ))}
                     </div>
+
+                    {/* Tier Pills (parsed from priceRange) */}
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {service.priceRange.split('|').map((chunk, i) => (
+                        <span key={i} className="px-2 py-1 bg-emerald-50 text-emerald-700 text-[11px] rounded-full border border-emerald-200">
+                          {chunk.trim()}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -291,9 +300,12 @@ const Services: React.FC = () => {
                       </div>
                       <div className="flex items-center space-x-3 bg-white/5 rounded-2xl p-4 border border-white/10">
                         <div>
-                          <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Starting Price</p>
-                          <p className="text-emerald-400 font-bold text-lg">{service.startingPrice}</p>
-                          <p className="text-gray-300 text-xs mt-1">{service.priceRange}</p>
+                          <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Packages</p>
+                          <div className="flex flex-col gap-1">
+                            {service.priceRange.split('|').map((tier, idx) => (
+                              <span key={idx} className="text-gray-300 text-xs">{tier.trim()}</span>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
