@@ -170,6 +170,7 @@ const Services: React.FC = () => {
                       <div>
                         <h3 className="text-lg sm:text-xl font-bold text-gray-900">{service.title}</h3>
                         <p className="text-sm text-gray-500">{service.startingPrice}</p>
+                        <p className="text-[11px] sm:text-xs text-gray-400 mt-1 leading-snug">{service.priceRange}</p>
                       </div>
                     </div>
                     
@@ -292,6 +293,7 @@ const Services: React.FC = () => {
                         <div>
                           <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Starting Price</p>
                           <p className="text-emerald-400 font-bold text-lg">{service.startingPrice}</p>
+                          <p className="text-gray-300 text-xs mt-1">{service.priceRange}</p>
                         </div>
                       </div>
                     </div>
