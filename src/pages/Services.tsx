@@ -246,7 +246,7 @@ const Services: React.FC = () => {
                                       <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
                                       <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
                                       <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                                      <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                                      <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
                                     </div>
                                     <span className="text-xs text-gray-500 font-medium">4 Package Options</span>
                                   </div>
@@ -403,7 +403,7 @@ const Services: React.FC = () => {
                           { key: 'bronze', label: 'Bronze', color: 'from-amber-600 via-amber-700 to-amber-800', shadow: 'shadow-amber-500/25' },
                           { key: 'silver', label: 'Silver', color: 'from-gray-200 via-gray-300 to-gray-400', shadow: 'shadow-gray-400/30' },
                           { key: 'gold', label: 'Gold', color: 'from-yellow-400 via-yellow-500 to-yellow-600', shadow: 'shadow-yellow-500/25' },
-                          { key: 'custom', label: 'Custom', color: 'from-purple-500 via-purple-600 to-pink-500', shadow: 'shadow-purple-500/25' }
+                          { key: 'custom', label: 'Custom', color: 'from-cyan-100 via-blue-100 to-indigo-200', shadow: 'shadow-cyan-400/30' }
                         ].map((packageOption) => (
                           <button
                             key={packageOption.key}
