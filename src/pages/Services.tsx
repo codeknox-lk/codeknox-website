@@ -6,8 +6,17 @@ import { services } from '../data/services';
 
 const Services: React.FC = () => {
   const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
-  const [selectedTier] = useState<'bronze' | 'silver' | 'gold'>('bronze');
-  const [selectedUIPackage, setSelectedUIPackage] = useState<'bronze' | 'silver' | 'gold' | 'custom'>('bronze');
+  const [selectedPackages, setSelectedPackages] = useState<{[key: string]: 'bronze' | 'silver' | 'gold' | 'custom'}>({
+    'ui-ux-design': 'bronze',
+    'website-development': 'bronze',
+    'no-code-websites': 'bronze',
+    'system-management': 'bronze',
+    'mobile-app-design': 'bronze',
+    'social-media-marketing': 'bronze',
+    'saas-mvp': 'bronze',
+    'ai-design-support': 'bronze',
+    'maintenance': 'bronze'
+  });
 
   const faqs = [
     {
@@ -76,9 +85,9 @@ const Services: React.FC = () => {
             </motion.p>
 
             {/* Floating Sparkles */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               className="mt-16 flex justify-center"
             >
@@ -105,7 +114,7 @@ const Services: React.FC = () => {
                   <Sparkles className="w-full h-full" />
                 </motion.div>
               </div>
-            </motion.div>
+          </motion.div>
           </div>
         </div>
       </section>
@@ -208,7 +217,7 @@ const Services: React.FC = () => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(20,184,166,0.1),transparent_50%)]"></div>
           <div className="absolute top-20 left-20 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
+      </div>
 
         <div className="relative z-10 max-w-7xl mx-auto">
           {/* Section Header */}
@@ -273,62 +282,57 @@ const Services: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Package Selector for UI/UX Design */}
-                    {service.id === 'ui-ux-design' && (
-                      <div className="mb-8">
-                        <h4 className="text-xl font-bold text-white mb-6">Choose Your Package:</h4>
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-                          {[
-                            { key: 'bronze', label: 'Bronze', color: 'from-amber-500 to-orange-500' },
-                            { key: 'silver', label: 'Silver', color: 'from-gray-400 to-gray-600' },
-                            { key: 'gold', label: 'Gold', color: 'from-yellow-400 to-yellow-600' },
-                            { key: 'custom', label: 'Custom', color: 'from-purple-500 to-pink-500' }
-                          ].map((packageOption) => (
-                            <button
-                              key={packageOption.key}
-                              onClick={() => setSelectedUIPackage(packageOption.key as any)}
-                              className={`p-4 rounded-2xl border-2 transition-all duration-300 ${
-                                selectedUIPackage === packageOption.key
-                                  ? `bg-gradient-to-r ${packageOption.color} text-white border-transparent shadow-lg`
-                                  : 'bg-white/5 text-gray-300 border-white/20 hover:bg-white/10'
-                              }`}
-                            >
-                              <div className="text-center">
-                                <div className="font-bold text-lg">{packageOption.label}</div>
-                                {service.packagePricing && (
-                                  <div className="text-sm mt-1 opacity-90">
-                                    {service.packagePricing[packageOption.key as keyof typeof service.packagePricing]}
-                                  </div>
-                                )}
-                              </div>
-                            </button>
-                          ))}
-                        </div>
+                    {/* Package Selector for All Services */}
+                    <div className="mb-8">
+                      <h4 className="text-xl font-bold text-white mb-6">Choose Your Package:</h4>
+                      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                        {[
+                          { key: 'bronze', label: 'Bronze', color: 'from-amber-600 via-amber-700 to-amber-800', shadow: 'shadow-amber-500/25' },
+                          { key: 'silver', label: 'Silver', color: 'from-gray-200 via-gray-300 to-gray-400', shadow: 'shadow-gray-400/30' },
+                          { key: 'gold', label: 'Gold', color: 'from-yellow-400 via-yellow-500 to-yellow-600', shadow: 'shadow-yellow-500/25' },
+                          { key: 'custom', label: 'Custom', color: 'from-purple-500 via-purple-600 to-pink-500', shadow: 'shadow-purple-500/25' }
+                        ].map((packageOption) => (
+                          <button
+                            key={packageOption.key}
+                            onClick={() => setSelectedPackages(prev => ({...prev, [service.id]: packageOption.key as any}))}
+                            className={`p-4 rounded-2xl border-2 transition-all duration-300 ${
+                              selectedPackages[service.id] === packageOption.key
+                                ? `bg-gradient-to-r ${packageOption.color} text-white border-transparent shadow-lg ${packageOption.shadow}`
+                                : 'bg-white/5 text-gray-300 border-white/20 hover:bg-white/10'
+                            }`}
+                          >
+                            <div className="text-center">
+                              <div className="font-bold text-lg">{packageOption.label}</div>
+                              {service.packagePricing && (
+                                <div className="text-sm mt-1 opacity-90">
+                                  {service.packagePricing[packageOption.key as keyof typeof service.packagePricing]}
+                                </div>
+                              )}
+                            </div>
+                          </button>
+                        ))}
                       </div>
-                    )}
+                    </div>
 
                     {/* Deliverables */}
                     <div className="mb-8">
                       <h4 className="text-xl font-bold text-white mb-6 flex items-center space-x-3">
                         <Check className="w-6 h-6 text-green-400" />
                         <span>
-                          What you'll get ({service.id === 'ui-ux-design' 
-                            ? selectedUIPackage.charAt(0).toUpperCase() + selectedUIPackage.slice(1)
-                            : selectedTier.charAt(0).toUpperCase() + selectedTier.slice(1)
-                          }):
+                          What you'll get ({selectedPackages[service.id].charAt(0).toUpperCase() + selectedPackages[service.id].slice(1)}):
                         </span>
                       </h4>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {(service.id === 'ui-ux-design' && selectedUIPackage !== 'custom' 
-                          ? service.tierDeliverables?.[selectedUIPackage as 'bronze' | 'silver' | 'gold'] || []
-                          : service.tierDeliverables?.[selectedTier] || service.deliverables
+                        {(selectedPackages[service.id] !== 'custom' 
+                          ? service.tierDeliverables?.[selectedPackages[service.id] as 'bronze' | 'silver' | 'gold'] || []
+                          : []
                         ).map((deliverable, i) => (
                           <div key={i} className="flex items-start space-x-3 bg-white/5 rounded-2xl p-4 border border-white/10">
                             <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                             <span className="text-gray-300 text-sm">{deliverable}</span>
                           </div>
                         ))}
-                        {service.id === 'ui-ux-design' && selectedUIPackage === 'custom' && (
+                        {selectedPackages[service.id] === 'custom' && (
                           <div className="col-span-2 flex items-center space-x-3 bg-white/5 rounded-2xl p-4 border border-white/10">
                             <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                             <span className="text-gray-300 text-sm">Custom features tailored to your specific requirements</span>
@@ -347,30 +351,11 @@ const Services: React.FC = () => {
                       </div>
                       <div className="flex items-center space-x-3 bg-white/5 rounded-2xl p-4 border border-white/10">
                         <div>
-                          <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">
-                            {service.id === 'ui-ux-design' ? 'Selected Package' : 'Packages'}
-                          </p>
+                          <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Selected Package</p>
                           <div className="flex flex-col gap-1">
-                            {service.id === 'ui-ux-design' ? (
-                              <span className="text-emerald-400 font-bold text-sm">
-                                {selectedUIPackage.charAt(0).toUpperCase() + selectedUIPackage.slice(1)} - {service.packagePricing?.[selectedUIPackage as keyof typeof service.packagePricing]}
-                              </span>
-                            ) : (
-                              service.priceRange.split('|').map((tier, idx) => {
-                                const tierName = tier.split(':')[0].trim().toLowerCase();
-                                const isActive = tierName === selectedTier;
-                                return (
-                                  <span 
-                                    key={idx} 
-                                    className={`text-xs transition-all duration-300 ${
-                                      isActive ? 'text-emerald-400 font-bold' : 'text-gray-300'
-                                    }`}
-                                  >
-                                    {tier.trim()}
-                                  </span>
-                                );
-                              })
-                            )}
+                            <span className="text-emerald-400 font-bold text-sm">
+                              {selectedPackages[service.id].charAt(0).toUpperCase() + selectedPackages[service.id].slice(1)} - {service.packagePricing?.[selectedPackages[service.id] as keyof typeof service.packagePricing]}
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -380,11 +365,11 @@ const Services: React.FC = () => {
                     <div className="mb-8">
                       <h4 className="text-lg font-bold text-white mb-4">Technologies & Tools</h4>
                       <div className="flex flex-wrap gap-3">
-                        {service.features.map((feature, i) => (
+                          {service.features.map((feature, i) => (
                           <span key={i} className="px-4 py-2 bg-white/10 text-white text-sm rounded-full border border-white/20 font-medium">
-                            {feature}
+                              {feature}
                           </span>
-                        ))}
+                          ))}
                       </div>
                     </div>
 
@@ -444,7 +429,7 @@ const Services: React.FC = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
+                    viewport={{ once: true }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8"
             >
               FREQUENTLY ASKED
@@ -454,12 +439,12 @@ const Services: React.FC = () => {
               </span>
             </motion.h2>
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
+            viewport={{ once: true }}
               className="text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto"
-            >
+          >
               Get answers to common questions about our services, process, and pricing.
             </motion.p>
           </motion.div>
@@ -500,9 +485,9 @@ const Services: React.FC = () => {
                     >
                       <div className="pt-4 border-t border-gray-200">
                         <p className="text-gray-600 text-lg leading-relaxed">
-                          {faq.answer}
-                        </p>
-                      </div>
+                        {faq.answer}
+                      </p>
+                    </div>
                     </motion.div>
                   )}
                 </div>

@@ -86,6 +86,12 @@ export const services: Service[] = [
       bronze: ['Basic business site', 'Static pages', 'Contact form'],
       silver: ['Dynamic website', 'Blog/product catalog', 'Simple booking'],
       gold: ['Advanced custom site', 'Multi-language', 'E-commerce & integrations']
+    },
+    packagePricing: {
+      bronze: 'LKR 50,000-100,000',
+      silver: 'LKR 80,000-250,000', 
+      gold: 'Above LKR 100,000',
+      custom: 'Contact for quote'
     }
   },
   {
@@ -110,6 +116,12 @@ export const services: Service[] = [
       bronze: ['1-3 page starter website', 'Template customization'],
       silver: ['4-7 pages', 'SEO plugins', 'Mobile optimized'],
       gold: ['10+ pages', 'E-commerce/shop setup', 'Maintenance']
+    },
+    packagePricing: {
+      bronze: 'LKR 20,000-40,000',
+      silver: 'LKR 40,000-70,000', 
+      gold: 'Above LKR 80,000',
+      custom: 'Contact for quote'
     }
   },
   {
@@ -134,6 +146,12 @@ export const services: Service[] = [
       bronze: ['Basic POS', 'Billing + stock'],
       silver: ['POS + multi-branch reporting'],
       gold: ['POS + full ERP', 'Inventory, finance, analytics']
+    },
+    packagePricing: {
+      bronze: 'LKR 40,000-90,000',
+      silver: 'LKR 100,000-160,000', 
+      gold: 'Above LKR 150,000',
+      custom: 'Contact for quote'
     }
   },
   {
@@ -158,6 +176,12 @@ export const services: Service[] = [
       bronze: ['Basic app', 'Informational', 'Simple UI'],
       silver: ['Mid-level app', 'Accounts, forms', 'Basic APIs'],
       gold: ['Advanced app', 'Payments, booking', 'Push notifications, admin panel']
+    },
+    packagePricing: {
+      bronze: 'LKR 50,000-100,000',
+      silver: 'LKR 120,000-200,000', 
+      gold: 'Above LKR 120,000',
+      custom: 'Contact for quote'
     }
   },
   {
@@ -182,6 +206,12 @@ export const services: Service[] = [
       bronze: ['Page setup', '5 posts/month'],
       silver: ['15 posts/month', 'Ad boosting'],
       gold: ['20 posts/month', 'Ad boosting', 'Ad management + strategy']
+    },
+    packagePricing: {
+      bronze: 'Setup 10,000 + 3,500/mo',
+      silver: 'Setup 10,000 + 6,000/mo', 
+      gold: 'Setup 10,000 + 10,000/mo',
+      custom: 'Contact for quote'
     }
   },
   {
@@ -206,6 +236,12 @@ export const services: Service[] = [
       bronze: ['Single-feature MVP prototype'],
       silver: ['MVP with 2-3 modules/features'],
       gold: ['Full SaaS', 'Dashboards & multiple modules']
+    },
+    packagePricing: {
+      bronze: '4,000-6,000 LKR/month',
+      silver: '7,000-10,000 LKR/month', 
+      gold: 'Above 15,000 LKR/month',
+      custom: 'Contact for quote'
     }
   },
   {
@@ -230,6 +266,12 @@ export const services: Service[] = [
       bronze: ['Logo / poster design support'],
       silver: ['Social media creatives', 'Brand visuals'],
       gold: ['Full AI-powered branding kit']
+    },
+    packagePricing: {
+      bronze: '2,000-3,000 LKR/hour',
+      silver: '4,000-5,000 LKR/hour', 
+      gold: 'Above 5,000 LKR/hour',
+      custom: 'Contact for quote'
     }
   },
   {
@@ -254,6 +296,12 @@ export const services: Service[] = [
       bronze: ['Bug fixes', 'Monthly updates'],
       silver: ['Security checks', 'Backups', '24/7 support'],
       gold: ['Priority support', 'Proactive monitoring']
+    },
+    packagePricing: {
+      bronze: '8,000-12,000 LKR/month',
+      silver: '15,000-20,000 LKR/month', 
+      gold: 'Above 20,000 LKR/month',
+      custom: 'Contact for quote'
     }
   }
 ];
