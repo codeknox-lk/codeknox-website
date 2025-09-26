@@ -25,6 +25,12 @@ export interface Service {
     silver: string[];
     gold: string[];
   };
+  packagePricing?: {
+    bronze: string;
+    silver: string;
+    gold: string;
+    custom: string;
+  };
 }
 
 export const services: Service[] = [
@@ -50,6 +56,12 @@ export const services: Service[] = [
       bronze: ['Basic layout design', '1-3 screens/pages', 'Responsive design'],
       silver: ['4-7 pages/screens', 'Branding integration', 'Interactive mockups'],
       gold: ['10+ pages', 'Animations', 'Full design system & style guide']
+    },
+    packagePricing: {
+      bronze: 'LKR 10,000-20,000',
+      silver: 'LKR 25,000-60,000', 
+      gold: 'Above LKR 80,000',
+      custom: 'Contact for quote'
     }
   },
   {
