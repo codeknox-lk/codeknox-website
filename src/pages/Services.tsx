@@ -180,7 +180,7 @@ const Services: React.FC = () => {
             </motion.p>
           </motion.div>
 
-          {/* Services Carousel - Completely Rebuilt */}
+          {/* Services Carousel - Simple 3 Column Layout */}
           <div className="relative">
             {/* Carousel Container */}
             <div className="overflow-hidden rounded-3xl bg-white shadow-xl border border-gray-200">
@@ -197,17 +197,17 @@ const Services: React.FC = () => {
                   const endIndex = Math.min(startIndex + itemsPerSlide, services.length);
                   const slideServices = services.slice(startIndex, endIndex);
                   
-                  
                   return (
                     <div key={slideIndex} className="w-full flex-shrink-0 p-6">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {/* Force 3 columns with flex */}
+                      <div className="flex gap-6">
                         {slideServices.map((service, index) => (
                           <motion.div
                             key={service.id}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group"
+                            className="group flex-1"
                           >
                             <div className="relative bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full">
                               {/* Service Icon */}
