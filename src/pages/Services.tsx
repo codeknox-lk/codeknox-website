@@ -23,6 +23,7 @@ const Services: React.FC = () => {
   const itemsPerSlide = 3; // Always show 3 items per slide
   const totalSlides = Math.ceil(services.length / itemsPerSlide);
 
+
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
   };
@@ -189,20 +190,24 @@ const Services: React.FC = () => {
                   width: `${totalSlides * 100}%`
                 }}
               >
-                {Array.from({ length: totalSlides }).map((_, slideIndex) => (
-                  <div key={slideIndex} className="w-full flex-shrink-0 px-2">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                      {services
-                        .slice(slideIndex * itemsPerSlide, (slideIndex + 1) * itemsPerSlide)
-                        .map((service, index) => (
-                        <motion.div
+                {Array.from({ length: totalSlides }).map((_, slideIndex) => {
+                  const startIndex = slideIndex * itemsPerSlide;
+                  const endIndex = startIndex + itemsPerSlide;
+                  const slideServices = services.slice(startIndex, endIndex);
+                  
+                  
+                  return (
+                    <div key={slideIndex} className="w-full flex-shrink-0 px-2">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                        {slideServices.map((service, index) => (
+                          <motion.div
                 key={service.id}
-                          initial={{ opacity: 0, y: 30 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: index * 0.1 }}
-                          viewport={{ once: true }}
-                          className="group h-full"
-                        >
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            viewport={{ once: true }}
+                            className="group h-full"
+                          >
                           <div className="relative bg-white/90 backdrop-blur-xl border border-gray-200/60 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:bg-white/95 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/20 transform hover:-translate-y-1 h-full overflow-hidden">
                             {/* Decorative Background Elements */}
                             <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-green-100/40 to-emerald-100/40 rounded-full -translate-y-8 translate-x-8 group-hover:scale-110 transition-transform duration-300"></div>
@@ -267,11 +272,12 @@ const Services: React.FC = () => {
                               </div>
                             </div>
                           </div>
-                        </motion.div>
-                      ))}
+                          </motion.div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </motion.div>
             </div>
 
@@ -380,23 +386,15 @@ const Services: React.FC = () => {
                 className="group scroll-mt-20"
               >
                 {/* Service Card */}
-                <div className={`relative backdrop-blur-xl border rounded-3xl overflow-hidden transform hover:-translate-y-1 transition-all duration-300 ${
-                  service.id === 'ui-ux-design' 
-                    ? 'bg-gradient-to-br from-blue-900/20 via-indigo-900/20 to-purple-900/20 border-blue-500/30 hover:bg-gradient-to-br hover:from-blue-900/25 hover:via-indigo-900/25 hover:to-purple-900/25 hover:shadow-xl hover:shadow-blue-400/20 hover:border-blue-400/50' 
-                    : 'bg-white/5 border-white/10 hover:bg-white/8 hover:shadow-xl hover:shadow-emerald-400/20 hover:border-emerald-400/30'
-                }`}>
+                <div className="relative backdrop-blur-xl border rounded-3xl overflow-hidden transform hover:-translate-y-1 transition-all duration-300 bg-white/5 border-white/10 hover:bg-white/8 hover:shadow-xl hover:shadow-emerald-400/20 hover:border-emerald-400/30">
                     {/* Service Header */}
                     <div className="p-8 sm:p-10">
                       <div className="flex items-start space-x-6 mb-8">
-                        <div className={`w-20 h-20 rounded-2xl bg-gradient-to-r ${service.id === 'ui-ux-design' ? 'from-blue-500 via-cyan-500 to-indigo-600' : service.color} flex items-center justify-center flex-shrink-0 shadow-2xl ${service.id === 'ui-ux-design' ? 'shadow-blue-500/30' : ''} group-hover:shadow-xl transition-all duration-300`}>
+                        <div className={`w-20 h-20 rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center flex-shrink-0 shadow-2xl group-hover:shadow-xl transition-all duration-300`}>
                           <service.icon className="w-10 h-10 text-white" />
                         </div>
                         <div className="flex-1">
-                          <h3 className={`text-2xl sm:text-3xl md:text-4xl font-black mb-4 transition-colors duration-300 ${
-                            service.id === 'ui-ux-design' 
-                              ? 'text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400 group-hover:from-blue-300 group-hover:via-cyan-300 group-hover:to-indigo-300' 
-                              : 'text-white group-hover:text-green-300'
-                          }`}>
+                          <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 text-white group-hover:text-green-300 transition-colors duration-300">
                             {service.title}
                           </h3>
                           <p className="text-gray-300 text-lg leading-relaxed">
@@ -410,9 +408,9 @@ const Services: React.FC = () => {
                       <h4 className="text-xl font-bold text-white mb-6">Choose Your Package:</h4>
                       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
                         {[
-                          { key: 'bronze', label: 'Bronze', color: service.id === 'ui-ux-design' ? 'from-slate-600 via-slate-700 to-slate-800' : 'from-amber-600 via-amber-700 to-amber-800', shadow: service.id === 'ui-ux-design' ? 'shadow-slate-500/25' : 'shadow-amber-500/25' },
-                          { key: 'silver', label: 'Silver', color: service.id === 'ui-ux-design' ? 'from-blue-400 via-blue-500 to-blue-600' : 'from-gray-200 via-gray-300 to-gray-400', shadow: service.id === 'ui-ux-design' ? 'shadow-blue-500/30' : 'shadow-gray-400/30' },
-                          { key: 'gold', label: 'Gold', color: service.id === 'ui-ux-design' ? 'from-cyan-400 via-cyan-500 to-indigo-500' : 'from-yellow-400 via-yellow-500 to-yellow-600', shadow: service.id === 'ui-ux-design' ? 'shadow-cyan-500/30' : 'shadow-yellow-500/25' },
+                          { key: 'bronze', label: 'Bronze', color: 'from-amber-600 via-amber-700 to-amber-800', shadow: 'shadow-amber-500/25' },
+                          { key: 'silver', label: 'Silver', color: 'from-gray-200 via-gray-300 to-gray-400', shadow: 'shadow-gray-400/30' },
+                          { key: 'gold', label: 'Gold', color: 'from-yellow-400 via-yellow-500 to-yellow-600', shadow: 'shadow-yellow-500/25' },
                           { key: 'custom', label: 'Custom', color: 'from-cyan-400 via-blue-500 to-indigo-600', shadow: 'shadow-cyan-500/30' }
                         ].map((packageOption) => (
                           <motion.button
