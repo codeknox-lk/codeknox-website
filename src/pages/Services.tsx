@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ChevronDown, Check, ArrowRight, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -19,9 +19,29 @@ const Services: React.FC = () => {
     'maintenance': 'bronze'
   });
 
-  // Carousel configuration
-  const itemsPerSlide = 3; // Show 3 items at once on desktop
+  // Carousel configuration - responsive items per slide
+  const getItemsPerSlide = () => {
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth >= 1024) return 3; // lg: 3 items
+      if (window.innerWidth >= 640) return 2;  // sm: 2 items
+      return 1; // mobile: 1 item
+    }
+    return 3; // default for SSR
+  };
+  
+  const [itemsPerSlide, setItemsPerSlide] = useState(3);
   const totalSlides = Math.ceil(services.length / itemsPerSlide);
+
+  // Update items per slide on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setItemsPerSlide(getItemsPerSlide());
+    };
+    
+    handleResize(); // Set initial value
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
@@ -191,7 +211,11 @@ const Services: React.FC = () => {
               >
                 {Array.from({ length: totalSlides }).map((_, slideIndex) => (
                   <div key={slideIndex} className="w-full flex-shrink-0">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-2">
+                    <div className={`grid gap-6 sm:gap-8 px-2 ${
+                      itemsPerSlide === 1 ? 'grid-cols-1' : 
+                      itemsPerSlide === 2 ? 'grid-cols-1 sm:grid-cols-2' : 
+                      'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+                    }`}>
                       {services
                         .slice(slideIndex * itemsPerSlide, (slideIndex + 1) * itemsPerSlide)
                         .map((service, index) => (
