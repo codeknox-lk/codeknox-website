@@ -192,7 +192,7 @@ const Services: React.FC = () => {
                 }}
               >
                 {/* Section 1: Services 1-3 */}
-                <div className="w-full flex-shrink-0 p-8">
+                <div className="w-full flex-shrink-0 p-8 min-w-full">
                   <div className="grid grid-cols-3 gap-8">
                     {services.slice(0, 3).map((service, index) => (
                       <motion.div
@@ -256,7 +256,7 @@ const Services: React.FC = () => {
                 </div>
 
                 {/* Section 2: Services 4-6 */}
-                <div className="w-full flex-shrink-0 p-8">
+                <div className="w-full flex-shrink-0 p-8 min-w-full">
                   <div className="grid grid-cols-3 gap-8">
                     {services.slice(3, 6).map((service, index) => (
                       <motion.div
@@ -320,7 +320,7 @@ const Services: React.FC = () => {
                 </div>
 
                 {/* Section 3: Services 7-9 */}
-                <div className="w-full flex-shrink-0 p-8">
+                <div className="w-full flex-shrink-0 p-8 min-w-full">
                   <div className="grid grid-cols-3 gap-8">
                     {services.slice(6, 9).map((service, index) => (
                       <motion.div
