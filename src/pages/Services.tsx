@@ -176,7 +176,7 @@ const Services: React.FC = () => {
                       transition={{ duration: 0.6, delay: index * 0.1 }}
                       className="hexagon-container group"
                     >
-                      <div className="hexagon bg-white shadow-xl border-2 border-gray-200 hover:border-green-400 hover:shadow-2xl transition-all duration-500 group-hover:scale-110">
+                      <div className="hexagon">
                         <div className="hexagon-content">
                           <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${service.color} flex items-center justify-center shadow-lg mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
                             <service.icon className="w-6 h-6 text-white" />
@@ -210,7 +210,7 @@ const Services: React.FC = () => {
                       transition={{ duration: 0.6, delay: (index + 3) * 0.1 }}
                       className="hexagon-container group"
                     >
-                      <div className="hexagon bg-white shadow-xl border-2 border-gray-200 hover:border-green-400 hover:shadow-2xl transition-all duration-500 group-hover:scale-110">
+                      <div className="hexagon">
                         <div className="hexagon-content">
                           <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${service.color} flex items-center justify-center shadow-lg mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
                             <service.icon className="w-6 h-6 text-white" />
@@ -244,7 +244,7 @@ const Services: React.FC = () => {
                       transition={{ duration: 0.6, delay: (index + 6) * 0.1 }}
                       className="hexagon-container group"
                     >
-                      <div className="hexagon bg-white shadow-xl border-2 border-gray-200 hover:border-green-400 hover:shadow-2xl transition-all duration-500 group-hover:scale-110">
+                      <div className="hexagon">
                         <div className="hexagon-content">
                           <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${service.color} flex items-center justify-center shadow-lg mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
                             <service.icon className="w-6 h-6 text-white" />
