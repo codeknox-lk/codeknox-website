@@ -99,65 +99,98 @@ I'm **Knox**, your AI assistant, and I'm thrilled to meet you! I'm here to help 
       return `🚀 **CodeKnox Digital Solutions**
 *Where Innovation Meets Excellence*
 
-I'm excited to share what we do! We're not just developers; we're **digital architects** who craft exceptional experiences.
+I'm excited to share our comprehensive digital services! We offer **9 specialized services** with flexible Bronze, Silver, Gold, and Custom packages:
 
-**🎨 Creative Excellence**
-• UI/UX Design that converts visitors to customers
-• Brand identity & visual storytelling
-• Interactive prototypes & user testing
-• Design systems & style guides
+**🎨 UI/UX Design**
+• Create stunning, user-centered interfaces
+• AI-powered design thinking & modern tools
+• Timeline: 2-6 weeks | From LKR 10,000
 
-**💻 Technical Mastery**
-• Full-stack development (React, Node.js, Python)
-• Mobile apps (iOS & Android)
-• Progressive Web Apps (PWA)
-• Microservices & API development
+**💻 Website Development (Frontend + Backend)**
+• Full-stack development with React, Node.js, TypeScript
+• SEO optimization & deployment included
+• Timeline: 3-8 weeks | From LKR 50,000
 
-**🤖 Future-Ready Solutions**
-• AI/ML integration & automation
-• Cloud infrastructure & DevOps
-• Blockchain & Web3 applications
-• IoT & smart device connectivity
+**🌐 No-Code Website Development**
+• Fast websites using Wix, Webflow, WordPress
+• Custom functionality & maintenance
+• Timeline: 1-3 weeks | From LKR 20,000
 
-**💼 Business Impact**
-• E-commerce platforms that scale
-• SaaS products & MVPs
-• Custom enterprise solutions
-• Digital transformation consulting
+**📱 Mobile App Design & Development**
+• Native & cross-platform with Flutter
+• iOS Guidelines & Material Design
+• Timeline: 2-4 weeks | From LKR 50,000
 
-*What type of project are you envisioning? I can provide detailed insights!*`;
+**📊 Social Media Marketing**
+• Comprehensive digital marketing strategies
+• TikTok, Facebook, Instagram, LinkedIn, X
+• Timeline: Ongoing | Setup + Monthly plans
+
+**⚡ SaaS & MVP Development**
+• Rapid MVP development for startups
+• Scalable architecture & modern tech stack
+• Timeline: 4-12 weeks | From LKR 4,000/month
+
+**🤖 AI-Powered Design Support**
+• AI-powered design assistance & creative solutions
+• ChatGPT, Midjourney, Veo3, Claude integration
+• Timeline: Per hour | From LKR 2,000/hour
+
+**🛠️ Maintenance & Support**
+• Ongoing maintenance, updates & technical support
+• 24/7 monitoring, security, backups
+• Timeline: Ongoing | From LKR 8,000/month
+
+**⚙️ System Management & POS**
+• System administration & POS solutions
+• Billing, stock management & reporting
+• Timeline: Ongoing | From LKR 40,000
+
+*Each service has Bronze, Silver, Gold packages + Custom solutions. What interests you most?*`;
     }
 
     // Pricing responses
     if (message.includes('price') || message.includes('cost') || message.includes('budget') || message.includes('pricing')) {
-      return `💰 **Investment in Your Digital Success**
+      return `💰 **Transparent Package Pricing**
+*Bronze, Silver, Gold + Custom Solutions*
 
-I understand budget is important! Here's our transparent, value-driven pricing:
+Here's our flexible pricing structure for each service:
 
-**📊 Tailored Investment Tiers**
+**🎨 UI/UX Design**
+• **Bronze:** LKR 10,000-20,000 (Basic layout, 1-3 screens)
+• **Silver:** LKR 25,000-60,000 (4-7 pages, branding integration)
+• **Gold:** Above LKR 80,000 (10+ pages, animations, design system)
+• **Custom:** Contact for quote
 
-**🌱 Startup Package (50K-100K LKR)**
-• Professional website with CMS
-• Mobile-responsive design
-• Basic SEO optimization
-• 3 months support
-*Perfect for new businesses*
+**💻 Website Development**
+• **Bronze:** LKR 50,000-100,000 (Basic business site)
+• **Silver:** LKR 80,000-250,000 (Dynamic website, blog)
+• **Gold:** Above LKR 100,000 (Advanced custom site, e-commerce)
+• **Custom:** Contact for quote
 
-**🚀 Growth Package (100K-250K LKR)**
-• Custom web application
-• Advanced features & integrations
-• E-commerce capabilities
-• Performance optimization
-• 6 months support
-*Ideal for scaling businesses*
+**🌐 No-Code Websites**
+• **Bronze:** LKR 20,000-40,000 (1-3 page starter)
+• **Silver:** LKR 40,000-70,000 (4-7 pages, SEO)
+• **Gold:** Above LKR 80,000 (10+ pages, e-commerce)
+• **Custom:** Contact for quote
 
-**💎 Enterprise Package (250K+ LKR)**
-• Complex multi-platform solutions
-• AI/ML integration
-• Custom APIs & microservices
-• Advanced security & compliance
-• 12 months support + maintenance
-*For established enterprises*
+**📱 Mobile App Development**
+• **Bronze:** LKR 50,000-100,000 (Basic app)
+• **Silver:** LKR 120,000-200,000 (Mid-level app)
+• **Gold:** Above LKR 120,000 (Advanced app, payments)
+• **Custom:** Contact for quote
+
+**📊 Social Media Marketing**
+• **Bronze:** Setup 10,000 + 3,500/month
+• **Silver:** Setup 10,000 + 6,000/month
+• **Gold:** Setup 10,000 + 10,000/month
+• **Custom:** Contact for quote
+
+**⚡ SaaS & MVP Development**
+• **Bronze:** 4,000-6,000 LKR/month
+• **Silver:** 7,000-10,000 LKR/month
+• **Gold:** Above 15,000 LKR/month
+• **Custom:** Contact for quote
 
 **🎁 Always Included**
 ✅ Source code ownership
@@ -166,7 +199,7 @@ I understand budget is important! Here's our transparent, value-driven pricing:
 ✅ Security best practices
 ✅ Documentation & training
 
-*Want a personalized quote? I can help you find the perfect package!*`;
+*Want a personalized quote for your specific project? Let's discuss!*`;
     }
 
     // Contact responses
@@ -176,27 +209,34 @@ I understand budget is important! Here's our transparent, value-driven pricing:
 I'm excited to help you get started! Here are the best ways to reach our expert team:
 
 **⚡ Instant Connection**
-• **WhatsApp:** +94 70 663 3321 (Instant response)
-• **Email:** sales@codeknox.lk (Professional touch)
-• **Phone:** +94 70 663 3321 (Direct conversation)
+• **Email:** hello@codeknox.com (Professional touch)
+• **Website:** Visit our contact page for detailed information
+• **Request Proposal:** Click the "Request Proposal" button on any service
 
 **🎯 Professional Touch**
-• **Schedule a Call:** Let's discuss your project in detail
+• **Free Consultation:** 30-minute discovery call
 • **Project Brief:** Share your vision and get expert feedback
+• **Custom Quote:** Get personalized pricing for your project
 • **Partnership:** Explore long-term collaboration opportunities
 
 **⏰ Availability**
 • **Monday - Friday:** 9:00 AM - 6:00 PM (LKT)
 • **Saturday:** 10:00 AM - 2:00 PM (LKT)
-• **Emergency Support:** Available 24/7 for critical issues
+• **Response Time:** Within 24 hours for all inquiries
 
-**🎁 Free Consultation**
-• 30-minute discovery call
-• Project scope & timeline discussion
-• Technology recommendations
-• No obligation, just expert advice
+**🎁 What You Get**
+• **Free Consultation:** No obligation, just expert advice
+• **Project Scope Discussion:** Detailed timeline & requirements
+• **Technology Recommendations:** Best solutions for your needs
+• **Transparent Pricing:** Clear, upfront costs
 
-*Ready to start your digital transformation? Let's talk!*`;
+**💼 Ready to Start?**
+1. Choose your service from our 9 offerings
+2. Select Bronze, Silver, Gold, or Custom package
+3. Click "Request Proposal" for instant contact
+4. We'll get back to you within 24 hours
+
+*Ready to transform your digital vision into reality? Let's talk!*`;
     }
 
     // Project start responses
@@ -247,84 +287,99 @@ I'm thrilled you're ready to start! Here's our proven process that has delivered
 
     // Portfolio responses
     if (message.includes('portfolio') || message.includes('work') || message.includes('projects') || message.includes('examples')) {
-      return `📱 **Our Success Stories - Real Results, Real Impact**
+      return `📱 **Our Featured Projects - Real Results, Real Impact**
 
-I'm proud to showcase our recent work that has transformed businesses and delighted users:
+I'm proud to showcase our recent work that demonstrates our expertise across different industries:
 
 **🏆 Featured Projects**
 
 **🦷 SmileHub Premium Dental Care**
-• **Result:** 300% increase in online bookings
+• **Service:** Website Development + UI/UX Design
 • **Tech:** React, Node.js, Payment Integration
-• **Impact:** Streamlined patient management system
-• **Client Quote:** "CodeKnox transformed our practice!"
+• **Features:** Online booking system, patient management
+• **Impact:** Streamlined dental practice operations
+• **Package:** Custom solution tailored to healthcare needs
 
 **🏗️ Fort Knox Quantity Surveying**
-• **Result:** 250% improvement in project efficiency
+• **Service:** Custom Web Application + System Management
 • **Tech:** React, Python, Advanced Analytics
-• **Impact:** Automated quantity calculations
-• **Client Quote:** "Game-changing solution for our industry!"
+• **Features:** Automated quantity calculations, project tracking
+• **Impact:** Improved project efficiency and accuracy
+• **Package:** Enterprise-level custom solution
 
 **🌿 Wildscapia Nature Platform**
-• **Result:** 400% growth in user engagement
-• **Tech:** React, AI/ML, Real-time Data
-• **Impact:** Interactive nature exploration platform
-• **Client Quote:** "Innovation at its finest!"
+• **Service:** Mobile App Development + UI/UX Design
+• **Tech:** React Native, AI/ML, Real-time Data
+• **Features:** Interactive nature exploration, user engagement
+• **Impact:** Enhanced user experience and platform growth
+• **Package:** Gold package with custom features
 
-**📊 Our Track Record**
-• **50+ Projects Completed**
-• **100% Client Satisfaction**
-• **300% Average ROI Improvement**
-• **24/7 Support & Maintenance**
+**📊 Our Expertise Across Industries**
+• **Healthcare:** SmileHub dental management system
+• **Construction:** Fort Knox quantity surveying platform
+• **Nature/Tourism:** Wildscapia interactive platform
+• **E-commerce:** Custom online stores and marketplaces
+• **SaaS:** MVP development for startups
+• **Social Media:** Marketing campaigns and content creation
 
-**🎯 What Our Clients Say**
-*"CodeKnox doesn't just build websites; they build digital experiences that drive real business results."*
+**🎯 What Makes Us Different**
+• **Industry-Specific Solutions:** Tailored to your business needs
+• **Modern Technology Stack:** React, Node.js, TypeScript, AI/ML
+• **Flexible Packages:** Bronze, Silver, Gold + Custom options
+• **Ongoing Support:** Maintenance and updates included
 
-*Want to see more examples or discuss your specific project? Let's talk!*`;
+*Want to see more examples or discuss your specific industry needs? Let's talk!*`;
     }
 
     // Technology responses
     if (message.includes('technology') || message.includes('tech') || message.includes('stack') || message.includes('tools')) {
-      return `💻 **Cutting-Edge Technology Stack**
+      return `💻 **Our Modern Technology Stack**
 
-I'm excited to share our technology expertise! We use the latest tools and frameworks to build exceptional digital experiences:
+I'm excited to share our technology expertise! We use cutting-edge tools and frameworks to build exceptional digital experiences:
 
-**🎨 Frontend Excellence**
-• **React & Next.js** - Modern, fast, and scalable
-• **TypeScript** - Type-safe development
+**🎨 Frontend Development**
+• **React & TypeScript** - Modern, type-safe development
 • **Tailwind CSS** - Beautiful, responsive designs
 • **Framer Motion** - Smooth animations & interactions
+• **Vite** - Lightning-fast build tool
 
-**⚙️ Backend Power**
+**⚙️ Backend & APIs**
 • **Node.js & Express** - Robust server architecture
-• **Python & Django** - AI/ML integration
-• **PostgreSQL & MongoDB** - Reliable data management
-• **Redis** - High-performance caching
+• **TypeScript** - Type-safe backend development
+• **RESTful APIs** - Clean, scalable API design
+• **Database Integration** - Reliable data management
 
-**☁️ Cloud & Infrastructure**
-• **AWS & Vercel** - Scalable hosting solutions
-• **Docker & Kubernetes** - Container orchestration
-• **CI/CD Pipelines** - Automated deployment
-• **Monitoring & Analytics** - Performance tracking
-
-**🤖 AI & Automation**
-• **Machine Learning** - Intelligent features
-• **Natural Language Processing** - Smart chatbots
-• **Computer Vision** - Image recognition
-• **Automation Scripts** - Workflow optimization
+**🌐 No-Code Platforms**
+• **Wix** - Professional website builder
+• **Webflow** - Advanced design capabilities
+• **WordPress** - Content management systems
+• **Custom Plugins** - Extended functionality
 
 **📱 Mobile Development**
-• **React Native** - Cross-platform apps
-• **Flutter** - Native performance
-• **Progressive Web Apps** - App-like web experiences
+• **Flutter** - Cross-platform mobile apps
+• **React Native** - Native mobile experiences
+• **iOS Guidelines** - Apple design standards
+• **Material Design** - Google design principles
 
-**🔒 Security & Performance**
+**🤖 AI & Design Tools**
+• **ChatGPT** - AI-powered content generation
+• **Midjourney** - AI image creation
+• **Veo3** - AI video generation
+• **Claude** - Advanced AI assistance
+
+**☁️ Deployment & Hosting**
+• **Vercel** - Modern hosting platform
+• **GitHub** - Version control & collaboration
+• **CI/CD** - Automated deployment pipelines
+• **Performance Optimization** - Fast loading times
+
+**🔒 Security & Quality**
 • **SSL/TLS Encryption** - Secure data transmission
-• **OAuth & JWT** - Secure authentication
-• **Rate Limiting** - DDoS protection
-• **Performance Optimization** - Lightning-fast loading
+• **Security Best Practices** - Protected applications
+• **Performance Monitoring** - Real-time optimization
+• **Quality Assurance** - Thorough testing
 
-*What technology interests you most? I can provide detailed insights!*`;
+*What technology interests you most? I can provide detailed insights about our development process!*`;
     }
 
     // Support responses

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ChevronDown, Check, ArrowRight, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -19,29 +19,9 @@ const Services: React.FC = () => {
     'maintenance': 'bronze'
   });
 
-  // Carousel configuration - responsive items per slide
-  const getItemsPerSlide = () => {
-    if (typeof window !== 'undefined') {
-      if (window.innerWidth >= 1024) return 3; // lg: 3 items
-      if (window.innerWidth >= 640) return 2;  // sm: 2 items
-      return 1; // mobile: 1 item
-    }
-    return 3; // default for SSR
-  };
-  
-  const [itemsPerSlide, setItemsPerSlide] = useState(3);
+  // Carousel configuration - fixed items per slide
+  const itemsPerSlide = 3; // Always show 3 items per slide
   const totalSlides = Math.ceil(services.length / itemsPerSlide);
-
-  // Update items per slide on window resize
-  useEffect(() => {
-    const handleResize = () => {
-      setItemsPerSlide(getItemsPerSlide());
-    };
-    
-    handleResize(); // Set initial value
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
@@ -211,11 +191,7 @@ const Services: React.FC = () => {
               >
                 {Array.from({ length: totalSlides }).map((_, slideIndex) => (
                   <div key={slideIndex} className="w-full flex-shrink-0">
-                    <div className={`grid gap-6 sm:gap-8 px-2 ${
-                      itemsPerSlide === 1 ? 'grid-cols-1' : 
-                      itemsPerSlide === 2 ? 'grid-cols-1 sm:grid-cols-2' : 
-                      'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
-                    }`}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-2">
                       {services
                         .slice(slideIndex * itemsPerSlide, (slideIndex + 1) * itemsPerSlide)
                         .map((service, index) => (
@@ -270,7 +246,7 @@ const Services: React.FC = () => {
                                       <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
                                       <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
                                       <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                                      <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                                      <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
                                     </div>
                                     <span className="text-xs text-gray-500 font-medium">4 Package Options</span>
                                   </div>
@@ -402,32 +378,40 @@ const Services: React.FC = () => {
                 className="group scroll-mt-20"
               >
                 {/* Service Card */}
-                <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/25 transform hover:-translate-y-2">
-                  {/* Service Header */}
-                  <div className="p-8 sm:p-10">
-                    <div className="flex items-start space-x-6 mb-8">
-                      <div className={`w-20 h-20 rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center flex-shrink-0`}>
-                        <service.icon className="w-10 h-10 text-white" />
+                <div className={`relative backdrop-blur-xl border rounded-3xl overflow-hidden transform hover:-translate-y-1 transition-all duration-300 ${
+                  service.id === 'ui-ux-design' 
+                    ? 'bg-gradient-to-br from-blue-900/20 via-indigo-900/20 to-purple-900/20 border-blue-500/30 hover:bg-gradient-to-br hover:from-blue-900/25 hover:via-indigo-900/25 hover:to-purple-900/25 hover:shadow-xl hover:shadow-blue-400/20 hover:border-blue-400/50' 
+                    : 'bg-white/5 border-white/10 hover:bg-white/8 hover:shadow-xl hover:shadow-emerald-400/20 hover:border-emerald-400/30'
+                }`}>
+                    {/* Service Header */}
+                    <div className="p-8 sm:p-10">
+                      <div className="flex items-start space-x-6 mb-8">
+                        <div className={`w-20 h-20 rounded-2xl bg-gradient-to-r ${service.id === 'ui-ux-design' ? 'from-blue-500 via-cyan-500 to-indigo-600' : service.color} flex items-center justify-center flex-shrink-0 shadow-2xl ${service.id === 'ui-ux-design' ? 'shadow-blue-500/30' : ''} group-hover:shadow-xl transition-all duration-300`}>
+                          <service.icon className="w-10 h-10 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className={`text-2xl sm:text-3xl md:text-4xl font-black mb-4 transition-colors duration-300 ${
+                            service.id === 'ui-ux-design' 
+                              ? 'text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400 group-hover:from-blue-300 group-hover:via-cyan-300 group-hover:to-indigo-300' 
+                              : 'text-white group-hover:text-green-300'
+                          }`}>
+                            {service.title}
+                          </h3>
+                          <p className="text-gray-300 text-lg leading-relaxed">
+                            {service.description}
+                          </p>
+                        </div>
                       </div>
-                      <div className="flex-1">
-                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-4 group-hover:text-green-300 transition-colors duration-300">
-                          {service.title}
-                        </h3>
-                        <p className="text-gray-300 text-lg leading-relaxed">
-                          {service.description}
-                        </p>
-                      </div>
-                    </div>
 
                     {/* Package Selector for All Services */}
                     <div className="mb-8">
                       <h4 className="text-xl font-bold text-white mb-6">Choose Your Package:</h4>
                       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
                         {[
-                          { key: 'bronze', label: 'Bronze', color: 'from-amber-600 via-amber-700 to-amber-800', shadow: 'shadow-amber-500/25' },
-                          { key: 'silver', label: 'Silver', color: 'from-gray-200 via-gray-300 to-gray-400', shadow: 'shadow-gray-400/30' },
-                          { key: 'gold', label: 'Gold', color: 'from-yellow-400 via-yellow-500 to-yellow-600', shadow: 'shadow-yellow-500/25' },
-                          { key: 'custom', label: 'Custom', color: 'from-cyan-100 via-blue-100 to-indigo-200', shadow: 'shadow-cyan-400/30' }
+                          { key: 'bronze', label: 'Bronze', color: service.id === 'ui-ux-design' ? 'from-slate-600 via-slate-700 to-slate-800' : 'from-amber-600 via-amber-700 to-amber-800', shadow: service.id === 'ui-ux-design' ? 'shadow-slate-500/25' : 'shadow-amber-500/25' },
+                          { key: 'silver', label: 'Silver', color: service.id === 'ui-ux-design' ? 'from-blue-400 via-blue-500 to-blue-600' : 'from-gray-200 via-gray-300 to-gray-400', shadow: service.id === 'ui-ux-design' ? 'shadow-blue-500/30' : 'shadow-gray-400/30' },
+                          { key: 'gold', label: 'Gold', color: service.id === 'ui-ux-design' ? 'from-cyan-400 via-cyan-500 to-indigo-500' : 'from-yellow-400 via-yellow-500 to-yellow-600', shadow: service.id === 'ui-ux-design' ? 'shadow-cyan-500/30' : 'shadow-yellow-500/25' },
+                          { key: 'custom', label: 'Custom', color: 'from-cyan-400 via-blue-500 to-indigo-600', shadow: 'shadow-cyan-500/30' }
                         ].map((packageOption) => (
                           <button
                             key={packageOption.key}
