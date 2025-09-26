@@ -105,7 +105,7 @@ const Home: React.FC = () => {
           }}></div>
         </div>
 
-        <div className="max-w-7xl mx-auto flex justify-center relative z-10 w-full">
+        <div className="max-w-screen-2xl mx-auto flex justify-center relative z-10 w-full px-4 xl:px-8 2xl:px-10">
           {/* Centered Content - Responsive Text */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -311,7 +311,7 @@ const Home: React.FC = () => {
         </div>
 
         {/* Storytelling Services */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="relative z-10 max-w-screen-2xl mx-auto px-4 sm:px-6 xl:px-8 2xl:px-10">
           {/* Service 1: Web Development */}
           <motion.div
             initial={{ opacity: 0, y: 100 }}
@@ -905,7 +905,7 @@ const Home: React.FC = () => {
                     </div>
 
                 {/* Beautiful Project Cards */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="relative z-10 max-w-screen-2xl mx-auto px-4 sm:px-6 xl:px-8 2xl:px-10">
           {/* Project 1: E-Commerce Platform */}
               <motion.div
             initial={{ opacity: 0, y: 100 }}

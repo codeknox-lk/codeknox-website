@@ -134,7 +134,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             className="fixed top-0 left-0 right-0 z-50 flex justify-center"
           >
             {/* Main Navigation Container */}
-            <div className="relative w-full max-w-7xl mx-3 sm:mx-4 md:mx-4 md-lg:mx-5 lg:mx-6 mt-2 sm:mt-3 md:mt-2 md-lg:mt-3 lg:mt-4">
+            <div className="relative w-full max-w-screen-2xl mx-3 sm:mx-4 md:mx-4 md-lg:mx-5 lg:mx-6 xl:mx-8 2xl:mx-10 mt-2 sm:mt-3 md:mt-2 md-lg:mt-3 lg:mt-4">
               {/* Liquid Glass Background */}
               <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl">
                 {/* Backdrop Blur Layer */}
@@ -150,7 +150,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-blue-500/5 via-transparent to-teal-500/5" />
                 
                 {/* Content Container */}
-                <div className="relative flex items-center justify-between px-3 sm:px-4 md:px-4 md-lg:px-5 lg:px-6 py-2 sm:py-3 md:py-2 md-lg:py-2.5 lg:py-3">
+                <div className="relative flex items-center justify-between px-3 sm:px-4 md:px-4 md-lg:px-5 lg:px-6 xl:px-8 2xl:px-10 py-2 sm:py-3 md:py-2 md-lg:py-2.5 lg:py-3">
                   
 
                   
@@ -327,7 +327,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
       {/* Liquid Glass Footer - Matching Navbar Design */}
       <footer className="relative bg-gradient-to-br from-gray-50 via-white to-gray-50 border-t border-gray-200/50">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20">
+        <div className="max-w-screen-2xl mx-auto px-4 md:px-6 xl:px-8 2xl:px-10 py-12 md:py-20">
           {/* Main Footer Content */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12 mb-12 md:mb-16">
             
