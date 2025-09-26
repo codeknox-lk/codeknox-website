@@ -179,151 +179,137 @@ const Services: React.FC = () => {
             </motion.p>
           </motion.div>
 
-          {/* Services Carousel */}
-          <div className="relative max-w-7xl mx-auto">
+          {/* Services Carousel - Completely Rebuilt */}
+          <div className="relative">
             {/* Carousel Container */}
-            <div className="overflow-hidden rounded-3xl bg-gradient-to-r from-gray-50/50 to-white/50 p-2">
-              <motion.div 
+            <div className="overflow-hidden rounded-3xl bg-white shadow-xl border border-gray-200">
+              <div 
                 className="flex transition-transform duration-500 ease-in-out"
                 style={{ 
                   transform: `translateX(-${currentSlide * 100}%)`,
                   width: `${totalSlides * 100}%`
                 }}
               >
+                {/* Generate slides */}
                 {Array.from({ length: totalSlides }).map((_, slideIndex) => {
                   const startIndex = slideIndex * itemsPerSlide;
-                  const endIndex = startIndex + itemsPerSlide;
+                  const endIndex = Math.min(startIndex + itemsPerSlide, services.length);
                   const slideServices = services.slice(startIndex, endIndex);
                   
-                  
                   return (
-                    <div key={slideIndex} className="w-full flex-shrink-0 px-2">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                    <div key={slideIndex} className="w-full flex-shrink-0 p-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {slideServices.map((service, index) => (
                           <motion.div
-                key={service.id}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            key={service.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            className="group h-full"
+                            className="group"
                           >
-                          <div className="relative bg-white/90 backdrop-blur-xl border border-gray-200/60 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:bg-white/95 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/20 transform hover:-translate-y-1 h-full overflow-hidden">
-                            {/* Decorative Background Elements */}
-                            <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-green-100/40 to-emerald-100/40 rounded-full -translate-y-8 translate-x-8 group-hover:scale-110 transition-transform duration-300"></div>
-                            <div className="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-blue-100/40 to-cyan-100/40 rounded-full translate-y-6 -translate-x-6 group-hover:scale-110 transition-transform duration-300"></div>
-                            
-                            <div className="relative space-y-5">
-                              <div className="flex items-start space-x-4">
-                                <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300 flex-shrink-0`}>
-                                  <service.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+                            <div className="relative bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full">
+                              {/* Service Icon */}
+                              <div className="flex items-center space-x-4 mb-4">
+                                <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-md`}>
+                                  <service.icon className="w-6 h-6 text-white" />
                                 </div>
-                                <div className="flex-1 min-w-0">
-                                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300 leading-tight">{service.title}</h3>
-                                  <div className="flex items-center space-x-2 mt-2">
-                                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                                    <p className="text-sm text-gray-500 font-medium">Timeline: {service.timeline}</p>
+                                <div>
+                                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300">
+                                    {service.title}
+                                  </h3>
+                                  <div className="flex items-center space-x-2 mt-1">
+                                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                                    <span className="text-sm text-gray-500">{service.timeline}</span>
                                   </div>
                                 </div>
                               </div>
-                              
-                              <p className="text-gray-600 leading-relaxed text-sm sm:text-base group-hover:text-gray-700 transition-colors duration-300 line-clamp-3">
+
+                              {/* Description */}
+                              <p className="text-gray-600 text-sm leading-relaxed mb-4">
                                 {service.description}
                               </p>
 
-                              <div className="flex flex-wrap gap-2">
+                              {/* Features */}
+                              <div className="flex flex-wrap gap-2 mb-4">
                                 {service.features.slice(0, 3).map((feature, i) => (
-                                  <motion.span 
-                                    key={i} 
-                                    className="px-3 py-1.5 bg-gradient-to-r from-gray-100 to-gray-50 text-gray-700 text-xs rounded-full border border-gray-200 group-hover:from-green-50 group-hover:to-emerald-50 group-hover:border-green-200 group-hover:text-green-700 transition-all duration-300"
-                                    whileHover={{ scale: 1.05 }}
+                                  <span 
+                                    key={i}
+                                    className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
                                   >
                                     {feature}
-                                  </motion.span>
+                                  </span>
                                 ))}
                               </div>
 
-                              {/* Enhanced Package Indicator */}
-                              <div className="mt-6 pt-4 border-t border-gray-100 group-hover:border-green-200 transition-colors duration-300">
-                                <div className="flex items-center justify-between">
-                                  <div className="flex items-center space-x-2">
-                                    <div className="flex space-x-1">
-                                      <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                                      <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                                      <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                                      <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
-                                    </div>
-                                    <span className="text-xs text-gray-500 font-medium">4 Package Options</span>
+                              {/* Package Indicator */}
+                              <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                                <div className="flex items-center space-x-2">
+                                  <div className="flex space-x-1">
+                                    <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+                                    <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                                    <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                                    <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
                                   </div>
-                                  <motion.button
-                                    onClick={() => {
-                                      document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
-                                        behavior: 'smooth',
-                                        block: 'start'
-                                      });
-                                    }}
-                                    className="text-green-500 group-hover:text-green-600 transition-colors duration-300 hover:bg-green-50 p-2 rounded-full"
-                                    whileHover={{ x: 2, scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                  >
-                                    <ArrowRight className="w-4 h-4" />
-                                  </motion.button>
+                                  <span className="text-xs text-gray-500">4 Packages</span>
                                 </div>
+                                <button
+                                  onClick={() => {
+                                    document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
+                                      behavior: 'smooth',
+                                      block: 'start'
+                                    });
+                                  }}
+                                  className="text-green-500 hover:text-green-600 transition-colors duration-300"
+                                >
+                                  <ArrowRight className="w-4 h-4" />
+                                </button>
                               </div>
                             </div>
-                          </div>
                           </motion.div>
                         ))}
                       </div>
                     </div>
                   );
                 })}
-              </motion.div>
+              </div>
             </div>
 
             {/* Navigation Controls */}
             <div className="flex items-center justify-center mt-8 space-x-6">
-              {/* Previous Button */}
-              <motion.button
+              <button
                 onClick={prevSlide}
-                className="flex items-center justify-center w-12 h-12 bg-white/90 backdrop-blur-xl border border-gray-200/60 rounded-full shadow-lg hover:shadow-xl hover:bg-white transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
                 disabled={currentSlide === 0}
+                className="w-10 h-10 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <ChevronLeft className="w-5 h-5 text-gray-600 group-hover:text-green-600 transition-colors duration-300" />
-              </motion.button>
+                <ChevronLeft className="w-5 h-5 text-gray-600" />
+              </button>
 
-              {/* Dot Indicators */}
-              <div className="flex space-x-3">
+              <div className="flex space-x-2">
                 {Array.from({ length: totalSlides }).map((_, index) => (
                   <button
                     key={index}
                     onClick={() => goToSlide(index)}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${
                       currentSlide === index
-                        ? 'bg-green-500 scale-125 shadow-lg shadow-green-500/30'
-                        : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'
+                        ? 'bg-green-500 scale-125'
+                        : 'bg-gray-300 hover:bg-gray-400'
                     }`}
                   />
                 ))}
               </div>
 
-              {/* Next Button */}
-              <motion.button
+              <button
                 onClick={nextSlide}
-                className="flex items-center justify-center w-12 h-12 bg-white/90 backdrop-blur-xl border border-gray-200/60 rounded-full shadow-lg hover:shadow-xl hover:bg-white transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
                 disabled={currentSlide === totalSlides - 1}
+                className="w-10 h-10 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <ChevronRight className="w-5 h-5 text-gray-600 group-hover:text-green-600 transition-colors duration-300" />
-              </motion.button>
+                <ChevronRight className="w-5 h-5 text-gray-600" />
+              </button>
             </div>
 
             {/* Slide Counter */}
             <div className="text-center mt-4">
-              <span className="text-sm text-gray-500 font-medium bg-white/50 px-3 py-1 rounded-full">
+              <span className="text-sm text-gray-500 bg-white px-3 py-1 rounded-full shadow-sm">
                 {currentSlide + 1} of {totalSlides}
               </span>
             </div>
