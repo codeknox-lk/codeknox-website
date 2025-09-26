@@ -22,6 +22,7 @@ const Services: React.FC = () => {
   // Carousel configuration - fixed items per slide
   const itemsPerSlide = 3; // Always show 3 items per slide
   const totalSlides = Math.ceil(services.length / itemsPerSlide);
+  
 
 
   const nextSlide = () => {
@@ -196,9 +197,10 @@ const Services: React.FC = () => {
                   const endIndex = Math.min(startIndex + itemsPerSlide, services.length);
                   const slideServices = services.slice(startIndex, endIndex);
                   
+                  
                   return (
                     <div key={slideIndex} className="w-full flex-shrink-0 p-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {slideServices.map((service, index) => (
                           <motion.div
                             key={service.id}
