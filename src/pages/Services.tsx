@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ChevronDown, Check, ArrowRight, Sparkles } from 'lucide-react';
+import { ChevronDown, Check, ArrowRight, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import { services } from '../data/services';
 
 const Services: React.FC = () => {
   const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedPackages, setSelectedPackages] = useState<{[key: string]: 'bronze' | 'silver' | 'gold' | 'custom'}>({
     'ui-ux-design': 'bronze',
     'website-development': 'bronze',
@@ -17,6 +18,22 @@ const Services: React.FC = () => {
     'ai-design-support': 'bronze',
     'maintenance': 'bronze'
   });
+
+  // Carousel configuration
+  const itemsPerSlide = 3; // Show 3 items at once on desktop
+  const totalSlides = Math.ceil(services.length / itemsPerSlide);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
 
   const faqs = [
     {
@@ -161,83 +178,147 @@ const Services: React.FC = () => {
             </motion.p>
           </motion.div>
 
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group"
+          {/* Services Carousel */}
+          <div className="relative">
+            {/* Carousel Container */}
+            <div className="overflow-hidden rounded-3xl">
+              <motion.div 
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ 
+                  transform: `translateX(-${currentSlide * 100}%)`,
+                  width: `${totalSlides * 100}%`
+                }}
               >
-                <div className="relative bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:bg-white/90 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/25 transform hover:-translate-y-2 h-full overflow-hidden">
-                  {/* Decorative Background Elements */}
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-100/30 to-emerald-100/30 rounded-full -translate-y-10 translate-x-10 group-hover:scale-110 transition-transform duration-500"></div>
-                  <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-blue-100/30 to-cyan-100/30 rounded-full translate-y-8 -translate-x-8 group-hover:scale-110 transition-transform duration-500"></div>
-                  
-                  <div className="relative space-y-4 sm:space-y-6">
-                    <div className="flex items-start space-x-3 sm:space-x-4">
-                      <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}>
-                        <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300">{service.title}</h3>
-                        <div className="flex items-center space-x-2 mt-1">
-                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                          <p className="text-sm text-gray-500 font-medium">Timeline: {service.timeline}</p>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <p className="text-gray-600 leading-relaxed text-sm sm:text-base group-hover:text-gray-700 transition-colors duration-300">
-                      {service.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2">
-                      {service.features.slice(0, 3).map((feature, i) => (
-                        <motion.span 
-                          key={i} 
-                          className="px-3 py-1.5 bg-gradient-to-r from-gray-100 to-gray-50 text-gray-700 text-xs rounded-full border border-gray-200 group-hover:from-green-50 group-hover:to-emerald-50 group-hover:border-green-200 group-hover:text-green-700 transition-all duration-300"
-                          whileHover={{ scale: 1.05 }}
+                {Array.from({ length: totalSlides }).map((_, slideIndex) => (
+                  <div key={slideIndex} className="w-full flex-shrink-0">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-2">
+                      {services
+                        .slice(slideIndex * itemsPerSlide, (slideIndex + 1) * itemsPerSlide)
+                        .map((service, index) => (
+                        <motion.div
+                key={service.id}
+                          initial={{ opacity: 0, y: 50 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: index * 0.1 }}
+                          viewport={{ once: true }}
+                          className="group"
                         >
-                          {feature}
-                        </motion.span>
+                          <div className="relative bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:bg-white/90 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/25 transform hover:-translate-y-2 h-full overflow-hidden">
+                            {/* Decorative Background Elements */}
+                            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-100/30 to-emerald-100/30 rounded-full -translate-y-10 translate-x-10 group-hover:scale-110 transition-transform duration-500"></div>
+                            <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-blue-100/30 to-cyan-100/30 rounded-full translate-y-8 -translate-x-8 group-hover:scale-110 transition-transform duration-500"></div>
+                            
+                            <div className="relative space-y-4 sm:space-y-6">
+                              <div className="flex items-start space-x-3 sm:space-x-4">
+                                <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}>
+                                  <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                                </div>
+                                <div className="flex-1">
+                                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300">{service.title}</h3>
+                                  <div className="flex items-center space-x-2 mt-1">
+                                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                                    <p className="text-sm text-gray-500 font-medium">Timeline: {service.timeline}</p>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <p className="text-gray-600 leading-relaxed text-sm sm:text-base group-hover:text-gray-700 transition-colors duration-300">
+                                {service.description}
+                              </p>
+
+                              <div className="flex flex-wrap gap-2">
+                                {service.features.slice(0, 3).map((feature, i) => (
+                                  <motion.span 
+                                    key={i} 
+                                    className="px-3 py-1.5 bg-gradient-to-r from-gray-100 to-gray-50 text-gray-700 text-xs rounded-full border border-gray-200 group-hover:from-green-50 group-hover:to-emerald-50 group-hover:border-green-200 group-hover:text-green-700 transition-all duration-300"
+                                    whileHover={{ scale: 1.05 }}
+                                  >
+                                    {feature}
+                                  </motion.span>
+                                ))}
+                              </div>
+
+                              {/* Enhanced Package Indicator */}
+                              <div className="mt-6 pt-4 border-t border-gray-100 group-hover:border-green-200 transition-colors duration-300">
+                                <div className="flex items-center justify-between">
+                                  <div className="flex items-center space-x-2">
+                                    <div className="flex space-x-1">
+                                      <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+                                      <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                                      <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                                      <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                                    </div>
+                                    <span className="text-xs text-gray-500 font-medium">4 Package Options</span>
+                                  </div>
+                                  <motion.button
+                                    onClick={() => {
+                                      document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
+                                        behavior: 'smooth',
+                                        block: 'start'
+                                      });
+                                    }}
+                                    className="text-green-500 group-hover:text-green-600 transition-colors duration-300 hover:bg-green-50 p-1 rounded-full"
+                                    whileHover={{ x: 3, scale: 1.1 }}
+                                    whileTap={{ scale: 0.95 }}
+                                  >
+                                    <ArrowRight className="w-4 h-4" />
+                                  </motion.button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </motion.div>
                       ))}
                     </div>
-
-                    {/* Enhanced Package Indicator */}
-                    <div className="mt-6 pt-4 border-t border-gray-100 group-hover:border-green-200 transition-colors duration-300">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-2">
-                          <div className="flex space-x-1">
-                            <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                            <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                            <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                            <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                          </div>
-                          <span className="text-xs text-gray-500 font-medium">4 Package Options</span>
-                        </div>
-                        <motion.button
-                          onClick={() => {
-                            document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
-                              behavior: 'smooth',
-                              block: 'start'
-                            });
-                          }}
-                          className="text-green-500 group-hover:text-green-600 transition-colors duration-300 hover:bg-green-50 p-1 rounded-full"
-                          whileHover={{ x: 3, scale: 1.1 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <ArrowRight className="w-4 h-4" />
-                        </motion.button>
-                      </div>
-                    </div>
                   </div>
-                </div>
+                ))}
               </motion.div>
-            ))}
+            </div>
+
+            {/* Navigation Controls */}
+            <div className="flex items-center justify-between mt-8">
+              {/* Previous Button */}
+              <motion.button
+                onClick={prevSlide}
+                className="flex items-center justify-center w-12 h-12 bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-full shadow-lg hover:shadow-xl hover:bg-white/90 transition-all duration-300 group"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <ChevronLeft className="w-6 h-6 text-gray-600 group-hover:text-green-600 transition-colors duration-300" />
+              </motion.button>
+
+              {/* Dot Indicators */}
+              <div className="flex space-x-2">
+                {Array.from({ length: totalSlides }).map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      currentSlide === index
+                        ? 'bg-green-500 scale-125'
+                        : 'bg-gray-300 hover:bg-gray-400'
+                    }`}
+                  />
+                ))}
+              </div>
+
+              {/* Next Button */}
+              <motion.button
+                onClick={nextSlide}
+                className="flex items-center justify-center w-12 h-12 bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-full shadow-lg hover:shadow-xl hover:bg-white/90 transition-all duration-300 group"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <ChevronRight className="w-6 h-6 text-gray-600 group-hover:text-green-600 transition-colors duration-300" />
+              </motion.button>
+            </div>
+
+            {/* Slide Counter */}
+            <div className="text-center mt-4">
+              <span className="text-sm text-gray-500 font-medium">
+                {currentSlide + 1} of {totalSlides}
+              </span>
+            </div>
           </div>
         </div>
       </section>
