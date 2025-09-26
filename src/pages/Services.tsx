@@ -219,12 +219,19 @@ const Services: React.FC = () => {
                           </div>
                           <span className="text-xs text-gray-500 font-medium">4 Package Options</span>
                         </div>
-                        <motion.div
-                          className="text-green-500 group-hover:text-green-600 transition-colors duration-300"
-                          whileHover={{ x: 3 }}
+                        <motion.button
+                          onClick={() => {
+                            document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
+                              behavior: 'smooth',
+                              block: 'start'
+                            });
+                          }}
+                          className="text-green-500 group-hover:text-green-600 transition-colors duration-300 hover:bg-green-50 p-1 rounded-full"
+                          whileHover={{ x: 3, scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
                         >
                           <ArrowRight className="w-4 h-4" />
-                        </motion.div>
+                        </motion.button>
                       </div>
                     </div>
                   </div>
@@ -236,7 +243,7 @@ const Services: React.FC = () => {
       </section>
 
       {/* Services Detail Section - Dark */}
-      <section className="relative py-20 sm:py-24 md:py-28 lg:py-32 px-4 sm:px-6 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
+      <section id="comprehensive-solutions" className="relative py-20 sm:py-24 md:py-28 lg:py-32 px-4 sm:px-6 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
         {/* Background Pattern */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(20,184,166,0.1),transparent_50%)]"></div>
