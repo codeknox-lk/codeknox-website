@@ -408,17 +408,17 @@ const Services: React.FC = () => {
                       <h4 className="text-xl font-bold text-white mb-6">Choose Your Package:</h4>
                       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
                         {[
-                          { key: 'bronze', label: 'Bronze', color: 'from-amber-600 via-amber-700 to-amber-800', shadow: 'shadow-amber-500/25' },
-                          { key: 'silver', label: 'Silver', color: 'from-gray-200 via-gray-300 to-gray-400', shadow: 'shadow-gray-400/30' },
-                          { key: 'gold', label: 'Gold', color: 'from-yellow-400 via-yellow-500 to-yellow-600', shadow: 'shadow-yellow-500/25' },
-                          { key: 'custom', label: 'Custom', color: 'from-cyan-400 via-blue-500 to-indigo-600', shadow: 'shadow-cyan-500/30' }
+                          { key: 'bronze', label: 'Bronze', color: 'from-amber-600 via-amber-700 to-amber-800', shadow: 'shadow-amber-500/25', textColor: 'text-white' },
+                          { key: 'silver', label: 'Silver', color: 'from-gray-200 via-gray-300 to-gray-400', shadow: 'shadow-gray-400/30', textColor: 'text-gray-800' },
+                          { key: 'gold', label: 'Gold', color: 'from-yellow-400 via-yellow-500 to-yellow-600', shadow: 'shadow-yellow-500/25', textColor: 'text-white' },
+                          { key: 'custom', label: 'Custom', color: 'from-cyan-400 via-blue-500 to-indigo-600', shadow: 'shadow-cyan-500/30', textColor: 'text-white' }
                         ].map((packageOption) => (
                           <motion.button
                             key={packageOption.key}
                             onClick={() => setSelectedPackages(prev => ({...prev, [service.id]: packageOption.key as any}))}
                             className={`p-3 rounded-xl border-2 transition-all duration-300 ${
                               selectedPackages[service.id] === packageOption.key
-                                ? `bg-gradient-to-r ${packageOption.color} text-white border-transparent shadow-lg ${packageOption.shadow}`
+                                ? `bg-gradient-to-r ${packageOption.color} ${packageOption.textColor} border-transparent shadow-lg ${packageOption.shadow}`
                                 : 'bg-white/5 text-gray-300 border-white/20 hover:bg-white/10 hover:border-white/30'
                             }`}
                             whileHover={{ scale: 1.02 }}
