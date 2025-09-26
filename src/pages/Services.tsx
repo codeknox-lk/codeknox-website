@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ChevronDown, Check, ArrowRight, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronDown, Check, ArrowRight, Sparkles } from 'lucide-react';
 import { services } from '../data/services';
 
 const Services: React.FC = () => {
   const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedPackages, setSelectedPackages] = useState<{[key: string]: 'bronze' | 'silver' | 'gold' | 'custom'}>({
     'ui-ux-design': 'bronze',
     'website-development': 'bronze',
@@ -18,24 +17,6 @@ const Services: React.FC = () => {
     'ai-design-support': 'bronze',
     'maintenance': 'bronze'
   });
-
-  // Carousel configuration - fixed items per slide
-  const itemsPerSlide = 3; // Always show 3 items per slide
-  const totalSlides = Math.ceil(services.length / itemsPerSlide);
-  
-
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
 
   const faqs = [
     {
@@ -180,249 +161,133 @@ const Services: React.FC = () => {
             </motion.p>
           </motion.div>
 
-          {/* Simple 3-Section Carousel */}
+          {/* Hexagonal Grid Layout */}
           <div className="relative">
-            {/* Carousel Container */}
-            <div className="overflow-hidden rounded-3xl bg-white shadow-xl border border-gray-200">
-              <div 
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{ 
-                  transform: `translateX(-${currentSlide * 100}%)`,
-                  width: `${totalSlides * 100}%`
+            {/* Hexagon Grid Container */}
+            <div className="flex justify-center items-center min-h-[600px] py-12">
+              <div className="hexagon-grid">
+                {/* Row 1: 3 hexagons */}
+                <div className="flex justify-center mb-8">
+                  {services.slice(0, 3).map((service, index) => (
+                    <motion.div
+                      key={service.id}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      className="hexagon-container group"
+                    >
+                      <div className="hexagon bg-white shadow-xl border-2 border-gray-200 hover:border-green-400 hover:shadow-2xl transition-all duration-500 group-hover:scale-110">
+                        <div className="hexagon-content">
+                          <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${service.color} flex items-center justify-center shadow-lg mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                            <service.icon className="w-6 h-6 text-white" />
+                          </div>
+                          <h3 className="text-sm font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300 text-center mb-2">
+                            {service.title}
+                          </h3>
+                          <div className="flex items-center justify-center space-x-1 mb-3">
+                            <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
+                            <span className="text-xs text-gray-500">{service.timeline}</span>
+                          </div>
+                          <div className="flex justify-center space-x-1">
+                            <div className="w-1.5 h-1.5 bg-amber-500 rounded-full"></div>
+                            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full"></div>
+                            <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full"></div>
+                            <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Row 2: 3 hexagons (offset) */}
+                <div className="flex justify-center mb-8 -mt-4">
+                  {services.slice(3, 6).map((service, index) => (
+                    <motion.div
+                      key={service.id}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: (index + 3) * 0.1 }}
+                      className="hexagon-container group"
+                    >
+                      <div className="hexagon bg-white shadow-xl border-2 border-gray-200 hover:border-green-400 hover:shadow-2xl transition-all duration-500 group-hover:scale-110">
+                        <div className="hexagon-content">
+                          <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${service.color} flex items-center justify-center shadow-lg mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                            <service.icon className="w-6 h-6 text-white" />
+                          </div>
+                          <h3 className="text-sm font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300 text-center mb-2">
+                            {service.title}
+                          </h3>
+                          <div className="flex items-center justify-center space-x-1 mb-3">
+                            <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
+                            <span className="text-xs text-gray-500">{service.timeline}</span>
+                          </div>
+                          <div className="flex justify-center space-x-1">
+                            <div className="w-1.5 h-1.5 bg-amber-500 rounded-full"></div>
+                            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full"></div>
+                            <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full"></div>
+                            <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Row 3: 3 hexagons */}
+                <div className="flex justify-center">
+                  {services.slice(6, 9).map((service, index) => (
+                    <motion.div
+                      key={service.id}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: (index + 6) * 0.1 }}
+                      className="hexagon-container group"
+                    >
+                      <div className="hexagon bg-white shadow-xl border-2 border-gray-200 hover:border-green-400 hover:shadow-2xl transition-all duration-500 group-hover:scale-110">
+                        <div className="hexagon-content">
+                          <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${service.color} flex items-center justify-center shadow-lg mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                            <service.icon className="w-6 h-6 text-white" />
+                          </div>
+                          <h3 className="text-sm font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300 text-center mb-2">
+                            {service.title}
+                          </h3>
+                          <div className="flex items-center justify-center space-x-1 mb-3">
+                            <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
+                            <span className="text-xs text-gray-500">{service.timeline}</span>
+                          </div>
+                          <div className="flex justify-center space-x-1">
+                            <div className="w-1.5 h-1.5 bg-amber-500 rounded-full"></div>
+                            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full"></div>
+                            <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full"></div>
+                            <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Scroll to Details Button */}
+            <div className="text-center mt-12">
+              <motion.button
+                onClick={() => {
+                  document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
                 }}
+                className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                {/* Section 1: Services 1-3 */}
-                <div className="w-full flex-shrink-0 p-8 min-w-full">
-                  <div className="grid grid-cols-3 gap-8">
-                    {services.slice(0, 3).map((service, index) => (
-                      <motion.div
-                        key={service.id}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="group"
-                      >
-                        <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full">
-                          <div className="flex items-center space-x-4 mb-4">
-                            <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-md`}>
-                              <service.icon className="w-6 h-6 text-white" />
-                            </div>
-                            <div>
-                              <h3 className="text-lg font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300">
-                                {service.title}
-                              </h3>
-                              <div className="flex items-center space-x-2 mt-1">
-                                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                                <span className="text-sm text-gray-500">{service.timeline}</span>
-                              </div>
-                            </div>
-                          </div>
-                          <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                            {service.description}
-                          </p>
-                          <div className="flex flex-wrap gap-2 mb-4">
-                            {service.features.slice(0, 3).map((feature, i) => (
-                              <span key={i} className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
-                                {feature}
-                              </span>
-                            ))}
-                          </div>
-                          <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                            <div className="flex items-center space-x-2">
-                              <div className="flex space-x-1">
-                                <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                                <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                                <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                                <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
-                              </div>
-                              <span className="text-xs text-gray-500">4 Packages</span>
-                            </div>
-                            <button
-                              onClick={() => {
-                                document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
-                                  behavior: 'smooth',
-                                  block: 'start'
-                                });
-                              }}
-                              className="text-green-500 hover:text-green-600 transition-colors duration-300"
-                            >
-                              <ArrowRight className="w-4 h-4" />
-                            </button>
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Section 2: Services 4-6 */}
-                <div className="w-full flex-shrink-0 p-8 min-w-full">
-                  <div className="grid grid-cols-3 gap-8">
-                    {services.slice(3, 6).map((service, index) => (
-                      <motion.div
-                        key={service.id}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="group"
-                      >
-                        <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full">
-                          <div className="flex items-center space-x-4 mb-4">
-                            <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-md`}>
-                              <service.icon className="w-6 h-6 text-white" />
-                            </div>
-                            <div>
-                              <h3 className="text-lg font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300">
-                                {service.title}
-                              </h3>
-                              <div className="flex items-center space-x-2 mt-1">
-                                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                                <span className="text-sm text-gray-500">{service.timeline}</span>
-                              </div>
-                            </div>
-                          </div>
-                          <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                            {service.description}
-                          </p>
-                          <div className="flex flex-wrap gap-2 mb-4">
-                            {service.features.slice(0, 3).map((feature, i) => (
-                              <span key={i} className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
-                                {feature}
-                              </span>
-                            ))}
-                          </div>
-                          <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                            <div className="flex items-center space-x-2">
-                              <div className="flex space-x-1">
-                                <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                                <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                                <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                                <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
-                              </div>
-                              <span className="text-xs text-gray-500">4 Packages</span>
-                            </div>
-                            <button
-                              onClick={() => {
-                                document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
-                                  behavior: 'smooth',
-                                  block: 'start'
-                                });
-                              }}
-                              className="text-green-500 hover:text-green-600 transition-colors duration-300"
-                            >
-                              <ArrowRight className="w-4 h-4" />
-                            </button>
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Section 3: Services 7-9 */}
-                <div className="w-full flex-shrink-0 p-8 min-w-full">
-                  <div className="grid grid-cols-3 gap-8">
-                    {services.slice(6, 9).map((service, index) => (
-                      <motion.div
-                        key={service.id}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="group"
-                      >
-                        <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full">
-                          <div className="flex items-center space-x-4 mb-4">
-                            <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-md`}>
-                              <service.icon className="w-6 h-6 text-white" />
-                            </div>
-                            <div>
-                              <h3 className="text-lg font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300">
-                                {service.title}
-                              </h3>
-                              <div className="flex items-center space-x-2 mt-1">
-                                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                                <span className="text-sm text-gray-500">{service.timeline}</span>
-                              </div>
-                            </div>
-                          </div>
-                          <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                            {service.description}
-                          </p>
-                          <div className="flex flex-wrap gap-2 mb-4">
-                            {service.features.slice(0, 3).map((feature, i) => (
-                              <span key={i} className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
-                                {feature}
-                              </span>
-                            ))}
-                          </div>
-                          <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                            <div className="flex items-center space-x-2">
-                              <div className="flex space-x-1">
-                                <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                                <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                                <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                                <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
-                              </div>
-                              <span className="text-xs text-gray-500">4 Packages</span>
-                            </div>
-                            <button
-                              onClick={() => {
-                                document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
-                                  behavior: 'smooth',
-                                  block: 'start'
-                                });
-                              }}
-                              className="text-green-500 hover:text-green-600 transition-colors duration-300"
-                            >
-                              <ArrowRight className="w-4 h-4" />
-                            </button>
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Navigation Controls */}
-            <div className="flex items-center justify-center mt-8 space-x-6">
-              <button
-                onClick={prevSlide}
-                disabled={currentSlide === 0}
-                className="w-10 h-10 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                <ChevronLeft className="w-5 h-5 text-gray-600" />
-              </button>
-
-              <div className="flex space-x-2">
-                {Array.from({ length: totalSlides }).map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      currentSlide === index
-                        ? 'bg-green-500 scale-125'
-                        : 'bg-gray-300 hover:bg-gray-400'
-                    }`}
-                  />
-                ))}
-              </div>
-
-              <button
-                onClick={nextSlide}
-                disabled={currentSlide === totalSlides - 1}
-                className="w-10 h-10 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                <ChevronRight className="w-5 h-5 text-gray-600" />
-              </button>
-            </div>
-
-            {/* Slide Counter */}
-            <div className="text-center mt-4">
-              <span className="text-sm text-gray-500 bg-white px-3 py-1 rounded-full shadow-sm">
-                {currentSlide + 1} of {totalSlides}
-              </span>
+                <span className="flex items-center space-x-2">
+                  <span className="font-semibold">Explore Detailed Services</span>
+                  <ArrowRight className="w-5 h-5" />
+                </span>
+              </motion.button>
             </div>
           </div>
         </div>
