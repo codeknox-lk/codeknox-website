@@ -127,30 +127,6 @@ const Services: React.FC = () => {
             viewport={{ once: true }}
             className="text-center mb-12 sm:mb-16"
           >
-            {/* Tier Selector */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="mb-8"
-            >
-              <div className="inline-flex bg-gray-100 rounded-2xl p-2">
-                {(['bronze', 'silver', 'gold'] as const).map((tier) => (
-                  <button
-                    key={tier}
-                    onClick={() => setSelectedTier(tier)}
-                    className={`px-6 py-3 rounded-xl font-bold text-sm transition-all duration-300 ${
-                      selectedTier === tier
-                        ? 'bg-white text-gray-900 shadow-lg'
-                        : 'text-gray-600 hover:text-gray-900'
-                    }`}
-                  >
-                    {tier.charAt(0).toUpperCase() + tier.slice(1)}
-                  </button>
-                ))}
-              </div>
-            </motion.div>
             <motion.h2
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -169,9 +145,9 @@ const Services: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto px-4"
+              className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto px-4 mb-8"
             >
-              Explore our comprehensive range of digital services designed to transform your business
+              We offer comprehensive digital solutions to transform your business. Each service comes with three flexible packages (Bronze, Silver, Gold) plus custom solutions tailored to your specific needs.
             </motion.p>
           </motion.div>
 
@@ -194,8 +170,7 @@ const Services: React.FC = () => {
                       </div>
                       <div>
                         <h3 className="text-lg sm:text-xl font-bold text-gray-900">{service.title}</h3>
-                        <p className="text-sm text-gray-500">{service.startingPrice}</p>
-                        <p className="text-[11px] sm:text-xs text-gray-400 mt-1 leading-snug">{service.priceRange}</p>
+                        <p className="text-sm text-gray-500">Timeline: {service.timeline}</p>
                       </div>
                     </div>
                     
@@ -211,24 +186,11 @@ const Services: React.FC = () => {
                       ))}
                     </div>
 
-                    {/* Tier Pills (parsed from priceRange) */}
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {service.priceRange.split('|').map((chunk, i) => {
-                        const tierName = chunk.split(':')[0].trim().toLowerCase();
-                        const isActive = tierName === selectedTier;
-                        return (
-                          <span 
-                            key={i} 
-                            className={`px-2 py-1 text-[11px] rounded-full border transition-all duration-300 ${
-                              isActive 
-                                ? 'bg-emerald-500 text-white border-emerald-500 shadow-lg' 
-                                : 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                            }`}
-                          >
-                            {chunk.trim()}
-                          </span>
-                        );
-                      })}
+                    {/* Package Info */}
+                    <div className="mt-4 p-3 bg-emerald-50 rounded-xl border border-emerald-200">
+                      <p className="text-xs text-emerald-700 font-medium">
+                        Available in Bronze, Silver, Gold packages + Custom solutions
+                      </p>
                     </div>
                   </div>
                 </div>
