@@ -1,7 +1,6 @@
 import { 
   Palette, 
   Code, 
-  Database, 
   Globe, 
   Settings, 
   Smartphone, 
