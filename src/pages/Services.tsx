@@ -6,6 +6,7 @@ import { services } from '../data/services';
 
 const Services: React.FC = () => {
   const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
+  const [activeTab, setActiveTab] = useState(0);
   const [selectedPackages, setSelectedPackages] = useState<{[key: string]: 'bronze' | 'silver' | 'gold' | 'custom'}>({
     'ui-ux-design': 'bronze',
     'website-development': 'bronze',
@@ -161,293 +162,243 @@ const Services: React.FC = () => {
             </motion.p>
           </motion.div>
 
-          {/* 3D Card Stack Layout */}
+          {/* Categorized Tab Section */}
           <div className="relative">
-            {/* 3D Container */}
-            <div className="perspective-1000">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
-                {/* Stack 1: Design Services */}
-                <div className="relative">
-                  <div className="text-center mb-8">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Design Services</h3>
-                    <div className="w-16 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
-                  </div>
-                  
-                  <div className="relative h-96">
-                    {services.slice(0, 3).map((service, index) => (
-                      <motion.div
-                        key={service.id}
-                        initial={{ opacity: 0, y: 50, rotateX: -15 }}
-                        animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                        transition={{ duration: 0.6, delay: index * 0.2 }}
-                        className="absolute inset-0 group cursor-pointer"
-                        style={{
-                          transform: `translateZ(${index * 20}px) translateY(${index * 8}px)`,
-                          zIndex: 3 - index
-                        }}
-                        whileHover={{ 
-                          y: -20, 
-                          rotateX: 5,
-                          scale: 1.02,
-                          transition: { duration: 0.3 }
-                        }}
-                      >
-                        <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl p-6 shadow-2xl border border-white/20 h-full overflow-hidden">
-                          {/* 3D Background Elements */}
-                          <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-xl group-hover:scale-110 transition-transform duration-500"></div>
-                          <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-tr from-blue-400/20 to-cyan-400/20 rounded-full blur-xl group-hover:scale-110 transition-transform duration-500"></div>
-                          
-                          <div className="relative z-10">
-                            <div className="flex items-center space-x-4 mb-4">
-                              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}>
-                                <service.icon className="w-7 h-7 text-white" />
-                              </div>
-                              <div>
-                                <h4 className="text-lg font-bold text-gray-900 group-hover:text-purple-600 transition-colors duration-300">
-                                  {service.title}
-                                </h4>
-                                <div className="flex items-center space-x-2 mt-1">
-                                  <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-                                  <span className="text-sm text-gray-500">{service.timeline}</span>
-                                </div>
-                              </div>
-                            </div>
-                            
-                            <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                              {service.description}
-                            </p>
-                            
-                            <div className="flex flex-wrap gap-2 mb-4">
-                              {service.features.slice(0, 2).map((feature, i) => (
-                                <span key={i} className="px-2 py-1 bg-purple-50 text-purple-700 text-xs rounded-full border border-purple-200">
-                                  {feature}
-                                </span>
-                              ))}
-                            </div>
-                            
-                            <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                              <div className="flex items-center space-x-2">
-                                <div className="flex space-x-1">
-                                  <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                                  <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                                  <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                                  <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
-                                </div>
-                                <span className="text-xs text-gray-500">4 Packages</span>
-                              </div>
-                              <button
-                                onClick={() => {
-                                  document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
-                                    behavior: 'smooth',
-                                    block: 'start'
-                                  });
-                                }}
-                                className="text-purple-500 group-hover:text-purple-600 transition-colors duration-300"
-                              >
-                                <ArrowRight className="w-4 h-4" />
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Stack 2: Development Services */}
-                <div className="relative">
-                  <div className="text-center mb-8">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Development Services</h3>
-                    <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
-                  </div>
-                  
-                  <div className="relative h-96">
-                    {services.slice(3, 6).map((service, index) => (
-                      <motion.div
-                        key={service.id}
-                        initial={{ opacity: 0, y: 50, rotateX: -15 }}
-                        animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                        transition={{ duration: 0.6, delay: index * 0.2 }}
-                        className="absolute inset-0 group cursor-pointer"
-                        style={{
-                          transform: `translateZ(${index * 20}px) translateY(${index * 8}px)`,
-                          zIndex: 3 - index
-                        }}
-                        whileHover={{ 
-                          y: -20, 
-                          rotateX: 5,
-                          scale: 1.02,
-                          transition: { duration: 0.3 }
-                        }}
-                      >
-                        <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl p-6 shadow-2xl border border-white/20 h-full overflow-hidden">
-                          {/* 3D Background Elements */}
-                          <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-blue-400/20 to-cyan-400/20 rounded-full blur-xl group-hover:scale-110 transition-transform duration-500"></div>
-                          <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-tr from-green-400/20 to-emerald-400/20 rounded-full blur-xl group-hover:scale-110 transition-transform duration-500"></div>
-                          
-                          <div className="relative z-10">
-                            <div className="flex items-center space-x-4 mb-4">
-                              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}>
-                                <service.icon className="w-7 h-7 text-white" />
-                              </div>
-                              <div>
-                                <h4 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
-                                  {service.title}
-                                </h4>
-                                <div className="flex items-center space-x-2 mt-1">
-                                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-                                  <span className="text-sm text-gray-500">{service.timeline}</span>
-                                </div>
-                              </div>
-                            </div>
-                            
-                            <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                              {service.description}
-                            </p>
-                            
-                            <div className="flex flex-wrap gap-2 mb-4">
-                              {service.features.slice(0, 2).map((feature, i) => (
-                                <span key={i} className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">
-                                  {feature}
-                                </span>
-                              ))}
-                            </div>
-                            
-                            <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                              <div className="flex items-center space-x-2">
-                                <div className="flex space-x-1">
-                                  <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                                  <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                                  <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                                  <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
-                                </div>
-                                <span className="text-xs text-gray-500">4 Packages</span>
-                              </div>
-              <button
-                                onClick={() => {
-                                  document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
-                                    behavior: 'smooth',
-                                    block: 'start'
-                                  });
-                                }}
-                                className="text-blue-500 group-hover:text-blue-600 transition-colors duration-300"
-                              >
-                                <ArrowRight className="w-4 h-4" />
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Stack 3: Marketing & Support Services */}
-                <div className="relative">
-                  <div className="text-center mb-8">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Marketing & Support</h3>
-                    <div className="w-16 h-1 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto rounded-full"></div>
-                  </div>
-                  
-                  <div className="relative h-96">
-                    {services.slice(6, 9).map((service, index) => (
-                      <motion.div
-                key={service.id}
-                        initial={{ opacity: 0, y: 50, rotateX: -15 }}
-                        animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                        transition={{ duration: 0.6, delay: index * 0.2 }}
-                        className="absolute inset-0 group cursor-pointer"
-                        style={{
-                          transform: `translateZ(${index * 20}px) translateY(${index * 8}px)`,
-                          zIndex: 3 - index
-                        }}
-                        whileHover={{ 
-                          y: -20, 
-                          rotateX: 5,
-                          scale: 1.02,
-                          transition: { duration: 0.3 }
-                        }}
-                      >
-                        <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl p-6 shadow-2xl border border-white/20 h-full overflow-hidden">
-                          {/* 3D Background Elements */}
-                          <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-green-400/20 to-emerald-400/20 rounded-full blur-xl group-hover:scale-110 transition-transform duration-500"></div>
-                          <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-tr from-yellow-400/20 to-orange-400/20 rounded-full blur-xl group-hover:scale-110 transition-transform duration-500"></div>
-                          
-                          <div className="relative z-10">
-                            <div className="flex items-center space-x-4 mb-4">
-                              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}>
-                                <service.icon className="w-7 h-7 text-white" />
-                              </div>
-                              <div>
-                                <h4 className="text-lg font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300">
-                {service.title}
-                                </h4>
-                                <div className="flex items-center space-x-2 mt-1">
-                                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                                  <span className="text-sm text-gray-500">{service.timeline}</span>
-                                </div>
-                              </div>
-                            </div>
-                            
-                            <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                              {service.description}
-                            </p>
-                            
-                            <div className="flex flex-wrap gap-2 mb-4">
-                              {service.features.slice(0, 2).map((feature, i) => (
-                                <span key={i} className="px-2 py-1 bg-green-50 text-green-700 text-xs rounded-full border border-green-200">
-                                  {feature}
-                                </span>
-                              ))}
-                            </div>
-                            
-                            <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                              <div className="flex items-center space-x-2">
-                                <div className="flex space-x-1">
-                                  <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                                  <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                                  <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                                  <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
-                                </div>
-                                <span className="text-xs text-gray-500">4 Packages</span>
-                              </div>
-                              <button
-                                onClick={() => {
-                                  document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
-                                    behavior: 'smooth',
-                                    block: 'start'
-                                  });
-                                }}
-                                className="text-green-500 group-hover:text-green-600 transition-colors duration-300"
-                              >
-                                <ArrowRight className="w-4 h-4" />
-              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
+            {/* Tab Navigation */}
+            <div className="flex justify-center mb-12">
+              <div className="bg-white/80 backdrop-blur-xl rounded-2xl p-2 shadow-xl border border-gray-200/50">
+                <div className="flex space-x-2">
+                  {[
+                    { id: 0, label: 'Design Services', color: 'from-purple-500 to-pink-500' },
+                    { id: 1, label: 'Development Services', color: 'from-blue-500 to-cyan-500' },
+                    { id: 2, label: 'Marketing & Support', color: 'from-green-500 to-emerald-500' }
+                  ].map((tab) => (
+                    <motion.button
+                      key={tab.id}
+                      onClick={() => setActiveTab(tab.id)}
+                      className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                        activeTab === tab.id
+                          ? `bg-gradient-to-r ${tab.color} text-white shadow-lg`
+                          : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                      }`}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      {tab.label}
+                    </motion.button>
+                  ))}
                 </div>
               </div>
             </div>
 
-            {/* Scroll to Details CTA */}
-            <div className="text-center mt-16">
-              <motion.button
-                onClick={() => {
-                  document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                  });
-                }}
-                className="inline-flex items-center space-x-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 font-semibold"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span>Explore All Services</span>
-                <ArrowRight className="w-5 h-5" />
-              </motion.button>
+            {/* Tab Content */}
+            <div className="relative">
+              {/* Tab 1: Design Services (1-3) */}
+              {activeTab === 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                  {services.slice(0, 3).map((service, index) => (
+                    <motion.div
+                      key={service.id}
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="group"
+                    >
+                      <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full">
+                        <div className="flex items-center space-x-4 mb-4">
+                          <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-md`}>
+                            <service.icon className="w-6 h-6 text-white" />
+                          </div>
+                          <div>
+                            <h3 className="text-lg font-bold text-gray-900 group-hover:text-purple-600 transition-colors duration-300">
+                              {service.title}
+                            </h3>
+                            <div className="flex items-center space-x-2 mt-1">
+                              <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                              <span className="text-sm text-gray-500">{service.timeline}</span>
+                            </div>
+                          </div>
+                        </div>
+                        <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                          {service.description}
+                        </p>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {service.features.slice(0, 3).map((feature, i) => (
+                            <span key={i} className="px-2 py-1 bg-purple-50 text-purple-700 text-xs rounded-full">
+                              {feature}
+                            </span>
+                          ))}
+                        </div>
+                        <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                          <div className="flex items-center space-x-2">
+                            <div className="flex space-x-1">
+                              <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+                              <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                              <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                              <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
+                            </div>
+                            <span className="text-xs text-gray-500">4 Packages</span>
+                          </div>
+                          <button
+                            onClick={() => {
+                              document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
+                                behavior: 'smooth',
+                                block: 'start'
+                              });
+                            }}
+                            className="text-purple-500 hover:text-purple-600 transition-colors duration-300"
+                          >
+                            <ArrowRight className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              )}
+
+              {/* Tab 2: Development Services (4-6) */}
+              {activeTab === 1 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                  {services.slice(3, 6).map((service, index) => (
+                    <motion.div
+                      key={service.id}
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="group"
+                    >
+                      <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full">
+                        <div className="flex items-center space-x-4 mb-4">
+                          <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-md`}>
+                            <service.icon className="w-6 h-6 text-white" />
+                          </div>
+                          <div>
+                            <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+                              {service.title}
+                            </h3>
+                            <div className="flex items-center space-x-2 mt-1">
+                              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                              <span className="text-sm text-gray-500">{service.timeline}</span>
+                            </div>
+                          </div>
+                        </div>
+                        <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                          {service.description}
+                        </p>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {service.features.slice(0, 3).map((feature, i) => (
+                            <span key={i} className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded-full">
+                              {feature}
+                            </span>
+                          ))}
+                        </div>
+                        <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                          <div className="flex items-center space-x-2">
+                            <div className="flex space-x-1">
+                              <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+                              <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                              <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                              <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
+                            </div>
+                            <span className="text-xs text-gray-500">4 Packages</span>
+                          </div>
+              <button
+                            onClick={() => {
+                              document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
+                                behavior: 'smooth',
+                                block: 'start'
+                              });
+                            }}
+                            className="text-blue-500 hover:text-blue-600 transition-colors duration-300"
+                          >
+                            <ArrowRight className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              )}
+
+              {/* Tab 3: Marketing & Support (7-9) */}
+              {activeTab === 2 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                  {services.slice(6, 9).map((service, index) => (
+                    <motion.div
+                key={service.id}
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="group"
+                    >
+                      <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full">
+                        <div className="flex items-center space-x-4 mb-4">
+                          <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-md`}>
+                            <service.icon className="w-6 h-6 text-white" />
+                          </div>
+                          <div>
+                            <h3 className="text-lg font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300">
+                {service.title}
+                            </h3>
+                            <div className="flex items-center space-x-2 mt-1">
+                              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                              <span className="text-sm text-gray-500">{service.timeline}</span>
+                            </div>
+                          </div>
+                        </div>
+                        <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                          {service.description}
+                        </p>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {service.features.slice(0, 3).map((feature, i) => (
+                            <span key={i} className="px-2 py-1 bg-green-50 text-green-700 text-xs rounded-full">
+                              {feature}
+                            </span>
+                          ))}
+                        </div>
+                        <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                          <div className="flex items-center space-x-2">
+                            <div className="flex space-x-1">
+                              <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+                              <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                              <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                              <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
+                            </div>
+                            <span className="text-xs text-gray-500">4 Packages</span>
+                          </div>
+                          <button
+                            onClick={() => {
+                              document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
+                                behavior: 'smooth',
+                                block: 'start'
+                              });
+                            }}
+                            className="text-green-500 hover:text-green-600 transition-colors duration-300"
+                          >
+                            <ArrowRight className="w-4 h-4" />
+              </button>
+                        </div>
+                      </div>
+                    </motion.div>
+            ))}
+                </motion.div>
+              )}
             </div>
           </div>
         </div>
