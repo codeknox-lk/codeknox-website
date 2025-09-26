@@ -172,35 +172,60 @@ const Services: React.FC = () => {
                 viewport={{ once: true }}
                 className="group"
               >
-                <div className="bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:bg-white/90 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/25 transform hover:-translate-y-2 h-full">
-                  <div className="space-y-4 sm:space-y-6">
-                    <div className="flex items-center space-x-3 sm:space-x-4">
-                      <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center`}>
+                <div className="relative bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:bg-white/90 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/25 transform hover:-translate-y-2 h-full overflow-hidden">
+                  {/* Decorative Background Elements */}
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-100/30 to-emerald-100/30 rounded-full -translate-y-10 translate-x-10 group-hover:scale-110 transition-transform duration-500"></div>
+                  <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-blue-100/30 to-cyan-100/30 rounded-full translate-y-8 -translate-x-8 group-hover:scale-110 transition-transform duration-500"></div>
+                  
+                  <div className="relative space-y-4 sm:space-y-6">
+                    <div className="flex items-start space-x-3 sm:space-x-4">
+                      <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}>
                         <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                       </div>
-                      <div>
-                        <h3 className="text-lg sm:text-xl font-bold text-gray-900">{service.title}</h3>
-                        <p className="text-sm text-gray-500">Timeline: {service.timeline}</p>
+                      <div className="flex-1">
+                        <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300">{service.title}</h3>
+                        <div className="flex items-center space-x-2 mt-1">
+                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                          <p className="text-sm text-gray-500 font-medium">Timeline: {service.timeline}</p>
+                        </div>
                       </div>
                     </div>
                     
-                    <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+                    <p className="text-gray-600 leading-relaxed text-sm sm:text-base group-hover:text-gray-700 transition-colors duration-300">
                       {service.description}
                     </p>
 
                     <div className="flex flex-wrap gap-2">
                       {service.features.slice(0, 3).map((feature, i) => (
-                        <span key={i} className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
+                        <motion.span 
+                          key={i} 
+                          className="px-3 py-1.5 bg-gradient-to-r from-gray-100 to-gray-50 text-gray-700 text-xs rounded-full border border-gray-200 group-hover:from-green-50 group-hover:to-emerald-50 group-hover:border-green-200 group-hover:text-green-700 transition-all duration-300"
+                          whileHover={{ scale: 1.05 }}
+                        >
                           {feature}
-                        </span>
+                        </motion.span>
                       ))}
                     </div>
 
-                    {/* Package Info */}
-                    <div className="mt-4 p-3 bg-emerald-50 rounded-xl border border-emerald-200">
-                      <p className="text-xs text-emerald-700 font-medium">
-                        Available in Bronze, Silver, Gold packages + Custom solutions
-                      </p>
+                    {/* Enhanced Package Indicator */}
+                    <div className="mt-6 pt-4 border-t border-gray-100 group-hover:border-green-200 transition-colors duration-300">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-2">
+                          <div className="flex space-x-1">
+                            <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+                            <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                            <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                            <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                          </div>
+                          <span className="text-xs text-gray-500 font-medium">4 Package Options</span>
+                        </div>
+                        <motion.div
+                          className="text-green-500 group-hover:text-green-600 transition-colors duration-300"
+                          whileHover={{ x: 3 }}
+                        >
+                          <ArrowRight className="w-4 h-4" />
+                        </motion.div>
+                      </div>
                     </div>
                   </div>
                 </div>
