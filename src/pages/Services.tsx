@@ -179,9 +179,9 @@ const Services: React.FC = () => {
           </motion.div>
 
           {/* Services Carousel */}
-          <div className="relative">
+          <div className="relative max-w-7xl mx-auto">
             {/* Carousel Container */}
-            <div className="overflow-hidden rounded-3xl">
+            <div className="overflow-hidden rounded-3xl bg-gradient-to-r from-gray-50/50 to-white/50 p-2">
               <motion.div 
                 className="flex transition-transform duration-500 ease-in-out"
                 style={{ 
@@ -190,39 +190,39 @@ const Services: React.FC = () => {
                 }}
               >
                 {Array.from({ length: totalSlides }).map((_, slideIndex) => (
-                  <div key={slideIndex} className="w-full flex-shrink-0">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-2">
+                  <div key={slideIndex} className="w-full flex-shrink-0 px-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                       {services
                         .slice(slideIndex * itemsPerSlide, (slideIndex + 1) * itemsPerSlide)
                         .map((service, index) => (
                         <motion.div
                 key={service.id}
-                          initial={{ opacity: 0, y: 50 }}
+                          initial={{ opacity: 0, y: 30 }}
                           whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.6, delay: index * 0.1 }}
+                          transition={{ duration: 0.5, delay: index * 0.1 }}
                           viewport={{ once: true }}
-                          className="group"
+                          className="group h-full"
                         >
-                          <div className="relative bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:bg-white/90 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/25 transform hover:-translate-y-2 h-full overflow-hidden">
+                          <div className="relative bg-white/90 backdrop-blur-xl border border-gray-200/60 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:bg-white/95 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/20 transform hover:-translate-y-1 h-full overflow-hidden">
                             {/* Decorative Background Elements */}
-                            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-100/30 to-emerald-100/30 rounded-full -translate-y-10 translate-x-10 group-hover:scale-110 transition-transform duration-500"></div>
-                            <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-blue-100/30 to-cyan-100/30 rounded-full translate-y-8 -translate-x-8 group-hover:scale-110 transition-transform duration-500"></div>
+                            <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-green-100/40 to-emerald-100/40 rounded-full -translate-y-8 translate-x-8 group-hover:scale-110 transition-transform duration-300"></div>
+                            <div className="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-blue-100/40 to-cyan-100/40 rounded-full translate-y-6 -translate-x-6 group-hover:scale-110 transition-transform duration-300"></div>
                             
-                            <div className="relative space-y-4 sm:space-y-6">
-                              <div className="flex items-start space-x-3 sm:space-x-4">
-                                <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}>
-                                  <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                            <div className="relative space-y-5">
+                              <div className="flex items-start space-x-4">
+                                <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300 flex-shrink-0`}>
+                                  <service.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                                 </div>
-                                <div className="flex-1">
-                                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300">{service.title}</h3>
-                                  <div className="flex items-center space-x-2 mt-1">
+                                <div className="flex-1 min-w-0">
+                                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300 leading-tight">{service.title}</h3>
+                                  <div className="flex items-center space-x-2 mt-2">
                                     <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                                     <p className="text-sm text-gray-500 font-medium">Timeline: {service.timeline}</p>
                                   </div>
                                 </div>
                               </div>
                               
-                              <p className="text-gray-600 leading-relaxed text-sm sm:text-base group-hover:text-gray-700 transition-colors duration-300">
+                              <p className="text-gray-600 leading-relaxed text-sm sm:text-base group-hover:text-gray-700 transition-colors duration-300 line-clamp-3">
                                 {service.description}
                               </p>
 
@@ -257,8 +257,8 @@ const Services: React.FC = () => {
                                         block: 'start'
                                       });
                                     }}
-                                    className="text-green-500 group-hover:text-green-600 transition-colors duration-300 hover:bg-green-50 p-1 rounded-full"
-                                    whileHover={{ x: 3, scale: 1.1 }}
+                                    className="text-green-500 group-hover:text-green-600 transition-colors duration-300 hover:bg-green-50 p-2 rounded-full"
+                                    whileHover={{ x: 2, scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                   >
                                     <ArrowRight className="w-4 h-4" />
@@ -276,27 +276,28 @@ const Services: React.FC = () => {
             </div>
 
             {/* Navigation Controls */}
-            <div className="flex items-center justify-between mt-8">
+            <div className="flex items-center justify-center mt-8 space-x-6">
               {/* Previous Button */}
               <motion.button
                 onClick={prevSlide}
-                className="flex items-center justify-center w-12 h-12 bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-full shadow-lg hover:shadow-xl hover:bg-white/90 transition-all duration-300 group"
-                whileHover={{ scale: 1.1 }}
+                className="flex items-center justify-center w-12 h-12 bg-white/90 backdrop-blur-xl border border-gray-200/60 rounded-full shadow-lg hover:shadow-xl hover:bg-white transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed"
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                disabled={currentSlide === 0}
               >
-                <ChevronLeft className="w-6 h-6 text-gray-600 group-hover:text-green-600 transition-colors duration-300" />
+                <ChevronLeft className="w-5 h-5 text-gray-600 group-hover:text-green-600 transition-colors duration-300" />
               </motion.button>
 
               {/* Dot Indicators */}
-              <div className="flex space-x-2">
+              <div className="flex space-x-3">
                 {Array.from({ length: totalSlides }).map((_, index) => (
                   <button
                     key={index}
                     onClick={() => goToSlide(index)}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${
                       currentSlide === index
-                        ? 'bg-green-500 scale-125'
-                        : 'bg-gray-300 hover:bg-gray-400'
+                        ? 'bg-green-500 scale-125 shadow-lg shadow-green-500/30'
+                        : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'
                     }`}
                   />
                 ))}
@@ -305,17 +306,18 @@ const Services: React.FC = () => {
               {/* Next Button */}
               <motion.button
                 onClick={nextSlide}
-                className="flex items-center justify-center w-12 h-12 bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-full shadow-lg hover:shadow-xl hover:bg-white/90 transition-all duration-300 group"
-                whileHover={{ scale: 1.1 }}
+                className="flex items-center justify-center w-12 h-12 bg-white/90 backdrop-blur-xl border border-gray-200/60 rounded-full shadow-lg hover:shadow-xl hover:bg-white transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed"
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                disabled={currentSlide === totalSlides - 1}
               >
-                <ChevronRight className="w-6 h-6 text-gray-600 group-hover:text-green-600 transition-colors duration-300" />
+                <ChevronRight className="w-5 h-5 text-gray-600 group-hover:text-green-600 transition-colors duration-300" />
               </motion.button>
             </div>
 
             {/* Slide Counter */}
             <div className="text-center mt-4">
-              <span className="text-sm text-gray-500 font-medium">
+              <span className="text-sm text-gray-500 font-medium bg-white/50 px-3 py-1 rounded-full">
                 {currentSlide + 1} of {totalSlides}
               </span>
             </div>
@@ -366,14 +368,14 @@ const Services: React.FC = () => {
           </motion.div>
 
           {/* Services Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 md:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12">
             {services.map((service, index) => (
               <motion.div
                 key={service.id}
                 id={service.id}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="group scroll-mt-20"
               >
@@ -413,32 +415,34 @@ const Services: React.FC = () => {
                           { key: 'gold', label: 'Gold', color: service.id === 'ui-ux-design' ? 'from-cyan-400 via-cyan-500 to-indigo-500' : 'from-yellow-400 via-yellow-500 to-yellow-600', shadow: service.id === 'ui-ux-design' ? 'shadow-cyan-500/30' : 'shadow-yellow-500/25' },
                           { key: 'custom', label: 'Custom', color: 'from-cyan-400 via-blue-500 to-indigo-600', shadow: 'shadow-cyan-500/30' }
                         ].map((packageOption) => (
-                          <button
+                          <motion.button
                             key={packageOption.key}
                             onClick={() => setSelectedPackages(prev => ({...prev, [service.id]: packageOption.key as any}))}
-                            className={`p-4 rounded-2xl border-2 transition-all duration-300 ${
+                            className={`p-3 rounded-xl border-2 transition-all duration-300 ${
                               selectedPackages[service.id] === packageOption.key
                                 ? `bg-gradient-to-r ${packageOption.color} text-white border-transparent shadow-lg ${packageOption.shadow}`
-                                : 'bg-white/5 text-gray-300 border-white/20 hover:bg-white/10'
+                                : 'bg-white/5 text-gray-300 border-white/20 hover:bg-white/10 hover:border-white/30'
                             }`}
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
                           >
                             <div className="text-center">
-                              <div className="font-bold text-lg">{packageOption.label}</div>
+                              <div className="font-bold text-sm sm:text-base">{packageOption.label}</div>
                               {service.packagePricing && (
-                                <div className="text-sm mt-1 opacity-90">
+                                <div className="text-xs mt-1 opacity-90 leading-tight">
                                   {service.packagePricing[packageOption.key as keyof typeof service.packagePricing]}
                                 </div>
                               )}
                             </div>
-                          </button>
+                          </motion.button>
                         ))}
                       </div>
                     </div>
 
                     {/* Deliverables */}
                     <div className="mb-8">
-                      <h4 className="text-xl font-bold text-white mb-6 flex items-center space-x-3">
-                        <Check className="w-6 h-6 text-green-400" />
+                      <h4 className="text-lg sm:text-xl font-bold text-white mb-6 flex items-center space-x-3">
+                        <Check className="w-5 h-5 sm:w-6 sm:h-6 text-green-400 flex-shrink-0" />
                         <span>
                           What you'll get ({selectedPackages[service.id].charAt(0).toUpperCase() + selectedPackages[service.id].slice(1)}):
                         </span>
@@ -448,33 +452,44 @@ const Services: React.FC = () => {
                           ? service.tierDeliverables?.[selectedPackages[service.id] as 'bronze' | 'silver' | 'gold'] || []
                           : []
                         ).map((deliverable, i) => (
-                          <div key={i} className="flex items-start space-x-3 bg-white/5 rounded-2xl p-4 border border-white/10">
-                            <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-300 text-sm">{deliverable}</span>
-                          </div>
+                          <motion.div 
+                            key={i} 
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.3, delay: i * 0.05 }}
+                            className="flex items-start space-x-3 bg-white/5 rounded-xl p-4 border border-white/10 hover:bg-white/10 transition-all duration-300"
+                          >
+                            <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                            <span className="text-gray-300 text-sm leading-relaxed">{deliverable}</span>
+                          </motion.div>
                         ))}
                         {selectedPackages[service.id] === 'custom' && (
-                          <div className="col-span-2 flex items-center space-x-3 bg-white/5 rounded-2xl p-4 border border-white/10">
-                            <Check className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-300 text-sm">Custom features tailored to your specific requirements</span>
-                          </div>
+                          <motion.div 
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="col-span-2 flex items-center space-x-3 bg-white/5 rounded-xl p-4 border border-white/10 hover:bg-white/10 transition-all duration-300"
+                          >
+                            <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                            <span className="text-gray-300 text-sm leading-relaxed">Custom features tailored to your specific requirements</span>
+                          </motion.div>
                         )}
                       </div>
                     </div>
 
                     {/* Service Meta */}
-                    <div className="grid grid-cols-2 gap-6 mb-8">
-                      <div className="flex items-center space-x-3 bg-white/5 rounded-2xl p-4 border border-white/10">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                      <div className="flex items-center space-x-3 bg-white/5 rounded-xl p-4 border border-white/10 hover:bg-white/10 transition-all duration-300">
                         <div>
                           <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Timeline</p>
-                          <p className="text-white font-bold text-lg">{service.timeline}</p>
+                          <p className="text-white font-bold text-sm sm:text-base">{service.timeline}</p>
                         </div>
                       </div>
-                      <div className="flex items-center space-x-3 bg-white/5 rounded-2xl p-4 border border-white/10">
+                      <div className="flex items-center space-x-3 bg-white/5 rounded-xl p-4 border border-white/10 hover:bg-white/10 transition-all duration-300">
                         <div>
                           <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Selected Package</p>
                           <div className="flex flex-col gap-1">
-                            <span className="text-emerald-400 font-bold text-sm">
+                            <span className="text-emerald-400 font-bold text-xs sm:text-sm">
                               {selectedPackages[service.id].charAt(0).toUpperCase() + selectedPackages[service.id].slice(1)} - {service.packagePricing?.[selectedPackages[service.id] as keyof typeof service.packagePricing]}
                             </span>
                           </div>
@@ -485,36 +500,44 @@ const Services: React.FC = () => {
                     {/* Technologies */}
                     <div className="mb-8">
                       <h4 className="text-lg font-bold text-white mb-4">Technologies & Tools</h4>
-                      <div className="flex flex-wrap gap-3">
+                        <div className="flex flex-wrap gap-2">
                           {service.features.map((feature, i) => (
-                          <span key={i} className="px-4 py-2 bg-white/10 text-white text-sm rounded-full border border-white/20 font-medium">
+                          <motion.span 
+                            key={i} 
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.3, delay: i * 0.05 }}
+                            className="px-3 py-1.5 bg-white/10 text-white text-xs sm:text-sm rounded-full border border-white/20 font-medium hover:bg-white/20 hover:border-white/30 transition-all duration-300"
+                          >
                               {feature}
-                          </span>
+                          </motion.span>
                           ))}
                       </div>
                     </div>
 
                     {/* CTA Button */}
-                    <div 
+                    <motion.div 
                       className="flex items-center justify-between pt-6 border-t border-white/10 cursor-pointer group/btn"
                       onClick={() => {
                         const subject = `Request Proposal - ${service.title} - CODEKNOX`;
                         const body = `Hi! I would like to request a proposal for your ${service.title} service. Please provide me with detailed information about this service including pricing, timeline, and deliverables.`;
                         window.open(`mailto:hello@codeknox.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
                       }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                     >
-                      <span className="text-green-400 font-bold text-xl group-hover:text-green-300 group-hover/btn:text-green-300 transition-colors duration-300">
+                      <span className="text-green-400 font-bold text-lg sm:text-xl group-hover:text-green-300 group-hover/btn:text-green-300 transition-colors duration-300">
                         Request Proposal
                       </span>
                       <motion.div
                         initial={{ x: 0 }}
-                        whileHover={{ x: 5 }}
+                        whileHover={{ x: 3 }}
                         transition={{ duration: 0.3 }}
-                        className="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center shadow-lg group-hover/btn:shadow-green-500/25 transition-all duration-300"
+                        className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center shadow-lg group-hover/btn:shadow-green-500/25 transition-all duration-300"
                       >
-                        <ArrowRight className="w-5 h-5 text-white" />
+                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                       </motion.div>
-                    </div>
+                    </motion.div>
                   </div>
 
                   {/* Floating Elements */}
