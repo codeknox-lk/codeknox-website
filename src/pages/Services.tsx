@@ -6,7 +6,7 @@ import { services } from '../data/services';
 
 const Services: React.FC = () => {
   const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
-  const [selectedTier, setSelectedTier] = useState<'bronze' | 'silver' | 'gold'>('bronze');
+  const [selectedTier] = useState<'bronze' | 'silver' | 'gold'>('bronze');
 
   const faqs = [
     {
