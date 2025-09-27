@@ -161,134 +161,69 @@ const Services: React.FC = () => {
             </motion.p>
           </motion.div>
 
-          {/* 3D Rotating Cards Design */}
+          {/* Clean Service Cards */}
           <div className="relative">
-            {/* 3D Container with Perspective */}
-            <div className="perspective-1000 min-h-screen flex items-center justify-center">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 lg:gap-20">
-                {services.map((service, index) => (
-                  <motion.div
-                key={service.id}
-                    initial={{ opacity: 0, rotateX: -30, y: 100 }}
-                    animate={{ opacity: 1, rotateX: 0, y: 0 }}
-                    transition={{ 
-                      duration: 0.8, 
-                      delay: index * 0.2,
-                      type: "spring",
-                      stiffness: 100
-                    }}
-                    className="group cursor-pointer"
-                    onClick={() => {
-                      document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
-                      });
-                    }}
-                    whileHover={{ 
-                      rotateY: 15,
-                      rotateX: 10,
-                      scale: 1.05,
-                      transition: { duration: 0.4, ease: "easeOut" }
-                    }}
-                    whileTap={{ 
-                      scale: 0.95,
-                      transition: { duration: 0.1 }
-                    }}
-                    style={{
-                      transformStyle: "preserve-3d"
-                    }}
-                  >
-                    {/* 3D Card Container */}
-                    <div className="relative w-80 h-96 mx-auto">
-                      {/* Card Front */}
-                      <motion.div
-                        className="absolute inset-0 bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 overflow-hidden"
-                        style={{
-                          transform: "translateZ(20px)"
-                        }}
-                        whileHover={{
-                          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1)"
-                        }}
-                      >
-                        {/* Background Gradient */}
-                        <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-5`}></div>
-                        
-                        {/* Floating Background Elements */}
-                        <div className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br from-emerald-400/20 to-cyan-400/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
-                        <div className="absolute -bottom-8 -left-8 w-20 h-20 bg-gradient-to-tr from-purple-400/20 to-pink-400/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
-                        
-                        {/* Card Content */}
-                        <div className="relative z-10 p-8 h-full flex flex-col">
-                          {/* Icon */}
-                          <div className="mb-6">
-                            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}>
-                              <service.icon className="w-8 h-8 text-white" />
-                            </div>
-                          </div>
-                          
-                          {/* Title */}
-                          <h3 className="text-2xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300 mb-4">
-                            {service.title}
-                          </h3>
-                          
-                          {/* Description */}
-                          <p className="text-gray-600 leading-relaxed mb-6 flex-1">
-                            {service.description}
-                          </p>
-                          
-                          {/* Features */}
-                          <div className="space-y-2 mb-6">
-                            {service.features.slice(0, 3).map((feature, i) => (
-                              <div key={i} className="flex items-center space-x-2">
-                                <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
-                                <span className="text-sm text-gray-600">{feature}</span>
-                              </div>
-                            ))}
-                          </div>
-                          
-                          {/* Timeline & Packages */}
-                          <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                            <div className="flex items-center space-x-3">
-                              <span className="text-sm text-gray-500">{service.timeline}</span>
-                              <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
-                              <span className="text-sm text-gray-500">4 Packages</span>
-                            </div>
-                            <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center group-hover:bg-emerald-200 transition-colors duration-300">
-                              <ArrowRight className="w-4 h-4 text-emerald-600" />
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
-                      
-                      {/* Card Back (3D Depth) */}
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl shadow-xl"
-                        style={{
-                          transform: "translateZ(-10px) translateY(8px)"
-                        }}
-                        whileHover={{
-                          transform: "translateZ(-5px) translateY(4px)"
-                        }}
-                      ></motion.div>
-                      
-                      {/* Card Side (3D Edge) */}
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-gray-200 to-gray-300 rounded-3xl"
-                        style={{
-                          transform: "translateZ(-5px) translateX(8px) rotateY(90deg)"
-                        }}
-                        whileHover={{
-                          transform: "translateZ(-2px) translateX(4px) rotateY(90deg)"
-                        }}
-                      ></motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {services.map((service, index) => (
+                <motion.div
+                  key={service.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="group cursor-pointer"
+                  onClick={() => {
+                    document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
+                      behavior: 'smooth',
+                      block: 'start'
+                    });
+                  }}
+                >
+                  <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 h-full">
+                    {/* Icon */}
+                    <div className="mb-6">
+                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}>
+                        <service.icon className="w-8 h-8 text-white" />
+                      </div>
                     </div>
-                  </motion.div>
-                ))}
-              </div>
+                    
+                    {/* Title */}
+                    <h3 className="text-2xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300 mb-4">
+                      {service.title}
+                    </h3>
+                    
+                    {/* Description */}
+                    <p className="text-gray-600 leading-relaxed mb-6">
+                      {service.description}
+                    </p>
+                    
+                    {/* Features */}
+                    <div className="space-y-2 mb-6">
+                      {service.features.slice(0, 3).map((feature, i) => (
+                        <div key={i} className="flex items-center space-x-2">
+                          <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
+                          <span className="text-sm text-gray-600">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    {/* Timeline & Packages */}
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                      <div className="flex items-center space-x-3">
+                        <span className="text-sm text-gray-500">{service.timeline}</span>
+                        <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
+                        <span className="text-sm text-gray-500">4 Packages</span>
+                      </div>
+                      <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center group-hover:bg-emerald-200 transition-colors duration-300">
+                        <ArrowRight className="w-4 h-4 text-emerald-600" />
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
             
             {/* Call to Action */}
-            <div className="text-center mt-20">
+            <div className="text-center mt-16">
               <motion.button
                 onClick={() => {
                   document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
@@ -297,15 +232,8 @@ const Services: React.FC = () => {
                   });
                 }}
                 className="inline-flex items-center space-x-3 bg-gradient-to-r from-emerald-600 to-cyan-600 text-white px-10 py-5 rounded-2xl font-semibold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300"
-                whileHover={{ 
-                  scale: 1.05,
-                  rotateX: 5,
-                  boxShadow: "0 25px 50px -12px rgba(16, 185, 129, 0.4)"
-                }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                style={{
-                  transformStyle: "preserve-3d"
-                }}
               >
                 <span>Explore All Services</span>
                 <ArrowRight className="w-5 h-5" />
