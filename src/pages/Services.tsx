@@ -161,17 +161,21 @@ const Services: React.FC = () => {
             </motion.p>
           </motion.div>
 
-          {/* Interactive Typography Design */}
-          <div className="relative">
-            {/* Services with Interactive Typography */}
-            <div className="space-y-20">
+          {/* 3D Design */}
+          <div className="relative" style={{ perspective: "1000px" }}>
+            {/* 3D Grid Container */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
               {services.map((service, index) => (
                 <motion.div
                   key={service.id}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  viewport={{ once: true, margin: "-100px" }}
+                  initial={{ opacity: 0, rotateX: -30, y: 100 }}
+                  animate={{ opacity: 1, rotateX: 0, y: 0 }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: index * 0.2,
+                    type: "spring",
+                    stiffness: 100
+                  }}
                   className="group cursor-pointer"
                   onClick={() => {
                     document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
@@ -179,162 +183,159 @@ const Services: React.FC = () => {
                       block: 'start'
                     });
                   }}
+                  whileHover={{
+                    rotateY: 15,
+                    rotateX: 10,
+                    scale: 1.05,
+                    transition: { duration: 0.4, ease: "easeOut" }
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  style={{
+                    transformStyle: "preserve-3d"
+                  }}
                 >
-                  <div className="relative overflow-hidden">
-                    {/* Background Elements */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-gray-50 to-white rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div className={`absolute inset-0 bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`}></div>
-                    
-                    {/* Content Container */}
-                    <div className="relative z-10 p-12 lg:p-16">
-                      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-                        {/* Left: Typography Section */}
-                        <div className="flex-1">
-                          {/* Service Icon with Typography */}
-                          <div className="flex items-center space-x-6 mb-8">
-                            <motion.div
-                              className={`w-20 h-20 rounded-3xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-2xl group-hover:shadow-3xl transition-all duration-500`}
-                              whileHover={{ 
-                                scale: 1.1,
-                                rotate: 5,
-                                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
-                              }}
-                            >
-                              <service.icon className="w-10 h-10 text-white" />
-                            </motion.div>
-                            
-                            {/* Animated Service Number */}
-                            <motion.div
-                              className="text-6xl font-black text-gray-200 group-hover:text-emerald-200 transition-colors duration-500"
-                              whileHover={{ 
-                                scale: 1.2,
-                                rotate: -5
-                              }}
-                            >
-                              {String(index + 1).padStart(2, '0')}
-                            </motion.div>
-                          </div>
-                          
-                          {/* Interactive Service Title */}
-                          <motion.h3
-                            className="text-5xl lg:text-7xl font-black mb-6 leading-tight"
-                            style={{
-                              background: "linear-gradient(135deg, #1f2937 0%, #374151 50%, #6b7280 100%)",
-                              WebkitBackgroundClip: "text",
-                              WebkitTextFillColor: "transparent",
-                              backgroundClip: "text"
-                            }}
-                            whileHover={{
-                              scale: 1.02,
-                              transition: { duration: 0.3 }
-                            }}
-                          >
-                            <span className="bg-gradient-to-r from-gray-800 to-gray-600 group-hover:from-emerald-600 group-hover:to-cyan-600 bg-clip-text text-transparent transition-all duration-300">
-                              {service.title}
-                            </span>
-                          </motion.h3>
-                          
-                          {/* Morphing Description */}
-                          <motion.p
-                            className="text-xl lg:text-2xl text-gray-600 leading-relaxed mb-8 max-w-3xl"
-                            whileHover={{
-                              color: "#10b981",
-                              scale: 1.01,
-                              transition: { duration: 0.3 }
-                            }}
-                          >
-                            {service.description}
-                          </motion.p>
-                          
-                          {/* Interactive Features */}
-                          <div className="space-y-4 mb-8">
-                            {service.features.slice(0, 4).map((feature, i) => (
-                              <motion.div
-                                key={i}
-                                className="flex items-center space-x-4"
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.5, delay: i * 0.1 }}
-                                whileHover={{
-                                  x: 10,
-                                  transition: { duration: 0.2 }
-                                }}
-                              >
-                                <motion.div
-                                  className="w-3 h-3 bg-emerald-500 rounded-full"
-                                  whileHover={{
-                                    scale: 1.5,
-                                    backgroundColor: "#059669"
-                                  }}
-                                ></motion.div>
-                                <motion.span
-                                  className="text-lg text-gray-700 font-medium"
-                                  whileHover={{
-                                    color: "#10b981",
-                                    scale: 1.05
-                                  }}
-                                >
-                                  {feature}
-                                </motion.span>
-                              </motion.div>
-                            ))}
-                          </div>
-                          
-                          {/* Animated Timeline & Packages */}
+                  {/* 3D Card Container */}
+                  <div className="relative w-full h-96">
+                    {/* Card Front */}
+                    <motion.div
+                      className="absolute inset-0 bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden"
+                      style={{
+                        transform: "translateZ(30px)"
+                      }}
+                      whileHover={{
+                        boxShadow: "0 30px 60px -12px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1)"
+                      }}
+                    >
+                      {/* 3D Background Gradient */}
+                      <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-10`}></div>
+                      
+                      {/* Floating 3D Elements */}
+                      <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-emerald-400/30 to-cyan-400/30 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+                      <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-gradient-to-tr from-purple-400/30 to-pink-400/30 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+                      
+                      {/* Card Content */}
+                      <div className="relative z-10 p-8 h-full flex flex-col">
+                        {/* 3D Icon */}
+                        <div className="mb-6">
                           <motion.div
-                            className="flex items-center space-x-6 text-lg"
-                            whileHover={{ scale: 1.02 }}
+                            className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-all duration-300`}
+                            whileHover={{
+                              scale: 1.1,
+                              rotateY: 15,
+                              rotateX: 10
+                            }}
+                            style={{
+                              transformStyle: "preserve-3d"
+                            }}
                           >
-                            <motion.span
-                              className="text-gray-500 font-medium"
-                              whileHover={{
-                                color: "#10b981",
-                                scale: 1.1
-                              }}
-                            >
-                              {service.timeline}
-                            </motion.span>
-                            <motion.div
-                              className="w-2 h-2 bg-gray-300 rounded-full"
-                              whileHover={{
-                                scale: 1.5,
-                                backgroundColor: "#10b981"
-                              }}
-                            ></motion.div>
-                            <motion.span
-                              className="text-gray-500 font-medium"
-                              whileHover={{
-                                color: "#10b981",
-                                scale: 1.1
-                              }}
-                            >
-                              4 Packages Available
-                            </motion.span>
+                            <service.icon className="w-8 h-8 text-white" />
                           </motion.div>
                         </div>
                         
-                        {/* Right: Interactive Arrow */}
-                        <div className="flex-shrink-0">
+                        {/* 3D Title */}
+                        <motion.h3
+                          className="text-2xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300 mb-4"
+                          whileHover={{
+                            scale: 1.02,
+                            rotateX: 5
+                          }}
+                        >
+                          {service.title}
+                        </motion.h3>
+                        
+                        {/* 3D Description */}
+                        <motion.p
+                          className="text-gray-600 leading-relaxed mb-6 flex-1"
+                          whileHover={{
+                            scale: 1.01,
+                            rotateX: 2
+                          }}
+                        >
+                          {service.description}
+                        </motion.p>
+                        
+                        {/* 3D Features */}
+                        <div className="space-y-2 mb-6">
+                          {service.features.slice(0, 3).map((feature, i) => (
+                            <motion.div
+                              key={i}
+                              className="flex items-center space-x-2"
+                              whileHover={{
+                                x: 5,
+                                scale: 1.02
+                              }}
+                            >
+                              <motion.div
+                                className="w-2 h-2 bg-emerald-500 rounded-full"
+                                whileHover={{
+                                  scale: 1.5,
+                                  backgroundColor: "#059669"
+                                }}
+                              ></motion.div>
+                              <span className="text-sm text-gray-600">{feature}</span>
+                            </motion.div>
+                          ))}
+                        </div>
+                        
+                        {/* 3D Bottom Section */}
+                        <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                          <div className="flex items-center space-x-3">
+                            <span className="text-sm text-gray-500">{service.timeline}</span>
+                            <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
+                            <span className="text-sm text-gray-500">4 Packages</span>
+                          </div>
                           <motion.div
-                            className="w-20 h-20 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 flex items-center justify-center shadow-2xl"
+                            className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center group-hover:bg-emerald-200 transition-colors duration-300"
                             whileHover={{
                               scale: 1.2,
-                              rotate: 15,
-                              boxShadow: "0 25px 50px -12px rgba(16, 185, 129, 0.4)"
+                              rotateY: 15,
+                              rotateX: 10
                             }}
-                            whileTap={{ scale: 0.9 }}
                           >
-                            <ArrowRight className="w-8 h-8 text-white" />
+                            <ArrowRight className="w-4 h-4 text-emerald-600" />
                           </motion.div>
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
+                    
+                    {/* Card Back (3D Depth) */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl shadow-xl"
+                      style={{
+                        transform: "translateZ(-20px) translateY(12px)"
+                      }}
+                      whileHover={{
+                        transform: "translateZ(-10px) translateY(6px)"
+                      }}
+                    ></motion.div>
+                    
+                    {/* Card Left Side (3D Edge) */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-gray-200 to-gray-300 rounded-3xl"
+                      style={{
+                        transform: "translateZ(-10px) translateX(12px) rotateY(90deg)"
+                      }}
+                      whileHover={{
+                        transform: "translateZ(-5px) translateX(6px) rotateY(90deg)"
+                      }}
+                    ></motion.div>
+                    
+                    {/* Card Right Side (3D Edge) */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-l from-gray-200 to-gray-300 rounded-3xl"
+                      style={{
+                        transform: "translateZ(-10px) translateX(-12px) rotateY(-90deg)"
+                      }}
+                      whileHover={{
+                        transform: "translateZ(-5px) translateX(-6px) rotateY(-90deg)"
+                      }}
+                    ></motion.div>
                   </div>
                 </motion.div>
               ))}
             </div>
             
-            {/* Interactive Call to Action */}
+            {/* 3D Call to Action */}
             <div className="text-center mt-20">
               <motion.button
                 onClick={() => {
@@ -346,9 +347,14 @@ const Services: React.FC = () => {
                 className="relative overflow-hidden bg-gradient-to-r from-emerald-600 to-cyan-600 text-white px-12 py-6 rounded-2xl font-bold text-xl shadow-2xl"
                 whileHover={{
                   scale: 1.05,
-                  boxShadow: "0 25px 50px -12px rgba(16, 185, 129, 0.4)"
+                  rotateY: 5,
+                  rotateX: 5,
+                  boxShadow: "0 30px 60px -12px rgba(16, 185, 129, 0.4)"
                 }}
                 whileTap={{ scale: 0.95 }}
+                style={{
+                  transformStyle: "preserve-3d"
+                }}
               >
                 <motion.span
                   className="relative z-10 flex items-center space-x-3"
@@ -360,12 +366,12 @@ const Services: React.FC = () => {
                   <ArrowRight className="w-6 h-6" />
                 </motion.span>
                 
-                {/* Animated Background */}
+                {/* 3D Button Background */}
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-emerald-600"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "0%" }}
-                  transition={{ duration: 0.3 }}
+                  style={{
+                    transform: "translateZ(-5px)"
+                  }}
                 ></motion.div>
               </motion.button>
             </div>
