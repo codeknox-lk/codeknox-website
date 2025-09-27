@@ -161,18 +161,22 @@ const Services: React.FC = () => {
             </motion.p>
           </motion.div>
 
-          {/* Typography-First Minimal Design */}
+          {/* 3D Rotating Cards Design */}
           <div className="relative">
-            {/* Clean Typography Layout */}
-            <div className="space-y-16">
-              {/* Services List */}
-              <div className="space-y-12">
+            {/* 3D Container with Perspective */}
+            <div className="perspective-1000 min-h-screen flex items-center justify-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 lg:gap-20">
                 {services.map((service, index) => (
                   <motion.div
                 key={service.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    initial={{ opacity: 0, rotateX: -30, y: 100 }}
+                    animate={{ opacity: 1, rotateX: 0, y: 0 }}
+                    transition={{ 
+                      duration: 0.8, 
+                      delay: index * 0.2,
+                      type: "spring",
+                      stiffness: 100
+                    }}
                     className="group cursor-pointer"
                     onClick={() => {
                       document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
@@ -180,67 +184,132 @@ const Services: React.FC = () => {
                         block: 'start'
                       });
                     }}
+                    whileHover={{ 
+                      rotateY: 15,
+                      rotateX: 10,
+                      scale: 1.05,
+                      transition: { duration: 0.4, ease: "easeOut" }
+                    }}
+                    whileTap={{ 
+                      scale: 0.95,
+                      transition: { duration: 0.1 }
+                    }}
+                    style={{
+                      transformStyle: "preserve-3d"
+                    }}
                   >
-                    <div className="flex items-start justify-between py-8 border-b border-gray-100 hover:border-gray-200 transition-colors duration-300">
-                      {/* Left: Service Info */}
-                      <div className="flex-1">
-                        <div className="flex items-center space-x-6 mb-4">
-                          <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow duration-300`}>
-                            <service.icon className="w-8 h-8 text-white" />
+                    {/* 3D Card Container */}
+                    <div className="relative w-80 h-96 mx-auto">
+                      {/* Card Front */}
+                      <motion.div
+                        className="absolute inset-0 bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 overflow-hidden"
+                        style={{
+                          transform: "translateZ(20px)"
+                        }}
+                        whileHover={{
+                          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1)"
+                        }}
+                      >
+                        {/* Background Gradient */}
+                        <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-5`}></div>
+                        
+                        {/* Floating Background Elements */}
+                        <div className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br from-emerald-400/20 to-cyan-400/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+                        <div className="absolute -bottom-8 -left-8 w-20 h-20 bg-gradient-to-tr from-purple-400/20 to-pink-400/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+                        
+                        {/* Card Content */}
+                        <div className="relative z-10 p-8 h-full flex flex-col">
+                          {/* Icon */}
+                          <div className="mb-6">
+                            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}>
+                              <service.icon className="w-8 h-8 text-white" />
+                            </div>
                           </div>
-                          <div>
-                            <h3 className="text-3xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300 mb-2">
-                {service.title}
-                            </h3>
-                            <div className="flex items-center space-x-4">
-                              <span className="text-lg text-gray-500">{service.timeline}</span>
+                          
+                          {/* Title */}
+                          <h3 className="text-2xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300 mb-4">
+                            {service.title}
+                          </h3>
+                          
+                          {/* Description */}
+                          <p className="text-gray-600 leading-relaxed mb-6 flex-1">
+                            {service.description}
+                          </p>
+                          
+                          {/* Features */}
+                          <div className="space-y-2 mb-6">
+                            {service.features.slice(0, 3).map((feature, i) => (
+                              <div key={i} className="flex items-center space-x-2">
+                                <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
+                                <span className="text-sm text-gray-600">{feature}</span>
+                              </div>
+                            ))}
+                          </div>
+                          
+                          {/* Timeline & Packages */}
+                          <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                            <div className="flex items-center space-x-3">
+                              <span className="text-sm text-gray-500">{service.timeline}</span>
                               <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
-                              <span className="text-lg text-gray-500">4 Packages Available</span>
+                              <span className="text-sm text-gray-500">4 Packages</span>
+                            </div>
+                            <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center group-hover:bg-emerald-200 transition-colors duration-300">
+                              <ArrowRight className="w-4 h-4 text-emerald-600" />
                             </div>
                           </div>
                         </div>
-                        
-                        <p className="text-xl text-gray-600 leading-relaxed max-w-4xl mb-6">
-                          {service.description}
-                        </p>
-                        
-                        <div className="flex flex-wrap gap-3">
-                          {service.features.slice(0, 4).map((feature, i) => (
-                            <span key={i} className="px-4 py-2 bg-gray-50 text-gray-700 text-sm rounded-full border border-gray-200 group-hover:bg-emerald-50 group-hover:text-emerald-700 group-hover:border-emerald-200 transition-all duration-300">
-                              {feature}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
+                      </motion.div>
                       
-                      {/* Right: Arrow */}
-                      <div className="ml-8 flex-shrink-0">
-                        <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-emerald-100 group-hover:text-emerald-600 transition-all duration-300">
-                          <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-emerald-600 transition-colors duration-300" />
-                        </div>
-                      </div>
+                      {/* Card Back (3D Depth) */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl shadow-xl"
+                        style={{
+                          transform: "translateZ(-10px) translateY(8px)"
+                        }}
+                        whileHover={{
+                          transform: "translateZ(-5px) translateY(4px)"
+                        }}
+                      ></motion.div>
+                      
+                      {/* Card Side (3D Edge) */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-gray-200 to-gray-300 rounded-3xl"
+                        style={{
+                          transform: "translateZ(-5px) translateX(8px) rotateY(90deg)"
+                        }}
+                        whileHover={{
+                          transform: "translateZ(-2px) translateX(4px) rotateY(90deg)"
+                        }}
+                      ></motion.div>
                     </div>
                   </motion.div>
                 ))}
               </div>
-              
-              {/* Call to Action */}
-              <div className="text-center pt-8">
-                <motion.button
-                  onClick={() => {
-                    document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
-                      behavior: 'smooth',
-                      block: 'start'
-                    });
-                  }}
-                  className="inline-flex items-center space-x-3 bg-emerald-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-emerald-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span>Explore All Services</span>
-                  <ArrowRight className="w-5 h-5" />
-                </motion.button>
-              </div>
+            </div>
+            
+            {/* Call to Action */}
+            <div className="text-center mt-20">
+              <motion.button
+                onClick={() => {
+                  document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }}
+                className="inline-flex items-center space-x-3 bg-gradient-to-r from-emerald-600 to-cyan-600 text-white px-10 py-5 rounded-2xl font-semibold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300"
+                whileHover={{ 
+                  scale: 1.05,
+                  rotateX: 5,
+                  boxShadow: "0 25px 50px -12px rgba(16, 185, 129, 0.4)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                style={{
+                  transformStyle: "preserve-3d"
+                }}
+              >
+                <span>Explore All Services</span>
+                <ArrowRight className="w-5 h-5" />
+              </motion.button>
             </div>
           </div>
         </div>
