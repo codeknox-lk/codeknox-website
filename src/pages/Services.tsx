@@ -161,15 +161,17 @@ const Services: React.FC = () => {
             </motion.p>
           </motion.div>
 
-          {/* Clean Service Cards */}
+          {/* Interactive Typography Design */}
           <div className="relative">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Services with Interactive Typography */}
+            <div className="space-y-20">
               {services.map((service, index) => (
                 <motion.div
                   key={service.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  viewport={{ once: true, margin: "-100px" }}
                   className="group cursor-pointer"
                   onClick={() => {
                     document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
@@ -178,43 +180,153 @@ const Services: React.FC = () => {
                     });
                   }}
                 >
-                  <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 h-full">
-                    {/* Icon */}
-                    <div className="mb-6">
-                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}>
-                        <service.icon className="w-8 h-8 text-white" />
-                      </div>
-                    </div>
+                  <div className="relative overflow-hidden">
+                    {/* Background Elements */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-gray-50 to-white rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className={`absolute inset-0 bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`}></div>
                     
-                    {/* Title */}
-                    <h3 className="text-2xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300 mb-4">
-                      {service.title}
-                    </h3>
-                    
-                    {/* Description */}
-                    <p className="text-gray-600 leading-relaxed mb-6">
-                      {service.description}
-                    </p>
-                    
-                    {/* Features */}
-                    <div className="space-y-2 mb-6">
-                      {service.features.slice(0, 3).map((feature, i) => (
-                        <div key={i} className="flex items-center space-x-2">
-                          <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
-                          <span className="text-sm text-gray-600">{feature}</span>
+                    {/* Content Container */}
+                    <div className="relative z-10 p-12 lg:p-16">
+                      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+                        {/* Left: Typography Section */}
+                        <div className="flex-1">
+                          {/* Service Icon with Typography */}
+                          <div className="flex items-center space-x-6 mb-8">
+                            <motion.div
+                              className={`w-20 h-20 rounded-3xl bg-gradient-to-r ${service.color} flex items-center justify-center shadow-2xl group-hover:shadow-3xl transition-all duration-500`}
+                              whileHover={{ 
+                                scale: 1.1,
+                                rotate: 5,
+                                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+                              }}
+                            >
+                              <service.icon className="w-10 h-10 text-white" />
+                            </motion.div>
+                            
+                            {/* Animated Service Number */}
+                            <motion.div
+                              className="text-6xl font-black text-gray-200 group-hover:text-emerald-200 transition-colors duration-500"
+                              whileHover={{ 
+                                scale: 1.2,
+                                rotate: -5
+                              }}
+                            >
+                              {String(index + 1).padStart(2, '0')}
+                            </motion.div>
+                          </div>
+                          
+                          {/* Interactive Service Title */}
+                          <motion.h3
+                            className="text-5xl lg:text-7xl font-black mb-6 leading-tight"
+                            style={{
+                              background: "linear-gradient(135deg, #1f2937 0%, #374151 50%, #6b7280 100%)",
+                              WebkitBackgroundClip: "text",
+                              WebkitTextFillColor: "transparent",
+                              backgroundClip: "text"
+                            }}
+                            whileHover={{
+                              scale: 1.02,
+                              transition: { duration: 0.3 }
+                            }}
+                          >
+                            <span className="bg-gradient-to-r from-gray-800 to-gray-600 group-hover:from-emerald-600 group-hover:to-cyan-600 bg-clip-text text-transparent transition-all duration-300">
+                              {service.title}
+                            </span>
+                          </motion.h3>
+                          
+                          {/* Morphing Description */}
+                          <motion.p
+                            className="text-xl lg:text-2xl text-gray-600 leading-relaxed mb-8 max-w-3xl"
+                            whileHover={{
+                              color: "#10b981",
+                              scale: 1.01,
+                              transition: { duration: 0.3 }
+                            }}
+                          >
+                            {service.description}
+                          </motion.p>
+                          
+                          {/* Interactive Features */}
+                          <div className="space-y-4 mb-8">
+                            {service.features.slice(0, 4).map((feature, i) => (
+                              <motion.div
+                                key={i}
+                                className="flex items-center space-x-4"
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.5, delay: i * 0.1 }}
+                                whileHover={{
+                                  x: 10,
+                                  transition: { duration: 0.2 }
+                                }}
+                              >
+                                <motion.div
+                                  className="w-3 h-3 bg-emerald-500 rounded-full"
+                                  whileHover={{
+                                    scale: 1.5,
+                                    backgroundColor: "#059669"
+                                  }}
+                                ></motion.div>
+                                <motion.span
+                                  className="text-lg text-gray-700 font-medium"
+                                  whileHover={{
+                                    color: "#10b981",
+                                    scale: 1.05
+                                  }}
+                                >
+                                  {feature}
+                                </motion.span>
+                              </motion.div>
+                            ))}
+                          </div>
+                          
+                          {/* Animated Timeline & Packages */}
+                          <motion.div
+                            className="flex items-center space-x-6 text-lg"
+                            whileHover={{ scale: 1.02 }}
+                          >
+                            <motion.span
+                              className="text-gray-500 font-medium"
+                              whileHover={{
+                                color: "#10b981",
+                                scale: 1.1
+                              }}
+                            >
+                              {service.timeline}
+                            </motion.span>
+                            <motion.div
+                              className="w-2 h-2 bg-gray-300 rounded-full"
+                              whileHover={{
+                                scale: 1.5,
+                                backgroundColor: "#10b981"
+                              }}
+                            ></motion.div>
+                            <motion.span
+                              className="text-gray-500 font-medium"
+                              whileHover={{
+                                color: "#10b981",
+                                scale: 1.1
+                              }}
+                            >
+                              4 Packages Available
+                            </motion.span>
+                          </motion.div>
                         </div>
-                      ))}
-                    </div>
-                    
-                    {/* Timeline & Packages */}
-                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                      <div className="flex items-center space-x-3">
-                        <span className="text-sm text-gray-500">{service.timeline}</span>
-                        <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
-                        <span className="text-sm text-gray-500">4 Packages</span>
-                      </div>
-                      <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center group-hover:bg-emerald-200 transition-colors duration-300">
-                        <ArrowRight className="w-4 h-4 text-emerald-600" />
+                        
+                        {/* Right: Interactive Arrow */}
+                        <div className="flex-shrink-0">
+                          <motion.div
+                            className="w-20 h-20 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 flex items-center justify-center shadow-2xl"
+                            whileHover={{
+                              scale: 1.2,
+                              rotate: 15,
+                              boxShadow: "0 25px 50px -12px rgba(16, 185, 129, 0.4)"
+                            }}
+                            whileTap={{ scale: 0.9 }}
+                          >
+                            <ArrowRight className="w-8 h-8 text-white" />
+                          </motion.div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -222,8 +334,8 @@ const Services: React.FC = () => {
               ))}
             </div>
             
-            {/* Call to Action */}
-            <div className="text-center mt-16">
+            {/* Interactive Call to Action */}
+            <div className="text-center mt-20">
               <motion.button
                 onClick={() => {
                   document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
@@ -231,12 +343,30 @@ const Services: React.FC = () => {
                     block: 'start'
                   });
                 }}
-                className="inline-flex items-center space-x-3 bg-gradient-to-r from-emerald-600 to-cyan-600 text-white px-10 py-5 rounded-2xl font-semibold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
+                className="relative overflow-hidden bg-gradient-to-r from-emerald-600 to-cyan-600 text-white px-12 py-6 rounded-2xl font-bold text-xl shadow-2xl"
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 25px 50px -12px rgba(16, 185, 129, 0.4)"
+                }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span>Explore All Services</span>
-                <ArrowRight className="w-5 h-5" />
+                <motion.span
+                  className="relative z-10 flex items-center space-x-3"
+                  whileHover={{
+                    scale: 1.1
+                  }}
+                >
+                  <span>Explore All Services</span>
+                  <ArrowRight className="w-6 h-6" />
+                </motion.span>
+                
+                {/* Animated Background */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-emerald-600"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: "0%" }}
+                  transition={{ duration: 0.3 }}
+                ></motion.div>
               </motion.button>
             </div>
           </div>
