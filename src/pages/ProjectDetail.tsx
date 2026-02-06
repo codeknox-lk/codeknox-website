@@ -570,6 +570,8 @@ const ProjectDetail: React.FC = () => {
                       currentImageIndex === 0 ? project.gallery.length - 1 : currentImageIndex - 1
                     )}
                     className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 bg-black/50 rounded-full p-2"
+                    aria-label="Previous image"
+                    title="Previous image"
                   >
                     <ArrowLeft size={24} />
                   </button>
@@ -578,6 +580,8 @@ const ProjectDetail: React.FC = () => {
                       currentImageIndex === project.gallery.length - 1 ? 0 : currentImageIndex + 1
                     )}
                     className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 bg-black/50 rounded-full p-2"
+                    aria-label="Next image"
+                    title="Next image"
                   >
                     <ArrowRight size={24} />
                   </button>
