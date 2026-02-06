@@ -14,7 +14,6 @@ import Button from "../components/ui/Button";
 import Badge from "../components/ui/Badge";
 
 const ProjectDetail: React.FC = () => {
-  // Force Vercel rebuild
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const { projects, isLoading } = useProjects();
