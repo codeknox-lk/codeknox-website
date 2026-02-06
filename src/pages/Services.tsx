@@ -6,7 +6,7 @@ import { services } from '../data/services';
 
 const Services: React.FC = () => {
   const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
-  const [selectedPackages, setSelectedPackages] = useState<{[key: string]: 'bronze' | 'silver' | 'gold' | 'custom'}>({
+  const [selectedPackages, setSelectedPackages] = useState<{ [key: string]: 'bronze' | 'silver' | 'gold' | 'custom' }>({
     'ui-ux-design': 'bronze',
     'website-development': 'bronze',
     'no-code-websites': 'bronze',
@@ -85,9 +85,9 @@ const Services: React.FC = () => {
             </motion.p>
 
             {/* Floating Sparkles */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               className="mt-16 flex justify-center"
             >
@@ -114,7 +114,7 @@ const Services: React.FC = () => {
                   <Sparkles className="w-full h-full" />
                 </motion.div>
               </div>
-          </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -170,15 +170,15 @@ const Services: React.FC = () => {
                   key={service.id}
                   initial={{ opacity: 0, rotateX: -30, y: 100 }}
                   animate={{ opacity: 1, rotateX: 0, y: 0 }}
-                  transition={{ 
-                    duration: 0.8, 
+                  transition={{
+                    duration: 0.8,
                     delay: index * 0.2,
                     type: "spring",
                     stiffness: 100
                   }}
                   className="group cursor-pointer"
                   onClick={() => {
-                    document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
+                    document.getElementById('comprehensive-solutions')?.scrollIntoView({
                       behavior: 'smooth',
                       block: 'start'
                     });
@@ -195,7 +195,7 @@ const Services: React.FC = () => {
                   }}
                 >
                   {/* 3D Card Container */}
-                  <div className="relative w-full h-96">
+                  <div className="relative w-full h-[520px]">
                     {/* Card Front */}
                     <motion.div
                       className="absolute inset-0 bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden"
@@ -208,11 +208,11 @@ const Services: React.FC = () => {
                     >
                       {/* 3D Background Gradient */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-10`}></div>
-                      
+
                       {/* Floating 3D Elements */}
                       <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-emerald-400/30 to-cyan-400/30 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
                       <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-gradient-to-tr from-purple-400/30 to-pink-400/30 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
-                      
+
                       {/* Card Content */}
                       <div className="relative z-10 p-8 h-full flex flex-col">
                         {/* 3D Icon */}
@@ -231,7 +231,7 @@ const Services: React.FC = () => {
                             <service.icon className="w-8 h-8 text-white" />
                           </motion.div>
                         </div>
-                        
+
                         {/* 3D Title */}
                         <motion.h3
                           className="text-2xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300 mb-4"
@@ -242,7 +242,7 @@ const Services: React.FC = () => {
                         >
                           {service.title}
                         </motion.h3>
-                        
+
                         {/* 3D Description */}
                         <motion.p
                           className="text-gray-600 leading-relaxed mb-6 flex-1"
@@ -253,7 +253,7 @@ const Services: React.FC = () => {
                         >
                           {service.description}
                         </motion.p>
-                        
+
                         {/* 3D Features */}
                         <div className="space-y-2 mb-6">
                           {service.features.slice(0, 3).map((feature, i) => (
@@ -276,7 +276,7 @@ const Services: React.FC = () => {
                             </motion.div>
                           ))}
                         </div>
-                        
+
                         {/* 3D Bottom Section */}
                         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                           <div className="flex items-center space-x-3">
@@ -297,7 +297,7 @@ const Services: React.FC = () => {
                         </div>
                       </div>
                     </motion.div>
-                    
+
                     {/* Card Back (3D Depth) */}
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl shadow-xl"
@@ -308,7 +308,7 @@ const Services: React.FC = () => {
                         transform: "translateZ(-10px) translateY(6px)"
                       }}
                     ></motion.div>
-                    
+
                     {/* Card Left Side (3D Edge) */}
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-r from-gray-200 to-gray-300 rounded-3xl"
@@ -319,7 +319,7 @@ const Services: React.FC = () => {
                         transform: "translateZ(-5px) translateX(6px) rotateY(90deg)"
                       }}
                     ></motion.div>
-                    
+
                     {/* Card Right Side (3D Edge) */}
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-l from-gray-200 to-gray-300 rounded-3xl"
@@ -334,12 +334,12 @@ const Services: React.FC = () => {
                 </motion.div>
               ))}
             </div>
-            
+
             {/* 3D Call to Action */}
             <div className="text-center mt-20">
               <motion.button
                 onClick={() => {
-                  document.getElementById('comprehensive-solutions')?.scrollIntoView({ 
+                  document.getElementById('comprehensive-solutions')?.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                   });
@@ -365,7 +365,7 @@ const Services: React.FC = () => {
                   <span>Explore All Services</span>
                   <ArrowRight className="w-6 h-6" />
                 </motion.span>
-                
+
                 {/* 3D Button Background */}
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-emerald-600"
@@ -386,7 +386,7 @@ const Services: React.FC = () => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(20,184,166,0.1),transparent_50%)]"></div>
           <div className="absolute top-20 left-20 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      </div>
+        </div>
 
         <div className="relative z-10 max-w-7xl mx-auto">
           {/* Section Header */}
@@ -435,21 +435,21 @@ const Services: React.FC = () => {
               >
                 {/* Service Card */}
                 <div className="relative backdrop-blur-xl border rounded-3xl overflow-hidden transform hover:-translate-y-1 transition-all duration-300 bg-white/5 border-white/10 hover:bg-white/8 hover:shadow-xl hover:shadow-emerald-400/20 hover:border-emerald-400/30">
-                    {/* Service Header */}
-                    <div className="p-8 sm:p-10">
-                      <div className="flex items-start space-x-6 mb-8">
-                        <div className={`w-20 h-20 rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center flex-shrink-0 shadow-2xl group-hover:shadow-xl transition-all duration-300`}>
-                          <service.icon className="w-10 h-10 text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 text-white group-hover:text-green-300 transition-colors duration-300">
-                            {service.title}
-                          </h3>
-                          <p className="text-gray-300 text-lg leading-relaxed">
-                            {service.description}
-                          </p>
-                        </div>
+                  {/* Service Header */}
+                  <div className="p-8 sm:p-10">
+                    <div className="flex items-start space-x-6 mb-8">
+                      <div className={`w-20 h-20 rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center flex-shrink-0 shadow-2xl group-hover:shadow-xl transition-all duration-300`}>
+                        <service.icon className="w-10 h-10 text-white" />
                       </div>
+                      <div className="flex-1">
+                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 text-white group-hover:text-green-300 transition-colors duration-300">
+                          {service.title}
+                        </h3>
+                        <p className="text-gray-300 text-lg leading-relaxed">
+                          {service.description}
+                        </p>
+                      </div>
+                    </div>
 
                     {/* Package Selector for All Services */}
                     <div className="mb-8">
@@ -463,12 +463,11 @@ const Services: React.FC = () => {
                         ].map((packageOption) => (
                           <motion.button
                             key={packageOption.key}
-                            onClick={() => setSelectedPackages(prev => ({...prev, [service.id]: packageOption.key as any}))}
-                            className={`p-3 rounded-xl border-2 transition-all duration-300 ${
-                              selectedPackages[service.id] === packageOption.key
+                            onClick={() => setSelectedPackages(prev => ({ ...prev, [service.id]: packageOption.key as any }))}
+                            className={`p-3 rounded-xl border-2 transition-all duration-300 ${selectedPackages[service.id] === packageOption.key
                                 ? `bg-gradient-to-r ${packageOption.color} ${packageOption.textColor} border-transparent shadow-lg ${packageOption.shadow}`
                                 : 'bg-white/5 text-gray-300 border-white/20 hover:bg-white/10 hover:border-white/30'
-                            }`}
+                              }`}
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                           >
@@ -494,12 +493,12 @@ const Services: React.FC = () => {
                         </span>
                       </h4>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {(selectedPackages[service.id] !== 'custom' 
+                        {(selectedPackages[service.id] !== 'custom'
                           ? service.tierDeliverables?.[selectedPackages[service.id] as 'bronze' | 'silver' | 'gold'] || []
                           : []
                         ).map((deliverable, i) => (
-                          <motion.div 
-                            key={i} 
+                          <motion.div
+                            key={i}
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.3, delay: i * 0.05 }}
@@ -510,7 +509,7 @@ const Services: React.FC = () => {
                           </motion.div>
                         ))}
                         {selectedPackages[service.id] === 'custom' && (
-                          <motion.div 
+                          <motion.div
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.3 }}
@@ -546,23 +545,23 @@ const Services: React.FC = () => {
                     {/* Technologies */}
                     <div className="mb-8">
                       <h4 className="text-lg font-bold text-white mb-4">Technologies & Tools</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {service.features.map((feature, i) => (
-                          <motion.span 
-                            key={i} 
+                      <div className="flex flex-wrap gap-2">
+                        {service.features.map((feature, i) => (
+                          <motion.span
+                            key={i}
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.3, delay: i * 0.05 }}
                             className="px-3 py-1.5 bg-white/10 text-white text-xs sm:text-sm rounded-full border border-white/20 font-medium hover:bg-white/20 hover:border-white/30 transition-all duration-300"
                           >
-                              {feature}
+                            {feature}
                           </motion.span>
-                          ))}
+                        ))}
                       </div>
                     </div>
 
                     {/* CTA Button */}
-                    <motion.div 
+                    <motion.div
                       className="flex items-center justify-between pt-6 border-t border-white/10 cursor-pointer group/btn"
                       onClick={() => {
                         const subject = `Request Proposal - ${service.title} - CODEKNOX`;
@@ -619,7 +618,7 @@ const Services: React.FC = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-                    viewport={{ once: true }}
+              viewport={{ once: true }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8"
             >
               FREQUENTLY ASKED
@@ -629,12 +628,12 @@ const Services: React.FC = () => {
               </span>
             </motion.h2>
             <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
+              viewport={{ once: true }}
               className="text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto"
-          >
+            >
               Get answers to common questions about our services, process, and pricing.
             </motion.p>
           </motion.div>
@@ -675,9 +674,9 @@ const Services: React.FC = () => {
                     >
                       <div className="pt-4 border-t border-gray-200">
                         <p className="text-gray-600 text-lg leading-relaxed">
-                        {faq.answer}
-                      </p>
-                    </div>
+                          {faq.answer}
+                        </p>
+                      </div>
                     </motion.div>
                   )}
                 </div>
@@ -717,7 +716,7 @@ const Services: React.FC = () => {
                 SOMETHING AMAZING?
               </span>
             </motion.h2>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -727,7 +726,7 @@ const Services: React.FC = () => {
             >
               Let's discuss your project requirements and create a custom solution that fits your budget and timeline. Our team is ready to help you bring your vision to life.
             </motion.p>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -749,7 +748,7 @@ const Services: React.FC = () => {
                   />
                 </motion.button>
               </Link>
-              
+
               <Link to="/contact">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
