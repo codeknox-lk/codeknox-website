@@ -81,7 +81,7 @@ const Projects: React.FC = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-8 leading-tight"
+              className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-8 leading-[0.9] tracking-tight"
             >
               OUR
               <br />
@@ -99,7 +99,7 @@ const Projects: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg sm:text-xl text-gray-400 font-light max-w-3xl mx-auto leading-relaxed px-4 sm:px-0"
+              className="text-lg sm:text-xl text-gray-400 font-light max-w-4xl mx-auto leading-relaxed px-4 sm:px-0"
             >
               Discover how we transform ideas into digital reality. Each project tells a story of innovation, creativity, and measurable success.
             </motion.p>
