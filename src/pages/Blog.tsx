@@ -30,7 +30,7 @@ const Blog: React.FC = () => {
     try {
       // Check if email already exists in localStorage
       const subscribers = JSON.parse(localStorage.getItem('newsletterSubscribers') || '[]');
-      const existingSubscriber = subscribers.find((sub: any) => sub.email === email);
+      const existingSubscriber = subscribers.find((sub: { email: string }) => sub.email === email);
 
       if (existingSubscriber) {
         setSubscriptionStatus('already_subscribed');
@@ -59,6 +59,7 @@ const Blog: React.FC = () => {
       }, 5000);
 
     } catch (error) {
+      console.error(error);
       // Silent error handling for production
       setSubscriptionStatus('error');
     } finally {

@@ -9,7 +9,15 @@ import { useProjects } from "../contexts/ProjectContext";
 
 
 
-const TimelineItem = ({ step, index, scrollYProgress }: { step: any, index: number, scrollYProgress: any }) => {
+import { MotionValue } from "framer-motion";
+
+interface Step {
+  step: string;
+  title: string;
+  description: string;
+}
+
+const TimelineItem = ({ step, index, scrollYProgress }: { step: Step, index: number, scrollYProgress: MotionValue<number> }) => {
   const stepStart = index * 0.12 + 0.05;
   const stepEnd = (index + 1) * 0.12 + 0.1;
 

@@ -339,7 +339,7 @@ const Services: React.FC = () => {
                         ].map((packageOption) => (
                           <motion.button
                             key={packageOption.key}
-                            onClick={() => setSelectedPackages(prev => ({ ...prev, [service.id]: packageOption.key as any }))}
+                            onClick={() => setSelectedPackages(prev => ({ ...prev, [service.id]: packageOption.key as 'bronze' | 'silver' | 'gold' | 'custom' }))}
                             className={`p-3 rounded-xl border-2 transition-all duration-300 ${selectedPackages[service.id] === packageOption.key
                               ? `bg-gradient-to-r ${packageOption.color} ${packageOption.textColor} border-transparent shadow-lg ${packageOption.shadow}`
                               : 'bg-white/5 text-gray-300 border-white/20 hover:bg-white/10 hover:border-white/30'
