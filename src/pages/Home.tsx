@@ -115,7 +115,7 @@ const Home: React.FC = () => {
               <motion.h2
                 className="text-4xl sm:text-5xl md:text-6xl font-poppins font-black text-gray-900 leading-tight tracking-tight uppercase"
               >
-                BUILD SMART v2.0
+                BUILD SMART
               </motion.h2>
             </motion.div>
 
