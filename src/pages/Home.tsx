@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   ChevronRight,
@@ -7,95 +7,9 @@ import {
 } from "lucide-react";
 import { useProjects } from "../contexts/ProjectContext";
 
-
-
-import { MotionValue } from "framer-motion";
-
-interface Step {
-  step: string;
-  title: string;
-  description: string;
-}
-
-const TimelineItem = ({ step, index, scrollYProgress }: { step: Step, index: number, scrollYProgress: MotionValue<number> }) => {
-  const stepStart = index * 0.12 + 0.05;
-  const stepEnd = (index + 1) * 0.12 + 0.1;
-
-  const stepProgress = useTransform(
-    scrollYProgress,
-    [stepStart, stepEnd],
-    [0, 1]
-  );
-
-  const opacity = stepProgress;
-  const y = useTransform(stepProgress, [0, 1], [50, 0]);
-  const x = useTransform(stepProgress, [0, 1], [index % 2 === 0 ? 50 : -50, 0]);
-
-  return (
-    <motion.div
-      key={step.step}
-      style={{ opacity, y }}
-      className="relative flex items-center"
-    >
-      {/* Connector Line Dot - Perfect Mobile */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 sm:w-5 sm:h-5 bg-gradient-to-br from-green-400 to-teal-500 rounded-full border-4 border-gray-900 z-10 shadow-[0_0_15px_rgba(16,185,129,0.5)]">
-        <div className="absolute inset-0 bg-white/50 rounded-full animate-ping opacity-20"></div>
-      </div>
-
-      {/* Content Card - Perfect Mobile */}
-      <div className={`w-full sm:w-5/12 ${index % 2 === 0 ? 'sm:pr-6 md:pr-12 text-center sm:text-right' : 'sm:ml-auto sm:pl-6 md:pl-12 text-center sm:text-left'}`}>
-        <motion.div
-          style={{ x }}
-          className="bg-gradient-to-br from-white/8 via-white/5 to-white/3 backdrop-blur-xl border border-white/20 rounded-2xl p-4 sm:p-6 hover:bg-white/10 hover:border-white/30 transition-all duration-500 relative overflow-hidden shadow-xl shadow-black/20"
-        >
-          {/* Mobile: Step Number as Large Icon - Perfect Mobile */}
-          <div className={`flex items-center justify-center ${index % 2 === 0 ? 'sm:justify-end' : 'sm:justify-start'} mb-3 sm:mb-5`}>
-            <div className="relative">
-              {/* Beautiful Step Number Circle - Mobile Optimized */}
-              <div className="w-12 h-12 sm:w-12 sm:h-12 bg-gradient-to-br from-emerald-500 via-green-500 to-teal-600 rounded-full flex items-center justify-center shadow-2xl shadow-emerald-500/40 border-2 border-white/20 relative overflow-hidden">
-                <span className="text-white font-bold text-base sm:text-sm z-10">{step.step}</span>
-                {/* Inner glow */}
-                <div className="absolute inset-1 bg-gradient-to-br from-white/20 to-transparent rounded-full"></div>
-              </div>
-              {/* Outer glow effect */}
-              <div className="absolute inset-0 w-12 h-12 sm:w-12 sm:h-12 bg-emerald-500/25 rounded-full blur-md animate-pulse"></div>
-              <div className="absolute inset-0 w-12 h-12 sm:w-12 sm:h-12 bg-green-500/15 rounded-full blur-lg animate-pulse delay-300"></div>
-            </div>
-
-            {/* Title - Mobile Optimized */}
-            <h3 className={`text-base sm:text-xl md:text-2xl font-bold text-white ml-3 ${index % 2 === 0 ? 'sm:mr-3 sm:ml-0' : 'sm:ml-3'}`}>
-              {step.title}
-            </h3>
-          </div>
-
-          {/* Description - Mobile Optimized */}
-          <p className="text-gray-300 leading-relaxed text-xs sm:text-sm text-center sm:text-left">
-            {step.description}
-          </p>
-
-          {/* Decorative Elements */}
-          <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-500/5 to-transparent rounded-full blur-xl"></div>
-          <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-emerald-500/5 to-transparent rounded-full blur-xl"></div>
-        </motion.div>
-      </div>
-
-      {/* Empty space for the other side */}
-      <div className="hidden sm:block w-5/12"></div>
-    </motion.div>
-  );
-};
-
 const Home: React.FC = () => {
   const { projects } = useProjects();
   const containerRef = useRef<HTMLDivElement>(null);
-  const timelineRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: timelineRef,
-    offset: ["start end", "end start"]
-  });
-
-  // Animate the timeline line based on scroll
-  const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   // Get featured projects for testimonials
   const featuredProjects = projects.filter(project => project.featured);
@@ -1270,117 +1184,100 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Our Process - Timeline Design - Perfect Mobile */}
-      <section className="py-8 sm:py-16 md:py-20 lg:py-24 px-3 sm:px-6 bg-black relative overflow-hidden">
-        {/* Background Pattern */}
+      {/* Our Process - Modern Grid Design */}
+      <section className="py-24 sm:py-32 px-4 sm:px-6 bg-black relative overflow-hidden">
+        {/* Abstract Background */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,197,94,0.1),transparent_50%)]"></div>
-          <div className="absolute top-20 left-10 sm:left-20 w-48 sm:w-72 h-48 sm:h-72 bg-green-500/5 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 sm:right-20 w-64 sm:w-96 h-64 sm:h-96 bg-emerald-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+          <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-green-500 opacity-20 blur-[100px]"></div>
+          <div className="absolute right-0 bottom-0 -z-10 h-[310px] w-[310px] rounded-full bg-emerald-500 opacity-20 blur-[100px]"></div>
         </div>
 
-        <div className="max-w-6xl mx-auto relative z-10">
-          {/* Section Header - Mobile Optimized */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-8 sm:mb-16 md:mb-20 px-2 sm:px-0"
-          >
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto mb-20">
             <motion.h2
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-3 sm:mb-6 leading-tight text-white"
+              className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-6 tracking-tight"
             >
-              OUR <span className="bg-gradient-to-r from-emerald-500 to-teal-600 bg-clip-text text-transparent">PROCESS</span>
+              HOW WE <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500">BUILD</span>
             </motion.h2>
-
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-sm sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-2 sm:px-0"
+              className="text-lg sm:text-xl text-gray-400 font-light"
             >
-              From concept to deployment, we follow a proven process that delivers exceptional results
+              A refined workflow designed for speed, precision, and scalability.
             </motion.p>
-          </motion.div>
-
-          {/* Timeline - Perfect Like Ceylon Nature Link */}
-          <div ref={timelineRef} className="relative max-w-5xl mx-auto">
-            {/* Timeline Line Container - Background */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full -z-10">
-              {/* Background Line */}
-              <div className="w-full h-full bg-gray-600/30"></div>
-              {/* Animated Progress Line */}
-              <motion.div
-                className="absolute top-0 left-0 w-full bg-gradient-to-b from-green-500 via-emerald-500 to-teal-500"
-                style={{
-                  height: useTransform(pathLength, [0, 1], ["0%", "100%"])
-                }}
-              />
-            </div>
-
-            {/* Process Steps - Mobile Optimized */}
-            <div className="space-y-8 sm:space-y-16 md:space-y-20">
-              {/* Extracted component to fix React Hook rules */}
-              {/* Extracted component to fix React Hook rules */}
-
-              {processSteps.map((step, index) => (
-                <TimelineItem key={step.step} step={step} index={index} scrollYProgress={scrollYProgress} />
-              ))}
-            </div>
           </div>
 
-          {/* CTA Section - Mobile Optimized */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="text-center mt-8 sm:mt-16 md:mt-20 px-2 sm:px-0"
-          >
-            <div className="bg-gradient-to-r from-green-600/10 via-emerald-600/10 to-teal-600/10 rounded-2xl sm:rounded-3xl border border-green-500/20 p-4 sm:p-8 md:p-12 backdrop-blur-sm">
-              <motion.h3
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                viewport={{ once: true }}
-                className="text-lg sm:text-2xl md:text-3xl font-black text-white mb-3 sm:mb-6"
-              >
-                READY TO START YOUR PROJECT?
-              </motion.h3>
+          {/* Process Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
+            {/* Connecting Line for Desktop */}
+            <div className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-green-500/20 to-transparent -translate-y-1/2 z-0"></div>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                viewport={{ once: true }}
-                className="text-sm sm:text-base md:text-lg text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto px-4 sm:px-0"
-              >
-                Let's follow our proven process to bring your vision to life
-              </motion.p>
-
+            {processSteps.map((step, index) => (
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                key={step.step}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                className="group relative z-10"
               >
-                <Link to="/contact">
-                  <motion.button
-                    whileHover={{ scale: 1.05, y: -3 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-6 sm:px-8 md:px-12 py-3 sm:py-4 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold rounded-full transition-all duration-300 hover:shadow-2xl hover:shadow-green-500/25 text-sm sm:text-base"
-                  >
-                    START YOUR JOURNEY
-                  </motion.button>
-                </Link>
+                <div className="h-full bg-gray-900/50 backdrop-blur-xl border border-white/10 p-8 rounded-3xl hover:bg-gray-800/50 hover:border-green-500/30 transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] flex flex-col items-start justify-between">
+
+                  {/* Step Number */}
+                  <div className="mb-6 relative">
+                    <span className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-green-600/20 to-emerald-600/20 group-hover:from-green-500/40 group-hover:to-emerald-500/40 transition-all duration-500 select-none">
+                      {step.step}
+                    </span>
+                    <div className="absolute top-1/2 -right-4 w-12 h-12 bg-green-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  </div>
+
+                  {/* Content */}
+                  <div>
+                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors duration-300">
+                      {step.title}
+                    </h3>
+                    <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                      {step.description}
+                    </p>
+                  </div>
+
+                  {/* Icon/Decoration */}
+                  <div className="mt-8 w-full flex justify-end">
+                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-green-500/20 transition-all duration-500">
+                      <ChevronRight className="w-5 h-5 text-gray-500 group-hover:text-green-400 transition-colors duration-300" />
+                    </div>
+                  </div>
+                </div>
               </motion.div>
-            </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            viewport={{ once: true }}
+            className="mt-20 text-center"
+          >
+            <Link to="/contact">
+              <button className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-green-600 font-pj rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 hover:bg-green-500 active:scale-95">
+                <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-black"></span>
+                <span className="relative flex items-center gap-3">
+                  Start Your Project
+                  <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </button>
+            </Link>
           </motion.div>
         </div>
       </section>
