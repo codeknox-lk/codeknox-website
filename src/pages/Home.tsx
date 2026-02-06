@@ -1270,13 +1270,18 @@ const Home: React.FC = () => {
             className="mt-20 text-center"
           >
             <Link to="/contact">
-              <button className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-green-600 font-pj rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 hover:bg-green-500 active:scale-95">
-                <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-black"></span>
-                <span className="relative flex items-center gap-3">
-                  Start Your Project
-                  <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </button>
+              <motion.button
+                whileHover={{ scale: 1.05, y: -3 }}
+                whileTap={{ scale: 0.95 }}
+                className="group relative px-14 py-6 text-2xl font-bold rounded-full overflow-hidden bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white shadow-2xl hover:shadow-green-500/25 transition-all duration-500"
+              >
+                <span className="relative z-10">Start Your Project</span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  initial={{ x: '-100%' }}
+                  whileHover={{ x: '0%' }}
+                />
+              </motion.button>
             </Link>
           </motion.div>
         </div>
