@@ -90,6 +90,8 @@ export default {
         '9xl': ['8rem', { lineHeight: '1' }],
       },
       spacing: {
+        '22': '5.5rem',
+        '38': '9.5rem',
         '18': '4.5rem',
         '88': '22rem',
         '128': '32rem',

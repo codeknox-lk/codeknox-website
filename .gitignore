@@ -89,3 +89,4 @@ src/config/
 .vscode/settings.json
 .vscode/launch.json
 .vscode/extensions.json
+.vercel
