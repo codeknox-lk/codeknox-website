@@ -77,7 +77,7 @@ const ProjectDetail: React.FC = () => {
           <div className="absolute top-40 right-20 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
           <div className="absolute bottom-20 left-1/4 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
         </div>
-        
+
         {/* Hero Image Background */}
         <div className="absolute inset-0">
           <img
@@ -89,7 +89,7 @@ const ProjectDetail: React.FC = () => {
             }}
           />
         </div>
-        
+
         <div className="relative z-10 flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-6xl mx-auto">
             <motion.div
@@ -121,7 +121,7 @@ const ProjectDetail: React.FC = () => {
                       </Badge>
                     ))}
                   </div>
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-6 sm:mb-8 leading-tight px-4">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-poppins font-black text-white mb-6 sm:mb-8 leading-tight tracking-tight px-4 uppercase">
                     {project.title}
                   </h1>
                   <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 font-light max-w-3xl mx-auto leading-relaxed px-4">
@@ -166,7 +166,7 @@ const ProjectDetail: React.FC = () => {
           <div className="absolute top-20 left-20 w-72 h-72 bg-green-500/3 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-emerald-500/3 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Main Content */}
@@ -179,7 +179,7 @@ const ProjectDetail: React.FC = () => {
                 viewport={{ once: true }}
                 className="space-y-6"
               >
-                <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 mb-8">
                   OVERVIEW
                 </h2>
                 <p className="text-xl sm:text-2xl text-gray-600 max-w-3xl leading-relaxed">{project.longDescription || project.description}</p>
@@ -193,7 +193,7 @@ const ProjectDetail: React.FC = () => {
                 viewport={{ once: true }}
                 className="space-y-6"
               >
-                <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 mb-8">
                   THE
                   <br />
                   <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
@@ -211,7 +211,7 @@ const ProjectDetail: React.FC = () => {
                 viewport={{ once: true }}
                 className="space-y-6"
               >
-                <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 mb-8">
                   OUR
                   <br />
                   <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
@@ -230,7 +230,7 @@ const ProjectDetail: React.FC = () => {
                 viewport={{ once: true }}
                 className="space-y-6"
               >
-                <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 mb-8">
                   TECHNOLOGY
                   <br />
                   <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
@@ -295,8 +295,8 @@ const ProjectDetail: React.FC = () => {
 
                     <div className="space-y-3">
                       {project.websiteUrl && (
-                        <Button 
-                          variant="accent" 
+                        <Button
+                          variant="accent"
                           fullWidth
                           onClick={() => window.open(project.websiteUrl, '_blank')}
                           className="font-semibold"
@@ -307,9 +307,9 @@ const ProjectDetail: React.FC = () => {
                         </Button>
                       )}
                       <Link to="/contact" className="block">
-                        <Button 
-                          variant="primary" 
-                          fullWidth 
+                        <Button
+                          variant="primary"
+                          fullWidth
                           className="font-semibold"
                           icon={<ExternalLink size={20} />}
                           iconPosition="right"
@@ -373,7 +373,7 @@ const ProjectDetail: React.FC = () => {
           <div className="absolute top-40 right-20 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
           <div className="absolute bottom-20 left-1/4 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
         </div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div
             variants={itemVariants}
@@ -383,7 +383,7 @@ const ProjectDetail: React.FC = () => {
             className="space-y-12"
           >
             <div className="text-center">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-8">
                 PROJECT
                 <br />
                 <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
@@ -391,7 +391,7 @@ const ProjectDetail: React.FC = () => {
                 </span>
               </h2>
             </div>
-            
+
             <div className="grid md:grid-cols-2 gap-8">
               {project.gallery.map((image, index) => (
                 <div
@@ -429,7 +429,7 @@ const ProjectDetail: React.FC = () => {
           <div className="absolute top-20 left-20 w-72 h-72 bg-green-500/3 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-emerald-500/3 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -483,7 +483,7 @@ const ProjectDetail: React.FC = () => {
           <div className="absolute top-40 right-20 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
           <div className="absolute bottom-20 left-1/4 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
         </div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -492,7 +492,7 @@ const ProjectDetail: React.FC = () => {
             viewport={{ once: true }}
             className="text-center space-y-8"
           >
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-8">
               READY TO START
               <br />
               <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
@@ -505,9 +505,9 @@ const ProjectDetail: React.FC = () => {
               to life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                variant="secondary" 
-                size="lg" 
+              <Button
+                variant="secondary"
+                size="lg"
                 className="text-lg font-semibold"
                 icon={<ArrowRight size={20} />}
                 iconPosition="right"

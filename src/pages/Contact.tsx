@@ -150,17 +150,19 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (formData.honeypot) {
-      // This is a bot, silently ignore
-      return;
-    }
-
-    if (!validateForm()) {
-      return;
-    }
+    if (formData.honeypot) return;
+    if (!validateForm()) return;
 
     setIsSubmitting(true);
 
+    // Simulate network delay for better UX
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    setIsSubmitting(false);
+    setIsSubmitted(true);
+  };
+
+  const handleLaunchEmail = () => {
     // Create mailto link with form data
     const subject = `🚀 New Project Inquiry from ${formData.company} - ${formData.name}`;
     const body = `
@@ -188,53 +190,44 @@ Thank you! 🚀
     `;
 
     const mailtoLink = `mailto:sales@codeknox.lk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    // Open email client
     window.location.href = mailtoLink;
-    
-    // Show success message
-    setIsSubmitted(true);
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      budget: "",
-      services: [],
-      message: "",
-      honeypot: "",
-      mathAnswer: "",
-    });
-    setIsSubmitting(false);
   };
-
-
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 px-4">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="text-center text-white max-w-lg mx-auto p-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl"
+          className="text-center text-white max-w-lg w-full mx-auto p-8 sm:p-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl shadow-2xl"
         >
-          <div className="w-24 h-24 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-8">
-            <CheckCircle className="w-12 h-12 text-white" />
+          <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-lg shadow-green-500/30">
+            <Mail className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
           </div>
-          <h1 className="text-4xl font-black mb-6">Thank You!</h1>
-          <p className="text-gray-300 mb-10 text-lg leading-relaxed">
-            Your message has been sent successfully. We'll get back to you
-            within 24 hours.
+          <h1 className="text-3xl sm:text-4xl font-black mb-4">One Last Step!</h1>
+          <p className="text-gray-300 mb-8 text-base sm:text-lg leading-relaxed">
+            Your inquiry is ready. To ensure secure delivery, please click the button below to open your email client and hit send.
           </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setIsSubmitted(false)}
-            className="px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-2xl font-bold text-lg hover:from-green-600 hover:to-emerald-600 transition-all duration-300 shadow-lg"
-          >
-            Send Another Message
-          </motion.button>
+
+          <div className="space-y-4">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleLaunchEmail}
+              className="w-full px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-2xl font-bold text-lg hover:from-green-600 hover:to-emerald-600 transition-all duration-300 shadow-lg shadow-green-500/25 flex items-center justify-center space-x-2"
+            >
+              <span>Launch Email App</span>
+              <ArrowRight className="w-5 h-5" />
+            </motion.button>
+
+            <button
+              onClick={() => setIsSubmitted(false)}
+              className="text-gray-400 hover:text-white text-sm font-medium transition-colors duration-200"
+            >
+              Back to form
+            </button>
+          </div>
         </motion.div>
       </div>
     );
@@ -254,13 +247,13 @@ Thank you! 🚀
 
         {/* Hero Content */}
         <div className="relative z-10 flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-7xl mx-auto">
+          <div className="text-center max-w-6xl mx-auto">
             {/* Main Heading */}
             <motion.h1
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-8 leading-[0.9] tracking-tight"
+              className="text-4xl sm:text-5xl md:text-6xl font-poppins font-black text-white mb-8 leading-tight tracking-tight"
             >
               LET'S BUILD
               <br />
@@ -319,7 +312,7 @@ Thank you! 🚀
       </section>
 
       {/* Contact Information Section - Light */}
-      <section className="relative py-24 sm:py-28 laptop:py-30 md:py-32 lg:py-36 px-4 sm:px-6 laptop:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+      <section className="relative py-24 sm:py-28 md:py-24 lg:py-20 xl:py-36 px-4 sm:px-6 laptop:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-gray-50">
         {/* Background Pattern */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(34,197,94,0.03),transparent_50%)]"></div>
@@ -343,7 +336,7 @@ Thank you! 🚀
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                   viewport={{ once: true }}
-                  className="text-4xl sm:text-5xl md:text-6xl laptop:text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 leading-[0.9] tracking-tight"
+                  className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 leading-[0.9] tracking-tight"
                 >
                   GET IN
                   <br />
@@ -356,7 +349,7 @@ Thank you! 🚀
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                   viewport={{ once: true }}
-                  className="text-xl sm:text-2xl lg:text-3xl text-gray-600 leading-relaxed"
+                  className="text-lg sm:text-xl text-gray-600 leading-relaxed"
                 >
                   Have a project in mind? Let's discuss how we can help you achieve your goals. We're here to answer any questions and provide guidance.
                 </motion.p>
@@ -484,7 +477,7 @@ Thank you! 🚀
                     </div>
                   </div>
                 )}
-                
+
                 <form onSubmit={handleSubmit} className="space-y-8">
                   <div className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
@@ -503,11 +496,10 @@ Thank you! 🚀
                           onChange={(e) =>
                             handleInputChange("name", e.target.value)
                           }
-                          className={`w-full px-6 py-4 bg-gray-50 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-400 text-gray-900 placeholder-gray-500 text-lg ${
-                            errors.name
-                              ? "border-red-500"
-                              : "border-gray-200"
-                          }`}
+                          className={`w-full px-6 py-4 bg-gray-50 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-400 text-gray-900 placeholder-gray-500 text-lg ${errors.name
+                            ? "border-red-500"
+                            : "border-gray-200"
+                            }`}
                           placeholder="Your full name"
                         />
                         {errors.name && (
@@ -533,11 +525,10 @@ Thank you! 🚀
                           onChange={(e) =>
                             handleInputChange("email", e.target.value)
                           }
-                          className={`w-full px-6 py-4 bg-gray-50 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-400 text-gray-900 placeholder-gray-500 text-lg ${
-                            errors.email
-                              ? "border-red-500"
-                              : "border-gray-200"
-                          }`}
+                          className={`w-full px-6 py-4 bg-gray-50 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-400 text-gray-900 placeholder-gray-500 text-lg ${errors.email
+                            ? "border-red-500"
+                            : "border-gray-200"
+                            }`}
                           placeholder="your.email@example.com"
                         />
                         {errors.email && (
@@ -565,11 +556,10 @@ Thank you! 🚀
                           onChange={(e) =>
                             handleInputChange("phone", e.target.value)
                           }
-                          className={`w-full px-6 py-4 bg-gray-50 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-400 text-gray-900 placeholder-gray-500 text-lg ${
-                            errors.phone
-                              ? "border-red-500"
-                              : "border-gray-200"
-                          }`}
+                          className={`w-full px-6 py-4 bg-gray-50 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-400 text-gray-900 placeholder-gray-500 text-lg ${errors.phone
+                            ? "border-red-500"
+                            : "border-gray-200"
+                            }`}
                           placeholder="+94 11 234 5678"
                         />
                         {errors.phone && (
@@ -595,11 +585,10 @@ Thank you! 🚀
                           onChange={(e) =>
                             handleInputChange("company", e.target.value)
                           }
-                          className={`w-full px-6 py-4 bg-gray-50 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-400 text-gray-900 placeholder-gray-500 text-lg ${
-                            errors.company
-                              ? "border-red-500"
-                              : "border-gray-200"
-                          }`}
+                          className={`w-full px-6 py-4 bg-gray-50 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-400 text-gray-900 placeholder-gray-500 text-lg ${errors.company
+                            ? "border-red-500"
+                            : "border-gray-200"
+                            }`}
                           placeholder="Your company name"
                         />
                         {errors.company && (
@@ -625,11 +614,10 @@ Thank you! 🚀
                         onChange={(e) =>
                           handleInputChange("budget", e.target.value)
                         }
-                        className={`w-full px-6 py-4 bg-gray-50 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-400 text-gray-900 text-lg ${
-                          errors.budget
-                            ? "border-red-500"
-                            : "border-gray-200"
-                        }`}
+                        className={`w-full px-6 py-4 bg-gray-50 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-400 text-gray-900 text-lg ${errors.budget
+                          ? "border-red-500"
+                          : "border-gray-200"
+                          }`}
                       >
                         <option value="">Select budget range</option>
                         {budgetOptions.map((option) => (
@@ -690,11 +678,10 @@ Thank you! 🚀
                         onChange={(e) =>
                           handleInputChange("message", e.target.value)
                         }
-                        className={`w-full px-6 py-4 bg-gray-50 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-400 text-gray-900 placeholder-gray-500 text-lg ${
-                          errors.message
-                            ? "border-red-500"
-                            : "border-gray-200"
-                        }`}
+                        className={`w-full px-6 py-4 bg-gray-50 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-400 text-gray-900 placeholder-gray-500 text-lg ${errors.message
+                          ? "border-red-500"
+                          : "border-gray-200"
+                          }`}
                         placeholder="Tell us about your project, goals, and requirements..."
                       />
                       {errors.message && (
@@ -735,11 +722,10 @@ Thank you! 🚀
                         onChange={(e) =>
                           handleInputChange("mathAnswer", e.target.value)
                         }
-                        className={`w-full px-6 py-4 bg-gray-50 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-400 text-gray-900 placeholder-gray-500 text-lg ${
-                          errors.mathAnswer
-                            ? "border-red-500"
-                            : "border-gray-200"
-                        }`}
+                        className={`w-full px-6 py-4 bg-gray-50 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-400 text-gray-900 placeholder-gray-500 text-lg ${errors.mathAnswer
+                          ? "border-red-500"
+                          : "border-gray-200"
+                          }`}
                         placeholder="Enter the answer"
                       />
                       {errors.mathAnswer && (

@@ -10,7 +10,7 @@ const Projects: React.FC = () => {
   const [selectedService, setSelectedService] = useState<string>("all");
   const [isIndustryOpen, setIsIndustryOpen] = useState<boolean>(false);
   const [isServiceOpen, setIsServiceOpen] = useState<boolean>(false);
-  
+
   const industryRef = useRef<HTMLDivElement>(null);
   const serviceRef = useRef<HTMLDivElement>(null);
 
@@ -81,7 +81,7 @@ const Projects: React.FC = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight"
+              className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-8 leading-tight"
             >
               OUR
               <br />
@@ -99,7 +99,7 @@ const Projects: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-400 font-light max-w-3xl mx-auto leading-relaxed px-4 sm:px-0"
+              className="text-lg sm:text-xl text-gray-400 font-light max-w-3xl mx-auto leading-relaxed px-4 sm:px-0"
             >
               Discover how we transform ideas into digital reality. Each project tells a story of innovation, creativity, and measurable success.
             </motion.p>
@@ -169,13 +169,13 @@ const Projects: React.FC = () => {
                 </div>
               </div>
 
-              {/* Dropdown Filters */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              {/* Dropdown Filters - Side-by-side on mobile */}
+              <div className="grid grid-cols-2 gap-4 w-full sm:w-auto">
                 {/* Category Dropdown */}
                 <div className="relative z-[9999]" ref={industryRef}>
                   <button
                     onClick={() => setIsIndustryOpen(!isIndustryOpen)}
-                    className="flex items-center justify-between w-full sm:w-48 px-4 py-3 bg-white border border-gray-200 rounded-xl hover:border-green-300 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all duration-300 shadow-sm hover:shadow-md"
+                    className="flex items-center justify-between w-full px-4 py-3 bg-white border border-gray-200 rounded-xl hover:border-green-300 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all duration-300 shadow-sm hover:shadow-md"
                   >
                     <span className="text-sm font-medium text-gray-700">
                       {selectedIndustry === "all" ? "All Categories" : selectedIndustry}
@@ -204,11 +204,10 @@ const Projects: React.FC = () => {
                               setSelectedIndustry(category);
                               setIsIndustryOpen(false);
                             }}
-                            className={`w-full px-4 py-3 text-left text-sm font-medium transition-colors duration-200 hover:bg-gray-50 ${
-                              selectedIndustry === category
-                                ? "bg-green-50 text-green-700 border-l-4 border-green-500"
-                                : "text-gray-700"
-                            }`}
+                            className={`w-full px-4 py-3 text-left text-sm font-medium transition-colors duration-200 hover:bg-gray-50 ${selectedIndustry === category
+                              ? "bg-green-50 text-green-700 border-l-4 border-green-500"
+                              : "text-gray-700"
+                              }`}
                           >
                             {category === "all" ? "All Categories" : category}
                           </button>
@@ -222,7 +221,7 @@ const Projects: React.FC = () => {
                 <div className="relative z-[9999]" ref={serviceRef}>
                   <button
                     onClick={() => setIsServiceOpen(!isServiceOpen)}
-                    className="flex items-center justify-between w-full sm:w-48 px-4 py-3 bg-white border border-gray-200 rounded-xl hover:border-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 transition-all duration-300 shadow-sm hover:shadow-md"
+                    className="flex items-center justify-between w-full px-4 py-3 bg-white border border-gray-200 rounded-xl hover:border-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 transition-all duration-300 shadow-sm hover:shadow-md"
                   >
                     <span className="text-sm font-medium text-gray-700">
                       {selectedService === "all" ? "All Technologies" : selectedService}
@@ -251,11 +250,10 @@ const Projects: React.FC = () => {
                               setSelectedService(technology);
                               setIsServiceOpen(false);
                             }}
-                            className={`w-full px-4 py-3 text-left text-sm font-medium transition-colors duration-200 hover:bg-gray-50 ${
-                              selectedService === technology
-                                ? "bg-emerald-50 text-emerald-700 border-l-4 border-emerald-500"
-                                : "text-gray-700"
-                            }`}
+                            className={`w-full px-4 py-3 text-left text-sm font-medium transition-colors duration-200 hover:bg-gray-50 ${selectedService === technology
+                              ? "bg-emerald-50 text-emerald-700 border-l-4 border-emerald-500"
+                              : "text-gray-700"
+                              }`}
                           >
                             {technology === "all" ? "All Technologies" : technology}
                           </button>
@@ -285,7 +283,7 @@ const Projects: React.FC = () => {
       </section>
 
       {/* Projects Grid Section - Dark */}
-      <section className="relative py-20 sm:py-24 md:py-28 lg:py-32 px-4 sm:px-6 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
+      <section className="relative py-20 sm:py-24 md:py-24 lg:py-20 xl:py-32 px-4 sm:px-6 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
         {/* Background Pattern */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(20,184,166,0.1),transparent_50%)]"></div>
@@ -307,7 +305,7 @@ const Projects: React.FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8"
             >
               FEATURED
               <br />
@@ -359,7 +357,7 @@ const Projects: React.FC = () => {
                           style={{ opacity: 0, transition: 'opacity 0.3s ease-in-out' }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        
+
                         {/* Featured Badge */}
                         {project.featured && (
                           <div className="absolute top-4 right-4">
@@ -401,7 +399,7 @@ const Projects: React.FC = () => {
                             <span className="text-sm text-gray-500 uppercase tracking-wider font-semibold">Category:</span>
                             <span className="text-green-400 font-bold text-lg">{project.category}</span>
                           </div>
-                          
+
                           <div>
                             <span className="text-sm text-gray-500 uppercase tracking-wider block mb-3 font-semibold">Technologies:</span>
                             <div className="flex flex-wrap gap-3">
@@ -480,7 +478,7 @@ const Projects: React.FC = () => {
                 </div>
                 <h3 className="text-3xl font-bold text-white mb-6">No projects found</h3>
                 <p className="text-gray-400 mb-8 text-lg">
-                  {projects.length === 0 
+                  {projects.length === 0
                     ? "No projects are currently available. Click below to load default projects."
                     : "Try adjusting your filters to see more projects."
                   }
@@ -529,7 +527,7 @@ const Projects: React.FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-10"
+              className="text-4xl sm:text-5xl md:text-6xl font-poppins font-black text-gray-900 mb-10 leading-tight tracking-tight"
             >
               READY TO CREATE
               <br />
@@ -537,7 +535,7 @@ const Projects: React.FC = () => {
                 SOMETHING AMAZING?
               </span>
             </motion.h2>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -547,7 +545,7 @@ const Projects: React.FC = () => {
             >
               Let's discuss your project requirements and create something extraordinary together. Our team is ready to help you bring your vision to life.
             </motion.p>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -569,7 +567,7 @@ const Projects: React.FC = () => {
                   />
                 </motion.button>
               </Link>
-              
+
               {/* Schedule a Call Button - Opens Email Client */}
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -599,7 +597,7 @@ const Projects: React.FC = () => {
         <div className="absolute inset-0">
           {/* Animated mesh gradient */}
           <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/3 via-transparent to-teal-500/3"></div>
-          
+
           {/* Floating particles */}
           {[...Array(12)].map((_, i) => (
             <motion.div
@@ -622,95 +620,105 @@ const Projects: React.FC = () => {
               }}
             />
           ))}
-          
+
           {/* Subtle geometric shapes */}
           <motion.div
             className="absolute top-20 right-20 w-24 h-24 border border-emerald-400/10 rounded-full"
-            animate={{ 
+            animate={{
               rotate: 360,
               scale: [1, 1.1, 1],
               opacity: [0.1, 0.3, 0.1]
             }}
-            transition={{ 
-              duration: 20, 
-              repeat: Infinity, 
-              ease: "linear" 
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear"
             }}
           />
-          
+
           <motion.div
             className="absolute bottom-32 left-16 w-16 h-16 bg-gradient-to-br from-teal-400/5 to-emerald-400/5"
             style={{
               clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)'
             }}
-            animate={{ 
+            animate={{
               rotate: -360,
               y: [0, -15, 0],
               opacity: [0.1, 0.2, 0.1]
             }}
-            transition={{ 
-              duration: 15, 
-              repeat: Infinity, 
-              ease: "easeInOut" 
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "easeInOut"
             }}
           />
         </div>
 
         <div className="relative z-10">
           {/* Main scrolling text layer with enhanced typography */}
-          <motion.div 
+          <motion.div
             className="flex whitespace-nowrap mb-12"
-            animate={{ x: [0, -1200] }}
-            transition={{ 
-              duration: 8, 
-              repeat: Infinity, 
-              ease: "linear" 
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear"
             }}
+            style={{ width: "fit-content" }}
           >
-            {[...Array(4)].map((_, i) => (
-              <motion.div
-                key={`main-${i}`}
-                className="text-5xl md:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-green-400 to-teal-400 flex-shrink-0 mr-24 tracking-tight"
-                style={{
-                  backgroundImage: 'linear-gradient(135deg, #6ee7b7, #34d399, #10b981, #059669, #047857)',
-                  backgroundSize: '400% 400%',
-                  animation: `gradientShift 6s ease-in-out infinite ${i * 1}s`,
-                  textShadow: '0 0 30px rgba(16, 185, 129, 0.3)',
-                  filter: 'drop-shadow(0 0 20px rgba(16, 185, 129, 0.2))'
-                }}
-                whileHover={{ 
-                  scale: 1.02,
-                  filter: "brightness(1.3) drop-shadow(0 0 30px rgba(16, 185, 129, 0.4))"
-                }}
-              >
-                THE STRONGHOLD OF SMART SOLUTIONS
-              </motion.div>
+            {[...Array(2)].map((_, setIndex) => (
+              <div key={`set-${setIndex}`} className="flex">
+                {[...Array(4)].map((_, i) => (
+                  <motion.div
+                    key={`main-${setIndex}-${i}`}
+                    className="text-5xl md:text-6xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-green-400 to-teal-400 flex-shrink-0 mr-12 sm:mr-24 tracking-tight px-4"
+                    style={{
+                      backgroundImage: 'linear-gradient(135deg, #6ee7b7, #34d399, #10b981, #059669, #047857)',
+                      backgroundSize: '400% 400%',
+                      animation: `gradientShift 6s ease-in-out infinite ${i * 1}s`,
+                      textShadow: '0 0 30px rgba(16, 185, 129, 0.3)',
+                      filter: 'drop-shadow(0 0 20px rgba(16, 185, 129, 0.2))'
+                    }}
+                    whileHover={{
+                      scale: 1.02,
+                      filter: "brightness(1.3) drop-shadow(0 0 30px rgba(16, 185, 129, 0.4))"
+                    }}
+                  >
+                    THE STRONGHOLD OF SMART SOLUTIONS
+                  </motion.div>
+                ))}
+              </div>
             ))}
           </motion.div>
 
           {/* Secondary scrolling text layer with refined styling */}
-          <motion.div 
+          <motion.div
             className="flex whitespace-nowrap mb-8"
-            animate={{ x: [0, 1200] }}
-            transition={{ 
-              duration: 12, 
-              repeat: Infinity, 
-              ease: "linear" 
+            animate={{ x: ["-50%", "0%"] }}
+            transition={{
+              duration: 30,
+              repeat: Infinity,
+              ease: "linear"
             }}
+            style={{ width: "fit-content" }}
           >
-            {[...Array(5)].map((_, i) => (
-              <motion.div
-                key={`secondary-${i}`}
-                className="text-2xl md:text-3xl lg:text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-slate-300 via-gray-200 to-slate-300 flex-shrink-0 mr-20 opacity-40 tracking-wide"
-                style={{
-                  backgroundImage: 'linear-gradient(90deg, #cbd5e1, #e2e8f0, #cbd5e1)',
-                  backgroundSize: '200% 200%',
-                  animation: `gradientShift 8s ease-in-out infinite ${i * 1.5}s`,
-                  textShadow: '0 0 15px rgba(203, 213, 225, 0.2)'
-                }}
-              >
-                INNOVATION • EXCELLENCE • RELIABILITY
-              </motion.div>
+            {[...Array(2)].map((_, setIndex) => (
+              <div key={`set-sec-${setIndex}`} className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <motion.div
+                    key={`secondary-${setIndex}-${i}`}
+                    className="text-2xl md:text-3xl lg:text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-slate-300 via-gray-200 to-slate-300 flex-shrink-0 mr-12 sm:mr-20 opacity-40 tracking-wide px-4"
+                    style={{
+                      backgroundImage: 'linear-gradient(90deg, #cbd5e1, #e2e8f0, #cbd5e1)',
+                      backgroundSize: '200% 200%',
+                      animation: `gradientShift 8s ease-in-out infinite ${i * 1.5}s`,
+                      textShadow: '0 0 15px rgba(203, 213, 225, 0.2)'
+                    }}
+                  >
+                    INNOVATION • EXCELLENCE • RELIABILITY
+                  </motion.div>
+                ))}
+              </div>
             ))}
           </motion.div>
 
@@ -723,11 +731,11 @@ const Projects: React.FC = () => {
             viewport={{ once: true }}
           />
         </div>
-        
+
         {/* Enhanced overlay gradients with better blending */}
         <div className="absolute left-0 top-0 bottom-0 w-80 bg-gradient-to-r from-slate-900 via-slate-900/80 via-slate-900/40 to-transparent z-20"></div>
         <div className="absolute right-0 top-0 bottom-0 w-80 bg-gradient-to-l from-slate-900 via-slate-900/80 via-slate-900/40 to-transparent z-20"></div>
-        
+
         {/* Top and bottom fade with enhanced blending */}
         <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-slate-900 via-slate-900/60 to-transparent z-20"></div>
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent z-20"></div>

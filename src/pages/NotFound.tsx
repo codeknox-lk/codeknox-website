@@ -19,7 +19,7 @@ const NotFound: React.FC = () => {
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-9xl font-bold font-space-grotesk text-white/20"
+            className="text-6xl md:text-9xl font-bold font-space-grotesk text-white/20"
           >
             404
           </motion.div>

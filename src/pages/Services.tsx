@@ -61,7 +61,7 @@ const Services: React.FC = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-6 sm:mb-8 leading-tight px-4"
+              className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-6 sm:mb-8 leading-tight px-4"
             >
               OUR
               <br />
@@ -79,7 +79,7 @@ const Services: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 font-light max-w-3xl mx-auto leading-relaxed px-4"
+              className="text-base sm:text-lg md:text-xl text-gray-400 font-light max-w-3xl mx-auto leading-relaxed px-4"
             >
               From concept to deployment, we provide end-to-end digital solutions that drive growth and innovation for businesses across Sri Lanka and beyond.
             </motion.p>
@@ -278,7 +278,7 @@ const Services: React.FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8"
+              className="text-4xl sm:text-5xl md:text-6xl font-poppins font-black text-white mb-8 leading-tight tracking-tight"
             >
               COMPREHENSIVE
               <br />
@@ -495,7 +495,7 @@ const Services: React.FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8"
+              className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 mb-8"
             >
               FREQUENTLY ASKED
               <br />
@@ -584,7 +584,7 @@ const Services: React.FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-10"
+              className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-10"
             >
               READY TO CREATE
               <br />

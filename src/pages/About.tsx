@@ -88,13 +88,13 @@ const About: React.FC = () => {
 
         {/* Hero Content */}
         <div className="relative z-10 flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-7xl mx-auto">
+          <div className="text-center max-w-6xl mx-auto">
             {/* Main Heading */}
             <motion.h1
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 mb-8 leading-[0.9] tracking-tight"
+              className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 mb-8 leading-[0.9] tracking-tight"
             >
               BUILDING THE
               <br />
@@ -112,13 +112,13 @@ const About: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-600 font-light max-w-4xl mx-auto leading-relaxed px-4 sm:px-0"
+              className="text-lg sm:text-xl text-gray-600 font-light max-w-4xl mx-auto leading-relaxed px-4 sm:px-0"
             >
               Founded in 2025, CODEKNOX is a Sri Lankan technology company with global reach. We blend local expertise with international standards to deliver innovative digital solutions.
             </motion.p>
 
             {/* Floating Sparkles */}
-          <motion.div
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -147,13 +147,13 @@ const About: React.FC = () => {
                   <Sparkles className="w-full h-full" />
                 </motion.div>
               </div>
-          </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Company Story Section - Dark */}
-      <section className="relative py-24 sm:py-28 md:py-32 lg:py-36 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
+      <section className="relative py-24 sm:py-28 md:py-24 lg:py-20 xl:py-36 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
         {/* Background Pattern */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(59,130,246,0.08),transparent_50%)]"></div>
@@ -162,7 +162,7 @@ const About: React.FC = () => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -175,7 +175,7 @@ const About: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[0.9] tracking-tight"
+                className="text-4xl sm:text-5xl md:text-6xl font-poppins font-black text-white leading-tight tracking-tight"
               >
                 FROM SRI LANKA
                 <br />
@@ -183,7 +183,7 @@ const About: React.FC = () => {
                   TO THE WORLD
                 </span>
               </motion.h2>
-              
+
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -193,7 +193,7 @@ const About: React.FC = () => {
               >
                 CODEKNOX was born from a vision to bridge the gap between traditional business practices and modern digital solutions. Founded in 2025, we recognized that Sri Lankan businesses needed a technology partner who understood both local market dynamics and global best practices.
               </motion.p>
-              
+
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -203,7 +203,7 @@ const About: React.FC = () => {
               >
                 Our journey began with a simple mission: to empower startups, SMEs, and organizations by delivering innovative, scalable, and cost-effective digital solutions. Today, we're proud to serve clients not just in Sri Lanka, but across the globe.
               </motion.p>
-              
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -233,29 +233,29 @@ const About: React.FC = () => {
                 <div className="flex items-start space-x-6">
                   <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center flex-shrink-0">
                     <Target className="w-10 h-10 text-white" />
-                    </div>
-                    <div>
+                  </div>
+                  <div>
                     <h3 className="text-3xl font-bold text-white mb-6">Our Mission</h3>
                     <p className="text-gray-300 text-xl leading-relaxed">
-                        {companyInfo.mission}
-                      </p>
-                    </div>
+                      {companyInfo.mission}
+                    </p>
                   </div>
+                </div>
               </div>
-              
+
               <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10 hover:bg-white/10 transition-all duration-500 hover:shadow-2xl hover:shadow-indigo-500/10">
                 <div className="flex items-start space-x-6">
                   <div className="w-20 h-20 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center flex-shrink-0">
                     <Globe className="w-10 h-10 text-white" />
-                    </div>
-                    <div>
+                  </div>
+                  <div>
                     <h3 className="text-3xl font-bold text-white mb-6">Our Vision</h3>
                     <p className="text-gray-300 text-xl leading-relaxed">
-                        {companyInfo.vision}
-                      </p>
-                    </div>
+                      {companyInfo.vision}
+                    </p>
                   </div>
                 </div>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -290,7 +290,7 @@ const About: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 leading-[0.9] tracking-tight"
+                className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 leading-[0.9] tracking-tight"
               >
                 WHAT DRIVES
                 <br />
@@ -367,7 +367,7 @@ const About: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-[0.9] tracking-tight"
+                className="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-[0.9] tracking-tight"
               >
                 HOW WE
                 <br />
@@ -445,7 +445,7 @@ const About: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 leading-[0.9] tracking-tight"
+                className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 leading-[0.9] tracking-tight"
               >
                 CAREERS AT
                 <br />
@@ -520,7 +520,7 @@ const About: React.FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-[0.9] tracking-tight"
+              className="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-[0.9] tracking-tight"
             >
               READY TO WORK
               <br />
@@ -528,7 +528,7 @@ const About: React.FC = () => {
                 TOGETHER?
               </span>
             </motion.h2>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -538,7 +538,7 @@ const About: React.FC = () => {
             >
               Let's discuss your project and see how we can help you achieve your goals. Our team is ready to bring your vision to life.
             </motion.p>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -560,7 +560,7 @@ const About: React.FC = () => {
                   />
                 </motion.button>
               </Link>
-              
+
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

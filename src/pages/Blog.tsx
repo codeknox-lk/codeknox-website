@@ -12,13 +12,13 @@ const Blog: React.FC = () => {
   const [email, setEmail] = useState("");
   const [isSubscribing, setIsSubscribing] = useState(false);
   const [subscriptionStatus, setSubscriptionStatus] = useState<'idle' | 'success' | 'error' | 'already_subscribed'>('idle');
-  
+
   const tagRef = useRef<HTMLDivElement>(null);
 
   // Newsletter subscription handler
   const handleNewsletterSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!email || !email.includes('@')) {
       setSubscriptionStatus('error');
       return;
@@ -31,20 +31,15 @@ const Blog: React.FC = () => {
       // Check if email already exists in localStorage
       const subscribers = JSON.parse(localStorage.getItem('newsletterSubscribers') || '[]');
       const existingSubscriber = subscribers.find((sub: any) => sub.email === email);
-      
+
       if (existingSubscriber) {
         setSubscriptionStatus('already_subscribed');
         setIsSubscribing(false);
         return;
       }
 
-      // Simple email notification (using mailto)
-      const subject = encodeURIComponent("New Newsletter Subscription");
-      const body = encodeURIComponent(`New newsletter subscription:\n\nEmail: ${email}\nDate: ${new Date().toLocaleDateString()}\n\nPlease add this email to your newsletter list.`);
-      const mailtoLink = `mailto:sales@codeknox.lk?subject=${subject}&body=${body}`;
-      
-      // Open email client
-      window.open(mailtoLink, '_blank');
+      // Simulation of backend request
+      await new Promise(resolve => setTimeout(resolve, 1500));
 
       // Add new subscriber to localStorage
       subscribers.push({
@@ -52,17 +47,17 @@ const Blog: React.FC = () => {
         subscribedAt: new Date().toISOString(),
         source: 'blog'
       });
-      
+
       localStorage.setItem('newsletterSubscribers', JSON.stringify(subscribers));
-      
+
       setSubscriptionStatus('success');
       setEmail('');
-      
+
       // Reset status after 5 seconds
       setTimeout(() => {
         setSubscriptionStatus('idle');
       }, 5000);
-      
+
     } catch (error) {
       // Silent error handling for production
       setSubscriptionStatus('error');
@@ -124,7 +119,7 @@ const Blog: React.FC = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8 leading-tight"
+              className="text-4xl sm:text-5xl md:text-6xl font-poppins font-black text-gray-900 mb-8 leading-tight tracking-tight"
             >
               INSIGHTS &
               <br />
@@ -242,11 +237,10 @@ const Blog: React.FC = () => {
                             setSelectedTag(tag);
                             setIsTagOpen(false);
                           }}
-                          className={`w-full px-4 py-3 text-left text-sm font-medium transition-colors duration-200 hover:bg-gray-50 ${
-                            selectedTag === tag
-                              ? "bg-blue-50 text-blue-700 border-l-4 border-blue-500"
-                              : "text-gray-700"
-                          }`}
+                          className={`w-full px-4 py-3 text-left text-sm font-medium transition-colors duration-200 hover:bg-gray-50 ${selectedTag === tag
+                            ? "bg-blue-50 text-blue-700 border-l-4 border-blue-500"
+                            : "text-gray-700"
+                            }`}
                         >
                           {tag === "all" ? "All Topics" : tag}
                         </button>
@@ -286,7 +280,7 @@ const Blog: React.FC = () => {
       </section>
 
       {/* Blog Posts Section - Light */}
-      <section className="relative py-20 sm:py-24 md:py-28 lg:py-32 px-4 sm:px-6 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+      <section className="relative py-20 sm:py-24 md:py-24 lg:py-20 xl:py-32 px-4 sm:px-6 bg-gradient-to-br from-gray-50 via-white to-gray-50">
         {/* Background Pattern */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(59,130,246,0.05),transparent_50%)]"></div>
@@ -308,7 +302,7 @@ const Blog: React.FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8"
+              className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 mb-8"
             >
               LATEST
               <br />
@@ -380,7 +374,7 @@ const Blog: React.FC = () => {
                           </span>
                         </div>
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        
+
                         {/* Featured Badge */}
                         {post.featured && (
                           <div className="absolute top-4 right-4">
@@ -489,7 +483,7 @@ const Blog: React.FC = () => {
       </section>
 
       {/* Newsletter Signup Section - Modern Dark */}
-      <section className="relative py-20 sm:py-24 md:py-28 lg:py-32 px-4 sm:px-6 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 overflow-hidden">
+      <section className="relative py-20 sm:py-24 md:py-24 lg:py-20 xl:py-32 px-4 sm:px-6 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 overflow-hidden">
         {/* Modern Background Pattern */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(59,130,246,0.15),transparent_50%)]"></div>
@@ -533,7 +527,7 @@ const Blog: React.FC = () => {
             <div className="bg-gradient-to-r from-white/10 via-white/5 to-white/10 backdrop-blur-3xl border border-white/20 rounded-3xl p-8 sm:p-12 lg:p-16 shadow-2xl shadow-blue-500/10">
               {/* Content Grid */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                
+
                 {/* Left Side - Content */}
                 <div className="space-y-8">
                   {/* Heading */}
@@ -560,7 +554,7 @@ const Blog: React.FC = () => {
                     viewport={{ once: true }}
                     className="text-xl text-gray-300 leading-relaxed"
                   >
-                    Get exclusive insights, cutting-edge tutorials, and industry trends delivered weekly. 
+                    Get exclusive insights, cutting-edge tutorials, and industry trends delivered weekly.
                     Join our community of innovators and never miss a breakthrough.
                   </motion.p>
 
@@ -662,8 +656,8 @@ const Blog: React.FC = () => {
                             exit={{ opacity: 0, y: -10 }}
                             className="text-red-400 bg-red-500/10 border border-red-500/20 rounded-lg p-3 text-center"
                           >
-                            {email && !email.includes('@') 
-                              ? 'Please enter a valid email address.' 
+                            {email && !email.includes('@')
+                              ? 'Please enter a valid email address.'
                               : 'Something went wrong. Please try again.'
                             }
                           </motion.div>

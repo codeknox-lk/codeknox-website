@@ -201,7 +201,7 @@ body {
   }
 
   .body-text {
-    @apply font-inter text-base lg:text-lg leading-relaxed text-gray-400;
+    @apply font-inter text-base xl:text-lg leading-relaxed text-gray-400;
   }
 
   .badge {

@@ -532,10 +532,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           {/* Footer Bottom */}
           <div className="pt-6 sm:pt-8 border-t border-gray-200">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-3 sm:space-y-4 md:space-y-0">
-              <p className="text-gray-500 text-xs sm:text-sm text-center md:text-left">
+              <p className="text-gray-500 text-sm text-center md:text-left">
                 © 2025 {companyInfo.name}. All rights reserved.
               </p>
-              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-gray-500">
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-gray-500">
                 <Link to="/privacy" className="hover:text-blue-600 transition-colors duration-300">Privacy Policy</Link>
                 <Link to="/terms" className="hover:text-blue-600 transition-colors duration-300">Terms of Service</Link>
                 <Link to="/cookies" className="hover:text-blue-600 transition-colors duration-300">Cookie Policy</Link>

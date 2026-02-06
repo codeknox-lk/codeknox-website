@@ -7,9 +7,9 @@ import { useBlog } from '../contexts/BlogContext';
 const BlogDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const { getPostBySlug } = useBlog();
-  
+
   const post = getPostBySlug(slug!);
-  
+
   // Initialize like count and state from localStorage or default values
   const [likeCount, setLikeCount] = useState(() => {
     if (post) {
@@ -18,7 +18,7 @@ const BlogDetail: React.FC = () => {
     }
     return 8;
   });
-  
+
   const [isLiked, setIsLiked] = useState(() => {
     if (post) {
       const savedState = localStorage.getItem(`blog-liked-${post.slug}`);
@@ -107,7 +107,7 @@ const BlogDetail: React.FC = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 sm:mb-8 leading-tight"
+              className="text-3xl sm:text-5xl md:text-6xl font-poppins font-black text-white mb-6 sm:mb-8 leading-tight tracking-tight uppercase"
             >
               {post.title}
             </motion.h1>
@@ -147,7 +147,7 @@ const BlogDetail: React.FC = () => {
       </section>
 
       {/* Article Content Section - Light */}
-      <section className="relative py-12 sm:py-24 md:py-28 lg:py-32 px-3 sm:px-6 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+      <section className="relative py-12 sm:py-24 md:py-24 lg:py-20 xl:py-32 px-3 sm:px-6 bg-gradient-to-br from-gray-50 via-white to-gray-50">
         {/* Background Pattern */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(59,130,246,0.05),transparent_50%)]"></div>
@@ -258,11 +258,10 @@ const BlogDetail: React.FC = () => {
                     }
                   }
                 }}
-                className={`flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 backdrop-blur-xl border rounded-xl sm:rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl ${
-                  isLiked
-                    ? 'bg-red-50 border-red-200 text-red-600'
-                    : 'bg-white/80 border-gray-200/50 text-gray-700 hover:bg-white/90'
-                }`}
+                className={`flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 backdrop-blur-xl border rounded-xl sm:rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl ${isLiked
+                  ? 'bg-red-50 border-red-200 text-red-600'
+                  : 'bg-white/80 border-gray-200/50 text-gray-700 hover:bg-white/90'
+                  }`}
               >
                 <Heart className={`w-5 h-5 ${isLiked ? 'text-red-500 fill-red-500' : 'text-red-500'}`} />
                 <span className="font-medium">{likeCount}</span>
