@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FileText, Scale, Users, Shield, AlertTriangle, CheckCircle, Clock, DollarSign } from 'lucide-react';
+import SEO from "../components/SEO";
 
 const TermsOfService: React.FC = () => {
   const sections = [
@@ -96,6 +97,10 @@ const TermsOfService: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Terms of Service - Clear & Fair Agreements"
+        description="Read the CodeKnox terms of service to understand the guidelines for using our digital solutions and development services."
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-32 md:pt-40 pb-16">
         {/* Hero Section */}
         <motion.div

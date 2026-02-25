@@ -20,6 +20,7 @@ import {
   FileText,
   Shield,
 } from "lucide-react";
+import SEO from "../components/SEO";
 import { companyInfo } from "../data/company";
 
 interface FormData {
@@ -163,7 +164,7 @@ const Contact: React.FC = () => {
 
   const handleLaunchEmail = () => {
     // Create mailto link with form data
-    const subject = `🚀 New Project Inquiry from ${formData.company} - ${formData.name}`;
+    const subject = `🚀 New Project Inquiry from ${formData.company} - ${formData.name} `;
     const body = `
 🌟 NEW CLIENT INQUIRY - CODEKNOX WEBSITE
 ========================================
@@ -234,6 +235,10 @@ Thank you! 🚀
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Contact Us - Let's Build Your Stronghold"
+        description="Ready to start your digital transformation? Get in touch with CodeKnox for a free quote on web and mobile development services. We're here to help you grow."
+      />
       {/* Hero Section - Dark */}
       <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 overflow-hidden">
         {/* Background Pattern */}

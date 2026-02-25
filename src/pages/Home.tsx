@@ -6,6 +6,7 @@ import {
   Star
 } from "lucide-react";
 import { useProjects } from "../contexts/ProjectContext";
+import SEO from "../components/SEO";
 
 const Home: React.FC = () => {
   const { projects } = useProjects();
@@ -38,6 +39,11 @@ const Home: React.FC = () => {
 
   return (
     <div ref={containerRef} className="min-h-screen bg-white text-gray-800 overflow-x-hidden pt-0">
+      <SEO
+        title="Leading Web & Mobile Development Company Sri Lanka"
+        description="CodeKnox is Sri Lanka's stronghold of smart solutions. We build professional websites, high-performance mobile apps, and custom software for modern businesses. Expert developers based in Colombo."
+        keywords="codeknox, web development Sri Lanka, website design Colombo, mobile app development Sri Lanka, software company Sri Lanka, digital transformation, e-commerce solutions"
+      />
 
 
       {/* Hero Section */}

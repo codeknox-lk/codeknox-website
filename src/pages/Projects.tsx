@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Filter, Star, TrendingUp, Sparkles, ChevronDown, X, Tag, Calendar, CheckCircle } from "lucide-react";
 import { useProjects } from "../contexts/ProjectContext";
+import SEO from "../components/SEO";
 
 const Projects: React.FC = () => {
   const { projects, isLoading, migrateProjects } = useProjects();
@@ -64,6 +65,10 @@ const Projects: React.FC = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Our Portfolio - Innovative Digital Solutions"
+        description="Explore CodeKnox's portfolio of successful web and mobile development projects. See how we've helped businesses across Sri Lanka transform their digital presence."
+      />
       {/* Hero Section - Dark */}
       <section className="relative min-h-screen bg-black overflow-hidden">
         {/* Animated Background Elements */}

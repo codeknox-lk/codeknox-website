@@ -25,6 +25,8 @@ import AdminProjectDashboard from "./pages/AdminProjectDashboard";
 import NewsletterSubscribers from "./pages/NewsletterSubscribers";
 import NotFound from "./pages/NotFound";
 
+import { HelmetProvider } from "react-helmet-async";
+
 function App() {
   const [showSplash, setShowSplash] = useState(true);
 
@@ -41,10 +43,11 @@ function App() {
   }
 
   return (
-    <MobileErrorBoundary>
-      <ThemeProvider>
-        <BlogProvider>
-          <ProjectProvider>
+    <HelmetProvider>
+      <MobileErrorBoundary>
+        <ThemeProvider>
+          <BlogProvider>
+            <ProjectProvider>
               <Router>
                 <ScrollToTop />
                 <Layout>
@@ -71,9 +74,10 @@ function App() {
               </Router>
               <Analytics />
             </ProjectProvider>
-        </BlogProvider>
-      </ThemeProvider>
-    </MobileErrorBoundary>
+          </BlogProvider>
+        </ThemeProvider>
+      </MobileErrorBoundary>
+    </HelmetProvider>
   );
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Eye, Lock, Database, Users, Globe, FileText, CheckCircle } from 'lucide-react';
+import SEO from "../components/SEO";
 
 const PrivacyPolicy: React.FC = () => {
   const sections = [
@@ -74,6 +75,10 @@ const PrivacyPolicy: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Privacy Policy - Your Data is Secure"
+        description="Your privacy is OUR priority. Read the CodeKnox privacy policy to understand how we collect, use, and protect your personal information."
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-32 md:pt-40 pb-16">
         {/* Hero Section */}
         <motion.div

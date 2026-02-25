@@ -12,6 +12,7 @@ import {
 import { useProjects } from "../contexts/ProjectContext";
 import Button from "../components/ui/Button";
 import Badge from "../components/ui/Badge";
+import SEO from "../components/SEO";
 
 const ProjectDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -69,6 +70,12 @@ const ProjectDetail: React.FC = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title={`${project.title} - Case Study`}
+        description={project.description}
+        image={project.image}
+        type="article"
+      />
       {/* Hero Section - Dark */}
       <section className="relative min-h-screen bg-black overflow-hidden">
         {/* Animated Background Elements */}

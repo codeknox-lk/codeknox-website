@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ChevronDown, Check, ArrowRight, Sparkles } from 'lucide-react';
 import { services } from '../data/services';
+import SEO from "../components/SEO";
 
 const Services: React.FC = () => {
   const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
@@ -41,9 +42,12 @@ const Services: React.FC = () => {
     }
   ];
 
-
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Our Services - Web, Mobile & Custom Software Solutions"
+        description="Explore our range of digital services: from responsive web design and mobile app development to custom software and e-commerce solutions. CodeKnox builds smart technology for your business."
+      />
       {/* Hero Section - Dark */}
       <section className="relative min-h-screen bg-black overflow-hidden">
         {/* Animated Background Elements */}
@@ -341,8 +345,8 @@ const Services: React.FC = () => {
                             key={packageOption.key}
                             onClick={() => setSelectedPackages(prev => ({ ...prev, [service.id]: packageOption.key as 'bronze' | 'silver' | 'gold' | 'custom' }))}
                             className={`p-3 rounded-xl border-2 transition-all duration-300 ${selectedPackages[service.id] === packageOption.key
-                              ? `bg-gradient-to-r ${packageOption.color} ${packageOption.textColor} border-transparent shadow-lg ${packageOption.shadow}`
-                              : 'bg-white/5 text-gray-300 border-white/20 hover:bg-white/10 hover:border-white/30'
+                                ? `bg-gradient-to-r ${packageOption.color} ${packageOption.textColor} border-transparent shadow-lg ${packageOption.shadow}`
+                                : 'bg-white/5 text-gray-300 border-white/20 hover:bg-white/10 hover:border-white/30'
                               }`}
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
@@ -652,4 +656,3 @@ const Services: React.FC = () => {
 };
 
 export default Services;
-

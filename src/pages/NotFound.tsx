@@ -3,10 +3,15 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Home, ArrowLeft, Search } from "lucide-react";
 import Button from "../components/ui/Button";
+import SEO from "../components/SEO";
 
 const NotFound: React.FC = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-900 via-primary-800 to-accent-900">
+      <SEO
+        title="404 - Page Not Found"
+        description="We couldn't find the page you were looking for. Visit our home page or contact us to find what you need."
+      />
       <div className="text-center text-white max-w-2xl mx-auto p-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

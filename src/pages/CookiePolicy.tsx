@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Cookie, Settings, Shield, Eye, Database, CheckCircle } from 'lucide-react';
+import SEO from "../components/SEO";
 
 const CookiePolicy: React.FC = () => {
   const [currentPreferences, setCurrentPreferences] = useState<any>(null);
@@ -28,7 +29,7 @@ const CookiePolicy: React.FC = () => {
     };
 
     window.addEventListener('storage', handleStorageChange);
-    
+
     // Also listen for custom events when preferences are updated
     const handlePreferencesUpdate = () => {
       setTimeout(loadPreferences, 100); // Small delay to ensure localStorage is updated
@@ -46,11 +47,11 @@ const CookiePolicy: React.FC = () => {
     // Clear existing cookie consent
     localStorage.removeItem('cookieConsent');
     setCurrentPreferences(null);
-    
+
     // Dispatch a custom event to trigger the main cookie banner
     const event = new CustomEvent('showCookieBanner');
     window.dispatchEvent(event);
-    
+
     // Scroll to top to see the banner
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -149,6 +150,10 @@ const CookiePolicy: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Cookie Policy - Privacy & Transparency"
+        description="Learn about how CodeKnox uses cookies and similar technologies to improve your experience on our platform and protect your data."
+      />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-32 md:pt-40 pb-16">
         {/* Hero Section */}
         <motion.div
@@ -252,11 +257,10 @@ const CookiePolicy: React.FC = () => {
                     <td className="py-3 px-4 text-gray-600">{cookie.purpose}</td>
                     <td className="py-3 px-4 text-gray-600">{cookie.duration}</td>
                     <td className="py-3 px-4">
-                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                        cookie.type === 'Essential' ? 'bg-red-100 text-red-600' :
-                        cookie.type === 'Analytics' ? 'bg-blue-100 text-blue-600' :
-                        'bg-purple-100 text-purple-600'
-                      }`}>
+                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${cookie.type === 'Essential' ? 'bg-red-100 text-red-600' :
+                          cookie.type === 'Analytics' ? 'bg-blue-100 text-blue-600' :
+                            'bg-purple-100 text-purple-600'
+                        }`}>
                         {cookie.type}
                       </span>
                     </td>
@@ -318,7 +322,7 @@ const CookiePolicy: React.FC = () => {
             You can control and manage cookies through your browser settings or our cookie consent banner.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
+            <button
               onClick={handleCookieSettings}
               className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-300"
             >

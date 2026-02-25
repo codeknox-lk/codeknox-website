@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, Clock, User, BookOpen, Share2, Heart } from 'lucide-react';
 import { useBlog } from '../contexts/BlogContext';
+import SEO from "../components/SEO";
 
 const BlogDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -50,6 +51,12 @@ const BlogDetail: React.FC = () => {
 
   return (
     <div className="min-h-screen pb-20 sm:pb-0">
+      <SEO
+        title={`${post.title} - CodeKnox Insights`}
+        description={post.excerpt}
+        image={post.coverImage}
+        type="article"
+      />
       {/* Hero Section - Dark */}
       <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 overflow-hidden">
         {/* Animated Background Elements */}
